@@ -9,6 +9,7 @@ namespace Pocket_Updater
     {
         private string _coresFile { get; set; }
         private List<Core> _cores;
+
         public CoreManager(string coresFile)
         {
             if (File.Exists(coresFile))
@@ -74,6 +75,30 @@ namespace Pocket_Updater
                     if (_cores[i].platform == platform)
                     {
                         _cores[i].skip = false;
+                    }
+                }
+
+                SaveCoresFile();
+            }
+        }
+
+        public void AddCore(Core core)
+        {
+            _readCoresFile();
+            _cores.Add(core);
+            SaveCoresFile();
+        }
+
+        public void UpdateCore(Core core, string platform)
+        {
+            _readCoresFile();
+            if (_cores != null)
+            {
+                for (int i = 0; i < _cores.Count; i++)
+                {
+                    if (_cores[i].platform == platform)
+                    {
+                        _cores[i] = core;
                     }
                 }
 
