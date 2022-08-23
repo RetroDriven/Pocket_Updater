@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using pannella.analoguepocket;
+using System.IO;
 
 namespace Pocket_Updater
 {
@@ -67,7 +68,7 @@ namespace Pocket_Updater
 
         public void Download_Json()
         {
-            string Json_URL = "https://raw.githubusercontent.com/mattpannella/pocket_core_autoupdate/main/auto_update.json";
+            string Json_URL = "https://raw.githubusercontent.com/mattpannella/pocket_core_autoupdate_net/main/auto_update.json";
             WebClient = new WebClient();
             string Current_Dir = Directory.GetCurrentDirectory();
             Console.WriteLine(Current_Dir);

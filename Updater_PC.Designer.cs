@@ -67,9 +67,9 @@
             // 
             // Updater_PC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 36F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 608);
+            this.ClientSize = new System.Drawing.Size(680, 608);
             this.Controls.Add(this.infoTextBox);
             this.Controls.Add(this.updateCoresButton);
             this.Controls.Add(this.Button_Download);
