@@ -33,6 +33,21 @@ namespace Pocket_Updater
             //this sets up an event listener, for the 'StatusUpdated' event i create every time i want to send an update message
             //stuff like 'downloading file for core x' or 'finished updating core y' etc
             _updater.StatusUpdated += updater_StatusUpdated;
+
+            //Check for an Internet Connection
+            bool result = CheckForInternetConnection();
+
+            if (result == false)
+            {
+                string message = "No Internet Connection Detected!";
+                string title = "Error";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result2 = MessageBox.Show(message, title, buttons, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Download_Json();
+            }
         }
 
         private void Button_Download_Click(object sender, EventArgs e)
@@ -101,6 +116,8 @@ namespace Pocket_Updater
             updateCoresButton.Enabled = false;
             await _updater.RunUpdates();
             updateCoresButton.Enabled = true;
+            // MessageBox.Show("Cores have been Checked/Updated Successfully", "Updates", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         private void updater_StatusUpdated(object sender, StatusUpdatedEventArgs e)
@@ -117,6 +134,10 @@ namespace Pocket_Updater
 
         private void updateCoresButton_Click(object sender, EventArgs e)
         {
+            //Clear the info box
+            infoTextBox.Clear();
+
+            //Run the Updater
             _updater.RunUpdates();
         }
 

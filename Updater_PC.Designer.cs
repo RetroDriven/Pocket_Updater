@@ -28,28 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Button_Download = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Updater_PC));
             this.updateCoresButton = new System.Windows.Forms.Button();
             this.infoTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // Button_Download
-            // 
-            this.Button_Download.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Button_Download.Location = new System.Drawing.Point(46, 23);
-            this.Button_Download.Name = "Button_Download";
-            this.Button_Download.Size = new System.Drawing.Size(261, 122);
-            this.Button_Download.TabIndex = 0;
-            this.Button_Download.Text = "Download JSON File";
-            this.Button_Download.UseVisualStyleBackColor = true;
-            this.Button_Download.Click += new System.EventHandler(this.Button_Download_Click);
-            // 
             // updateCoresButton
             // 
             this.updateCoresButton.Enabled = false;
-            this.updateCoresButton.Location = new System.Drawing.Point(345, 34);
+            this.updateCoresButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.updateCoresButton.Location = new System.Drawing.Point(255, 605);
             this.updateCoresButton.Name = "updateCoresButton";
-            this.updateCoresButton.Size = new System.Drawing.Size(263, 103);
+            this.updateCoresButton.Size = new System.Drawing.Size(158, 73);
             this.updateCoresButton.TabIndex = 1;
             this.updateCoresButton.Text = "Update Cores";
             this.updateCoresButton.UseVisualStyleBackColor = true;
@@ -57,25 +47,25 @@
             // 
             // infoTextBox
             // 
-            this.infoTextBox.Location = new System.Drawing.Point(12, 151);
+            this.infoTextBox.Location = new System.Drawing.Point(12, 14);
             this.infoTextBox.Multiline = true;
             this.infoTextBox.Name = "infoTextBox";
             this.infoTextBox.ReadOnly = true;
             this.infoTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.infoTextBox.Size = new System.Drawing.Size(644, 445);
+            this.infoTextBox.Size = new System.Drawing.Size(644, 584);
             this.infoTextBox.TabIndex = 2;
             // 
             // Updater_PC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 36F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 608);
+            this.ClientSize = new System.Drawing.Size(680, 691);
             this.Controls.Add(this.infoTextBox);
             this.Controls.Add(this.updateCoresButton);
-            this.Controls.Add(this.Button_Download);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.MaximizeBox = false;
             this.Name = "Updater_PC";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -87,7 +77,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button Button_Download;
         private Button updateCoresButton;
         private TextBox infoTextBox;
     }
