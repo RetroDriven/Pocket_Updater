@@ -134,6 +134,7 @@
             this.Button_Pocket.Size = new System.Drawing.Size(70, 59);
             this.Button_Pocket.TabIndex = 2;
             this.Button_Pocket.UseVisualStyleBackColor = false;
+            this.Button_Pocket.Click += new System.EventHandler(this.Button_Pocket_Click);
             // 
             // Button_PC
             // 

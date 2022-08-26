@@ -22,5 +22,11 @@ namespace Pocket_Updater
         {
 
         }
+
+        private void Button_Pocket_Click(object sender, EventArgs e)
+        {
+            Updater_Pocket form = new Updater_Pocket();
+            form.Show();
+        }
     }
 }
