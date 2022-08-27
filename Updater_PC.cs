@@ -15,6 +15,9 @@ namespace Pocket_Updater
 {
     public partial class Updater_PC : Form
     {
+        
+        public string Current_Dir { get; set; }
+        public string updateFile { get; set; }
         private WebClient WebClient;
         private PocketCoreUpdater _updater;
         private ArcadeRomDownloader _romDownloader;
@@ -116,7 +119,7 @@ namespace Pocket_Updater
             updateCoresButton.Enabled = false;
             await _updater.RunUpdates();
             updateCoresButton.Enabled = true;
-            // MessageBox.Show("Cores have been Checked/Updated Successfully", "Updates", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Cores have been Checked/Updated Successfully", "Updates", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
@@ -138,7 +141,8 @@ namespace Pocket_Updater
             infoTextBox.Clear();
 
             //Run the Updater
-            _updater.RunUpdates();
+            //_updater.RunUpdates();
+            RunCoreUpdateProcess(Current_Dir, updateFile);
         }
 
     }
