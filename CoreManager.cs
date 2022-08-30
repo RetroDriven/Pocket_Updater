@@ -15,11 +15,18 @@ namespace Pocket_Updater
             if (File.Exists(coresFile))
             {
                 _coresFile = coresFile;
+                _readCoresFile();
             }
             else
             {
                 throw new FileNotFoundException("Cores json file not found: " + coresFile);
             }
+        }
+
+        public void SaveCores(List<Core> cores)
+        {
+            _cores = cores;
+            SaveCoresFile();
         }
 
         private void _readCoresFile(bool force = false)
@@ -104,6 +111,11 @@ namespace Pocket_Updater
 
                 SaveCoresFile();
             }
+        }
+
+        public List<Core> GetCores()
+        {
+            return _cores;
         }
 
     }

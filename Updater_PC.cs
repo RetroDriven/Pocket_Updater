@@ -36,7 +36,6 @@ namespace Pocket_Updater
             //this sets up an event listener, for the 'StatusUpdated' event i create every time i want to send an update message
             //stuff like 'downloading file for core x' or 'finished updating core y' etc
             _updater.StatusUpdated += updater_StatusUpdated;
-
             //Check for an Internet Connection
             bool result = CheckForInternetConnection();
 

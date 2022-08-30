@@ -28,5 +28,11 @@ namespace Pocket_Updater
             Updater_Pocket form = new Updater_Pocket();
             form.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CoreSelector form = new CoreSelector();
+            form.Show();
+        }
     }
 }
