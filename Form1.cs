@@ -29,7 +29,7 @@ namespace Pocket_Updater
             form.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button_Cores_Click(object sender, EventArgs e)
         {
             CoreSelector form = new CoreSelector();
             form.Show();

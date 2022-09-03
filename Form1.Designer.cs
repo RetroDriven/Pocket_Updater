@@ -39,7 +39,8 @@
             this.Button_Log = new System.Windows.Forms.Button();
             this.Button_Pocket = new System.Windows.Forms.Button();
             this.Button_PC = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Button_Cores = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(520, 49);
+            this.menuStrip1.Size = new System.Drawing.Size(520, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -60,20 +61,20 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(87, 45);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(230, 54);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 34);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(124, 45);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(78, 29);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // label4
@@ -82,7 +83,7 @@
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(152, 77);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(234, 38);
+            this.label4.Size = new System.Drawing.Size(143, 24);
             this.label4.TabIndex = 9;
             this.label4.Text = "Updater to PC";
             // 
@@ -92,7 +93,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(152, 163);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(295, 38);
+            this.label1.Size = new System.Drawing.Size(181, 24);
             this.label1.TabIndex = 10;
             this.label1.Text = "Updater to Pocket";
             // 
@@ -100,9 +101,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(152, 245);
+            this.label2.Location = new System.Drawing.Point(152, 347);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(196, 38);
+            this.label2.Size = new System.Drawing.Size(119, 24);
             this.label2.TabIndex = 11;
             this.label2.Text = "Update Log";
             // 
@@ -115,7 +116,7 @@
             this.Button_Log.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button_Log.FlatAppearance.BorderSize = 0;
             this.Button_Log.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_Log.Location = new System.Drawing.Point(76, 228);
+            this.Button_Log.Location = new System.Drawing.Point(76, 330);
             this.Button_Log.Name = "Button_Log";
             this.Button_Log.Size = new System.Drawing.Size(70, 59);
             this.Button_Log.TabIndex = 3;
@@ -152,23 +153,39 @@
             this.Button_PC.UseVisualStyleBackColor = false;
             this.Button_PC.Click += new System.EventHandler(this.Button_PC_Click);
             // 
-            // button1
+            // label3
             // 
-            this.button1.Location = new System.Drawing.Point(98, 318);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(263, 95);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Manage Cores";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(152, 255);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(146, 24);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Manage Cores";
+            // 
+            // Button_Cores
+            // 
+            this.Button_Cores.BackColor = System.Drawing.Color.Transparent;
+            this.Button_Cores.BackgroundImage = global::Pocket_Updater.Properties.Resources.manage_cores;
+            this.Button_Cores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Button_Cores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Button_Cores.FlatAppearance.BorderSize = 0;
+            this.Button_Cores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Cores.Location = new System.Drawing.Point(76, 238);
+            this.Button_Cores.Name = "Button_Cores";
+            this.Button_Cores.Size = new System.Drawing.Size(70, 59);
+            this.Button_Cores.TabIndex = 13;
+            this.Button_Cores.UseVisualStyleBackColor = false;
+            this.Button_Cores.Click += new System.EventHandler(this.Button_Cores_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 35F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(520, 441);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(520, 401);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Button_Cores);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
@@ -204,6 +221,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private Button button1;
+        private Label label3;
+        private Button Button_Cores;
     }
 }
