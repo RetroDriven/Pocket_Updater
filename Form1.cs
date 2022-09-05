@@ -18,14 +18,9 @@ namespace Pocket_Updater
             form.Show();
         }
 
-        private void Button_Log_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Button_Pocket_Click(object sender, EventArgs e)
         {
-            Updater_Pocket form = new Updater_Pocket();
+            Update_Pocket form = new Update_Pocket();
             form.Show();
         }
 
