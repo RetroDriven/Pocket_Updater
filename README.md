@@ -6,6 +6,6 @@ This is a Windows GUI App to help with updating the Analogue Pocket Cores and Fi
 
 ![image](https://i.ibb.co/VVvGfTh/Cores.png)
 
-![image](https://i.ibb.co/f83XMNS/Current-Dir.png)
+![image](https://i.ibb.co/frDnJsn/Current-Dir.png)
 
 ![image](https://i.ibb.co/4NDkjst/Removable.png)
