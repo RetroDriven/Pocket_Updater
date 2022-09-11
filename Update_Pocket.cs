@@ -66,8 +66,8 @@ namespace Pocket_Updater
             {
                 string updateFile = Drive + "\\auto_update.json";
                 Console.WriteLine(updateFile);
-                WebClient.DownloadFileAsync(new Uri(Json_URL), updateFile);
-                //_updater.CoresFile = updateFile; //here we set the location of the json file, for the updater to use
+                WebClient.DownloadFile(new Uri(Json_URL), updateFile);
+                _updater.CoresFile = updateFile; //here we set the location of the json file, for the updater to use
                 _romDownloader = new ArcadeRomDownloader(updateFile);
                 Button_Removable.Enabled = true;
             }
