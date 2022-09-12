@@ -135,7 +135,6 @@ namespace Pocket_Updater
                 }
                 else
                 {
-                    
                     _updater = new PocketCoreUpdater(Current_Dir);
                     _updater.CoresFile = Current_Dir;
                     _updater.InstallBiosFiles(true); //turns on the option to also download bios files
@@ -169,9 +168,16 @@ namespace Pocket_Updater
                     var drives = DriveInfo.GetDrives();
                     if (drives.Where(data => data.Name == Pocket_Drive).Count() == 1)
                     {
-                        Download_Json(pathToUpdate);
                         _updater = new PocketCoreUpdater(pathToUpdate);
-                        RunCoreUpdateProcess(Pocket_Drive, Pocket_Drive);
+                        _updater.CoresFile = pathToUpdate;
+                        _updater.InstallBiosFiles(true); //turns on the option to also download bios files
+
+                        _updater.StatusUpdated += updater_StatusUpdated;
+
+                        Download_Json(pathToUpdate);
+
+                        //_updater = new PocketCoreUpdater(Current_Dir);
+                        RunCoreUpdateProcess(pathToUpdate, pathToUpdate);
                     }
                     else
                     {
