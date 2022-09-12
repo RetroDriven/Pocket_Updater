@@ -18,7 +18,7 @@ namespace Pocket_Updater
         private List<Core> _cores;
         private CoreManager _coreManager;
         private WebClient WebClient;
-        private PocketCoreUpdater _updater;
+       // private PocketCoreUpdater _updater;
         public string Current_Dir { get; set; }
         public string updateFile { get; set; }
 
@@ -26,8 +26,8 @@ namespace Pocket_Updater
         {
             InitializeComponent();
 
-            string pathToUpdate = Directory.GetCurrentDirectory();
-            _updater = new PocketCoreUpdater(pathToUpdate);
+            //string pathToUpdate = Directory.GetCurrentDirectory();
+            //_updater = new PocketCoreUpdater(pathToUpdate);
 
             bool result = CheckForInternetConnection();
 
@@ -46,13 +46,21 @@ namespace Pocket_Updater
             }
 
 
-            _coreManager = new CoreManager(Directory.GetCurrentDirectory() + "\\auto_update.json");
+            _coreManager = new CoreManager(Directory.GetCurrentDirectory() + "\\pocket_updater_settings.json",
+                Directory.GetCurrentDirectory() + "\\auto_update.json");
             _cores = _coreManager.GetCores();
-
+            Dictionary<string, CoreSettings> coreSettings = _coreManager.GetCoreSettings();
             foreach (Core core in _cores)
             {
-                //coresList.Items.Add
-                coresList.Items.Add(core, !core.skip);
+                if(coreSettings.ContainsKey(core.platform))
+                {
+                    coresList.Items.Add(core, !coreSettings[core.platform].skip);
+                }
+                else 
+                {
+                    coresList.Items.Add(core, true);
+                }
+                
             }
         }
 
@@ -65,24 +73,25 @@ namespace Pocket_Updater
         {
             Button_Save.Enabled = false;
             _readChecklist();
-            _coreManager.SaveCores(_cores);
+            _coreManager.SaveSettings();
             MessageBox.Show("Core Selection Has Been Saved!", "Cores Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Button_Save.Enabled=true;
         }
 
         private void _readChecklist()
         {
-            List<Core> newList = new List<Core>();
             for (int i = 0; i <= (coresList.Items.Count - 1); i++)
             {
                 Core core = (Core)coresList.Items[i];
                 if (!coresList.GetItemChecked(i))
                 {
-                    core.skip = true;
+                    _coreManager.DisableCore(core.platform);
                 }
-                newList.Add(core);
+                else
+                {
+                    _coreManager.EnableCore(core.platform);
+                }
             }
-            _cores = newList;
         }
         public static bool CheckForInternetConnection()
         {

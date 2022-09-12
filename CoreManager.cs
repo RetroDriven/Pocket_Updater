@@ -7,110 +7,84 @@ namespace Pocket_Updater
 {
     public class CoreManager
     {
-        private string _coresFile { get; set; }
+        private Settings _settings;
+        private string _settingsFile;
+        private string _coresFile;
         private List<Core> _cores;
 
-        public CoreManager(string coresFile)
+        public CoreManager(string settingsFile, string coresFile)
         {
-            if (File.Exists(coresFile))
+            _settings = new Settings();
+            if (File.Exists(settingsFile))
+            {
+                string json = File.ReadAllText(settingsFile);
+                _settings = JsonSerializer.Deserialize<Settings>(json);
+            }
+            _settingsFile = settingsFile;
+
+            if(File.Exists(coresFile))
             {
                 _coresFile = coresFile;
-                _readCoresFile();
+                string json = File.ReadAllText(coresFile);
+                _cores = JsonSerializer.Deserialize<List<Core>>(json);
             }
             else
             {
-                throw new FileNotFoundException("Cores json file not found: " + coresFile);
+                throw new Exception("Unable to find cores json file.");
             }
         }
 
-        public void SaveCores(List<Core> cores)
+        public bool SaveSettings()
         {
-            _cores = cores;
-            SaveCoresFile();
-        }
-
-        private void _readCoresFile(bool force = false)
-        {
-            if (_cores == null || force)
-            {
-                string json = File.ReadAllText(_coresFile);
-                List<Core>? coresList = JsonSerializer.Deserialize<List<Core>>(json);
-                if (coresList != null)
-                {
-                    _cores = coresList;
-                    //return true;
-                }
-
-                //return false;
-            }
-        }
-
-        public bool SaveCoresFile()
-        {
-            JsonSerializerOptions options = new JsonSerializerOptions();
-            options.WriteIndented = true;
-            string json = JsonSerializer.Serialize(_cores,options);
-            File.WriteAllText(_coresFile, json);
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            File.WriteAllText(_settingsFile, JsonSerializer.Serialize(_settings, options));
 
             return true;
         }
 
         public void DisableCore(string platform)
         {
-            _readCoresFile();
-            if (_cores != null)
+            if(_settings.coreSettings.ContainsKey(platform))
             {
-                for(int i = 0; i < _cores.Count; i++)
-                {
-                    if (_cores[i].platform == platform)
-                    {
-                        _cores[i].skip = true;
-                    }
-                }
-
-                SaveCoresFile();
+                _settings.coreSettings[platform].skip = true;
+            }
+            else
+            {
+                CoreSettings core = new CoreSettings();
+                core.skip = true;
+                _settings.coreSettings.Add(platform, core);
             }
         }
 
         public void EnableCore(string platform)
         {
-            _readCoresFile();
-            if (_cores != null)
+            if (_settings.coreSettings.ContainsKey(platform))
             {
-                for (int i = 0; i < _cores.Count; i++)
-                {
-                    if (_cores[i].platform == platform)
-                    {
-                        _cores[i].skip = false;
-                    }
-                }
-
-                SaveCoresFile();
+                _settings.coreSettings[platform].skip = false;
+            }
+            else
+            {
+                CoreSettings core = new CoreSettings();
+                core.skip = false;
+                _settings.coreSettings.Add(platform, core);
             }
         }
 
-        public void AddCore(Core core)
+        public void UpdateCore(CoreSettings core, string platform)
         {
-            _readCoresFile();
-            _cores.Add(core);
-            SaveCoresFile();
+            if (_settings.coreSettings.ContainsKey(platform))
+            {
+                _settings.coreSettings[platform] = core;
+            }
+            else
+            {
+                _settings.coreSettings.Add(platform, core);
+            }
         }
 
-        public void UpdateCore(Core core, string platform)
+        public Dictionary<string, CoreSettings> GetCoreSettings()
         {
-            _readCoresFile();
-            if (_cores != null)
-            {
-                for (int i = 0; i < _cores.Count; i++)
-                {
-                    if (_cores[i].platform == platform)
-                    {
-                        _cores[i] = core;
-                    }
-                }
-
-                SaveCoresFile();
-            }
+            return _settings.coreSettings;
         }
 
         public List<Core> GetCores()
