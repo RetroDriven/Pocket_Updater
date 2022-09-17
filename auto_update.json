@@ -152,15 +152,6 @@
           "user":"ericlewis",
           "project":"openfpga-asteroids"
        },
-	   	      "bios":{
-          "location":"assets/asteroids/ericlewis.Asteroids/",
-          "files":[
-             {
-                "file_name":"asteroid.rom",
-                "url":"https://archive.org/download/pocket-roms/Asteroids/asteroid.rom"
-             }
-          ]
-       },
        "name":"ericlewis.Asteroids",
        "platform":"Asteroids",
        "allowPrerelease":true
