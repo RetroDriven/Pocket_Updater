@@ -134,6 +134,15 @@
           "user":"ericlewis",
           "project":"openfpga-lunarlander"
        },
+	      "bios":{
+          "location":"assets/lunarlander/ericlewis.LunarLander/",
+          "files":[
+             {
+                "file_name":"llander.rom",
+                "url":"https://archive.org/download/pocket-roms/Lunar_Lander/llander.rom"
+             }
+          ]
+       },
        "name":"ericlewis.LunarLander",
        "platform":"LunarLander",
        "allowPrerelease":true
