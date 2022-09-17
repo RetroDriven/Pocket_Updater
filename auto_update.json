@@ -136,16 +136,7 @@
        },
        "name":"ericlewis.LunarLander",
        "platform":"LunarLander",
-       "allowPrerelease":true,
-	      "bios":{
-          "location":"assets/lunarlander/ericlewis.LunarLander/",
-          "files":[
-				{
-                "file_name":"llander.rom",
-                "url":"https://archive.org/download/pocket-roms/Lunar_Lander/llander.rom"
-				}
-			}
-		]			  
+       "allowPrerelease":true
     },
     {
        "repo":{
