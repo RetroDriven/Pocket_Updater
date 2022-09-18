@@ -29,18 +29,6 @@ namespace Pocket_Updater
 
             //Get USB Drives
             PopulateDrives();
-
-            //pass in the directory where we want to download the cores to. (like the root of your sd card, for example)
-            //will just use the current directory for now as an example, just like the json downloader is
-            //the updater also needs to be given the path to the json file, so i am setting that in the download method
-
-            //string pathToUpdate = Directory.GetCurrentDirectory();
-            //_updater = new PocketCoreUpdater(pathToUpdate);
-            //_updater.InstallBiosFiles(true); //turns on the option to also download bios files
-
-            //this sets up an event listener, for the 'StatusUpdated' event i create every time i want to send an update message
-            //stuff like 'downloading file for core x' or 'finished updating core y' etc
-            //_updater.StatusUpdated += updater_StatusUpdated;
         }
         public static bool CheckForInternetConnection()
         {

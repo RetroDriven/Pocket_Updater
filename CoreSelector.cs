@@ -75,6 +75,7 @@ namespace Pocket_Updater
             _settingsManager.SaveSettings();
             MessageBox.Show("Core Selection Has Been Saved!", "Cores Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Button_Save.Enabled=true;
+            Close();
         }
 
         private void _readChecklist()

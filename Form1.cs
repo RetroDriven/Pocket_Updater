@@ -12,12 +12,6 @@ namespace Pocket_Updater
             Application.Exit();
         }
 
-        private void Button_PC_Click(object sender, EventArgs e)
-        {
-            Updater_PC form = new Updater_PC();
-            form.Show();
-        }
-
         private void Button_Pocket_Click(object sender, EventArgs e)
         {
             Update_Pocket form = new Update_Pocket();
