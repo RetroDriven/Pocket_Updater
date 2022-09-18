@@ -10,15 +10,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using pannella.analoguepocket;
 using System.IO;
+using System.Text.Json;
 
 namespace Pocket_Updater
 {
     public partial class CoreSelector : Form
     {
         private List<Core> _cores;
-        private CoreManager _coreManager;
+
+        private SettingsManager _settingsManager;
         private WebClient WebClient;
-        private PocketCoreUpdater _updater;
+       // private PocketCoreUpdater _updater;
         public string Current_Dir { get; set; }
         public string updateFile { get; set; }
 
@@ -26,8 +28,8 @@ namespace Pocket_Updater
         {
             InitializeComponent();
 
-            string pathToUpdate = Directory.GetCurrentDirectory();
-            _updater = new PocketCoreUpdater(pathToUpdate);
+            //string pathToUpdate = Directory.GetCurrentDirectory();
+            //_updater = new PocketCoreUpdater(pathToUpdate);
 
             bool result = CheckForInternetConnection();
 
@@ -45,14 +47,19 @@ namespace Pocket_Updater
                 Download_Json();
             }
 
-
-            _coreManager = new CoreManager(Directory.GetCurrentDirectory() + "\\auto_update.json");
-            _cores = _coreManager.GetCores();
+            _settingsManager = new SettingsManager(Directory.GetCurrentDirectory() + "\\pocket_updater_settings.json", _cores);
 
             foreach (Core core in _cores)
             {
-                //coresList.Items.Add
-                coresList.Items.Add(core, !core.skip);
+                if(_settingsManager.GetCoreSettings(core.name) != null)
+                {
+                    coresList.Items.Add(core, !_settingsManager.GetCoreSettings(core.name).skip);
+                }
+                else 
+                {
+                    coresList.Items.Add(core, true);
+                }
+                
             }
         }
 
@@ -65,24 +72,25 @@ namespace Pocket_Updater
         {
             Button_Save.Enabled = false;
             _readChecklist();
-            _coreManager.SaveCores(_cores);
+            _settingsManager.SaveSettings();
             MessageBox.Show("Core Selection Has Been Saved!", "Cores Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Button_Save.Enabled=true;
         }
 
         private void _readChecklist()
         {
-            List<Core> newList = new List<Core>();
             for (int i = 0; i <= (coresList.Items.Count - 1); i++)
             {
                 Core core = (Core)coresList.Items[i];
                 if (!coresList.GetItemChecked(i))
                 {
-                    core.skip = true;
+                    _settingsManager.DisableCore(core.name);
                 }
-                newList.Add(core);
+                else
+                {
+                    _settingsManager.EnableCore(core.name);
+                }
             }
-            _cores = newList;
         }
         public static bool CheckForInternetConnection()
         {
@@ -100,15 +108,17 @@ namespace Pocket_Updater
 
         public void Download_Json()
         {
-            string Json_URL = "https://raw.githubusercontent.com/mattpannella/pocket_core_autoupdate_net/main/auto_update.json";
+            string Json_URL = "https://raw.githubusercontent.com/mattpannella/pocket_core_autoupdate_net/develop/pocket_updater_cores.json";
             WebClient = new WebClient();
             string Current_Dir = Directory.GetCurrentDirectory();
             Console.WriteLine(Current_Dir);
 
             try
             {
-                string updateFile = Current_Dir + "\\auto_update.json";
+                string updateFile = Current_Dir + "\\pocket_updater_cores.json";
                 WebClient.DownloadFile(Json_URL, updateFile);
+                string json = File.ReadAllText(updateFile);
+                _cores = JsonSerializer.Deserialize<List<Core>>(json);
                 //_updater.CoresFile = updateFile; //here we set the location of the json file, for the updater to use
                 WebClient.Dispose();
             }
