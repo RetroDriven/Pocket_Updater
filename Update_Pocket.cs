@@ -58,17 +58,15 @@ namespace Pocket_Updater
 
         public void Download_Json(string Drive)
         {
-            string Json_URL = "https://raw.githubusercontent.com/mattpannella/pocket_core_autoupdate_net/main/auto_update.json";
+            string Json_URL = "https://raw.githubusercontent.com/mattpannella/pocket_core_autoupdate_net/develop/pocket_updater_cores.json";
             WebClient = new WebClient();
             //string Current_Dir = Directory.GetCurrentDirectory();
 
             try
             {
-                string updateFile = Drive + "\\auto_update.json";
+                string updateFile = Drive + "\\pocket_updater_cores.json";
                 Console.WriteLine(updateFile);
                 WebClient.DownloadFile(new Uri(Json_URL), updateFile);
-                _updater.CoresFile = updateFile; //here we set the location of the json file, for the updater to use
-                _romDownloader = new ArcadeRomDownloader(updateFile);
                 Button_Removable.Enabled = true;
             }
             catch (Exception ex)
@@ -135,15 +133,12 @@ namespace Pocket_Updater
                 }
                 else
                 {
-                    _updater = new PocketCoreUpdater(Current_Dir);
-                    _updater.CoresFile = Current_Dir;
-                    _updater.InstallBiosFiles(true); //turns on the option to also download bios files
+                    Download_Json(Current_Dir);
+                    _updater = new PocketCoreUpdater(Current_Dir, Current_Dir + "\\pocket_updater_cores.json");
+                    _updater.DownloadAssets(true); //turns on the option to also download bios files
 
                     _updater.StatusUpdated += updater_StatusUpdated;
 
-                    Download_Json(Current_Dir);
-
-                    //_updater = new PocketCoreUpdater(Current_Dir);
                     RunCoreUpdateProcess(Current_Dir, Current_Dir);
                 }
             }
@@ -168,15 +163,13 @@ namespace Pocket_Updater
                     var drives = DriveInfo.GetDrives();
                     if (drives.Where(data => data.Name == Pocket_Drive).Count() == 1)
                     {
-                        _updater = new PocketCoreUpdater(pathToUpdate);
+                        Download_Json(pathToUpdate);
+                        _updater = new PocketCoreUpdater(pathToUpdate, pathToUpdate+"\\pocket_updater_cores.json");
                         _updater.CoresFile = pathToUpdate;
-                        _updater.InstallBiosFiles(true); //turns on the option to also download bios files
+                        _updater.DownloadAssets(true); //turns on the option to also download bios files
 
                         _updater.StatusUpdated += updater_StatusUpdated;
 
-                        Download_Json(pathToUpdate);
-
-                        //_updater = new PocketCoreUpdater(Current_Dir);
                         RunCoreUpdateProcess(pathToUpdate, pathToUpdate);
                     }
                     else

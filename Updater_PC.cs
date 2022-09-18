@@ -20,7 +20,7 @@ namespace Pocket_Updater
         public string updateFile { get; set; }
         private WebClient WebClient;
         private PocketCoreUpdater _updater;
-        private ArcadeRomDownloader _romDownloader;
+       // private ArcadeRomDownloader _romDownloader;
 
         public Updater_PC()
         {
@@ -31,7 +31,7 @@ namespace Pocket_Updater
             //the updater also needs to be given the path to the json file, so i am setting that in the download method
             string pathToUpdate = Directory.GetCurrentDirectory();
             _updater = new PocketCoreUpdater(pathToUpdate);
-            _updater.InstallBiosFiles(true); //turns on the option to also download bios files
+            _updater.DownloadAssets(true); //turns on the option to also download bios files
 
             //this sets up an event listener, for the 'StatusUpdated' event i create every time i want to send an update message
             //stuff like 'downloading file for core x' or 'finished updating core y' etc
@@ -85,17 +85,17 @@ namespace Pocket_Updater
 
         public void Download_Json()
         {
-            string Json_URL = "https://raw.githubusercontent.com/mattpannella/pocket_core_autoupdate_net/main/auto_update.json";
+            string Json_URL = "https://raw.githubusercontent.com/mattpannella/pocket_core_autoupdate_net/develop/pocket_updater_cores.json";
             WebClient = new WebClient();
             string Current_Dir = Directory.GetCurrentDirectory();
             Console.WriteLine(Current_Dir);
 
             try
             {
-                string updateFile = Current_Dir + "\\auto_update.json";
+                string updateFile = Current_Dir + "\\pocket_updater_cores.json";
                 WebClient.DownloadFileAsync(new Uri(Json_URL), updateFile);
                 _updater.CoresFile = updateFile; //here we set the location of the json file, for the updater to use
-                _romDownloader = new ArcadeRomDownloader(updateFile);
+                //_romDownloader = new ArcadeRomDownloader(updateFile);
                 updateCoresButton.Enabled = true;
             }
             catch (Exception ex)
@@ -109,7 +109,7 @@ namespace Pocket_Updater
         //Call this method from a new button and you can run the arcade rom downloder
         public void RunArcadeRomDownloadProcess()
         {
-            _romDownloader.DownloadAll();
+           // _romDownloader.DownloadAll();
         }
 
         //Call this method from a new button and you can run the core updater

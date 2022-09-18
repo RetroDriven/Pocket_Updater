@@ -10,13 +10,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using pannella.analoguepocket;
 using System.IO;
+using System.Text.Json;
 
 namespace Pocket_Updater
 {
     public partial class CoreSelector : Form
     {
         private List<Core> _cores;
-        private CoreManager _coreManager;
+
+        private SettingsManager _settingsManager;
         private WebClient WebClient;
        // private PocketCoreUpdater _updater;
         public string Current_Dir { get; set; }
@@ -45,16 +47,13 @@ namespace Pocket_Updater
                 Download_Json();
             }
 
+            _settingsManager = new SettingsManager(Directory.GetCurrentDirectory() + "\\pocket_updater_settings.json", _cores);
 
-            _coreManager = new CoreManager(Directory.GetCurrentDirectory() + "\\pocket_updater_settings.json",
-                Directory.GetCurrentDirectory() + "\\auto_update.json");
-            _cores = _coreManager.GetCores();
-            Dictionary<string, CoreSettings> coreSettings = _coreManager.GetCoreSettings();
             foreach (Core core in _cores)
             {
-                if(coreSettings.ContainsKey(core.platform))
+                if(_settingsManager.GetCoreSettings(core.name) != null)
                 {
-                    coresList.Items.Add(core, !coreSettings[core.platform].skip);
+                    coresList.Items.Add(core, !_settingsManager.GetCoreSettings(core.name).skip);
                 }
                 else 
                 {
@@ -73,7 +72,7 @@ namespace Pocket_Updater
         {
             Button_Save.Enabled = false;
             _readChecklist();
-            _coreManager.SaveSettings();
+            _settingsManager.SaveSettings();
             MessageBox.Show("Core Selection Has Been Saved!", "Cores Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Button_Save.Enabled=true;
         }
@@ -85,11 +84,11 @@ namespace Pocket_Updater
                 Core core = (Core)coresList.Items[i];
                 if (!coresList.GetItemChecked(i))
                 {
-                    _coreManager.DisableCore(core.platform);
+                    _settingsManager.DisableCore(core.name);
                 }
                 else
                 {
-                    _coreManager.EnableCore(core.platform);
+                    _settingsManager.EnableCore(core.name);
                 }
             }
         }
@@ -109,15 +108,17 @@ namespace Pocket_Updater
 
         public void Download_Json()
         {
-            string Json_URL = "https://raw.githubusercontent.com/mattpannella/pocket_core_autoupdate_net/main/auto_update.json";
+            string Json_URL = "https://raw.githubusercontent.com/mattpannella/pocket_core_autoupdate_net/develop/pocket_updater_cores.json";
             WebClient = new WebClient();
             string Current_Dir = Directory.GetCurrentDirectory();
             Console.WriteLine(Current_Dir);
 
             try
             {
-                string updateFile = Current_Dir + "\\auto_update.json";
+                string updateFile = Current_Dir + "\\pocket_updater_cores.json";
                 WebClient.DownloadFile(Json_URL, updateFile);
+                string json = File.ReadAllText(updateFile);
+                _cores = JsonSerializer.Deserialize<List<Core>>(json);
                 //_updater.CoresFile = updateFile; //here we set the location of the json file, for the updater to use
                 WebClient.Dispose();
             }

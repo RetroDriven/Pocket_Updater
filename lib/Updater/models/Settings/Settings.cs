@@ -9,7 +9,7 @@ public class Settings
     public Settings()
     {
         firmware = new Firmware();
-        coreSettings = new Dictionary<string, CoreSettings>();
         config = new Config();
+        coreSettings = new Dictionary<string, CoreSettings>();
     }
 }
