@@ -51,7 +51,7 @@
             // Button_Save
             // 
             this.Button_Save.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Button_Save.Location = new System.Drawing.Point(227, 99);
+            this.Button_Save.Location = new System.Drawing.Point(305, 94);
             this.Button_Save.Name = "Button_Save";
             this.Button_Save.Size = new System.Drawing.Size(112, 34);
             this.Button_Save.TabIndex = 1;
@@ -63,14 +63,14 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(152, 31);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(289, 31);
+            this.textBox1.Size = new System.Drawing.Size(395, 31);
             this.textBox1.TabIndex = 2;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Pocket_Updater.Properties.Resources.question;
-            this.pictureBox1.Location = new System.Drawing.Point(447, 31);
+            this.pictureBox1.Location = new System.Drawing.Point(553, 31);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(38, 31);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -90,7 +90,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(562, 153);
+            this.ClientSize = new System.Drawing.Size(662, 153);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Button_Save);
