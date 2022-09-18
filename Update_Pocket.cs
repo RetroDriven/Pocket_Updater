@@ -11,6 +11,9 @@ using System.Windows.Forms;
 using pannella.analoguepocket;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.DataFormats;
+using TextBox = System.Windows.Forms.TextBox;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Pocket_Updater
 {
@@ -23,12 +26,19 @@ namespace Pocket_Updater
         private PocketCoreUpdater _updater;
         private ArcadeRomDownloader _romDownloader;
 
+        //Initialize Update Status Form Popup
+        Updater_Status form = new Updater_Status();
+
         public Update_Pocket()
         {
             InitializeComponent();
 
             //Get USB Drives
             PopulateDrives();
+
+            //Tooltips
+            toolTip1.SetToolTip(Button_Refresh, "Refresh your Removable Drive List");
+
         }
         public static bool CheckForInternetConnection()
         {
@@ -77,30 +87,33 @@ namespace Pocket_Updater
             Button_Removable.Enabled = false;
             Button_Refresh.Enabled = false;
             comboBox1.Enabled = false;
+            //GitHub Token
+            //_updater.SetGithubApiKey("apikey");
             await _updater.RunUpdates();
             Button_Removable.Enabled = true;
             Button_Refresh.Enabled = true;
             comboBox1.Enabled = true;
-            MessageBox.Show("Cores have been Checked/Updated Successfully", "Updates", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //Write to a Log File
+            File.WriteAllText(updatePath + "\\Pocket_Updater_Log.txt", form.textBox1.Text);
+            MessageBox.Show("Updates Complete!", "Updates", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Close();
 
         }
 
         private void updater_StatusUpdated(object sender, StatusUpdatedEventArgs e)
         {
-            //i would not pop up a messagebox here, but I just put it as an example. so if you uncommented that line
-            //it would pop up a messagebox every time my updater class sent a status message update
-            //you could instead maybe put some kind of text box on your form, and then update it with e.Message in this method
-            //to display the updates on the ui
-            //MessageBox.Show(e.Message);
 
-            infoTextBox.AppendText(e.Message);
-            infoTextBox.AppendText(Environment.NewLine);
+            //Show Updater Status in a new Form
+            form.textBox1.AppendText(e.Message);
+            form.textBox1.AppendText(Environment.NewLine);
+
         }
 
         private void updateCoresButton_Click(object sender, EventArgs e)
         {
             //Clear the info box
-            infoTextBox.Clear();
+            //infoTextBox.Clear();
 
             string Location_Type = comboBox2.SelectedItem.ToString();
 
@@ -124,10 +137,12 @@ namespace Pocket_Updater
                     Download_Json(Current_Dir);
                     _updater = new PocketCoreUpdater(Current_Dir, Current_Dir + "\\pocket_updater_cores.json");
                     _updater.DownloadAssets(true); //turns on the option to also download bios files
-
+                    
+                    form.Show();
+                    
                     _updater.StatusUpdated += updater_StatusUpdated;
 
-                    RunCoreUpdateProcess(Current_Dir, Current_Dir);
+                    RunCoreUpdateProcess(Current_Dir, Current_Dir);                    
                 }
             }
             //Removable Drive Updater
@@ -155,6 +170,8 @@ namespace Pocket_Updater
                         _updater = new PocketCoreUpdater(pathToUpdate, pathToUpdate+"\\pocket_updater_cores.json");
                         _updater.CoresFile = pathToUpdate;
                         _updater.DownloadAssets(true); //turns on the option to also download bios files
+
+                        form.Show();
 
                         _updater.StatusUpdated += updater_StatusUpdated;
 

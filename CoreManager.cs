@@ -7,18 +7,18 @@ namespace Pocket_Updater
 {
     public class CoreManager
     {
-        private Settings _settings;
+        private pannella.analoguepocket.Settings _settings;
         private string _settingsFile;
         private string _coresFile;
         private List<Core> _cores;
 
         public CoreManager(string settingsFile, string coresFile)
         {
-            _settings = new Settings();
+            _settings = new pannella.analoguepocket.Settings();
             if (File.Exists(settingsFile))
             {
                 string json = File.ReadAllText(settingsFile);
-                _settings = JsonSerializer.Deserialize<Settings>(json);
+                _settings = JsonSerializer.Deserialize<pannella.analoguepocket.Settings>(json);
             }
             _settingsFile = settingsFile;
 
