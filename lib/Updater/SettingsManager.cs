@@ -9,7 +9,7 @@ public class SettingsManager
     private Settings _settings;
     private string _settingsFile;
 
-    public SettingsManager(string settingsFile, List<Core> cores)
+    public SettingsManager(string settingsFile, List<Core> cores = null)
     {
         _settings = new Settings();
         if (File.Exists(settingsFile))
@@ -17,9 +17,16 @@ public class SettingsManager
             string json = File.ReadAllText(settingsFile);
             _settings = JsonSerializer.Deserialize<Settings>(json);
         }
+
+        //bandaid to fix old settings files
+        if(_settings.config == null) {
+            _settings.config = new Config();
+        }
         _settingsFile = settingsFile;
 
-        _initializeCoreSettings(cores);
+        if(cores != null) {
+            _initializeCoreSettings(cores);
+        }
 
         SaveSettings();
     }
