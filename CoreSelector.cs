@@ -109,7 +109,7 @@ namespace Pocket_Updater
 
         public void Download_Json()
         {
-            string Json_URL = "https://raw.githubusercontent.com/mattpannella/pocket_core_autoupdate_net/develop/pocket_updater_cores.json";
+            string Json_URL = "https://raw.githubusercontent.com/mattpannella/pocket_core_autoupdate_net/main/pocket_updater_cores.json";
             WebClient = new WebClient();
             string Current_Dir = Directory.GetCurrentDirectory();
             Console.WriteLine(Current_Dir);
