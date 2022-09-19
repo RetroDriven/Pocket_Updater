@@ -65,14 +65,14 @@
             // updateLogToolStripMenuItem
             // 
             this.updateLogToolStripMenuItem.Name = "updateLogToolStripMenuItem";
-            this.updateLogToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.updateLogToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.updateLogToolStripMenuItem.Text = "Last Update Log";
             this.updateLogToolStripMenuItem.Click += new System.EventHandler(this.updateLogToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -172,7 +172,7 @@
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pocket Updater v1.0";
+            this.Text = "Pocket Updater v1.1.0";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
