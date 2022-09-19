@@ -10,7 +10,7 @@ Select the "**Update Pocket**" Option
 ![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Main.png)
 
 #### Current Directory Location
-This option allows you to Update everything locally first and manually copy over all of the File/Folders to your Pocket's SD Card after the Updater has finished. 
+This option allows you to Update everything locally first and manually copy over all of the Files/Folders to your Pocket's SD Card after the Updater has finished. 
 
 ![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Update.png)
 
