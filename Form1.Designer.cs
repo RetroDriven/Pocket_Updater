@@ -49,7 +49,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(418, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(472, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -80,7 +80,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(167, 75);
+            this.label1.Location = new System.Drawing.Point(176, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(148, 24);
             this.label1.TabIndex = 10;
@@ -94,7 +94,7 @@
             this.Button_Pocket.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button_Pocket.FlatAppearance.BorderSize = 0;
             this.Button_Pocket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_Pocket.Location = new System.Drawing.Point(91, 58);
+            this.Button_Pocket.Location = new System.Drawing.Point(100, 58);
             this.Button_Pocket.Name = "Button_Pocket";
             this.Button_Pocket.Size = new System.Drawing.Size(70, 59);
             this.Button_Pocket.TabIndex = 2;
@@ -105,7 +105,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(167, 161);
+            this.label3.Location = new System.Drawing.Point(176, 161);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(146, 24);
             this.label3.TabIndex = 14;
@@ -119,7 +119,7 @@
             this.Button_Cores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button_Cores.FlatAppearance.BorderSize = 0;
             this.Button_Cores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_Cores.Location = new System.Drawing.Point(91, 144);
+            this.Button_Cores.Location = new System.Drawing.Point(100, 144);
             this.Button_Cores.Name = "Button_Cores";
             this.Button_Cores.Size = new System.Drawing.Size(70, 59);
             this.Button_Cores.TabIndex = 13;
@@ -130,7 +130,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(167, 246);
+            this.label2.Location = new System.Drawing.Point(176, 246);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 24);
             this.label2.TabIndex = 16;
@@ -144,7 +144,7 @@
             this.Button_Settings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button_Settings.FlatAppearance.BorderSize = 0;
             this.Button_Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_Settings.Location = new System.Drawing.Point(91, 229);
+            this.Button_Settings.Location = new System.Drawing.Point(100, 229);
             this.Button_Settings.Name = "Button_Settings";
             this.Button_Settings.Size = new System.Drawing.Size(70, 59);
             this.Button_Settings.TabIndex = 15;
@@ -156,7 +156,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(418, 310);
+            this.ClientSize = new System.Drawing.Size(472, 310);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Button_Settings);
             this.Controls.Add(this.label3);
