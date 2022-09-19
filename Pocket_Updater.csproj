@@ -9,6 +9,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
     <ApplicationIcon>Resources\app_icon.ico</ApplicationIcon>
+    <Authors>RetroDriven and mattpannella</Authors>
+    <Product>Pocket Updater</Product>
+    <PackageProjectUrl>https://github.com/RetroDriven/Pocket_Updater</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/RetroDriven/Pocket_Updater</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <AssemblyName>Pocket Updater</AssemblyName>
+    <Description>Windows GUI Application to Update Cores for the Analogue Pocket</Description>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,6 +39,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
