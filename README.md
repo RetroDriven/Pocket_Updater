@@ -1,7 +1,7 @@
 ## Analogue Pocket Updater - Windows Application ##
 [![Current Release](https://img.shields.io/github/v/release/RetroDriven/Pocket_Updater?label=Current%20Release)](https://github.com/RetroDriven/Pocket_Updater/releases/latest) ![Downloads](https://img.shields.io/github/downloads/RetroDriven/Pocket_Updater/latest/total?label=Downloads)
 
-This is a free Windows Application for updating the openFPGA Cores, Pocket Firmware, and Required BIOS and Arcade ROMS for your Analogue Pocket. This Application can be run from the Pocket's SD Card or from any location on your Windows Machine based on what fits your needs best.
+This is a free Windows Application for updating the openFPGA Cores, Pocket Firmware, Required BIOS, and Arcade ROMS for your Analogue Pocket. This Application can be run from the Pocket's SD Card or from any location on your Windows Machine based on what fits your needs best.
 
 ## Upating ##
 
