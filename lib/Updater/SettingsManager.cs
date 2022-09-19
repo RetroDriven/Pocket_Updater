@@ -121,4 +121,9 @@ public class SettingsManager
         return _settings.config;
     }
 
+    public void UpdateConfig(Config config)
+    {
+        _settings.config = config;
+    }
+
 }

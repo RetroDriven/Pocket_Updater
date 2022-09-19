@@ -24,7 +24,7 @@ namespace Pocket_Updater
 
         private WebClient WebClient;
         private PocketCoreUpdater _updater;
-        private ArcadeRomDownloader _romDownloader;
+        private SettingsManager _settings;
 
         //Initialize Update Status Form Popup
         Updater_Status form = new Updater_Status();
@@ -35,6 +35,8 @@ namespace Pocket_Updater
 
             //Get USB Drives
             PopulateDrives();
+            string Current_Dir = Directory.GetCurrentDirectory();
+            _settings = new SettingsManager(Current_Dir + "\\pocket_updater_settings.json");
 
             //Tooltips
             toolTip1.SetToolTip(Button_Refresh, "Refresh your Removable Drive List");
@@ -75,12 +77,6 @@ namespace Pocket_Updater
 
         /* ------ STUFF MATT ADDED FOR EXAMPLE ------ */
 
-        //Call this method from a new button and you can run the arcade rom downloder
-        public void RunArcadeRomDownloadProcess()
-        {
-            _romDownloader.DownloadAll();
-        }
-
         //Call this method from a new button and you can run the core updater
         public async Task RunCoreUpdateProcess(string updatePath, string coresJsonPath)
         {
@@ -116,12 +112,12 @@ namespace Pocket_Updater
             //infoTextBox.Clear();
 
             string Location_Type = comboBox2.SelectedItem.ToString();
+            string Current_Dir = Directory.GetCurrentDirectory();
+            string github_token = _settings.GetConfig().github_token;
 
             //Current Drive Updater
             if (Location_Type == "Current Directory")
             {
-                string Current_Dir = Directory.GetCurrentDirectory();
-
                 //Check for an Internet Connection
                 bool result = CheckForInternetConnection();
 
@@ -137,6 +133,10 @@ namespace Pocket_Updater
                     Download_Json(Current_Dir);
                     _updater = new PocketCoreUpdater(Current_Dir, Current_Dir + "\\pocket_updater_cores.json");
                     _updater.DownloadAssets(true); //turns on the option to also download bios files
+                    if(github_token != null)
+                    {
+                        _updater.SetGithubApiKey(github_token);
+                    }
                     
                     form.Show();
                     
@@ -167,9 +167,14 @@ namespace Pocket_Updater
                     if (drives.Where(data => data.Name == Pocket_Drive).Count() == 1)
                     {
                         Download_Json(pathToUpdate);
-                        _updater = new PocketCoreUpdater(pathToUpdate, pathToUpdate+"\\pocket_updater_cores.json");
-                        _updater.CoresFile = pathToUpdate;
+                       // string Current_Dir = Directory.GetCurrentDirectory();
+                        _updater = new PocketCoreUpdater(pathToUpdate, pathToUpdate+"\\pocket_updater_cores.json", Current_Dir);
+                        //_updater.CoresFile = pathToUpdate;
                         _updater.DownloadAssets(true); //turns on the option to also download bios files
+                        if (github_token != null)
+                        {
+                            _updater.SetGithubApiKey(github_token);
+                        }
 
                         form.Show();
 
