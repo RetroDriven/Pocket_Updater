@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
-	  <Version>1.1.0</Version>
+	  <Version>1.2.0</Version>
 	  <RootNamespace>Pocket_Updater</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
@@ -17,6 +17,7 @@
     <RepositoryType>git</RepositoryType>
     <AssemblyName>Pocket Updater</AssemblyName>
     <Description>Windows GUI Application to Update Cores for the Analogue Pocket</Description>
+    <Copyright>2022 - RetroDriven</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
