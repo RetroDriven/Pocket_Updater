@@ -78,7 +78,7 @@ namespace Pocket_Updater
         /* ------ STUFF MATT ADDED FOR EXAMPLE ------ */
 
         //Call this method from a new button and you can run the core updater
-        public async Task RunCoreUpdateProcess(string updatePath, string coresJsonPath)
+        public async Task RunCoreUpdateProcess(string updatePath, string coresJsonPath, string LogDir)
         {
             Button_Removable.Enabled = false;
             Button_Refresh.Enabled = false;
@@ -91,7 +91,7 @@ namespace Pocket_Updater
             comboBox1.Enabled = true;
 
             //Write to a Log File
-            File.WriteAllText(updatePath + "\\Pocket_Updater_Log.txt", form.textBox1.Text);
+            File.WriteAllText(LogDir + "\\Pocket_Updater_Log.txt", form.textBox1.Text);
             MessageBox.Show("Updates Complete!", "Updates", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
 
@@ -142,7 +142,7 @@ namespace Pocket_Updater
                     
                     _updater.StatusUpdated += updater_StatusUpdated;
 
-                    RunCoreUpdateProcess(Current_Dir, Current_Dir);                    
+                    RunCoreUpdateProcess(Current_Dir, Current_Dir, Current_Dir);                    
                 }
             }
             //Removable Drive Updater
@@ -180,7 +180,7 @@ namespace Pocket_Updater
 
                         _updater.StatusUpdated += updater_StatusUpdated;
 
-                        RunCoreUpdateProcess(pathToUpdate, pathToUpdate);
+                        RunCoreUpdateProcess(pathToUpdate, pathToUpdate, Current_Dir);
                     }
                     else
                     {
