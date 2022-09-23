@@ -210,8 +210,11 @@ namespace Pocket_Updater
 
                         comboBox1.Items.Add(d.Name.Remove(3));
                     }
-                    comboBox1.SelectedIndex = 0;
-                    comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+                    if (comboBox1.Items.Count != 0)
+                    {
+                        comboBox1.SelectedIndex = 0;
+                        comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+                    }
                 }
             }
             catch { MessageBox.Show("Error retrieving Drive Information", "Error!"); }
