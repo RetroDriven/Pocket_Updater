@@ -3,7 +3,7 @@
 
 This is a free Windows Application for updating the openFPGA Cores, Pocket Firmware, Required BIOS, and Arcade ROMS for your Analogue Pocket. This Application can be run from the Pocket's SD Card or from any location on your Windows Machine based on what fits your needs best.
 
-## Upating ##
+## Updating ##
 
 Select the "**Update Pocket**" Option
 
