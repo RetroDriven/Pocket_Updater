@@ -60,10 +60,11 @@
             // 
             // checkBox_All
             // 
-            this.checkBox_All.AutoSize = true;
-            this.checkBox_All.Location = new System.Drawing.Point(25, 24);
+            this.checkBox_All.Checked = true;
+            this.checkBox_All.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_All.Location = new System.Drawing.Point(25, 22);
             this.checkBox_All.Name = "checkBox_All";
-            this.checkBox_All.Size = new System.Drawing.Size(109, 29);
+            this.checkBox_All.Size = new System.Drawing.Size(456, 29);
             this.checkBox_All.TabIndex = 2;
             this.checkBox_All.Text = "Select All";
             this.checkBox_All.UseVisualStyleBackColor = true;
@@ -87,7 +88,6 @@
             this.Text = "Manage Cores";
             this.Load += new System.EventHandler(this.CoreSelector_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

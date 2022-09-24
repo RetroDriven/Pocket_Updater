@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using pannella.analoguepocket;
 using System.Text.Json;
+using System.Windows.Forms;
 
 namespace Pocket_Updater
 {
@@ -10,7 +11,7 @@ namespace Pocket_Updater
 
         private SettingsManager _settingsManager;
         private WebClient WebClient;
-       // private PocketCoreUpdater _updater;
+        // private PocketCoreUpdater _updater;
         public string Current_Dir { get; set; }
         public string updateFile { get; set; }
 
@@ -41,21 +42,26 @@ namespace Pocket_Updater
 
             foreach (Core core in _cores)
             {
-                if(_settingsManager.GetCoreSettings(core.name) != null)
+                if (_settingsManager.GetCoreSettings(core.name) != null)
                 {
                     coresList.Items.Add(core, !_settingsManager.GetCoreSettings(core.name).skip);
                 }
-                else 
+                else
                 {
                     coresList.Items.Add(core, true);
                 }
-                
+
             }
         }
 
         private void CoreSelector_Load(object sender, EventArgs e)
         {
-
+            /*
+            if (coresList.CheckedIndices.Count > 1)
+            {
+                checkBox_All.Checked = false;
+            }
+            */
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -64,7 +70,7 @@ namespace Pocket_Updater
             _readChecklist();
             _settingsManager.SaveSettings();
             MessageBox.Show("Core Selection Has Been Saved!", "Cores Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Button_Save.Enabled=true;
+            Button_Save.Enabled = true;
             Close();
         }
 
@@ -121,7 +127,7 @@ namespace Pocket_Updater
 
         private void checkBox_All_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox_All.Checked)
+                if (checkBox_All.Checked)
             {
                 int length = coresList.Items.Count;
 
@@ -135,6 +141,7 @@ namespace Pocket_Updater
             }
             else
             {
+              
                 int length = coresList.Items.Count;
 
                 for (int le = 0; le < length; le++)
@@ -142,7 +149,7 @@ namespace Pocket_Updater
                     coresList.SetSelected(le, false);
                     coresList.SetItemChecked(le, false);
                 }
-
+                
                 checkBox_All.Checked = false;
 
             }
