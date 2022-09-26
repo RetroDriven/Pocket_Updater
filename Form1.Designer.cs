@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkForAppUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,23 +57,31 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.checkForAppUpdatesToolStripMenuItem,
             this.updateLogToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // checkForAppUpdatesToolStripMenuItem
+            // 
+            this.checkForAppUpdatesToolStripMenuItem.Name = "checkForAppUpdatesToolStripMenuItem";
+            this.checkForAppUpdatesToolStripMenuItem.Size = new System.Drawing.Size(299, 34);
+            this.checkForAppUpdatesToolStripMenuItem.Text = "Check for App Updates";
+            this.checkForAppUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForAppUpdatesToolStripMenuItem_Click);
+            // 
             // updateLogToolStripMenuItem
             // 
             this.updateLogToolStripMenuItem.Name = "updateLogToolStripMenuItem";
-            this.updateLogToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.updateLogToolStripMenuItem.Size = new System.Drawing.Size(299, 34);
             this.updateLogToolStripMenuItem.Text = "Last Update Log";
             this.updateLogToolStripMenuItem.Click += new System.EventHandler(this.updateLogToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(243, 34);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(299, 34);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -172,7 +181,7 @@
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pocket Updater v1.2.1";
+            this.Text = "Pocket Updater v1.3.0";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -192,5 +201,6 @@
         private Label label2;
         private Button Button_Settings;
         private ToolStripMenuItem updateLogToolStripMenuItem;
+        private ToolStripMenuItem checkForAppUpdatesToolStripMenuItem;
     }
 }
