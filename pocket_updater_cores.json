@@ -392,6 +392,32 @@
   },
   {
     "repo": {
+      "user": "opengateware",
+      "project": "arcade-gberet"
+    },
+    "assets": {
+      "location": "Assets/gberet/common/",
+      "files": [
+        {
+          "file_name": "gberet.rom",
+          "archive_file": "Arcade_Roms.zip/gberet.rom"
+        },
+        {
+          "file_name": "mrgoemon.rom",
+          "archive_file": "Arcade_Roms.zip/mrgoemon.rom"
+        },
+        {
+          "file_name": "rushatck.rom",
+          "archive_file": "Arcade_Roms.zip/rushatck.rom"
+        }
+      ]
+    },
+    "name": "boogermann.gberet",
+    "platform": "Green Beret",
+    "allowPrerelease": true
+  },
+  {
+    "repo": {
       "user": "agg23",
       "project": "openfpga-NES"
     },
