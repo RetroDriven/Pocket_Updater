@@ -36,7 +36,7 @@ namespace Pocket_Updater
             //Get USB Drives
             PopulateDrives();
             string Current_Dir = Directory.GetCurrentDirectory();
-            _settings = new SettingsManager(Current_Dir + "\\pocket_updater_settings.json");
+            _settings = new SettingsManager(Current_Dir);
 
             //Tooltips
             toolTip1.SetToolTip(Button_Refresh, "Refresh your Removable Drive List");
@@ -106,7 +106,7 @@ namespace Pocket_Updater
 
         }
 
-        private void updateCoresButton_Click(object sender, EventArgs e)
+        private async void updateCoresButton_Click(object sender, EventArgs e)
         {
             //Clear the info box
             //infoTextBox.Clear();
@@ -130,8 +130,9 @@ namespace Pocket_Updater
                 }
                 else
                 {
-                    Download_Json(Current_Dir);
-                    _updater = new PocketCoreUpdater(Current_Dir, Current_Dir + "\\pocket_updater_cores.json");
+                    //Download_Json(Current_Dir);
+                    _updater = new PocketCoreUpdater(Current_Dir);
+                    await _updater.Initialize();
                     _updater.DownloadAssets(true); //turns on the option to also download bios files
                     if(github_token != null)
                     {
@@ -166,9 +167,10 @@ namespace Pocket_Updater
                     var drives = DriveInfo.GetDrives();
                     if (drives.Where(data => data.Name == Pocket_Drive).Count() == 1)
                     {
-                        Download_Json(pathToUpdate);
+                        //Download_Json(pathToUpdate);
                        // string Current_Dir = Directory.GetCurrentDirectory();
-                        _updater = new PocketCoreUpdater(pathToUpdate, pathToUpdate+"\\pocket_updater_cores.json", Current_Dir);
+                        _updater = new PocketCoreUpdater(pathToUpdate, Current_Dir);
+                        _updater.Initialize();
                         //_updater.CoresFile = pathToUpdate;
                         _updater.DownloadAssets(true); //turns on the option to also download bios files
                         if (github_token != null)

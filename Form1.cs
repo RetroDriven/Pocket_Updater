@@ -1,3 +1,4 @@
+using Analogue;
 using pannella.analoguepocket;
 using System.Diagnostics;
 using System.Net;
@@ -45,9 +46,10 @@ namespace Pocket_Updater
             form.Show();
         }
 
-        private void Button_Cores_Click(object sender, EventArgs e)
+        private async void Button_Cores_Click(object sender, EventArgs e)
         {
-            CoreSelector form = new CoreSelector();
+            List<pannella.analoguepocket.Core> cores = await CoresService.GetCores();
+            CoreSelector form = new CoreSelector(cores);
             form.Show();
         }
 

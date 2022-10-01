@@ -29,7 +29,7 @@ namespace Pocket_Updater
         public void ReadSettings()
         {
             string Current_Dir = Directory.GetCurrentDirectory();
-            _settings = new SettingsManager(Current_Dir + "\\pocket_updater_settings.json");
+            _settings = new SettingsManager(Current_Dir);
             textBox1.Text = _settings.GetConfig().github_token;
         }
 

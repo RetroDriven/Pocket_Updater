@@ -15,7 +15,7 @@ namespace Pocket_Updater
         public string Current_Dir { get; set; }
         public string updateFile { get; set; }
 
-        public CoreSelector()
+        public CoreSelector(List<Core> cores)
         {
             InitializeComponent();
 
@@ -23,6 +23,7 @@ namespace Pocket_Updater
             //_updater = new PocketCoreUpdater(pathToUpdate);
 
             bool result = CheckForInternetConnection();
+            _cores = cores;
 
             if (result == false)
             {
@@ -35,16 +36,16 @@ namespace Pocket_Updater
             else
             {
                 Button_Save.Enabled = true;
-                Download_Json();
+                //Download_Json();
             }
 
-            _settingsManager = new SettingsManager(Directory.GetCurrentDirectory() + "\\pocket_updater_settings.json", _cores);
+            _settingsManager = new SettingsManager(Directory.GetCurrentDirectory(), _cores);
 
             foreach (Core core in _cores)
             {
-                if (_settingsManager.GetCoreSettings(core.name) != null)
+                if (_settingsManager.GetCoreSettings(core.identifier) != null)
                 {
-                    coresList.Items.Add(core, !_settingsManager.GetCoreSettings(core.name).skip);
+                    coresList.Items.Add(core, !_settingsManager.GetCoreSettings(core.identifier).skip);
                 }
                 else
                 {
@@ -81,11 +82,11 @@ namespace Pocket_Updater
                 Core core = (Core)coresList.Items[i];
                 if (!coresList.GetItemChecked(i))
                 {
-                    _settingsManager.DisableCore(core.name);
+                    _settingsManager.DisableCore(core.identifier);
                 }
                 else
                 {
-                    _settingsManager.EnableCore(core.name);
+                    _settingsManager.EnableCore(core.identifier);
                 }
             }
         }
