@@ -8,6 +8,7 @@ public class Core
 
     public override string ToString()
     {
-        return platform + ": " + identifier;
+        //return platform + ": " + identifier;
+        return platform;
     }
 }

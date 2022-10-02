@@ -196,10 +196,5 @@ namespace Pocket_Updater
             }
         }
 
-        private void Button_Saves_Click(object sender, EventArgs e)
-        {
-            Saves form = new Saves();
-            form.Show();
-        }
     }
 }

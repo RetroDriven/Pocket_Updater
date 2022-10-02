@@ -37,19 +37,21 @@
             // coresList
             // 
             this.coresList.CheckOnClick = true;
+            this.coresList.ColumnWidth = 300;
             this.coresList.FormattingEnabled = true;
             this.coresList.HorizontalScrollbar = true;
-            this.coresList.Location = new System.Drawing.Point(25, 67);
+            this.coresList.Location = new System.Drawing.Point(11, 43);
             this.coresList.Margin = new System.Windows.Forms.Padding(2);
+            this.coresList.MultiColumn = true;
             this.coresList.Name = "coresList";
-            this.coresList.Size = new System.Drawing.Size(456, 564);
+            this.coresList.Size = new System.Drawing.Size(667, 564);
             this.coresList.TabIndex = 0;
             this.coresList.TabStop = false;
             // 
             // Button_Save
             // 
             this.Button_Save.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Button_Save.Location = new System.Drawing.Point(194, 654);
+            this.Button_Save.Location = new System.Drawing.Point(285, 630);
             this.Button_Save.Margin = new System.Windows.Forms.Padding(2);
             this.Button_Save.Name = "Button_Save";
             this.Button_Save.Size = new System.Drawing.Size(111, 35);
@@ -62,9 +64,9 @@
             // 
             this.checkBox_All.Checked = true;
             this.checkBox_All.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_All.Location = new System.Drawing.Point(25, 22);
+            this.checkBox_All.Location = new System.Drawing.Point(14, 9);
             this.checkBox_All.Name = "checkBox_All";
-            this.checkBox_All.Size = new System.Drawing.Size(456, 29);
+            this.checkBox_All.Size = new System.Drawing.Size(116, 29);
             this.checkBox_All.TabIndex = 2;
             this.checkBox_All.Text = "Select All";
             this.checkBox_All.UseVisualStyleBackColor = true;
@@ -74,7 +76,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 700);
+            this.ClientSize = new System.Drawing.Size(689, 679);
             this.Controls.Add(this.checkBox_All);
             this.Controls.Add(this.Button_Save);
             this.Controls.Add(this.coresList);
