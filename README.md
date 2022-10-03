@@ -38,9 +38,16 @@ This is an Optional Setting. If you're running up against the rate limit with th
 There will be more **Settings** coming soon.....
 
 ## Update Log ##
-You can view the most recent Update Log by going to "**File --> Last Update Log**"
+You can view the most recent Update Log via "**File --> Last Update Log**"
 
 ![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Update_Log.png)
+
+## App Updates ##
+This Application will self check for Updates when you run it. When an Update is found you will get a Prompt asking if you'd like to Download the latest Release. 
+
+You can manually check for App Updates as well via "**File --> Check for App Updates**"
+
+![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Check_Updates.png)
 
 ## Credits ##
 Special thanks to [mattpannella](https://github.com/mattpannella) for Collaborating with me and providing me with his Updater Library Files. His updater can be found [Here](https://github.com/mattpannella/pocket_core_autoupdate_net)
