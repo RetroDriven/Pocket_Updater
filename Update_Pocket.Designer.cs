@@ -44,11 +44,11 @@
             this.Button_Removable.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button_Removable.Enabled = false;
             this.Button_Removable.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Button_Removable.Location = new System.Drawing.Point(413, 25);
+            this.Button_Removable.Location = new System.Drawing.Point(413, 28);
             this.Button_Removable.Name = "Button_Removable";
-            this.Button_Removable.Size = new System.Drawing.Size(142, 46);
+            this.Button_Removable.Size = new System.Drawing.Size(125, 41);
             this.Button_Removable.TabIndex = 1;
-            this.Button_Removable.Text = "Update Cores";
+            this.Button_Removable.Text = "Update";
             this.Button_Removable.UseVisualStyleBackColor = true;
             this.Button_Removable.Click += new System.EventHandler(this.updateCoresButton_Click);
             // 

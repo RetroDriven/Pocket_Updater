@@ -169,8 +169,8 @@ namespace Pocket_Updater
                     {
                         //Download_Json(pathToUpdate);
                        // string Current_Dir = Directory.GetCurrentDirectory();
-                        _updater = new PocketCoreUpdater(pathToUpdate, Current_Dir);
-                        _updater.Initialize();
+                        _updater = new PocketCoreUpdater(pathToUpdate);
+                        await _updater.Initialize();
                         //_updater.CoresFile = pathToUpdate;
                         _updater.DownloadAssets(true); //turns on the option to also download bios files
                         if (github_token != null)

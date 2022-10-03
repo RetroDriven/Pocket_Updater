@@ -11,7 +11,7 @@ namespace Pocket_Updater
 {
     public partial class Form1 : Form
     {
-        private const string VERSION = "1.3.1";
+        private const string VERSION = "1.3.2";
         private const string API_URL = "https://api.github.com/repos/RetroDriven/Pocket_Updater/releases";
         private const string RELEASE_URL = "https://github.com/RetroDriven/Pocket_Updater/releases/latest";
 
@@ -196,5 +196,36 @@ namespace Pocket_Updater
             }
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Update_Pocket form = new Update_Pocket();
+            form.Show();
+        }
+
+        private async void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    using (client.OpenRead("http://www.google.com/"))
+                    {
+                        List<pannella.analoguepocket.Core> cores = await CoresService.GetCores();
+                        CoreSelector form = new CoreSelector(cores);
+                        form.Show();
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("No Internet Connection Detected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Settings form = new Settings();
+            form.Show();
+        }
     }
 }
