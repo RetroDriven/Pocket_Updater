@@ -1,0 +1,287 @@
+{
+  "Spiritualized.GBA": {
+    "location": "Assets/gba/common/",
+    "files": [
+      {
+        "file_name": "gba_bios.bin",
+        "archive_zip": "BIOS"
+      }
+    ]
+  },
+  "Spiritualized.GBC": {
+    "location": "Assets/gbc/common/",
+    "files": [
+      {
+        "file_name": "gbc_bios.bin",
+        "archive_zip": "BIOS"
+      },
+      {
+        "file_name": "dmg_bios.bin",
+        "overrideLocation": "Assets/gb/common/",
+        "archive_zip": "BIOS"
+      }
+    ]
+  },
+  "Mazamars312.NeoGeo": {
+    "location": "Assets/ng/common",
+    "files": [
+      {
+        "url": "http://unibios.free.fr/download/uni-bios-40.zip",
+        "file_name": "uni-bios_1_0.rom",
+        "zip": true,
+        "zip_file": "uni-bios.rom"
+      },
+      {
+        "file_name": "000-lo.lo",
+        "archive_zip": "BIOS"
+      },
+      {
+        "file_name": "sfix.sfix",
+        "archive_zip": "BIOS"
+      }
+    ]
+  },
+  "nullobject.tecmo": {
+    "location": "Assets/Tecmo/common",
+    "files": [
+      {
+        "file_name": "gemini.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "rygar.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "geminij.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "rygar2.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "rygarj.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "silkworm.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "silkwrmj.rom",
+        "archive_zip": "Arcade_Roms"
+      }
+    ]
+  },
+  "ericlewis.LunarLander": {
+    "location": "Assets/lunarlander/ericlewis.LunarLander/",
+    "files": [
+      {
+        "file_name": "llander.rom",
+        "archive_zip": "Arcade_Roms"
+      }
+    ]
+  },
+  "ericlewis.Asteroids": {
+    "location": "Assets/asteroids/ericlewis.Asteroids/",
+    "files": [
+      {
+        "file_name": "asteroid.rom",
+        "archive_zip": "Arcade_Roms"
+      }
+    ]
+  },
+  "ericlewis.SuperBreakout": {
+    "location": "Assets/superbreakout/common/",
+    "files": [
+      {
+        "file_name": "sbrkout.rom",
+        "archive_zip": "Arcade_Roms"
+      }
+    ]
+  },
+  "ericlewis.Dominos": {
+    "location": "Assets/dominos/common/",
+    "files": [
+      {
+        "file_name": "dominos.rom",
+        "archive_zip": "Arcade_Roms"
+      }
+    ]
+  },
+  "boogermann.galaga": {
+    "location": "Assets/Galaga/common/",
+    "files": [
+      {
+        "file_name": "galaga.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "galagads.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "galagaef.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "galagamf.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "galagamw.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "galagao.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "galagosb.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "galagost.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "galaped.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "galgaxin.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "gatsbee.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "nebulbee.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "vgalaga.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "vgalagaf.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "vgalagam.rom",
+        "archive_zip": "Arcade_Roms"
+      }
+    ]
+  },
+  "boogermann.xevious": {
+    "location": "Assets/xevious/common/",
+    "files": [
+      {
+        "file_name": "battles2.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "gaous.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "sxevious.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "xeviblk.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "xevios.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "xevious.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "xevious3.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "xevious4.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "xevious5.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "xevioush.rom",
+        "archive_zip": "Arcade_Roms"
+      }
+    ]
+  },
+  "boogermann.digdug": {
+    "location": "Assets/DigDug/common/",
+    "files": [
+      {
+        "file_name": "digdug.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "digduat1.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "digdug1.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "digdugat.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "digsid.rom",
+        "archive_zip": "Arcade_Roms"
+      }
+    ]
+  },
+  "boogermann.gberet": {
+    "location": "Assets/gberet/common/",
+    "files": [
+      {
+        "file_name": "gberet.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "mrgoemon.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "rushatck.rom",
+        "archive_zip": "Arcade_Roms"
+      }
+    ]
+
+  },
+  "boogermann.pooyan": {
+    "location": "Assets/pooyan/common/",
+    "files": [
+      {
+        "file_name": "pooyan.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "pooyaiag.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+	  {
+        "file_name": "pooyans.rom",
+        "archive_zip": "Arcade_Roms"
+      },
+      {
+        "file_name": "pootan.rom",
+        "archive_zip": "Arcade_Roms"
+      }
+    ]
+  }
+}
