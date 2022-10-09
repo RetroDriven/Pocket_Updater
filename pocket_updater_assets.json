@@ -222,16 +222,16 @@
     "location": "Assets/pooyan/common/",
     "files": [
       {
-        "file_name": "pooyan.rom"
+        "file_name": "/pooyan.rom"
       },
       {
-        "file_name": "pooyaiag.rom"
+        "file_name": "/pooyaiag.rom"
       },
 	  {
-        "file_name": "pooyans.rom"
+        "file_name": "/pooyans.rom"
       },
       {
-        "file_name": "pootan.rom"
+        "file_name": "/pootan.rom"
       }
     ]
   }
