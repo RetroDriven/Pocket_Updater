@@ -12,14 +12,14 @@ namespace Pocket_Updater
 {
     public partial class Form1 : Form
     {
-        private const string VERSION = "1.3.3";
+        private const string VERSION = "1.3.4";
         private const string API_URL = "https://api.github.com/repos/RetroDriven/Pocket_Updater/releases";
         private const string RELEASE_URL = "https://github.com/RetroDriven/Pocket_Updater/releases/latest";
 
         public Form1()
         {
             InitializeComponent();
-            
+
             //Check for Internet Connection and App Updates
             try
             {
@@ -106,7 +106,7 @@ namespace Pocket_Updater
                     {
                         using (client.OpenRead("http://www.google.com/"))
                         {
-                            DialogResult dialogResult = MessageBox.Show("There is a New Version Available!\n\n Would you like to Download it?", "App Update", MessageBoxButtons.YesNo,MessageBoxIcon.Information);
+                            DialogResult dialogResult = MessageBox.Show("There is a New Version Available!\n\n Would you like to Download it?", "App Update", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                             if (dialogResult == DialogResult.Yes)
                             {
                                 Process.Start("explorer", RELEASE_URL);
@@ -122,7 +122,7 @@ namespace Pocket_Updater
                 }
                 catch
                 {
-                    MessageBox.Show("No Internet Connection Detected!","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No Internet Connection Detected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -130,38 +130,38 @@ namespace Pocket_Updater
         async static Task<bool> CheckVersion()
         {
             try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var request = new HttpRequestMessage
                 {
-                    var client = new HttpClient();
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    var request = new HttpRequestMessage
-                    {
-                        Method = HttpMethod.Get,
-                        RequestUri = new Uri(API_URL)
+                    Method = HttpMethod.Get,
+                    RequestUri = new Uri(API_URL)
 
-                    };
-                    var agent = new ProductInfoHeaderValue("Pocket-Updater", "1.0");
-                    request.Headers.UserAgent.Add(agent);
-                    var response = await client.SendAsync(request).ConfigureAwait(false);
-                    response.EnsureSuccessStatusCode();
+                };
+                var agent = new ProductInfoHeaderValue("Pocket-Updater", "1.0");
+                request.Headers.UserAgent.Add(agent);
+                var response = await client.SendAsync(request).ConfigureAwait(false);
+                response.EnsureSuccessStatusCode();
 
                 var responseBody = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    List<Github.Release>? releases = JsonSerializer.Deserialize<List<Github.Release>>(responseBody);
+                List<Github.Release>? releases = JsonSerializer.Deserialize<List<Github.Release>>(responseBody);
 
-                    string tag_name = releases[0].tag_name;
-                    string? v = SemverUtil.FindSemver(tag_name);
-                    if (v != null)
-                    {
-                        return SemverUtil.SemverCompare(v, VERSION);
-
-                    }
-                return false;
-                }
-                catch (HttpRequestException e)
+                string tag_name = releases[0].tag_name;
+                string? v = SemverUtil.FindSemver(tag_name);
+                if (v != null)
                 {
-                    return false;
+                    return SemverUtil.SemverCompare(v, VERSION);
 
                 }
+                return false;
             }
+            catch (HttpRequestException e)
+            {
+                return false;
+
+            }
+        }
 
         private async void checkForAppUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -229,6 +229,49 @@ namespace Pocket_Updater
         {
             Settings form = new Settings();
             form.Show();
+        }
+
+        private void viewLogFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Updater_Summary form = new Updater_Summary();
+
+            string Current_Dir = Directory.GetCurrentDirectory();
+            string LogFile = Current_Dir + "\\Pocket_Updater_Log.txt";
+
+            if (File.Exists(LogFile))
+            {
+                form.textBox1.Text = File.ReadAllText(Current_Dir + "\\Pocket_Updater_Log.txt");
+                form.Show();
+                form.textBox1.SelectionStart = form.textBox1.Text.Length;
+                form.textBox1.ScrollToCaret();
+            }
+            else
+            {
+                MessageBox.Show("No Log File Found!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void clearLogFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string Current_Dir = Directory.GetCurrentDirectory();
+            string LogFile = Current_Dir + "\\Pocket_Updater_Log.txt";
+
+            if (File.Exists(LogFile))
+            {
+                try
+                {
+                    File.Delete(LogFile);
+                    MessageBox.Show("Log File Cleared!","",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message,"",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No Log File Found!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

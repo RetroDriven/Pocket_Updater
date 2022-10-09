@@ -84,7 +84,7 @@ namespace Pocket_Updater
 
             //Write to a Log File
             Write_Log(LogDir, "Pocket_Updater_Log.txt", Summary.textBox1.Text);
-            
+
             //Close the Updater
             Close();
         }
