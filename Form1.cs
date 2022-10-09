@@ -6,12 +6,13 @@ using System.Net.Http.Headers;
 using System.Security.Policy;
 using System.Text.Json;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Pocket_Updater
 {
     public partial class Form1 : Form
     {
-        private const string VERSION = "1.3.2";
+        private const string VERSION = "1.3.3";
         private const string API_URL = "https://api.github.com/repos/RetroDriven/Pocket_Updater/releases";
         private const string RELEASE_URL = "https://github.com/RetroDriven/Pocket_Updater/releases/latest";
 
@@ -77,7 +78,7 @@ namespace Pocket_Updater
 
         private void updateLogToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Updater_Status form = new Updater_Status();
+            Updater_Summary form = new Updater_Summary();
 
             string Current_Dir = Directory.GetCurrentDirectory();
             string LogFile = Current_Dir + "\\Pocket_Updater_Log.txt";
@@ -86,6 +87,8 @@ namespace Pocket_Updater
             {
                 form.textBox1.Text = File.ReadAllText(Current_Dir + "\\Pocket_Updater_Log.txt");
                 form.Show();
+                form.textBox1.SelectionStart = form.textBox1.Text.Length;
+                form.textBox1.ScrollToCaret();
             }
             else
             {

@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml;
-using pannella.analoguepocket;
+﻿using pannella.analoguepocket;
 
 namespace Pocket_Updater
 {
@@ -19,10 +9,13 @@ namespace Pocket_Updater
         {
             InitializeComponent();
           
-            Button_Save.Enabled = false;
-
             //Tooltips
             toolTip1.SetToolTip(pictureBox1, "This is an Optional setting to use a Personal GitHub Token to avoid Rate Limit Issues/Errors.");
+            toolTip2.SetToolTip(pictureBox2, "This will preserve any Custom Core Images that you are using instead of the Stock Images.");
+            toolTip3.SetToolTip(pictureBox3, "This will enable/disable Arcade Rom and Core Bios Files.");
+            toolTip4.SetToolTip(pictureBox4, "This will enable/disable the downloading of Pocket Firmware Updates.");
+            
+            //Read Settings Json file
             ReadSettings();
         }
 
@@ -30,26 +23,84 @@ namespace Pocket_Updater
         {
             string Current_Dir = Directory.GetCurrentDirectory();
             _settings = new SettingsManager(Current_Dir);
-            textBox1.Text = _settings.GetConfig().github_token;
+            
+            //GitHub Token
+            GitHub_Token.Text = _settings.GetConfig().github_token;
+
+            //Preserve Core Images
+            if(_settings.GetConfig().preserve_images == true)
+            {
+                Core_Images.Checked = true;
+            }
+            else
+            {
+                Core_Images.Checked = false;
+            }
+            //Download Pocket Firmware
+            if (_settings.GetConfig().download_firmware == true)
+            {
+                Download_Firmware.Checked = true;
+            }
+            else
+            {
+                Download_Firmware.Checked = false;
+            }
+            //Download Assets
+            if (_settings.GetConfig().download_assets == true)
+            {
+                Download_Assets.Checked = true;
+            }
+            else
+            {
+                Download_Assets.Checked = false;
+            }
         }
 
         private void Buttons_Save_Click(object sender, EventArgs e)
         {
-            string value = textBox1.Text;
+            string value = GitHub_Token.Text;
             Config config = _settings.GetConfig();
+            
+            //GitHub Token
             config.github_token = value;
+            
+            //Preserve Core Images
+            if(Core_Images.Checked == true)
+            {
+                config.preserve_images = true;
+            }
+            else
+            {
+                config.preserve_images = false;
+            }
+            //Download Pocket Firmware
+            if (Download_Firmware.Checked == true)
+            {
+                config.download_firmware = true;
+            }
+            else
+            {
+                config.download_firmware = false;
+            }
+            //Download Assets
+            if (Download_Assets.Checked == true)
+            {
+                config.download_assets = true;
+            }
+            else
+            {
+                config.download_assets = false;
+            }
+
+            //Save Sttings
             _settings.UpdateConfig(config);
             _settings.SaveSettings();
             MessageBox.Show("Settings Saved!", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void Settings_Load(object sender, EventArgs e)
         {
-            if(textBox1.Text != null)
-            {
-                Button_Save.Enabled = true;
-            }
+
         }
     }
 }

@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+﻿using System.Data;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Reflection;
 using pannella.analoguepocket;
-using System.IO;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.DataFormats;
-using TextBox = System.Windows.Forms.TextBox;
-using static System.Net.Mime.MediaTypeNames;
+using RetroDriven;
 
 namespace Pocket_Updater
 {
@@ -27,7 +16,10 @@ namespace Pocket_Updater
         private SettingsManager _settings;
 
         //Initialize Update Status Form Popup
-        Updater_Status form = new Updater_Status();
+        Updater_Status Status = new Updater_Status();
+
+        //Initialize Update Summery Form Popup
+        Updater_Summary Summary = new Updater_Summary();
 
         public Update_Pocket()
         {
@@ -91,19 +83,17 @@ namespace Pocket_Updater
             comboBox1.Enabled = true;
 
             //Write to a Log File
-            File.WriteAllText(LogDir + "\\Pocket_Updater_Log.txt", form.textBox1.Text);
-            MessageBox.Show("Updates Complete!", "Updates", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Write_Log(LogDir, "Pocket_Updater_Log.txt", Summary.textBox1.Text);
+            
+            //Close the Updater
             Close();
-
         }
 
         private void updater_StatusUpdated(object sender, StatusUpdatedEventArgs e)
         {
-
             //Show Updater Status in a new Form
-            form.textBox1.AppendText(e.Message);
-            form.textBox1.AppendText(Environment.NewLine);
-
+            Status.textBox1.AppendText(e.Message);
+            Status.textBox1.AppendText(Environment.NewLine);
         }
 
         private async void updateCoresButton_Click(object sender, EventArgs e)
@@ -133,17 +123,24 @@ namespace Pocket_Updater
                     //Download_Json(Current_Dir);
                     _updater = new PocketCoreUpdater(Current_Dir);
                     await _updater.Initialize();
-                    _updater.DownloadAssets(true); //turns on the option to also download bios files
-                    if(github_token != null)
+                    //_updater.DownloadAssets(true); //turns on the option to also download bios files
+
+                    _updater.SetGithubApiKey(_settings.GetConfig().github_token);
+                    _updater.DownloadFirmware(_settings.GetConfig().download_firmware);
+                    _updater.DownloadAssets(_settings.GetConfig().download_assets);
+                    _updater.PreserveImages(_settings.GetConfig().preserve_images);
+
+                    if (github_token != null)
                     {
                         _updater.SetGithubApiKey(github_token);
                     }
                     
-                    form.Show();
+                    Status.Show();
                     
                     _updater.StatusUpdated += updater_StatusUpdated;
+                    _updater.UpdateProcessComplete += _updater_UpdateProcessComplete;
 
-                    RunCoreUpdateProcess(Current_Dir, Current_Dir, Current_Dir);                    
+                    RunCoreUpdateProcess(Current_Dir, Current_Dir, Current_Dir);
                 }
             }
             //Removable Drive Updater
@@ -168,21 +165,29 @@ namespace Pocket_Updater
                     if (drives.Where(data => data.Name == Pocket_Drive).Count() == 1)
                     {
                         //Download_Json(pathToUpdate);
-                       // string Current_Dir = Directory.GetCurrentDirectory();
-                        _updater = new PocketCoreUpdater(pathToUpdate);
+                        // string Current_Dir = Directory.GetCurrentDirectory();
+                        _updater = new PocketCoreUpdater(pathToUpdate, Current_Dir);
                         await _updater.Initialize();
                         //_updater.CoresFile = pathToUpdate;
-                        _updater.DownloadAssets(true); //turns on the option to also download bios files
+                        //_updater.DownloadAssets(true); //turns on the option to also download bios files
+
+                        //Get Config Settings
+                        _updater.SetGithubApiKey(_settings.GetConfig().github_token);
+                        _updater.DownloadFirmware(_settings.GetConfig().download_firmware);
+                        _updater.DownloadAssets(_settings.GetConfig().download_assets);
+                        _updater.PreserveImages(_settings.GetConfig().preserve_images);
+
                         if (github_token != null)
                         {
                             _updater.SetGithubApiKey(github_token);
                         }
 
-                        form.Show();
+                        Status.Show();
 
                         _updater.StatusUpdated += updater_StatusUpdated;
+                        _updater.UpdateProcessComplete += _updater_UpdateProcessComplete;
 
-                        RunCoreUpdateProcess(pathToUpdate, pathToUpdate, Current_Dir);
+                        RunCoreUpdateProcess(pathToUpdate, Current_Dir, Current_Dir);
                     }
                     else
                     {
@@ -194,6 +199,85 @@ namespace Pocket_Updater
                         PopulateDrives();
                     }
                 }
+            }
+        }
+        private void _updater_UpdateProcessComplete(object? sender, UpdateProcessCompleteEventArgs e)
+        {
+
+            //No Updates Found
+            if (e.InstalledCores.Count == 0 && e.InstalledAssets.Count == 0 && e.FirmwareUpdated == "")
+            {
+                Summary.Close();
+                MessageBox.Show("No Updates Found!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Status.Close();
+            }
+
+            //Updates Found
+            if (e.InstalledCores.Count > 0  || e.InstalledAssets.Count > 0 || e.FirmwareUpdated != "")
+            {
+                MessageBox.Show("Updates Complete!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Status.Close();
+                Summary.Show();
+                Summary.textBox1.SelectionLength = 0;
+                Summary.textBox1.SelectionStart = 0;
+                Summary.textBox1.ScrollToCaret();
+            }
+
+            //Cores Installed
+            if (e.InstalledCores.Count > 0)
+            {
+                Summary.textBox1.AppendText("Cores Updated:(" + e.InstalledCores.Count + ")");
+                Summary.textBox1.AppendText(Environment.NewLine);
+                Summary.textBox1.AppendText("-----------------------");
+                Summary.textBox1.AppendText(Environment.NewLine);
+
+                foreach (Dictionary<string, string> core in e.InstalledCores)
+                {
+                    Summary.textBox1.AppendText(core["platform"] + " v" + core["version"]);
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                }
+                Summary.textBox1.AppendText(Environment.NewLine);
+            }
+
+            //Assets Downloaded
+            if (e.InstalledAssets.Count > 0)
+            {
+                Summary.textBox1.AppendText("Assets Updated:(" + e.InstalledAssets.Count + ")");
+                Summary.textBox1.AppendText(Environment.NewLine);
+                Summary.textBox1.AppendText("-----------------------");
+                Summary.textBox1.AppendText(Environment.NewLine);
+
+                foreach (string asset in e.InstalledAssets)
+                {
+                    Summary.textBox1.AppendText(asset);
+                    Summary.textBox1.AppendText(", ");
+                }
+                Summary.textBox1.AppendText(Environment.NewLine);
+            }
+
+            //Firmware Installed
+            if (e.FirmwareUpdated != "")
+            {
+                Summary.textBox1.AppendText("-----------------------");
+                Summary.textBox1.AppendText(Environment.NewLine);
+                Summary.textBox1.AppendText("New Firmware was Downloaded(" + e.FirmwareUpdated + ") - Restart your Pocket to Install!");
+                Summary.textBox1.AppendText(Environment.NewLine);
+            }
+        }
+
+        public void Write_Log(string LogDir,string LogName,string LogSource)
+        {
+            string DateStamp = string.Format("**Update Run On " + "{0:MM-dd-yy}" + "**", DateTime.Now);
+            string Log = LogDir + "\\" + LogName;
+
+            if (File.Exists(Log))
+            {
+                File.AppendAllText(Log,DateStamp+Environment.NewLine+LogSource);
+
+            }
+            else
+            {
+                File.WriteAllText(Log,DateStamp+Environment.NewLine+LogSource);
             }
         }
         public void PopulateDrives()
