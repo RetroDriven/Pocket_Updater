@@ -115,63 +115,63 @@
     "files": [
       {
         "file_name": "galaga.rom",
-        "archive_zip": "Arcade_Roms"
+        "archive_name": "galaga.rom"
       },
       {
         "file_name": "galagads.rom",
-        "archive_zip": "Arcade_Roms"
+        "archive_name": "galaga.rom"
       },
       {
         "file_name": "galagaef.rom",
-        "archive_zip": "Arcade_Roms"
+        "archive_name": "galagaef.rom"
       },
       {
         "file_name": "galagamf.rom",
-        "archive_zip": "Arcade_Roms"
+        "archive_name": "galagamf.rom"
       },
       {
         "file_name": "galagamw.rom",
-        "archive_zip": "Arcade_Roms"
+        "archive_name": "galagamw.rom"
       },
       {
         "file_name": "galagao.rom",
-        "archive_zip": "Arcade_Roms"
+        "archive_name": "galagao.rom"
       },
       {
         "file_name": "galagosb.rom",
-        "archive_zip": "Arcade_Roms"
+        "archive_name": "galagosb.rom"
       },
       {
         "file_name": "galagost.rom",
-        "archive_zip": "Arcade_Roms"
+        "archive_name": "galagost.rom"
       },
       {
         "file_name": "galaped.rom",
-        "archive_zip": "Arcade_Roms"
+        "archive_name": "galaped.rom"
       },
       {
         "file_name": "galgaxin.rom",
-        "archive_zip": "Arcade_Roms"
+        "archive_name": "galgaxin.rom"
       },
       {
         "file_name": "gatsbee.rom",
-        "archive_zip": "Arcade_Roms"
+        "archive_name": "gatsbee.rom"
       },
       {
         "file_name": "nebulbee.rom",
-        "archive_zip": "Arcade_Roms"
+        "archive_name": "nebulbee.rom"
       },
       {
         "file_name": "vgalaga.rom",
-        "archive_zip": "Arcade_Roms"
+        "archive_name": "vgalaga.rom"
       },
       {
         "file_name": "vgalagaf.rom",
-        "archive_zip": "Arcade_Roms"
+        "archive_name": "vgalagaf.rom"
       },
       {
         "file_name": "vgalagam.rom",
-        "archive_zip": "Arcade_Roms"
+        "archive_name": "vgalagam.rom"
       }
     ]
   },
