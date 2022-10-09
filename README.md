@@ -30,15 +30,25 @@ Select the "**Manage Cores**" Option. From here you can pick and choose the Core
 
 ## Settings ##
 Select "**Settings**" Option
-#### GitHub Token
-This is an Optional Setting. If you're running up against the rate limit with the GitHub API, you can provide your Personal Access Token to resolve this issue.
 
 ![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Settings.png)
+
+#### Download Pocket Firware
+This gives you the option to Check/Download Pocket Firmware.
+
+#### Download Roms/Bios
+This gives you the option to Check/Download the required Arcade Roms and Core Bios files.
+
+#### Preserve Core Images
+This guves you the option to keep any custom Core Images that you are using vs. the Stock Core Images.
+
+#### GitHub Token
+This is an Optional Setting. If you're running up against the rate limit with the GitHub API, you can provide your Personal Access Token to resolve this issue.
 
 There will be more **Settings** coming soon.....
 
 ## Update Log ##
-You can view the most recent Update Log via "**File --> Last Update Log**"
+You can view the Update Log via "**File --> Update Log**"
 
 ![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Update_Log.png)
 
