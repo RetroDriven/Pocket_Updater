@@ -4,6 +4,7 @@
     "files": [
       {
         "file_name": "BIOS/gba_bios.bin",
+        "archive_zip": "BIOS"
       }
     ]
   },
@@ -12,9 +13,10 @@
     "files": [
       {
         "file_name": "BIOS/gbc_bios.bin",
+        "archive_zip": "BIOS"
       },
       {
-        "file_name": "dmg_bios.bin",
+        "file_name": "BIOS/dmg_bios.bin",
         "overrideLocation": "Assets/gb/common/",
         "archive_zip": "BIOS"
       }
@@ -31,9 +33,11 @@
       },
       {
         "file_name": "BIOS/000-lo.lo",
+        "archive_zip": "BIOS"
       },
       {
         "file_name": "BIOS/sfix.sfix",
+        "archive_zip": "BIOS"
       }
     ]
   },
