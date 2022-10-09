@@ -3,8 +3,7 @@
     "location": "Assets/gba/common/",
     "files": [
       {
-        "file_name": "gba_bios.bin",
-        "archive_zip": "BIOS"
+        "file_name": "BIOS/gba_bios.bin",
       }
     ]
   },
@@ -12,8 +11,7 @@
     "location": "Assets/gbc/common/",
     "files": [
       {
-        "file_name": "gbc_bios.bin",
-        "archive_zip": "BIOS"
+        "file_name": "BIOS/gbc_bios.bin",
       },
       {
         "file_name": "dmg_bios.bin",
@@ -32,12 +30,10 @@
         "zip_file": "uni-bios.rom"
       },
       {
-        "file_name": "000-lo.lo",
-        "archive_zip": "BIOS"
+        "file_name": "BIOS/000-lo.lo",
       },
       {
-        "file_name": "sfix.sfix",
-        "archive_zip": "BIOS"
+        "file_name": "BIOS/sfix.sfix",
       }
     ]
   },
@@ -49,27 +45,21 @@
       },
       {
         "file_name": "rygar.rom"
-        
       },
       {
         "file_name": "geminij.rom"
-        
       },
       {
         "file_name": "rygar2.rom"
-        
       },
       {
         "file_name": "rygarj.rom"
-        
       },
       {
         "file_name": "silkworm.rom"
-        
       },
       {
         "file_name": "silkwrmj.rom"
-        
       }
     ]
   },
@@ -78,7 +68,6 @@
     "files": [
       {
         "file_name": "llander.rom"
-        
       }
     ]
   },
@@ -87,7 +76,6 @@
     "files": [
       {
         "file_name": "asteroid.rom"
-        
       }
     ]
   },
@@ -96,7 +84,6 @@
     "files": [
       {
         "file_name": "sbrkout.rom"
-        
       }
     ]
   },
@@ -105,7 +92,6 @@
     "files": [
       {
         "file_name": "dominos.rom"
-        
       }
     ]
   },
@@ -114,63 +100,48 @@
     "files": [
       {
         "file_name": "galaga.rom"
-        
       },
       {
         "file_name": "galagads.rom"
-        
       },
       {
         "file_name": "galagaef.rom"
-        
       },
       {
         "file_name": "galagamf.rom"
-        
       },
       {
         "file_name": "galagamw.rom"
-        
       },
       {
         "file_name": "galagao.rom"
-        
       },
       {
         "file_name": "galagosb.rom"
-        
       },
       {
         "file_name": "galagost.rom"
-        
       },
       {
         "file_name": "galaped.rom"
-        
       },
       {
         "file_name": "galgaxin.rom"
-        
       },
       {
         "file_name": "gatsbee.rom"
-        
       },
       {
         "file_name": "nebulbee.rom"
-        
       },
       {
         "file_name": "vgalaga.rom"
-        
       },
       {
         "file_name": "vgalagaf.rom"
-        
       },
       {
         "file_name": "vgalagam.rom"
-        
       }
     ]
   },
@@ -179,43 +150,33 @@
     "files": [
       {
         "file_name": "battles2.rom"
-        
       },
       {
         "file_name": "gaous.rom"
-        
       },
       {
         "file_name": "sxevious.rom"
-        
       },
       {
         "file_name": "xeviblk.rom"
-        
       },
       {
         "file_name": "xevios.rom"
-        
       },
       {
         "file_name": "xevious.rom"
-        
       },
       {
         "file_name": "xevious3.rom"
-        
       },
       {
         "file_name": "xevious4.rom"
-        
       },
       {
         "file_name": "xevious5.rom"
-        
       },
       {
         "file_name": "xevioush.rom"
-        
       }
     ]
   },
@@ -224,23 +185,18 @@
     "files": [
       {
         "file_name": "digdug.rom"
-        
       },
       {
         "file_name": "digduat1.rom"
-        
       },
       {
         "file_name": "digdug1.rom"
-        
       },
       {
         "file_name": "digdugat.rom"
-        
       },
       {
         "file_name": "digsid.rom"
-        
       }
     ]
   },
@@ -249,37 +205,29 @@
     "files": [
       {
         "file_name": "gberet.rom"
-        
       },
       {
         "file_name": "mrgoemon.rom"
-        
       },
       {
         "file_name": "rushatck.rom"
-        
       }
     ]
-
   },
   "boogermann.pooyan": {
     "location": "Assets/pooyan/common/"
     "files": [
       {
         "file_name": "pooyan.rom"
-        
       },
       {
         "file_name": "pooyaiag.rom"
-        
       },
 	  {
         "file_name": "pooyans.rom"
-        
       },
       {
         "file_name": "pootan.rom"
-        
       }
     ]
   }
