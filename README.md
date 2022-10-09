@@ -30,6 +30,9 @@ Select the "**Manage Cores**" Option. From here you can pick and choose the Core
 
 ## Settings ##
 Select "**Settings**" Option
+
+![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Settings.png)
+
 #### Download Pocket Firware
 This gives you the option to Check/Download Pocket Firmware.
 
@@ -41,8 +44,6 @@ This guves you the option to keep any custom Core Images that you are using vs. 
 
 #### GitHub Token
 This is an Optional Setting. If you're running up against the rate limit with the GitHub API, you can provide your Personal Access Token to resolve this issue.
-
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Settings.png)
 
 There will be more **Settings** coming soon.....
 
