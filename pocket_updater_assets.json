@@ -68,7 +68,7 @@
     ]
   },
   "ericlewis.LunarLander": {
-    "location": "Assets/lunarlander/ericlewis.LunarLander/"
+    "location": "Assets/lunarlander/ericlewis.LunarLander/",
     "files": [
       {
         "file_name": "llander.rom"
@@ -76,7 +76,7 @@
     ]
   },
   "ericlewis.Asteroids": {
-    "location": "Assets/asteroids/ericlewis.Asteroids/"
+    "location": "Assets/asteroids/ericlewis.Asteroids/",
     "files": [
       {
         "file_name": "asteroid.rom"
@@ -84,7 +84,7 @@
     ]
   },
   "ericlewis.SuperBreakout": {
-    "location": "Assets/superbreakout/common/"
+    "location": "Assets/superbreakout/common/",
     "files": [
       {
         "file_name": "sbrkout.rom"
@@ -92,7 +92,7 @@
     ]
   },
   "ericlewis.Dominos": {
-    "location": "Assets/dominos/common/"
+    "location": "Assets/dominos/common/",
     "files": [
       {
         "file_name": "dominos.rom"
@@ -100,7 +100,7 @@
     ]
   },
   "boogermann.galaga": {
-    "location": "Assets/Galaga/common/"
+    "location": "Assets/Galaga/common/",
     "files": [
       {
         "file_name": "galaga.rom"
@@ -150,7 +150,7 @@
     ]
   },
   "boogermann.xevious": {
-    "location": "Assets/xevious/common/"
+    "location": "Assets/xevious/common/",
     "files": [
       {
         "file_name": "battles2.rom"
@@ -185,7 +185,7 @@
     ]
   },
   "boogermann.digdug": {
-    "location": "Assets/DigDug/common/"
+    "location": "Assets/DigDug/common/",
     "files": [
       {
         "file_name": "digdug.rom"
@@ -205,7 +205,7 @@
     ]
   },
   "boogermann.gberet": {
-    "location": "Assets/gberet/common/"
+    "location": "Assets/gberet/common/",
     "files": [
       {
         "file_name": "gberet.rom"
@@ -219,7 +219,7 @@
     ]
   },
   "boogermann.pooyan": {
-    "location": "Assets/pooyan/common/"
+    "location": "Assets/pooyan/common/",
     "files": [
       {
         "file_name": "pooyan.rom"
