@@ -48,14 +48,19 @@ This is an Optional Setting. If you're running up against the rate limit with th
 There will be more **Settings** coming soon.....
 
 ## Update Log ##
-You can view the Update Log via "**File --> Update Log**"
 
 ![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Update_Log.png)
+
+You can view the Update Log via "**Log --> View Log File**" or by Pressing "**CTRL+V**"
+
+![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Summary.png)
+
+You can clear the Update Log File via "**Log --> Clear Log File**" or by Pressing "**CTRL+C**"
 
 ## App Updates ##
 This Application will self check for Updates when you run it. When an Update is found you will get a Prompt asking if you'd like to Download the latest Release. 
 
-You can manually check for App Updates as well via "**File --> Check for App Updates**"
+You can manually check for App Updates as well via "**File --> Check for App Updates**" or by Pressing "**CTRL+U**"
 
 ![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Check_Updates.png)
 
