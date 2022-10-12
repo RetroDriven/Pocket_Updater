@@ -11,7 +11,7 @@ namespace Pocket_Updater
           
             //Tooltips
             toolTip1.SetToolTip(pictureBox1, "This is an Optional setting to use a Personal GitHub Token to avoid Rate Limit Issues/Errors.");
-            toolTip2.SetToolTip(pictureBox2, "This will preserve any Custom Core Images that you are using instead of the Stock Images.");
+            toolTip2.SetToolTip(pictureBox2, "This will preserve any Custom Core Images, Core Naming, and Category changes made manually.");
             toolTip3.SetToolTip(pictureBox3, "This will enable/disable Arcade Rom and Core Bios Files.");
             toolTip4.SetToolTip(pictureBox4, "This will enable/disable the downloading of Pocket Firmware Updates.");
             
@@ -28,7 +28,7 @@ namespace Pocket_Updater
             GitHub_Token.Text = _settings.GetConfig().github_token;
 
             //Preserve Core Images
-            if(_settings.GetConfig().preserve_images == true)
+            if(_settings.GetConfig().preserve_platforms_folder == true)
             {
                 Core_Images.Checked = true;
             }
@@ -67,11 +67,11 @@ namespace Pocket_Updater
             //Preserve Core Images
             if(Core_Images.Checked == true)
             {
-                config.preserve_images = true;
+                config.preserve_platforms_folder = true;
             }
             else
             {
-                config.preserve_images = false;
+                config.preserve_platforms_folder = false;
             }
             //Download Pocket Firmware
             if (Download_Firmware.Checked == true)
@@ -102,5 +102,6 @@ namespace Pocket_Updater
         {
 
         }
+
     }
 }

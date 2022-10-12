@@ -95,11 +95,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(59, 97);
+            this.label2.Location = new System.Drawing.Point(82, 97);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(201, 25);
+            this.label2.Size = new System.Drawing.Size(178, 25);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Preserve Core Images:";
+            this.label2.Text = "Preserve Platforms:";
             // 
             // Core_Images
             // 
@@ -124,7 +124,7 @@
             this.toolTip2.InitialDelay = 500;
             this.toolTip2.ReshowDelay = 100;
             this.toolTip2.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip2.ToolTipTitle = "Preserve Core Images";
+            this.toolTip2.ToolTipTitle = "Preserve Assets";
             // 
             // pictureBox2
             // 
