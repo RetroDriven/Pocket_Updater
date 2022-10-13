@@ -24,6 +24,8 @@ namespace Pocket_Updater
 
         private SettingsManager _settings;
 
+        private Dictionary<string, CoreInfo> platforms;
+
         public Organize_Cores()
         {
             InitializeComponent();
@@ -31,7 +33,8 @@ namespace Pocket_Updater
             _settings = new SettingsManager(Current_Dir);
 
             //Get USB Drives
-            PopulateDrives();
+            // PopulateDrives();
+            ReadPlatforms();
             //string Current_Dir = Directory.GetCurrentDirectory();
 
             //Tooltips
@@ -56,32 +59,26 @@ namespace Pocket_Updater
                     _settings.UpdateConfig(config);
                     _settings.SaveSettings();
 
-                    var Json_Dir = Pocket_Drive.Text + "Platforms";
-                    //System.Diagnostics.Debug.WriteLine(Json_Dir);
-                    string[] Json_Files = (string[])CoreInfo.GetJsonFiles(Json_Dir, "*.json", SearchOption.TopDirectoryOnly);
-                    foreach (var file in Json_Files)
+                    var Json_Dir = Path.Combine(Directory.GetCurrentDirectory(), "Platforms");
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
-                        var data = File.ReadAllText(file);
-                        CoreInfo info = JsonSerializer.Deserialize<CoreInfo>(data);
-                        var name = info.platform.name;
-                        var category = info.platform.category;
 
-                        foreach (DataGridViewRow row in dataGridView1.Rows)
-                        {
+                        string Row_Name = row.Cells[0].Value.ToString();
+                        System.Diagnostics.Debug.WriteLine(Row_Name);
+                        string Row_Category = row.Cells[1].Value.ToString();
+                        System.Diagnostics.Debug.WriteLine(Row_Category);
+                        string filename = row.Tag as String;
+                        CoreInfo info = platforms[filename];
 
-                            string Row_Name = row.Cells[0].Value.ToString();
-                            System.Diagnostics.Debug.WriteLine(Row_Name);
-                            string Row_Category = row.Cells[1].Value.ToString();
-                            System.Diagnostics.Debug.WriteLine(Row_Category);
+                        info.platform.name = Row_Name;
+                        info.platform.category = Row_Category;
 
-                            info.platform.name = Row_Name;
-                            info.platform.category = Row_Category;
-
-                            var options = new JsonSerializerOptions { WriteIndented = true };
-                            File.WriteAllText(file, JsonSerializer.Serialize(info, options));
+                        var options = new JsonSerializerOptions { WriteIndented = true };
+                        string fullPath = Path.Combine(Json_Dir, filename);
+                        File.WriteAllText(fullPath, JsonSerializer.Serialize(info, options));
                             
-                        }
                     }
+                    
 
                     MessageBox.Show("Core Organization Saved!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -90,7 +87,31 @@ namespace Pocket_Updater
                     MessageBox.Show(ioex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        } 
+        }
+
+        public void ReadPlatforms()
+        {
+            platforms = new Dictionary<string, CoreInfo>();
+
+            //Get Json Data
+            var Json_Dir = Path.Combine(Directory.GetCurrentDirectory(), "Platforms");
+            //System.Diagnostics.Debug.WriteLine(Json_Dir);
+            string[] Json_Files = (string[])CoreInfo.GetJsonFiles(Json_Dir, "*.json", SearchOption.TopDirectoryOnly);
+            foreach (var file in Json_Files)
+            {
+                var data = File.ReadAllText(file);
+                //System.Diagnostics.Debug.WriteLine(data);
+                CoreInfo info = JsonSerializer.Deserialize<CoreInfo>(data);
+                var filename = Path.GetFileName(file);
+                platforms.Add(filename, info);
+                var name = info.platform.name;
+                var category = info.platform.category;
+                int index = dataGridView1.Rows.Add(name, category);
+                dataGridView1.Rows[index].Tag = filename;
+            }
+            Save.Enabled = true;
+        }
+
         public void PopulateDrives()
         {
             try
