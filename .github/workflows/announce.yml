@@ -16,18 +16,16 @@ jobs:
             curl \
             -H "Content-Type: application/json" \
             -d '{
-                "username": "mattpannella",
-                "avatar_url": "https://avatars.githubusercontent.com/u/4806679",
-                "content": "BIG NEWS",
+                "username": "RetroDriven",
+                "avatar_url": "https://avatars.githubusercontent.com/u/44145655",
+                "content": "",
                 "embeds": [{
                     "color": 4819409,
-                    "title": "You are now the corn man. A new Pocket Updater Utility build has been released.",
+                    "title": "Pocket Updater(Windows GUI) has been Updated!",
                     "fields": [
-                        { "name": "Release Notes", "value": "[Click Me](https://github.com/mattpannella/pocket_core_autoupdate_net/releases/tag/${{ github.event.release.tag_name }})", "inline": true },
                         { "name": "Version", "value": "${{ github.event.release.tag_name }}", "inline": true },
-                        { "name": "Windows Build", "value": "[Download Me](https://github.com/mattpannella/pocket_core_autoupdate_net/releases/download/${{ github.event.release.tag_name }}/pocket_updater_win.zip)" },
-                        { "name": "macOS Build", "value": "[Or Me](https://github.com/mattpannella/pocket_core_autoupdate_net/releases/download/${{ github.event.release.tag_name }}/pocket_updater_mac.zip)" },
-                        { "name": "Linux Build", "value": "[This is a virus](https://github.com/mattpannella/pocket_core_autoupdate_net/releases/download/${{ github.event.release.tag_name }}/pocket_updater_linux.zip)" }
+                        { "name": "Release Notes", "value": "[Read Me](https://github.com/RetroDriven/Pocket_Updater/releases/tag/${{ github.event.release.tag_name }})", "inline": true },
+                        { "name": "Release Download", "value": "[Download Me](https://github.com/RetroDriven/Pocket_Updater/releases/download/${{ github.event.release.tag_name }}/Pocket_Updater.zip)" }
                     ]
                 }]
                 }' \
