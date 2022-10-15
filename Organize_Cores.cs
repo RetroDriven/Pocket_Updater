@@ -12,6 +12,7 @@ using System.Threading;
 //using Analogue;
 using System.Text.Json.Nodes;
 using System.Xml.Linq;
+using System.ComponentModel;
 
 namespace Pocket_Updater
 {
@@ -33,8 +34,8 @@ namespace Pocket_Updater
             _settings = new SettingsManager(Current_Dir);
 
             //Get USB Drives
-            // PopulateDrives();
-            ReadPlatforms();
+            PopulateDrives();
+            //ReadPlatforms();
             //string Current_Dir = Directory.GetCurrentDirectory();
 
             //Tooltips
@@ -59,14 +60,13 @@ namespace Pocket_Updater
                     _settings.UpdateConfig(config);
                     _settings.SaveSettings();
 
-                    var Json_Dir = Path.Combine(Directory.GetCurrentDirectory(), "Platforms");
+                    var Json_Dir = Path.Combine(Pocket_Drive.Text, "Platforms");
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
-
                         string Row_Name = row.Cells[0].Value.ToString();
-                        System.Diagnostics.Debug.WriteLine(Row_Name);
+                        //System.Diagnostics.Debug.WriteLine(Row_Name);
                         string Row_Category = row.Cells[1].Value.ToString();
-                        System.Diagnostics.Debug.WriteLine(Row_Category);
+                        //System.Diagnostics.Debug.WriteLine(Row_Category);
                         string filename = row.Tag as String;
                         CoreInfo info = platforms[filename];
 
@@ -76,11 +76,11 @@ namespace Pocket_Updater
                         var options = new JsonSerializerOptions { WriteIndented = true };
                         string fullPath = Path.Combine(Json_Dir, filename);
                         File.WriteAllText(fullPath, JsonSerializer.Serialize(info, options));
-                            
                     }
                     
 
                     MessageBox.Show("Core Organization Saved!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
                 }
                 catch (IOException ioex)
                 {
@@ -89,12 +89,12 @@ namespace Pocket_Updater
             }
         }
 
-        public void ReadPlatforms()
+        public void ReadPlatforms(string Dir)
         {
             platforms = new Dictionary<string, CoreInfo>();
 
             //Get Json Data
-            var Json_Dir = Path.Combine(Directory.GetCurrentDirectory(), "Platforms");
+            var Json_Dir = Path.Combine(Dir, "Platforms");
             //System.Diagnostics.Debug.WriteLine(Json_Dir);
             string[] Json_Files = (string[])CoreInfo.GetJsonFiles(Json_Dir, "*.json", SearchOption.TopDirectoryOnly);
             foreach (var file in Json_Files)
@@ -108,6 +108,7 @@ namespace Pocket_Updater
                 var category = info.platform.category;
                 int index = dataGridView1.Rows.Add(name, category);
                 dataGridView1.Rows[index].Tag = filename;
+                dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
             }
             Save.Enabled = true;
         }
@@ -136,18 +137,7 @@ namespace Pocket_Updater
                         Pocket_Drive.DropDownStyle = ComboBoxStyle.DropDownList;
 
                         //Get Json Data
-                        var Json_Dir = Pocket_Drive.Text + "Platforms";
-                        //System.Diagnostics.Debug.WriteLine(Json_Dir);
-                        string[] Json_Files = (string[])CoreInfo.GetJsonFiles(Json_Dir, "*.json", SearchOption.TopDirectoryOnly);
-                        foreach (var file in Json_Files)
-                        {
-                            var data = File.ReadAllText(file);
-                            //System.Diagnostics.Debug.WriteLine(data);
-                            CoreInfo info = JsonSerializer.Deserialize<CoreInfo>(data);
-                            var name = info.platform.name;
-                            var category = info.platform.category;
-                            dataGridView1.Rows.Add(name,category);
-                        }
+                        ReadPlatforms(Pocket_Drive.Text);
                     }
                 }
             }
@@ -169,36 +159,16 @@ namespace Pocket_Updater
         {
             dataGridView1.Rows.Clear();
             PopulateDrives();
-
-            if (Pocket_Drive.SelectedIndex == -1 || dataGridView1.Rows.Count > 0)
-            {
-                Save.Enabled = false;
-            }
-            else
-            {
-                Save.Enabled = true;
-            }
         }
 
-        private void Pocket_Drive_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (Pocket_Drive.SelectedIndex == -1 || dataGridView1.Rows.Count > 0)
-            {
-                Save.Enabled = false;
-            }
-            else
-            {
-                Save.Enabled = true;
-            }
-        }
         public bool DataGrid_Checker()
         {
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                var value = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                var value = dataGridView1.Rows[i].Cells[0].Value;
+                var value2 = dataGridView1.Rows[i].Cells[1].Value;
 
-                //if (string.IsNullOrWhiteSpace(value))
-                if (string.IsNullOrEmpty(value))
+                if (value == null || value2 == null)
                 {
                    return false;
                 }

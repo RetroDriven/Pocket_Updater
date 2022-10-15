@@ -46,11 +46,11 @@
             // 
             this.Save.Enabled = false;
             this.Save.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Save.Location = new System.Drawing.Point(489, 13);
+            this.Save.Location = new System.Drawing.Point(489, 21);
             this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(179, 47);
+            this.Save.Size = new System.Drawing.Size(150, 41);
             this.Save.TabIndex = 2;
-            this.Save.Text = "Save Organization";
+            this.Save.Text = "Organize";
             this.Save.UseVisualStyleBackColor = true;
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
@@ -87,7 +87,6 @@
             this.Pocket_Drive.Name = "Pocket_Drive";
             this.Pocket_Drive.Size = new System.Drawing.Size(209, 33);
             this.Pocket_Drive.TabIndex = 14;
-            this.Pocket_Drive.SelectedIndexChanged += new System.EventHandler(this.Pocket_Drive_SelectedIndexChanged);
             // 
             // toolTip1
             // 

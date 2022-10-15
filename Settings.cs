@@ -5,6 +5,7 @@ namespace Pocket_Updater
     public partial class Settings : Form
     {
         SettingsManager _settings;
+
         public Settings()
         {
             InitializeComponent();
@@ -14,21 +15,22 @@ namespace Pocket_Updater
             toolTip2.SetToolTip(pictureBox2, "This will preserve any Custom Core Images, Core Naming, and Category changes made manually.");
             toolTip3.SetToolTip(pictureBox3, "This will enable/disable Arcade Rom and Core Bios Files.");
             toolTip4.SetToolTip(pictureBox4, "This will enable/disable the downloading of Pocket Firmware Updates.");
-            
+            toolTip5.SetToolTip(pictureBox5, "This will enable/disable the downloading of Pre-Release Cores.");
+
             //Read Settings Json file
-            ReadSettings();
+            ReadSettingsAsync();
         }
 
-        public void ReadSettings()
+        public async Task ReadSettingsAsync()
         {
             string Current_Dir = Directory.GetCurrentDirectory();
             _settings = new SettingsManager(Current_Dir);
-            
+
             //GitHub Token
             GitHub_Token.Text = _settings.GetConfig().github_token;
 
             //Preserve Core Images
-            if(_settings.GetConfig().preserve_platforms_folder == true)
+            if (_settings.GetConfig().preserve_platforms_folder == true)
             {
                 Core_Images.Checked = true;
             }
@@ -54,9 +56,22 @@ namespace Pocket_Updater
             {
                 Download_Assets.Checked = false;
             }
+            //Pre-release Cores
+            List<Core> cores = await CoresService.GetCores();
+            foreach (Core core in cores)
+            {
+                CoreSettings c = _settings.GetCoreSettings(core.identifier);
+                if( c.allowPrerelease == true)
+                {
+                    PreRelease.Checked = true;
+                }
+                else
+                {
+                    PreRelease.Checked = false;
+                }
+            }
         }
-
-        private void Buttons_Save_Click(object sender, EventArgs e)
+        private async void Button_Save_Click(object sender, EventArgs e)
         {
             string value = GitHub_Token.Text;
             Config config = _settings.GetConfig();
@@ -91,6 +106,23 @@ namespace Pocket_Updater
             {
                 config.download_assets = false;
             }
+            //Pre-Release Cores
+            List<Core> cores = await CoresService.GetCores();
+            foreach (Core core in cores)
+            {
+                CoreSettings c = _settings.GetCoreSettings(core.identifier);
+
+                if (PreRelease.Checked == true)
+                {
+                    c.allowPrerelease = true;
+                    _settings.UpdateCore(c, core.identifier);
+                }
+                else
+                {
+                    c.allowPrerelease = false;
+                    _settings.UpdateCore(c, core.identifier);
+                }
+            }
 
             //Save Sttings
             _settings.UpdateConfig(config);
@@ -102,6 +134,5 @@ namespace Pocket_Updater
         {
 
         }
-
     }
 }
