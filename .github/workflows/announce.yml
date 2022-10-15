@@ -1,0 +1,32 @@
+name: Announcements
+on:
+  release:
+    types: [published]
+
+jobs:
+  synthesis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v3
+
+      - name: "Discord Notification"
+        run: |
+            curl \
+            -H "Content-Type: application/json" \
+            -d '{
+                "username": "RetroDriven",
+                "avatar_url": "https://avatars.githubusercontent.com/u/44145655",
+                "content": "",
+                "embeds": [{
+                    "color": 4819409,
+                    "title": "Pocket Updater(Windows GUI) has been Updated!",
+                    "fields": [
+                        { "name": "Version", "value": "${{ github.event.release.tag_name }}", "inline": true },
+                        { "name": "Release Notes", "value": "[Read Me](https://github.com/RetroDriven/Pocket_Updater/releases/tag/${{ github.event.release.tag_name }})", "inline": true },
+                        { "name": "Release Download", "value": "[Download Me](https://github.com/RetroDriven/Pocket_Updater/releases/download/${{ github.event.release.tag_name }}/Pocket_Updater.zip)" }
+                    ]
+                }]
+                }' \
+            ${{ secrets.DISCORD_WEBHOOK }}
