@@ -16,17 +16,18 @@ jobs:
             curl \
             -H "Content-Type: application/json" \
             -d '{
-                "username": "RetroDriven",
-                "avatar_url": "https://avatars.githubusercontent.com/u/44145655",
-                "content": "",
+                "username": "mattpannella",
+                "avatar_url": "https://avatars.githubusercontent.com/u/4806679",
+                "content": "BIG NEWS",
                 "embeds": [{
                     "color": 4819409,
-                    "title": "Pocket Updater(Windows GUI) has been Updated!",
+                    "title": "You are now the corn man. A new Pocket Updater Utility build has been released.",
                     "fields": [
+                        { "name": "Release Notes", "value": "[Click Me](https://github.com/mattpannella/pocket_core_autoupdate_net/releases/tag/${{ github.event.release.tag_name }})", "inline": true },
                         { "name": "Version", "value": "${{ github.event.release.tag_name }}", "inline": true },
-                        { "name": "Release Info", "value": "${{ github.event.release.body }}", "inline": true },
-                        { "name": "Release Notes", "value": "[Read Me](https://github.com/RetroDriven/Pocket_Updater/releases/tag/${{ github.event.release.tag_name }})", "inline": true },
-                        { "name": "Release Download", "value": "[Download Me](https://github.com/RetroDriven/Pocket_Updater/releases/download/${{ github.event.release.tag_name }}/Pocket_Updater.zip)" }
+                        { "name": "Windows Build", "value": "[Download Me](https://github.com/mattpannella/pocket_core_autoupdate_net/releases/download/${{ github.event.release.tag_name }}/pocket_updater_win.zip)" },
+                        { "name": "macOS Build", "value": "[Or Me](https://github.com/mattpannella/pocket_core_autoupdate_net/releases/download/${{ github.event.release.tag_name }}/pocket_updater_mac.zip)" },
+                        { "name": "Linux Build", "value": "[This is a virus](https://github.com/mattpannella/pocket_core_autoupdate_net/releases/download/${{ github.event.release.tag_name }}/pocket_updater_linux.zip)" }
                     ]
                 }]
                 }' \
