@@ -12,7 +12,7 @@ namespace Pocket_Updater
 {
     public partial class Form1 : Form
     {
-        private const string VERSION = "1.3.4";
+        private const string VERSION = "1.3.5";
         private const string API_URL = "https://api.github.com/repos/RetroDriven/Pocket_Updater/releases";
         private const string RELEASE_URL = "https://github.com/RetroDriven/Pocket_Updater/releases/latest";
 
@@ -272,6 +272,23 @@ namespace Pocket_Updater
             {
                 MessageBox.Show("No Log File Found!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button_Organize_Click(object sender, EventArgs e)
+        {
+            Organize_Cores form = new Organize_Cores();
+            form.Show();
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Organize_Cores form = new Organize_Cores();
+            form.Show();
         }
     }
 }

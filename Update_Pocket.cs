@@ -82,6 +82,8 @@ namespace Pocket_Updater
             Button_Refresh.Enabled = true;
             comboBox1.Enabled = true;
 
+            Get_Jsons(updatePath);
+
             //Write to a Log File
             Write_Log(LogDir, "Pocket_Updater_Log.txt", Summary.textBox1.Text);
 
@@ -128,7 +130,7 @@ namespace Pocket_Updater
                     _updater.SetGithubApiKey(_settings.GetConfig().github_token);
                     _updater.DownloadFirmware(_settings.GetConfig().download_firmware);
                     _updater.DownloadAssets(_settings.GetConfig().download_assets);
-                    _updater.PreserveImages(_settings.GetConfig().preserve_images);
+                    _updater.PreservePlatformsFolder(_settings.GetConfig().preserve_platforms_folder);
 
                     if (github_token != null)
                     {
@@ -175,7 +177,7 @@ namespace Pocket_Updater
                         _updater.SetGithubApiKey(_settings.GetConfig().github_token);
                         _updater.DownloadFirmware(_settings.GetConfig().download_firmware);
                         _updater.DownloadAssets(_settings.GetConfig().download_assets);
-                        _updater.PreserveImages(_settings.GetConfig().preserve_images);
+                        _updater.PreservePlatformsFolder(_settings.GetConfig().preserve_platforms_folder);
 
                         if (github_token != null)
                         {
@@ -272,12 +274,12 @@ namespace Pocket_Updater
 
             if (File.Exists(Log))
             {
-                File.AppendAllText(Log,DateStamp+Environment.NewLine+LogSource);
+                File.AppendAllText(Log,Environment.NewLine + DateStamp + Environment.NewLine + LogSource);
 
             }
             else
             {
-                File.WriteAllText(Log,DateStamp+Environment.NewLine+LogSource);
+                File.WriteAllText(Log,Environment.NewLine + DateStamp + Environment.NewLine + LogSource);
             }
         }
         public void PopulateDrives()
@@ -372,6 +374,18 @@ namespace Pocket_Updater
             if (Location_Type == "Current Directory")
             {
                 Button_Removable.Enabled = true;
+            }
+        }
+
+        public void Get_Jsons(string Dir)
+        {
+            //Get List Json Files
+            string[] Json_Files = (string[])General.GetFilesByExtension(Dir + "\\Assets", "*.json", SearchOption.AllDirectories);
+
+            foreach (var file in Json_Files)
+            {
+                _ = new FileInfo(file);
+                System.Diagnostics.Debug.WriteLine(file);
             }
         }
     }

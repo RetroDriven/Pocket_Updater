@@ -20,7 +20,7 @@ public class PocketCoreUpdater
                 \k<q>
         [^>]* >");
     private bool _downloadAssets = false;
-    private bool _preserveImages = false;
+    private bool _preservePlatformsFolder = false;
 
     private string _githubApiKey = "";
 
@@ -97,12 +97,12 @@ public class PocketCoreUpdater
     }
 
     /// <summary>
-    /// Turn on/off preserving custom images
+    /// Turn on/off preserving customizations to /Platforms
     /// </summary>
-    /// <param name="set">Set to true to enable preserving custom images</param>
-    public void PreserveImages(bool set)
+    /// <param name="set">Set to true to enable preserving custom /Platforms changes</param>
+    public void PreservePlatformsFolder(bool set)
     {
-        _preserveImages = set;
+        _preservePlatformsFolder = set;
     }
 
     public void DownloadFirmware(bool set)
@@ -127,10 +127,10 @@ public class PocketCoreUpdater
             firmwareDownloaded = await UpdateFirmware();
         }
 
-        if(_preserveImages) {
-            _writeMessage("Backing up images");
-            Util.BackupImagesDirectory(UpdateDirectory);
-            _writeMessage("Finished backing up images");
+        if(_preservePlatformsFolder) {
+            _writeMessage("Backing up platforms folder");
+            Util.BackupPlatformsDirectory(UpdateDirectory);
+            _writeMessage("Finished backing up platforms folder");
             Divide();
             imagesBacked = true;
         }
@@ -237,8 +237,8 @@ public class PocketCoreUpdater
             }
         } 
         if(imagesBacked) {
-            _writeMessage("Restoring images");
-            Util.RestoreImagesDirectory(UpdateDirectory);
+            _writeMessage("Restoring platforms folder");
+            Util.RestorePlatformsDirectory(UpdateDirectory);
             Divide();
         }
         UpdateProcessCompleteEventArgs args = new UpdateProcessCompleteEventArgs();

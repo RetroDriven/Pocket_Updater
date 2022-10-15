@@ -42,6 +42,8 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.Button_Organize = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +55,7 @@
             this.logToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(472, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(562, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -115,7 +117,7 @@
             this.Button_Pocket.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button_Pocket.FlatAppearance.BorderSize = 0;
             this.Button_Pocket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_Pocket.Location = new System.Drawing.Point(111, 58);
+            this.Button_Pocket.Location = new System.Drawing.Point(34, 63);
             this.Button_Pocket.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Button_Pocket.Name = "Button_Pocket";
             this.Button_Pocket.Size = new System.Drawing.Size(70, 59);
@@ -131,7 +133,7 @@
             this.Button_Cores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button_Cores.FlatAppearance.BorderSize = 0;
             this.Button_Cores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_Cores.Location = new System.Drawing.Point(111, 130);
+            this.Button_Cores.Location = new System.Drawing.Point(34, 142);
             this.Button_Cores.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Button_Cores.Name = "Button_Cores";
             this.Button_Cores.Size = new System.Drawing.Size(70, 59);
@@ -147,7 +149,7 @@
             this.Button_Settings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button_Settings.FlatAppearance.BorderSize = 0;
             this.Button_Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_Settings.Location = new System.Drawing.Point(111, 202);
+            this.Button_Settings.Location = new System.Drawing.Point(306, 63);
             this.Button_Settings.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Button_Settings.Name = "Button_Settings";
             this.Button_Settings.Size = new System.Drawing.Size(70, 59);
@@ -162,7 +164,7 @@
             this.linkLabel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(187, 72);
+            this.linkLabel1.Location = new System.Drawing.Point(110, 77);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(149, 28);
             this.linkLabel1.TabIndex = 17;
@@ -177,7 +179,7 @@
             this.linkLabel2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.linkLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkLabel2.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel2.Location = new System.Drawing.Point(187, 144);
+            this.linkLabel2.Location = new System.Drawing.Point(110, 156);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(146, 28);
             this.linkLabel2.TabIndex = 18;
@@ -192,7 +194,7 @@
             this.linkLabel3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.linkLabel3.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkLabel3.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel3.Location = new System.Drawing.Point(187, 216);
+            this.linkLabel3.Location = new System.Drawing.Point(382, 77);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(89, 28);
             this.linkLabel3.TabIndex = 19;
@@ -200,12 +202,45 @@
             this.linkLabel3.Text = "Settings";
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
+            // linkLabel4
+            // 
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linkLabel4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.linkLabel4.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkLabel4.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel4.Location = new System.Drawing.Point(382, 156);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(155, 28);
+            this.linkLabel4.TabIndex = 21;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "Organize Cores";
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
+            // 
+            // Button_Organize
+            // 
+            this.Button_Organize.BackColor = System.Drawing.Color.Transparent;
+            this.Button_Organize.BackgroundImage = global::Pocket_Updater.Properties.Resources.organize;
+            this.Button_Organize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Button_Organize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Button_Organize.FlatAppearance.BorderSize = 0;
+            this.Button_Organize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Organize.Location = new System.Drawing.Point(306, 142);
+            this.Button_Organize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Button_Organize.Name = "Button_Organize";
+            this.Button_Organize.Size = new System.Drawing.Size(70, 59);
+            this.Button_Organize.TabIndex = 20;
+            this.Button_Organize.UseVisualStyleBackColor = false;
+            this.Button_Organize.Click += new System.EventHandler(this.Button_Organize_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(472, 277);
+            this.ClientSize = new System.Drawing.Size(562, 227);
+            this.Controls.Add(this.linkLabel4);
+            this.Controls.Add(this.Button_Organize);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
@@ -221,7 +256,7 @@
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pocket Updater v1.3.4";
+            this.Text = "Pocket Updater v1.3.5";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -244,5 +279,7 @@
         private ToolStripMenuItem logToolStripMenuItem;
         private ToolStripMenuItem viewLogFileToolStripMenuItem;
         private ToolStripMenuItem clearLogFileToolStripMenuItem;
+        private LinkLabel linkLabel4;
+        private Button Button_Organize;
     }
 }
