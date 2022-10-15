@@ -25,7 +25,7 @@ jobs:
                     "fields": [
                         { "name": "Version", "value": "${{ github.event.release.tag_name }}", "inline": true },
                         { "name": "Release Notes", "value": "[Read Me](https://github.com/RetroDriven/Pocket_Updater/releases/tag/${{ github.event.release.tag_name }})", "inline": true },
-                        { "name": "Release Download", "value": "[Download Me](https://github.com/RetroDriven/Pocket_Updater/releases/download/${{ github.event.release.tag_name }}/Pocket_Updater.zip") }
+                        { "name": "Release Download", "value": "[Download Me](https://github.com/RetroDriven/Pocket_Updater/releases/download/${{ github.event.release.tag_name }}/Pocket_Updater.zip)" }
                     ]
                 }]
                 }' \
