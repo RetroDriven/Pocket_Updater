@@ -21,11 +21,11 @@ jobs:
                 "content": "",
                 "embeds": [{
                     "color": 4819409,
-                    "title": "A new version of the Pocket Updater(Windows GUI) has been released!",
+                    "title": "Pocket Updater(Windows GUI) has been Updated!",
                     "fields": [
-                        { "name": "Release Notes", "value": "[Click Me](https://github.com/RetroDriven/Pocket_Updater/releases/tag/${{ github.event.release.tag_name }})", "inline": true },
                         { "name": "Version", "value": "${{ github.event.release.tag_name }}", "inline": true },
-                        { "name": "Release Download", "value": "(https://github.com/RetroDriven/Pocket_Updater/releases/download/${{ github.event.release.tag_name }}/Pocket_Updater.zip)" }
+                        { "name": "Release Notes", "value": "https://github.com/RetroDriven/Pocket_Updater/releases/tag/${{ github.event.release.tag_name }}", "inline": true },
+                        { "name": "Release Download", "value": "https://github.com/RetroDriven/Pocket_Updater/releases/download/${{ github.event.release.tag_name }}/Pocket_Updater.zip" }
                     ]
                 }]
                 }' \
