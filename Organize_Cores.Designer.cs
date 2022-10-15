@@ -87,6 +87,7 @@
             this.Pocket_Drive.Name = "Pocket_Drive";
             this.Pocket_Drive.Size = new System.Drawing.Size(209, 33);
             this.Pocket_Drive.TabIndex = 14;
+            this.Pocket_Drive.SelectedIndexChanged += new System.EventHandler(this.Pocket_Drive_SelectedIndexChanged);
             // 
             // toolTip1
             // 

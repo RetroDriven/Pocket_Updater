@@ -91,26 +91,32 @@ namespace Pocket_Updater
 
         public void ReadPlatforms(string Dir)
         {
-            platforms = new Dictionary<string, CoreInfo>();
+            var Dir_Check = Dir + "Platforms";
 
-            //Get Json Data
-            var Json_Dir = Path.Combine(Dir, "Platforms");
-            //System.Diagnostics.Debug.WriteLine(Json_Dir);
-            string[] Json_Files = (string[])CoreInfo.GetJsonFiles(Json_Dir, "*.json", SearchOption.TopDirectoryOnly);
-            foreach (var file in Json_Files)
+            if (Directory.Exists(Dir_Check))
             {
-                var data = File.ReadAllText(file);
-                //System.Diagnostics.Debug.WriteLine(data);
-                CoreInfo info = JsonSerializer.Deserialize<CoreInfo>(data);
-                var filename = Path.GetFileName(file);
-                platforms.Add(filename, info);
-                var name = info.platform.name;
-                var category = info.platform.category;
-                int index = dataGridView1.Rows.Add(name, category);
-                dataGridView1.Rows[index].Tag = filename;
-                dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
+
+                platforms = new Dictionary<string, CoreInfo>();
+
+                //Get Json Data
+                var Json_Dir = Path.Combine(Dir, "Platforms");
+                //System.Diagnostics.Debug.WriteLine(Json_Dir);
+                string[] Json_Files = (string[])CoreInfo.GetJsonFiles(Json_Dir, "*.json", SearchOption.TopDirectoryOnly);
+                foreach (var file in Json_Files)
+                {
+                    var data = File.ReadAllText(file);
+                    //System.Diagnostics.Debug.WriteLine(data);
+                    CoreInfo info = JsonSerializer.Deserialize<CoreInfo>(data);
+                    var filename = Path.GetFileName(file);
+                    platforms.Add(filename, info);
+                    var name = info.platform.name;
+                    var category = info.platform.category;
+                    int index = dataGridView1.Rows.Add(name, category);
+                    dataGridView1.Rows[index].Tag = filename;
+                    dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
+                }
+                Save.Enabled = true;
             }
-            Save.Enabled = true;
         }
 
         public void PopulateDrives()
@@ -137,7 +143,7 @@ namespace Pocket_Updater
                         Pocket_Drive.DropDownStyle = ComboBoxStyle.DropDownList;
 
                         //Get Json Data
-                        ReadPlatforms(Pocket_Drive.Text);
+                        //ReadPlatforms(Pocket_Drive.Text);
                     }
                 }
             }
@@ -174,6 +180,13 @@ namespace Pocket_Updater
                 }
             }
             return true;
+        }
+
+        private void Pocket_Drive_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Get Json Data
+            dataGridView1.Rows.Clear();
+            ReadPlatforms(Pocket_Drive.Text);
         }
     }
 }
