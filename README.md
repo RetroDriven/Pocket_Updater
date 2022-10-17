@@ -28,6 +28,11 @@ Select the "**Manage Cores**" Option. From here you can pick and choose the Core
 
 ![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Manage_Cores.png)
 
+## Organize Cores ##
+Select the "**Organize Cores**" Option. From here you can customize the Core Names and Categories to your liking.
+
+![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Manage_Cores.png)
+
 ## Settings ##
 Select "**Settings**" Option
 
@@ -39,13 +44,14 @@ This gives you the option to Check/Download Pocket Firmware.
 #### Download Roms/Bios
 This gives you the option to Check/Download the required Arcade Roms and Core Bios files.
 
-#### Preserve Core Images
-This guves you the option to keep any custom Core Images that you are using vs. the Stock Core Images.
+#### Preserve Platforms
+This gives you the option to keep any custom Core Images that you are using vs. the Stock Core Images. It will also preserve the entire Platforms folder which includes Core Names and Categories.
+
+#### Download Pre-Release Cores
+This gives you the option to Download any pre-release Cores. These Cores are typically beta/testing and likely to have some bugs.
 
 #### GitHub Token
 This is an Optional Setting. If you're running up against the rate limit with the GitHub API, you can provide your Personal Access Token to resolve this issue.
-
-There will be more **Settings** coming soon.....
 
 ## Update Log ##
 
