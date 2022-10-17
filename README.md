@@ -31,7 +31,7 @@ Select the "**Manage Cores**" Option. From here you can pick and choose the Core
 ## Organize Cores ##
 Select the "**Organize Cores**" Option. From here you can customize the Core Names and Categories to your liking.
 
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Manage_Cores.png)
+![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Organize_Cores.png)
 
 ## Settings ##
 Select "**Settings**" Option
