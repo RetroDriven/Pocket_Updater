@@ -20,7 +20,7 @@ jobs:
                 "avatar_url": "https://avatars.githubusercontent.com/u/44145655",
                 "content": "",
                 "embeds": [{
-                    "color": 4819409,
+                    "color": 16711680,
                     "title": "Pocket Updater(Windows GUI) has been Updated!",
                     "fields": [
                         { "name": "Version", "value": "${{ github.event.release.tag_name }}", "inline": true },
