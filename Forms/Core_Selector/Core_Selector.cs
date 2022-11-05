@@ -53,18 +53,14 @@ namespace Pocket_Updater
                     if (core.platform == "NES")
                     {
                         string NES = core.identifier.Replace(".NES", "");
-                        coresList.Items.Add(core + " (" + NES + ")", true);
+                        core.platform = core.platform + " (" + NES + ")";
                     }
-                    else
-                    {
-                        coresList.Items.Add(core, !_settingsManager.GetCoreSettings(core.identifier).skip);
-                    }
+                    coresList.Items.Add(core, !_settingsManager.GetCoreSettings(core.identifier).skip);
                 }
                 else
                 {
                     coresList.Items.Add(core, true);
                 }
-
             }
         }
 

@@ -45,6 +45,7 @@
             this.coresList.MultiColumn = true;
             this.coresList.Name = "coresList";
             this.coresList.Size = new System.Drawing.Size(667, 564);
+            this.coresList.Sorted = true;
             this.coresList.TabIndex = 0;
             this.coresList.TabStop = false;
             // 
