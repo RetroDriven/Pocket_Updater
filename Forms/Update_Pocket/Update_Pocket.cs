@@ -251,7 +251,7 @@ namespace Pocket_Updater
 
                 foreach (string asset in e.InstalledAssets)
                 {
-                    Summary.textBox1.AppendText(asset);
+                    Summary.textBox1.AppendText(Path.GetFileName(asset));
                     Summary.textBox1.AppendText(", ");
                 }
                 Summary.textBox1.AppendText(Environment.NewLine);

@@ -2,6 +2,10 @@
 using pannella.analoguepocket;
 using System.Text.Json;
 using System.Windows.Forms;
+using System.Linq;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Pocket_Updater
 {
@@ -45,13 +49,18 @@ namespace Pocket_Updater
             {
                 if (_settingsManager.GetCoreSettings(core.identifier) != null)
                 {
+                    //Duplicate Core Name Handling
+                    if (core.platform == "NES")
+                    {
+                        string NES = core.identifier.Replace(".NES", "");
+                        core.platform = core.platform + " (" + NES + ")";
+                    }
                     coresList.Items.Add(core, !_settingsManager.GetCoreSettings(core.identifier).skip);
                 }
                 else
                 {
                     coresList.Items.Add(core, true);
                 }
-
             }
         }
 
