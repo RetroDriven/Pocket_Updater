@@ -22,7 +22,7 @@ namespace RetroDriven
 
         public static IEnumerable<string> GetFilesByExtension(string directoryPath, string extension, SearchOption searchOption)
         {
-            return Directory.GetFiles(directoryPath, extension, SearchOption.AllDirectories);
+            return Directory.GetFiles(directoryPath, "*.sav", SearchOption.AllDirectories);
         }
 
         public static void CreateZipFile(string fileName, IEnumerable<string> files)

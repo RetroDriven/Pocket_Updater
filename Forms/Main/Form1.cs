@@ -1,5 +1,6 @@
 using Analogue;
 using pannella.analoguepocket;
+using Pocket_Updater.Forms.Saves;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Http.Headers;
@@ -12,7 +13,7 @@ namespace Pocket_Updater
 {
     public partial class Form1 : Form
     { 
-        private const string VERSION = "1.3.7";
+        private const string VERSION = "1.3.8";
         private const string API_URL = "https://api.github.com/repos/RetroDriven/Pocket_Updater/releases";
         private const string RELEASE_URL = "https://github.com/RetroDriven/Pocket_Updater/releases/latest";
 
@@ -288,6 +289,18 @@ namespace Pocket_Updater
         private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Organize_Cores form = new Organize_Cores();
+            form.Show();
+        }
+
+        private void Button_Sync_Click(object sender, EventArgs e)
+        {
+            Saves form = new Saves();
+            form.Show();
+        }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Saves form = new Saves();
             form.Show();
         }
     }

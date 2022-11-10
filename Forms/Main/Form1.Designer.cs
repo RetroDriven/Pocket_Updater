@@ -44,6 +44,8 @@
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.Button_Organize = new System.Windows.Forms.Button();
+            this.Button_Sync = new System.Windows.Forms.Button();
+            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +57,7 @@
             this.logToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(562, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(557, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -149,7 +151,7 @@
             this.Button_Settings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button_Settings.FlatAppearance.BorderSize = 0;
             this.Button_Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_Settings.Location = new System.Drawing.Point(306, 63);
+            this.Button_Settings.Location = new System.Drawing.Point(34, 221);
             this.Button_Settings.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Button_Settings.Name = "Button_Settings";
             this.Button_Settings.Size = new System.Drawing.Size(70, 59);
@@ -194,7 +196,7 @@
             this.linkLabel3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.linkLabel3.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkLabel3.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel3.Location = new System.Drawing.Point(382, 77);
+            this.linkLabel3.Location = new System.Drawing.Point(110, 235);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(89, 28);
             this.linkLabel3.TabIndex = 19;
@@ -233,12 +235,45 @@
             this.Button_Organize.UseVisualStyleBackColor = false;
             this.Button_Organize.Click += new System.EventHandler(this.Button_Organize_Click);
             // 
+            // Button_Sync
+            // 
+            this.Button_Sync.BackColor = System.Drawing.Color.Transparent;
+            this.Button_Sync.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button_Sync.BackgroundImage")));
+            this.Button_Sync.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Button_Sync.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Button_Sync.FlatAppearance.BorderSize = 0;
+            this.Button_Sync.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Sync.Location = new System.Drawing.Point(306, 63);
+            this.Button_Sync.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Button_Sync.Name = "Button_Sync";
+            this.Button_Sync.Size = new System.Drawing.Size(70, 59);
+            this.Button_Sync.TabIndex = 22;
+            this.Button_Sync.UseVisualStyleBackColor = false;
+            this.Button_Sync.Click += new System.EventHandler(this.Button_Sync_Click);
+            // 
+            // linkLabel5
+            // 
+            this.linkLabel5.AutoSize = true;
+            this.linkLabel5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linkLabel5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.linkLabel5.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkLabel5.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel5.Location = new System.Drawing.Point(382, 77);
+            this.linkLabel5.Name = "linkLabel5";
+            this.linkLabel5.Size = new System.Drawing.Size(145, 28);
+            this.linkLabel5.TabIndex = 23;
+            this.linkLabel5.TabStop = true;
+            this.linkLabel5.Text = "Save File Sync";
+            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(562, 227);
+            this.ClientSize = new System.Drawing.Size(557, 301);
+            this.Controls.Add(this.linkLabel5);
+            this.Controls.Add(this.Button_Sync);
             this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.Button_Organize);
             this.Controls.Add(this.linkLabel3);
@@ -256,7 +291,7 @@
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pocket Updater v1.3.7";
+            this.Text = "Pocket Updater v1.3.8";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -281,5 +316,7 @@
         private ToolStripMenuItem clearLogFileToolStripMenuItem;
         private LinkLabel linkLabel4;
         private Button Button_Organize;
+        private Button Button_Sync;
+        private LinkLabel linkLabel5;
     }
 }
