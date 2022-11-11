@@ -6,6 +6,8 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.ComponentModel;
+using System.Xml.Linq;
 
 namespace Pocket_Updater
 {
@@ -49,12 +51,31 @@ namespace Pocket_Updater
             {
                 if (_settingsManager.GetCoreSettings(core.identifier) != null)
                 {
+                    string Identifier = core.identifier.Remove(core.identifier.LastIndexOf(".") + 1);
+                    string Core_Author = Identifier.Substring(0, (Identifier.Length - 1));
+
+                    int index = dataGridView1.Rows.Add(core.platform, Core_Author);
+                    dataGridView1.Rows[index].Tag = core.platform;
+                    dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
+
+                    /*
                     //Duplicate Core Name Handling
                     if (core.platform == "NES")
                     {
                         string NES = core.identifier.Replace(".NES", "");
                         core.platform = core.platform + " (" + NES + ")";
                     }
+                    if (core.platform == "Genesis")
+                    {
+                        string Genesis = core.identifier.Replace(".Genesis", "");
+                        core.platform = core.platform + " (" + Genesis + ")";
+                    }
+                    if (core.platform == "Supervision")
+                    {
+                        string Supervision = core.identifier.Replace(".Supervision", "");
+                        core.platform = core.platform + " (" + Supervision + ")";
+                    }
+                    */
                     coresList.Items.Add(core, !_settingsManager.GetCoreSettings(core.identifier).skip);
                 }
                 else
@@ -86,6 +107,7 @@ namespace Pocket_Updater
 
         private void _readChecklist()
         {
+
             for (int i = 0; i <= (coresList.Items.Count - 1); i++)
             {
                 Core core = (Core)coresList.Items[i];
@@ -162,6 +184,15 @@ namespace Pocket_Updater
                 
                 checkBox_All.Checked = false;
 
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[2];
+                chk.Value = !(chk.Value == null ? false : (bool)chk.Value); //because chk.Value is initialy null
             }
         }
     }

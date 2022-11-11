@@ -18,7 +18,7 @@ namespace Pocket_Updater
         //Initialize Update Status Form Popup
         Updater_Status Status = new Updater_Status();
 
-        //Initialize Update Summery Form Popup
+        //Initialize Update Summary Form Popup
         Updater_Summary Summary = new Updater_Summary();
 
         public Update_Pocket()
@@ -130,6 +130,7 @@ namespace Pocket_Updater
                     _updater.SetGithubApiKey(_settings.GetConfig().github_token);
                     _updater.DownloadFirmware(_settings.GetConfig().download_firmware);
                     _updater.DownloadAssets(_settings.GetConfig().download_assets);
+                    _updater.DeleteSkippedCores(_settings.GetConfig().delete_skipped_cores);
                     _updater.PreservePlatformsFolder(_settings.GetConfig().preserve_platforms_folder);
 
                     if (github_token != null)
@@ -177,6 +178,7 @@ namespace Pocket_Updater
                         _updater.SetGithubApiKey(_settings.GetConfig().github_token);
                         _updater.DownloadFirmware(_settings.GetConfig().download_firmware);
                         _updater.DownloadAssets(_settings.GetConfig().download_assets);
+                        _updater.DeleteSkippedCores(_settings.GetConfig().delete_skipped_cores);
                         _updater.PreservePlatformsFolder(_settings.GetConfig().preserve_platforms_folder);
 
                         if (github_token != null)
@@ -240,6 +242,8 @@ namespace Pocket_Updater
                 }
                 Summary.textBox1.AppendText(Environment.NewLine);
             }
+
+
 
             //Assets Downloaded
             if (e.InstalledAssets.Count > 0)

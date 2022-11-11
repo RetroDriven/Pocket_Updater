@@ -16,6 +16,7 @@ namespace Pocket_Updater
             toolTip3.SetToolTip(pictureBox3, "This will enable/disable Arcade Rom and Core Bios Files.");
             toolTip4.SetToolTip(pictureBox4, "This will enable/disable the downloading of Pocket Firmware Updates.");
             toolTip5.SetToolTip(pictureBox5, "This will enable/disable the downloading of Pre-Release Cores.");
+            toolTip6.SetToolTip(pictureBox6, "This will Delete Cores from your Pocket's SD Card that you have unchecked for Updating/Downloading.");
 
             //Read Settings Json file
             ReadSettingsAsync();
@@ -55,6 +56,15 @@ namespace Pocket_Updater
             else
             {
                 Download_Assets.Checked = false;
+            }
+            //Delete Skipped Cores
+            if (_settings.GetConfig().delete_skipped_cores == true)
+            {
+                Skipped.Checked = true;
+            }
+            else
+            {
+                Skipped.Checked = false;
             }
             //Pre-release Cores
             List<Core> cores = await CoresService.GetCores();
@@ -105,6 +115,15 @@ namespace Pocket_Updater
             else
             {
                 config.download_assets = false;
+            }
+            //Delete Skipped Cores
+            if (Skipped.Checked == true)
+            {
+                config.delete_skipped_cores = true;
+            }
+            else
+            {
+                config.delete_skipped_cores = false;
             }
             //Pre-Release Cores
             List<Core> cores = await CoresService.GetCores();
