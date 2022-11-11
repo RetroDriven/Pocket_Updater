@@ -53,8 +53,11 @@ namespace Pocket_Updater
                 {
                     string Identifier = core.identifier.Remove(core.identifier.LastIndexOf(".") + 1);
                     string Core_Author = Identifier.Substring(0, (Identifier.Length - 1));
-
-                    int index = dataGridView1.Rows.Add(core.platform, Core_Author);
+ 
+                    //array containing the data for the 3 columns
+                    object[] rows = {core.platform, Core_Author, !_settingsManager.GetCoreSettings(core.identifier).skip };
+                    int index = dataGridView1.Rows.Add(rows);
+                    
                     dataGridView1.Rows[index].Tag = core.platform;
                     dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
 
