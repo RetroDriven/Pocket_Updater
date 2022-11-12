@@ -1,13 +1,7 @@
 ﻿using System.Net;
 using pannella.analoguepocket;
 using System.Text.Json;
-using System.Windows.Forms;
-using System.Linq;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.ComponentModel;
-using System.Xml.Linq;
 
 namespace Pocket_Updater
 {
@@ -17,22 +11,16 @@ namespace Pocket_Updater
 
         private SettingsManager _settingsManager;
         private WebClient WebClient;
-        // private PocketCoreUpdater _updater;
         public string Current_Dir { get; set; }
         public string updateFile { get; set; }
-<<<<<<< Updated upstream
 
-=======
-        
         CheckBox headerCheckBox = new CheckBox();
-        
->>>>>>> Stashed changes
         public CoreSelector(List<Core> cores)
         {
             InitializeComponent();
+            Select_All();
+
             dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            //string pathToUpdate = Directory.GetCurrentDirectory();
-            //_updater = new PocketCoreUpdater(pathToUpdate);
 
             bool result = CheckForInternetConnection();
             _cores = cores;
@@ -48,7 +36,6 @@ namespace Pocket_Updater
             else
             {
                 Button_Save.Enabled = true;
-                //Download_Json();
             }
 
             _settingsManager = new SettingsManager(Directory.GetCurrentDirectory(), _cores);
@@ -61,49 +48,14 @@ namespace Pocket_Updater
                     string Core_Author = Identifier.Substring(0, (Identifier.Length - 1));
  
                     //array containing the data for the 3 columns
-                    object[] rows = {core.platform, Core_Author, !_settingsManager.GetCoreSettings(core.identifier).skip };
+                    object[] rows = { !_settingsManager.GetCoreSettings(core.identifier).skip, core.platform, Core_Author};
                     int index = dataGridView1.Rows.Add(rows);
                     
                     dataGridView1.Rows[index].Tag = core.identifier;
-                    dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
-
-                    /*
-                    //Duplicate Core Name Handling
-                    if (core.platform == "NES")
-                    {
-                        string NES = core.identifier.Replace(".NES", "");
-                        core.platform = core.platform + " (" + NES + ")";
-                    }
-                    if (core.platform == "Genesis")
-                    {
-                        string Genesis = core.identifier.Replace(".Genesis", "");
-                        core.platform = core.platform + " (" + Genesis + ")";
-                    }
-                    if (core.platform == "Supervision")
-                    {
-                        string Supervision = core.identifier.Replace(".Supervision", "");
-                        core.platform = core.platform + " (" + Supervision + ")";
-                    }
-                    */
-                    coresList.Items.Add(core, !_settingsManager.GetCoreSettings(core.identifier).skip);
-                }
-                else
-                {
-                    coresList.Items.Add(core, true);
+                    dataGridView1.Sort(dataGridView1.Columns[1], ListSortDirection.Ascending);
                 }
             }
         }
-
-        private void CoreSelector_Load(object sender, EventArgs e)
-        {
-            /*
-            if (coresList.CheckedIndices.Count > 1)
-            {
-                checkBox_All.Checked = false;
-            }
-            */
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Button_Save.Enabled = false;
@@ -118,10 +70,8 @@ namespace Pocket_Updater
         {
             for (int i = 0; i <= (dataGridView1.Rows.Count - 1); i++)
             {
-                //Core core = (Core)coresList.Items[i];
                 string id = (string)dataGridView1.Rows[i].Tag;
-                //if (!coresList.GetItemChecked(i))
-                DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)dataGridView1.Rows[i].Cells[2];
+                DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)dataGridView1.Rows[i].Cells[0];
                 if ((bool)cell.Value == false)
                 {
                     _settingsManager.DisableCore(id);
@@ -159,7 +109,6 @@ namespace Pocket_Updater
                 WebClient.DownloadFile(Json_URL, updateFile);
                 string json = File.ReadAllText(updateFile);
                 _cores = JsonSerializer.Deserialize<List<Core>>(json);
-                //_updater.CoresFile = updateFile; //here we set the location of the json file, for the updater to use
                 WebClient.Dispose();
             }
             catch (Exception ex)
@@ -167,70 +116,27 @@ namespace Pocket_Updater
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void checkBox_All_CheckedChanged(object sender, EventArgs e)
-        {
-                if (checkBox_All.Checked)
-            {
-                int length = coresList.Items.Count;
-
-<<<<<<< Updated upstream
-                for (int le = 0; le < length; le++)
-=======
         private void Select_All()
         {
             Point headerCellLocation = this.dataGridView1.GetCellDisplayRectangle(0, -1, true).Location;
 
-            //Place the Header CheckBox in the Location of the Header Cell
-            //headerCheckBox.Checked = true;
-            headerCheckBox.Location = new Point(headerCellLocation.X + 67, headerCellLocation.Y + 9);
+            headerCheckBox.Location = new Point(headerCellLocation.X + 77, headerCellLocation.Y + 9);
             headerCheckBox.BackColor = Color.White;
             headerCheckBox.Size = new Size(20, 20);
             headerCheckBox.Click += new EventHandler(HeaderCheckBox_Clicked);
             dataGridView1.Controls.Add(headerCheckBox);
-            //Assign Click event to the DataGridView Cell.
-            dataGridView1.CellContentClick += new DataGridViewCellEventHandler(DataGridView_CellClick);
         }
-        private void DataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void HeaderCheckBox_Clicked(object sender, EventArgs e)
         {
-            //Check to ensure that the row CheckBox is clicked.
-            if (e.RowIndex >= 0 && e.ColumnIndex == 0)
+            //Necessary to end the edit mode of the Cell.
+            dataGridView1.EndEdit();
+
+            //Loop and check and uncheck all row CheckBoxes based on Header Cell CheckBox.
+            foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                //Loop to verify whether all row CheckBoxes are checked or not.
-                bool isChecked = true;
-                foreach (DataGridViewRow row in dataGridView1.Rows)
->>>>>>> Stashed changes
-                {
-                    coresList.SetSelected(le, true);
-                    coresList.SetItemChecked(le, true);
-                }
-                checkBox_All.Checked = true;
-
+                DataGridViewCheckBoxCell checkBox = (row.Cells[0] as DataGridViewCheckBoxCell);
+                checkBox.Value = headerCheckBox.Checked;
             }
-            else
-            {
-              
-                int length = coresList.Items.Count;
-
-                for (int le = 0; le < length; le++)
-                {
-                    coresList.SetSelected(le, false);
-                    coresList.SetItemChecked(le, false);
-                }
-                
-                checkBox_All.Checked = false;
-
-            }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //_cores
-           // foreach (DataGridViewRow row in dataGridView1.Rows)
-            //{
-             //   DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[2];
-               // chk.Value = !(chk.Value == null ? false : (bool)chk.Value); //because chk.Value is initialy null
-           // }
         }
     }
 }
