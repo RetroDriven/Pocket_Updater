@@ -33,6 +33,14 @@ namespace Pocket_Updater
             string Current_Dir = Directory.GetCurrentDirectory();
             _settings = new SettingsManager(Current_Dir);
 
+            //Grid Formatting
+            dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            {
+                //col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                col.HeaderCell.Style.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            }
+
             //Get USB Drives
             PopulateDrives();
             //ReadPlatforms();
