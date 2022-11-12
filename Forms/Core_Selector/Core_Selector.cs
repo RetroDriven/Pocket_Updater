@@ -24,7 +24,7 @@ namespace Pocket_Updater
         public CoreSelector(List<Core> cores)
         {
             InitializeComponent();
-
+            dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             //string pathToUpdate = Directory.GetCurrentDirectory();
             //_updater = new PocketCoreUpdater(pathToUpdate);
 
@@ -58,7 +58,7 @@ namespace Pocket_Updater
                     object[] rows = {core.platform, Core_Author, !_settingsManager.GetCoreSettings(core.identifier).skip };
                     int index = dataGridView1.Rows.Add(rows);
                     
-                    dataGridView1.Rows[index].Tag = core.platform;
+                    dataGridView1.Rows[index].Tag = core.identifier;
                     dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
 
                     /*
@@ -110,17 +110,19 @@ namespace Pocket_Updater
 
         private void _readChecklist()
         {
-
-            for (int i = 0; i <= (coresList.Items.Count - 1); i++)
+            for (int i = 0; i <= (dataGridView1.Rows.Count - 1); i++)
             {
-                Core core = (Core)coresList.Items[i];
-                if (!coresList.GetItemChecked(i))
+                //Core core = (Core)coresList.Items[i];
+                string id = (string)dataGridView1.Rows[i].Tag;
+                //if (!coresList.GetItemChecked(i))
+                DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)dataGridView1.Rows[i].Cells[2];
+                if ((bool)cell.Value == false)
                 {
-                    _settingsManager.DisableCore(core.identifier);
+                    _settingsManager.DisableCore(id);
                 }
                 else
                 {
-                    _settingsManager.EnableCore(core.identifier);
+                    _settingsManager.EnableCore(id);
                 }
             }
         }
@@ -192,11 +194,12 @@ namespace Pocket_Updater
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[2];
-                chk.Value = !(chk.Value == null ? false : (bool)chk.Value); //because chk.Value is initialy null
-            }
+            //_cores
+           // foreach (DataGridViewRow row in dataGridView1.Rows)
+            //{
+             //   DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[2];
+               // chk.Value = !(chk.Value == null ? false : (bool)chk.Value); //because chk.Value is initialy null
+           // }
         }
     }
 }
