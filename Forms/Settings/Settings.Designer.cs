@@ -51,18 +51,23 @@
             this.PreRelease = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.Skipped = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.toolTip6 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(126, 181);
+            this.label1.Location = new System.Drawing.Point(143, 198);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(134, 25);
             this.label1.TabIndex = 0;
@@ -71,7 +76,7 @@
             // Button_Save
             // 
             this.Button_Save.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Button_Save.Location = new System.Drawing.Point(280, 271);
+            this.Button_Save.Location = new System.Drawing.Point(280, 281);
             this.Button_Save.Name = "Button_Save";
             this.Button_Save.Size = new System.Drawing.Size(112, 34);
             this.Button_Save.TabIndex = 4;
@@ -81,7 +86,7 @@
             // 
             // GitHub_Token
             // 
-            this.GitHub_Token.Location = new System.Drawing.Point(126, 209);
+            this.GitHub_Token.Location = new System.Drawing.Point(143, 226);
             this.GitHub_Token.Name = "GitHub_Token";
             this.GitHub_Token.Size = new System.Drawing.Size(395, 31);
             this.GitHub_Token.TabIndex = 3;
@@ -89,7 +94,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Pocket_Updater.Properties.Resources.question;
-            this.pictureBox1.Location = new System.Drawing.Point(527, 209);
+            this.pictureBox1.Location = new System.Drawing.Point(544, 226);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(38, 31);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -100,7 +105,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(99, 97);
+            this.label2.Location = new System.Drawing.Point(99, 93);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(178, 25);
             this.label2.TabIndex = 4;
@@ -109,7 +114,7 @@
             // Core_Images
             // 
             this.Core_Images.AutoSize = true;
-            this.Core_Images.Location = new System.Drawing.Point(283, 101);
+            this.Core_Images.Location = new System.Drawing.Point(280, 96);
             this.Core_Images.Name = "Core_Images";
             this.Core_Images.Size = new System.Drawing.Size(22, 21);
             this.Core_Images.TabIndex = 2;
@@ -134,7 +139,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Pocket_Updater.Properties.Resources.question;
-            this.pictureBox2.Location = new System.Drawing.Point(311, 97);
+            this.pictureBox2.Location = new System.Drawing.Point(308, 93);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(38, 31);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -144,7 +149,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Pocket_Updater.Properties.Resources.question;
-            this.pictureBox3.Location = new System.Drawing.Point(311, 60);
+            this.pictureBox3.Location = new System.Drawing.Point(308, 56);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(38, 31);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -154,7 +159,7 @@
             // Download_Assets
             // 
             this.Download_Assets.AutoSize = true;
-            this.Download_Assets.Location = new System.Drawing.Point(283, 64);
+            this.Download_Assets.Location = new System.Drawing.Point(280, 62);
             this.Download_Assets.Name = "Download_Assets";
             this.Download_Assets.Size = new System.Drawing.Size(22, 21);
             this.Download_Assets.TabIndex = 1;
@@ -164,7 +169,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(78, 60);
+            this.label3.Location = new System.Drawing.Point(75, 58);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(199, 25);
             this.label3.TabIndex = 7;
@@ -173,7 +178,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Pocket_Updater.Properties.Resources.question;
-            this.pictureBox4.Location = new System.Drawing.Point(311, 23);
+            this.pictureBox4.Location = new System.Drawing.Point(308, 19);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(38, 31);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -183,7 +188,7 @@
             // Download_Firmware
             // 
             this.Download_Firmware.AutoSize = true;
-            this.Download_Firmware.Location = new System.Drawing.Point(283, 27);
+            this.Download_Firmware.Location = new System.Drawing.Point(280, 26);
             this.Download_Firmware.Name = "Download_Firmware";
             this.Download_Firmware.Size = new System.Drawing.Size(22, 21);
             this.Download_Firmware.TabIndex = 0;
@@ -218,7 +223,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Pocket_Updater.Properties.Resources.question;
-            this.pictureBox5.Location = new System.Drawing.Point(311, 137);
+            this.pictureBox5.Location = new System.Drawing.Point(308, 128);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(38, 31);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -228,7 +233,7 @@
             // PreRelease
             // 
             this.PreRelease.AutoSize = true;
-            this.PreRelease.Location = new System.Drawing.Point(283, 141);
+            this.PreRelease.Location = new System.Drawing.Point(280, 131);
             this.PreRelease.Name = "PreRelease";
             this.PreRelease.Size = new System.Drawing.Size(22, 21);
             this.PreRelease.TabIndex = 13;
@@ -238,7 +243,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(17, 137);
+            this.label5.Location = new System.Drawing.Point(17, 128);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(260, 25);
             this.label5.TabIndex = 14;
@@ -252,19 +257,54 @@
             this.toolTip5.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip5.ToolTipTitle = "Pre-Release Cores";
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::Pocket_Updater.Properties.Resources.question;
+            this.pictureBox6.Location = new System.Drawing.Point(308, 165);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(38, 31);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 18;
+            this.pictureBox6.TabStop = false;
+            // 
+            // Skipped
+            // 
+            this.Skipped.AutoSize = true;
+            this.Skipped.Checked = true;
+            this.Skipped.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Skipped.Location = new System.Drawing.Point(280, 167);
+            this.Skipped.Name = "Skipped";
+            this.Skipped.Size = new System.Drawing.Size(22, 21);
+            this.Skipped.TabIndex = 16;
+            this.Skipped.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(80, 163);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(197, 25);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Delete Skipped Cores:";
+            // 
+            // toolTip6
+            // 
+            this.toolTip6.AutoPopDelay = 50000;
+            this.toolTip6.InitialDelay = 500;
+            this.toolTip6.ReshowDelay = 100;
+            this.toolTip6.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTip6.ToolTipTitle = "GitHub Token";
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-<<<<<<< Updated upstream
-            this.ClientSize = new System.Drawing.Size(662, 327);
-=======
-            this.ClientSize = new System.Drawing.Size(607, 360);
+            this.ClientSize = new System.Drawing.Size(662, 334);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.Skipped);
             this.Controls.Add(this.label6);
->>>>>>> Stashed changes
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.PreRelease);
             this.Controls.Add(this.label5);
@@ -292,6 +332,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,5 +362,9 @@
         private CheckBox PreRelease;
         private Label label5;
         private ToolTip toolTip5;
+        private PictureBox pictureBox6;
+        private CheckBox Skipped;
+        private Label label6;
+        private ToolTip toolTip6;
     }
 }

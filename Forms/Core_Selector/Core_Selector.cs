@@ -6,6 +6,8 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.ComponentModel;
+using System.Xml.Linq;
 
 namespace Pocket_Updater
 {
@@ -28,7 +30,7 @@ namespace Pocket_Updater
         public CoreSelector(List<Core> cores)
         {
             InitializeComponent();
-
+            dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             //string pathToUpdate = Directory.GetCurrentDirectory();
             //_updater = new PocketCoreUpdater(pathToUpdate);
 
@@ -55,12 +57,34 @@ namespace Pocket_Updater
             {
                 if (_settingsManager.GetCoreSettings(core.identifier) != null)
                 {
+                    string Identifier = core.identifier.Remove(core.identifier.LastIndexOf(".") + 1);
+                    string Core_Author = Identifier.Substring(0, (Identifier.Length - 1));
+ 
+                    //array containing the data for the 3 columns
+                    object[] rows = {core.platform, Core_Author, !_settingsManager.GetCoreSettings(core.identifier).skip };
+                    int index = dataGridView1.Rows.Add(rows);
+                    
+                    dataGridView1.Rows[index].Tag = core.identifier;
+                    dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
+
+                    /*
                     //Duplicate Core Name Handling
                     if (core.platform == "NES")
                     {
                         string NES = core.identifier.Replace(".NES", "");
                         core.platform = core.platform + " (" + NES + ")";
                     }
+                    if (core.platform == "Genesis")
+                    {
+                        string Genesis = core.identifier.Replace(".Genesis", "");
+                        core.platform = core.platform + " (" + Genesis + ")";
+                    }
+                    if (core.platform == "Supervision")
+                    {
+                        string Supervision = core.identifier.Replace(".Supervision", "");
+                        core.platform = core.platform + " (" + Supervision + ")";
+                    }
+                    */
                     coresList.Items.Add(core, !_settingsManager.GetCoreSettings(core.identifier).skip);
                 }
                 else
@@ -92,16 +116,19 @@ namespace Pocket_Updater
 
         private void _readChecklist()
         {
-            for (int i = 0; i <= (coresList.Items.Count - 1); i++)
+            for (int i = 0; i <= (dataGridView1.Rows.Count - 1); i++)
             {
-                Core core = (Core)coresList.Items[i];
-                if (!coresList.GetItemChecked(i))
+                //Core core = (Core)coresList.Items[i];
+                string id = (string)dataGridView1.Rows[i].Tag;
+                //if (!coresList.GetItemChecked(i))
+                DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)dataGridView1.Rows[i].Cells[2];
+                if ((bool)cell.Value == false)
                 {
-                    _settingsManager.DisableCore(core.identifier);
+                    _settingsManager.DisableCore(id);
                 }
                 else
                 {
-                    _settingsManager.EnableCore(core.identifier);
+                    _settingsManager.EnableCore(id);
                 }
             }
         }
@@ -194,6 +221,16 @@ namespace Pocket_Updater
                 checkBox_All.Checked = false;
 
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //_cores
+           // foreach (DataGridViewRow row in dataGridView1.Rows)
+            //{
+             //   DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[2];
+               // chk.Value = !(chk.Value == null ? false : (bool)chk.Value); //because chk.Value is initialy null
+           // }
         }
     }
 }
