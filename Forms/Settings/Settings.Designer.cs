@@ -257,7 +257,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+<<<<<<< Updated upstream
             this.ClientSize = new System.Drawing.Size(662, 327);
+=======
+            this.ClientSize = new System.Drawing.Size(607, 360);
+            this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.Skipped);
+            this.Controls.Add(this.label6);
+>>>>>>> Stashed changes
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.PreRelease);
             this.Controls.Add(this.label5);
