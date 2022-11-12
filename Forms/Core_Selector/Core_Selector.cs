@@ -20,7 +20,13 @@ namespace Pocket_Updater
         // private PocketCoreUpdater _updater;
         public string Current_Dir { get; set; }
         public string updateFile { get; set; }
+<<<<<<< Updated upstream
 
+=======
+        
+        CheckBox headerCheckBox = new CheckBox();
+        
+>>>>>>> Stashed changes
         public CoreSelector(List<Core> cores)
         {
             InitializeComponent();
@@ -168,7 +174,32 @@ namespace Pocket_Updater
             {
                 int length = coresList.Items.Count;
 
+<<<<<<< Updated upstream
                 for (int le = 0; le < length; le++)
+=======
+        private void Select_All()
+        {
+            Point headerCellLocation = this.dataGridView1.GetCellDisplayRectangle(0, -1, true).Location;
+
+            //Place the Header CheckBox in the Location of the Header Cell
+            //headerCheckBox.Checked = true;
+            headerCheckBox.Location = new Point(headerCellLocation.X + 67, headerCellLocation.Y + 9);
+            headerCheckBox.BackColor = Color.White;
+            headerCheckBox.Size = new Size(20, 20);
+            headerCheckBox.Click += new EventHandler(HeaderCheckBox_Clicked);
+            dataGridView1.Controls.Add(headerCheckBox);
+            //Assign Click event to the DataGridView Cell.
+            dataGridView1.CellContentClick += new DataGridViewCellEventHandler(DataGridView_CellClick);
+        }
+        private void DataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Check to ensure that the row CheckBox is clicked.
+            if (e.RowIndex >= 0 && e.ColumnIndex == 0)
+            {
+                //Loop to verify whether all row CheckBoxes are checked or not.
+                bool isChecked = true;
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+>>>>>>> Stashed changes
                 {
                     coresList.SetSelected(le, true);
                     coresList.SetItemChecked(le, true);
