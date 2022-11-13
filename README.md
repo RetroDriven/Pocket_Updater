@@ -50,6 +50,10 @@ This gives you the option to keep any custom Core Images that you are using vs. 
 #### Download Pre-Release Cores
 This gives you the option to Download any pre-release Cores. These Cores are typically beta/testing and likely to have some bugs.
 
+#### Delete Skipped Cores
+This will Delete Cores from your Pocket's SD Card that you have unchecked for Updating/Downloading
+*This option will be Enabled by Default
+
 #### GitHub Token
 This is an Optional Setting. If you're running up against the rate limit with the GitHub API, you can provide your Personal Access Token to resolve this issue.
 
