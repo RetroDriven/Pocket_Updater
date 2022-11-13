@@ -38,7 +38,7 @@ Select "**Settings**" Option
 
 ![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Settings.png)
 
-#### Download Pocket Firware
+#### Download Pocket Firmware
 This gives you the option to Check/Download Pocket Firmware.
 
 #### Download Roms/Bios
