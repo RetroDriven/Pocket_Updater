@@ -123,16 +123,6 @@ namespace Pocket_Updater.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap updater_to_pc {
-            get {
-                object obj = ResourceManager.GetObject("updater_to_pc", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap updater_to_pocket {
             get {
                 object obj = ResourceManager.GetObject("updater_to_pocket", resourceCulture);

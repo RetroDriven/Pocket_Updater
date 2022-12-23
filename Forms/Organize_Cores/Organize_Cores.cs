@@ -13,6 +13,7 @@ using System.Threading;
 using System.Text.Json.Nodes;
 using System.Xml.Linq;
 using System.ComponentModel;
+using System.IO;
 
 namespace Pocket_Updater
 {

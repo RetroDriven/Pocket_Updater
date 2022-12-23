@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
-	  <Version>1.3.8</Version>
+	  <Version>1.3.9</Version>
 	  <RootNamespace>Pocket_Updater</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
@@ -19,12 +19,6 @@
     <Description>Windows GUI Application to Update Cores for the Analogue Pocket</Description>
     <Copyright>2022 - RetroDriven</Copyright>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="NewFolder\**" />
-    <EmbeddedResource Remove="NewFolder\**" />
-    <None Remove="NewFolder\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <Content Include="Resources\app_icon.ico" />
@@ -56,6 +50,11 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevExpress.Win.Design" Version="22.1.6" />
+    <PackageReference Include="Siticone.Desktop.UI" Version="2.1.1" />
   </ItemGroup>
 
 </Project>

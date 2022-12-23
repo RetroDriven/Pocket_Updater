@@ -1,7 +1,9 @@
 using Analogue;
 using pannella.analoguepocket;
 using System.Diagnostics;
+using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Policy;
 using System.Text.Json;
@@ -12,14 +14,14 @@ namespace Pocket_Updater
 {
     public partial class Form1 : Form
     { 
-        private const string VERSION = "1.3.8";
+        private const string VERSION = "1.3.9";
         private const string API_URL = "https://api.github.com/repos/RetroDriven/Pocket_Updater/releases";
         private const string RELEASE_URL = "https://github.com/RetroDriven/Pocket_Updater/releases/latest";
 
         public Form1()
         {
             InitializeComponent();
-
+            
             //Check for Internet Connection and App Updates
             try
             {
@@ -40,13 +42,6 @@ namespace Pocket_Updater
         {
             Application.Exit();
         }
-
-        private void Button_Pocket_Click(object sender, EventArgs e)
-        {
-            Update_Pocket form = new Update_Pocket();
-            form.Show();
-        }
-
         private async void Button_Cores_Click(object sender, EventArgs e)
         {
 
@@ -289,6 +284,17 @@ namespace Pocket_Updater
         {
             Organize_Cores form = new Organize_Cores();
             form.Show();
+        }
+
+        private void Button_Pocket_Click(object sender, EventArgs e)
+        {
+            Update_Pocket form = new Update_Pocket();
+            form.Show();
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

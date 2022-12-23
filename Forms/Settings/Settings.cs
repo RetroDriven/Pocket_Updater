@@ -1,4 +1,6 @@
 ﻿using pannella.analoguepocket;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Pocket_Updater
 {
@@ -9,14 +11,17 @@ namespace Pocket_Updater
         public Settings()
         {
             InitializeComponent();
-          
+
+            //Grid Formatting
+            dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            {
+                //col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                col.HeaderCell.Style.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            }
+
             //Tooltips
-            toolTip1.SetToolTip(pictureBox1, "This is an Optional setting to use a Personal GitHub Token to avoid Rate Limit Issues/Errors.");
-            toolTip2.SetToolTip(pictureBox2, "This will preserve any Custom Core Images, Core Naming, and Category changes made manually.");
-            toolTip3.SetToolTip(pictureBox3, "This will enable/disable Arcade Rom and Core Bios Files.");
-            toolTip4.SetToolTip(pictureBox4, "This will enable/disable the downloading of Pocket Firmware Updates.");
-            toolTip5.SetToolTip(pictureBox5, "This will enable/disable the downloading of Pre-Release Cores.");
-            toolTip6.SetToolTip(pictureBox6, "This will Delete Cores from your Pocket's SD Card that you have unchecked for Updating/Downloading.");
+            toolTip1.SetToolTip(pictureBox1, "This is an Optional setting to use a Personal GitHub Token to avoid Rate Limit Issues/Errors");
 
             //Read Settings Json file
             ReadSettingsAsync();
@@ -24,62 +29,69 @@ namespace Pocket_Updater
 
         public async Task ReadSettingsAsync()
         {
+
+            DataGridViewRow row = new DataGridViewRow();
+            row.CreateCells(dataGridView1);
+
             string Current_Dir = Directory.GetCurrentDirectory();
             _settings = new SettingsManager(Current_Dir);
 
             //GitHub Token
             GitHub_Token.Text = _settings.GetConfig().github_token;
 
-            //Preserve Core Images
-            if (_settings.GetConfig().preserve_platforms_folder == true)
-            {
-                Core_Images.Checked = true;
-            }
-            else
-            {
-                Core_Images.Checked = false;
-            }
             //Download Pocket Firmware
             if (_settings.GetConfig().download_firmware == true)
             {
-                Download_Firmware.Checked = true;
+                dataGridView1.Rows.Add(true,"Download Pocket Firmware", "Enable/Disable Downloading Pocket Firmware Updates");
             }
             else
             {
-                Download_Firmware.Checked = false;
+                dataGridView1.Rows.Add(false,"Download Pocket Firmware", "Enable/Disable Downloading Pocket Firmware Updates");
             }
             //Download Assets
             if (_settings.GetConfig().download_assets == true)
             {
-                Download_Assets.Checked = true;
+                dataGridView1.Rows.Add(true,"Download ROMS/BIOS", "Enable/Disable Downloading Arcade ROMS and Core BIOS");
             }
             else
             {
-                Download_Assets.Checked = false;
+                dataGridView1.Rows.Add(false,"Download ROMS/BIOS", "Enable/Disable Downloading Arcade ROMS and Core BIOS");
             }
-            //Delete Skipped Cores
-            if (_settings.GetConfig().delete_skipped_cores == true)
+            //Preserve Core Images
+            if (_settings.GetConfig().preserve_platforms_folder == true)
             {
-                Skipped.Checked = true;
+                dataGridView1.Rows.Add(true,"Preserve Platforms", "Preserve Custom Core Images, Core Naming, and Category changes made manually");
             }
             else
             {
-                Skipped.Checked = false;
+                dataGridView1.Rows.Add(false,"Preserve Platforms", "Preserve Custom Core Images, Core Naming, and Category changes made manually");
             }
             //Pre-release Cores
             List<Core> cores = await CoresService.GetCores();
             foreach (Core core in cores)
             {
                 CoreSettings c = _settings.GetCoreSettings(core.identifier);
-                if( c.allowPrerelease == true)
+                if (c.allowPrerelease == true)
                 {
-                    PreRelease.Checked = true;
+                    dataGridView1.Rows.Add(true,"Download Pre-Release Cores","Enable/Disable Downloadig Alpha/Beta Pre-Release Cores");
+                    break;
                 }
                 else
                 {
-                    PreRelease.Checked = false;
+                    dataGridView1.Rows.Add(false, "Download Pre-Release Cores", "Enable/Disable Downloadig Alpha/Beta Pre-Release Cores");
+                    break;
                 }
             }
+            //Delete Skipped Cores
+            if (_settings.GetConfig().delete_skipped_cores == true)
+            {
+                dataGridView1.Rows.Add(true, "Delete Skipped Cores", "Delete Cores from your Pocket's SD Card that you have unchecked for Downloading");
+            }
+            else
+            {
+                dataGridView1.Rows.Add(false, "Delete Skipped Cores", "Delete Cores from your Pocket's SD Card that you have unchecked for Downloading");
+            }
+
         }
         private async void Button_Save_Click(object sender, EventArgs e)
         {
@@ -88,18 +100,11 @@ namespace Pocket_Updater
             
             //GitHub Token
             config.github_token = value;
-            
-            //Preserve Core Images
-            if(Core_Images.Checked == true)
-            {
-                config.preserve_platforms_folder = true;
-            }
-            else
-            {
-                config.preserve_platforms_folder = false;
-            }
+
             //Download Pocket Firmware
-            if (Download_Firmware.Checked == true)
+            string Firmware = dataGridView1.Rows[0].Cells[0].Value.ToString();
+
+            if (Firmware == "True")
             {
                 config.download_firmware = true;
             }
@@ -108,7 +113,9 @@ namespace Pocket_Updater
                 config.download_firmware = false;
             }
             //Download Assets
-            if (Download_Assets.Checked == true)
+            string Assets = dataGridView1.Rows[1].Cells[0].Value.ToString();
+
+            if (Assets == "True")
             {
                 config.download_assets = true;
             }
@@ -116,31 +123,48 @@ namespace Pocket_Updater
             {
                 config.download_assets = false;
             }
+            //Preserve Core Images
+            string Preserve = dataGridView1.Rows[2].Cells[0].Value.ToString();
+
+            if (Preserve == "True")
+            {
+                config.preserve_platforms_folder = true;
+            }
+            else
+            {
+                config.preserve_platforms_folder = false;
+            }
+            //Pre-Release Cores
+                List<Core> cores = await CoresService.GetCores();
+            foreach (Core core in cores)
+            {
+                CoreSettings c = _settings.GetCoreSettings(core.identifier);
+
+                string Pre = dataGridView1.Rows[3].Cells[0].Value.ToString();
+
+                if (Pre == "True")
+                {
+                    c.allowPrerelease = true;
+                    _settings.UpdateCore(c, core.identifier);
+                    break;
+                }
+                else
+                {
+                    c.allowPrerelease = false;
+                    _settings.UpdateCore(c, core.identifier);
+                    break;
+                }
+            }
             //Delete Skipped Cores
-            if (Skipped.Checked == true)
+            string Skipped = dataGridView1.Rows[4].Cells[0].Value.ToString();
+
+            if (Skipped == "True")
             {
                 config.delete_skipped_cores = true;
             }
             else
             {
                 config.delete_skipped_cores = false;
-            }
-            //Pre-Release Cores
-            List<Core> cores = await CoresService.GetCores();
-            foreach (Core core in cores)
-            {
-                CoreSettings c = _settings.GetCoreSettings(core.identifier);
-
-                if (PreRelease.Checked == true)
-                {
-                    c.allowPrerelease = true;
-                    _settings.UpdateCore(c, core.identifier);
-                }
-                else
-                {
-                    c.allowPrerelease = false;
-                    _settings.UpdateCore(c, core.identifier);
-                }
             }
 
             //Save Sttings

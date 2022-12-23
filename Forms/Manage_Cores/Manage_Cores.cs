@@ -2,6 +2,7 @@
 using pannella.analoguepocket;
 using System.Text.Json;
 using System.ComponentModel;
+using System.IO;
 
 namespace Pocket_Updater
 {
@@ -129,7 +130,7 @@ namespace Pocket_Updater
         {
             Point headerCellLocation = this.dataGridView1.GetCellDisplayRectangle(0, -1, true).Location;
 
-            headerCheckBox.Location = new Point(headerCellLocation.X + 77, headerCellLocation.Y + 9);
+            headerCheckBox.Location = new Point(headerCellLocation.X + 80, headerCellLocation.Y + 6);
             headerCheckBox.BackColor = Color.White;
             headerCheckBox.Size = new Size(20, 20);
             headerCheckBox.Click += new EventHandler(HeaderCheckBox_Clicked);

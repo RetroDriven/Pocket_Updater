@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Net.Http.Headers;
+using System.Net.Http;
 
 namespace pannella.analoguepocket;
 
@@ -25,6 +26,16 @@ public static class GithubApi
     public static async Task<Github.Release?> GetRelease(string user, string repository, string tag_name, string? token = "")
     {
         string url = String.Format(RELEASES, user, repository) + "/tags/" + tag_name;
+        
+        var responseBody = await CallAPI(url, token);
+        Github.Release? release = JsonSerializer.Deserialize<Github.Release>(responseBody);
+        
+        return release;
+    }
+
+    public static async Task<Github.Release?> GetLatestRelease(string user, string repository, string? token = "")
+    {
+        string url = String.Format(RELEASES, user, repository) + "/latest";
         
         var responseBody = await CallAPI(url, token);
         Github.Release? release = JsonSerializer.Deserialize<Github.Release>(responseBody);
