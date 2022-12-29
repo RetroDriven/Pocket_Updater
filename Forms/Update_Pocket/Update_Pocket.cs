@@ -68,8 +68,6 @@ namespace Pocket_Updater
             }
         }
 
-        /* ------ STUFF MATT ADDED FOR EXAMPLE ------ */
-
         //Call this method from a new button and you can run the core updater
         public async Task RunCoreUpdateProcess(string updatePath, string coresJsonPath, string LogDir)
         {

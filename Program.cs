@@ -1,7 +1,3 @@
-using DevExpress.LookAndFeel;
-using DevExpress.Skins;
-using DevExpress.UserSkins;
-using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,17 +13,9 @@ namespace Pocket_Updater
         [STAThread]
         static void Main()
         {
-            WindowsFormsSettings.LoadApplicationSettings();
-            
-            //Default Skin
-            UserLookAndFeel.Default.SetSkinStyle(SkinStyle.Bezier);
-            UserLookAndFeel.Default.SetSkinStyle(SkinSvgPalette.Bezier.ArtHouse);
-            
-            //DevExpress.UserSkins.BonusSkins.Register();
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            
-            ApplicationConfiguration.Initialize();
+            //WindowsFormsSettings.LoadApplicationSettings();
+                        
+            //ApplicationConfiguration.Initialize();
             //Application.Run(new Forms.Main.Home());
 
             // ***this line is added***
