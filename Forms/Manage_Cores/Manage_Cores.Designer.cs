@@ -37,15 +37,19 @@
             this.CoreName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CoreAuthor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Button_Save
             // 
             this.Button_Save.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Button_Save.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Button_Save.Location = new System.Drawing.Point(330, 13);
+            this.Button_Save.Location = new System.Drawing.Point(329, 2);
             this.Button_Save.Margin = new System.Windows.Forms.Padding(2);
             this.Button_Save.Name = "Button_Save";
             this.Button_Save.Size = new System.Drawing.Size(89, 36);
@@ -74,7 +78,7 @@
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(748, 690);
+            this.dataGridView1.Size = new System.Drawing.Size(748, 617);
             this.dataGridView1.TabIndex = 3;
             // 
             // Enabled
@@ -108,20 +112,47 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.Button_Save);
+            this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 630);
+            this.panel1.Location = new System.Drawing.Point(0, 617);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(748, 60);
+            this.panel1.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.panel1.Size = new System.Drawing.Size(748, 70);
             this.panel1.TabIndex = 4;
+            // 
+            // panel2
+            // 
+            this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(748, 617);
+            this.panel2.TabIndex = 5;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.Button_Save, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 15);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(748, 40);
+            this.tableLayoutPanel1.TabIndex = 2;
             // 
             // CoreSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(748, 690);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(748, 687);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CoreSelector";
@@ -130,7 +161,11 @@
             this.Text = "Manage Cores";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -142,5 +177,7 @@
         private DataGridViewTextBoxColumn CoreName;
         private DataGridViewTextBoxColumn CoreAuthor;
         private Panel panel1;
+        private Panel panel2;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }
