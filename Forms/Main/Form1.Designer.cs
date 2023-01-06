@@ -49,12 +49,16 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
+            this.Button_ImagePacks = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -69,7 +73,7 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(0);
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(552, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(722, 27);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -266,10 +270,11 @@
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel2);
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel3);
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel4);
+            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel6);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 25);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(50, 25, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(552, 215);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(722, 210);
             this.flowLayoutPanel1.TabIndex = 24;
             // 
             // tableLayoutPanel1
@@ -311,10 +316,11 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel3.Controls.Add(this.Button_Cores, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.linkLabel2, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(53, 101);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(432, 28);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(205, 67);
             this.tableLayoutPanel3.TabIndex = 25;
             // 
@@ -326,18 +332,66 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel4.Controls.Add(this.Button_Organize, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.linkLabel4, 1, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(264, 101);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(53, 101);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.Size = new System.Drawing.Size(213, 67);
             this.tableLayoutPanel4.TabIndex = 26;
             // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.AutoSize = true;
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Controls.Add(this.linkLabel5, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.Button_ImagePacks, 0, 0);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(272, 101);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(238, 67);
+            this.tableLayoutPanel6.TabIndex = 27;
+            // 
+            // linkLabel5
+            // 
+            this.linkLabel5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.linkLabel5.AutoSize = true;
+            this.linkLabel5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linkLabel5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.linkLabel5.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkLabel5.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel5.Location = new System.Drawing.Point(79, 22);
+            this.linkLabel5.Name = "linkLabel5";
+            this.linkLabel5.Size = new System.Drawing.Size(156, 23);
+            this.linkLabel5.TabIndex = 19;
+            this.linkLabel5.TabStop = true;
+            this.linkLabel5.Text = "Asset Image Packs";
+            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
+            // 
+            // Button_ImagePacks
+            // 
+            this.Button_ImagePacks.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.Button_ImagePacks.BackColor = System.Drawing.Color.Transparent;
+            this.Button_ImagePacks.BackgroundImage = global::Pocket_Updater.Properties.Resources.Image_Packs;
+            this.Button_ImagePacks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Button_ImagePacks.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Button_ImagePacks.FlatAppearance.BorderSize = 0;
+            this.Button_ImagePacks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_ImagePacks.Location = new System.Drawing.Point(3, 4);
+            this.Button_ImagePacks.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Button_ImagePacks.Name = "Button_ImagePacks";
+            this.Button_ImagePacks.Size = new System.Drawing.Size(70, 59);
+            this.Button_ImagePacks.TabIndex = 14;
+            this.Button_ImagePacks.UseVisualStyleBackColor = false;
+            this.Button_ImagePacks.Click += new System.EventHandler(this.Button_ImagePacks_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(552, 240);
+            this.ClientSize = new System.Drawing.Size(722, 235);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -347,7 +401,7 @@
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pocket Updater v1.4.1";
+            this.Text = "Pocket Updater v1.4.2";
             this.Load += new System.EventHandler(this.Form1_Load_1);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -361,6 +415,8 @@
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -388,5 +444,8 @@
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel3;
         private TableLayoutPanel tableLayoutPanel4;
+        private TableLayoutPanel tableLayoutPanel6;
+        private LinkLabel linkLabel5;
+        private Button Button_ImagePacks;
     }
 }
