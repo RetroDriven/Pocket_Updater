@@ -15,6 +15,7 @@ using RetroDriven;
 using System.Text.Json;
 using System.Diagnostics;
 using static RetroDriven.General;
+using Analogue;
 
 namespace Pocket_Updater.Forms.Image_Packs
 {
@@ -145,17 +146,41 @@ namespace Pocket_Updater.Forms.Image_Packs
             //Install Packs
             var senderGrid = (DataGridView)sender;
 
+            //Preserve Platforms
+            pannella.analoguepocket.Config config = _settings.GetConfig();
+            config.preserve_platforms_folder = true;
+            _settings.UpdateConfig(config);
+            _settings.SaveSettings();
+
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                if(await packs[e.RowIndex].Install(Current_Dir))
+
+                Pocket_Drive = this.comboBox1.GetItemText(this.comboBox1.SelectedItem);
+
+                if (comboBox1.SelectedIndex != -1)
                 {
-                    MessageBox.Show("Asset Image Pack Installed!", "",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    if (await packs[e.RowIndex].Install(Pocket_Drive))
+                    {
+                        MessageBox.Show("Asset Image Pack Installed!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Asset Image Pack did not Install. Please try Again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Asset Image Pack did not Install. Please try Again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (await packs[e.RowIndex].Install(Current_Dir))
+                    {
+                        MessageBox.Show("Asset Image Pack Installed!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Asset Image Pack did not Install. Please try Again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+
             }
         }
 
