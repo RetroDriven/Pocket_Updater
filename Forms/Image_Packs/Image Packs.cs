@@ -25,6 +25,7 @@ namespace Pocket_Updater.Forms.Image_Packs
         private WebClient WebClient;
 
         private SettingsManager _settings;
+        private ImagePack[] packs;
 
         public Image_Packs()
         {
@@ -32,7 +33,7 @@ namespace Pocket_Updater.Forms.Image_Packs
 
             //Get USB Drives
             PopulateDrives();
-            string Current_Dir = Directory.GetCurrentDirectory();
+            Current_Dir = Directory.GetCurrentDirectory();
             _settings = new SettingsManager(Current_Dir);
 
             GetPacks();
@@ -103,7 +104,7 @@ namespace Pocket_Updater.Forms.Image_Packs
             }
             else
             {
-                ImagePack[] packs = await ImagePacksService.GetImagePacks();
+                packs = await ImagePacksService.GetImagePacks();
                 int i = 0;
 
                 foreach (var pack in packs)
@@ -113,7 +114,7 @@ namespace Pocket_Updater.Forms.Image_Packs
                     var variant = pack.variant;
                     var repo = "https://github.com/" + owner + "/" + pack.repository;
 
-                    int index = dataGridView1.Rows.Add(owner,repo,variant,i);
+                    int index = dataGridView1.Rows.Add(owner,repo,variant,"Download");
                     i++;
 
                     //dataGridView1.Rows[index].Tag = owner;
@@ -121,7 +122,7 @@ namespace Pocket_Updater.Forms.Image_Packs
                 }
             }
         }
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private async void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             //Open Github Links
             if (e.ColumnIndex == 1)
@@ -138,10 +139,18 @@ namespace Pocket_Updater.Forms.Image_Packs
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                var row = dataGridView1.Rows[e.RowIndex];
-                var id = row.Cells[3].Value.ToString();
+                if(await packs[e.RowIndex].Install(Current_Dir))
+                {
+                    MessageBox.Show("It worked");
+                }
+                else
+                {
+                    MessageBox.Show("something didnt work");
+                }
+              //  var row = dataGridView1.Rows[e.RowIndex];
+                //var id = row.Cells[3].Value.ToString();
 
-                MessageBox.Show("It worked " + id);
+                //MessageBox.Show("It worked " + id);
             }
         }
 
