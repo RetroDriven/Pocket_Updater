@@ -1,5 +1,6 @@
 using Analogue;
 using pannella.analoguepocket;
+using Pocket_Updater.Forms.Image_Packs;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
@@ -14,7 +15,7 @@ namespace Pocket_Updater
 {
     public partial class Form1 : Form
     { 
-        private const string VERSION = "1.4.1";
+        private const string VERSION = "1.4.2";
         private const string API_URL = "https://api.github.com/repos/RetroDriven/Pocket_Updater/releases";
         private const string RELEASE_URL = "https://github.com/RetroDriven/Pocket_Updater/releases/latest";
 
@@ -295,6 +296,18 @@ namespace Pocket_Updater
         private void Form1_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void Button_ImagePacks_Click(object sender, EventArgs e)
+        {
+            Image_Packs form = new Image_Packs();
+            form.Show();
+        }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Image_Packs form = new Image_Packs();
+            form.Show();
         }
     }
 }
