@@ -14,6 +14,7 @@ using pannella.analoguepocket;
 using RetroDriven;
 using System.Text.Json;
 using System.Diagnostics;
+using static RetroDriven.General;
 
 namespace Pocket_Updater.Forms.Image_Packs
 {
@@ -43,7 +44,7 @@ namespace Pocket_Updater.Forms.Image_Packs
             foreach (DataGridViewColumn col in dataGridView1.Columns)
             {
                 //col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                col.HeaderCell.Style.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+                col.HeaderCell.Style.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             }
 
             //Tooltips
@@ -118,8 +119,16 @@ namespace Pocket_Updater.Forms.Image_Packs
                     i++;
 
                     //dataGridView1.Rows[index].Tag = owner;
-                    dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
+                    //dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
                 }
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+
+                    DataGridViewButtonCell btn = (DataGridViewButtonCell)row.Cells[3];
+                    btn.ReadOnly = true;
+                }
+                dataGridView1.Refresh();
             }
         }
         private async void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -141,16 +150,12 @@ namespace Pocket_Updater.Forms.Image_Packs
             {
                 if(await packs[e.RowIndex].Install(Current_Dir))
                 {
-                    MessageBox.Show("It worked");
+                    MessageBox.Show("Asset Image Pack Installed!", "",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("something didnt work");
+                    MessageBox.Show("Asset Image Pack did not Install. Please try Again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-              //  var row = dataGridView1.Rows[e.RowIndex];
-                //var id = row.Cells[3].Value.ToString();
-
-                //MessageBox.Show("It worked " + id);
             }
         }
 
@@ -182,6 +187,15 @@ namespace Pocket_Updater.Forms.Image_Packs
             {
                 //Button_Removable.Enabled = true;
             }
+        }
+        private void ButtonColumnEnable(bool enabled)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // Set Enabled property of the fourth column in the DGV.
+                ((DataGridViewDisableButtonCell)row.Cells[3]).Enabled = enabled;
+            }
+            dataGridView1.Refresh();
         }
     }
 }

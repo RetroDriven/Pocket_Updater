@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Image_Packs));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GitHub = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Variant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Download = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Creator = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -42,10 +46,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GitHub = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Variant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Download = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -55,6 +55,9 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -68,9 +71,45 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.RowTemplate.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(819, 523);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Creator";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // GitHub
+            // 
+            this.GitHub.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.GitHub.HeaderText = "GitHub";
+            this.GitHub.MinimumWidth = 6;
+            this.GitHub.Name = "GitHub";
+            this.GitHub.ReadOnly = true;
+            this.GitHub.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.GitHub.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Variant
+            // 
+            this.Variant.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Variant.HeaderText = "Variant";
+            this.Variant.MinimumWidth = 6;
+            this.Variant.Name = "Variant";
+            this.Variant.ReadOnly = true;
+            // 
+            // Download
+            // 
+            this.Download.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Download.HeaderText = "Download";
+            this.Download.MinimumWidth = 6;
+            this.Download.Name = "Download";
+            this.Download.ReadOnly = true;
+            this.Download.Text = "Download Pack";
             // 
             // Creator
             // 
@@ -191,7 +230,7 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(179, 6);
+            this.comboBox1.Location = new System.Drawing.Point(179, 7);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(209, 29);
             this.comboBox1.TabIndex = 3;
@@ -213,41 +252,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(819, 523);
             this.panel1.TabIndex = 2;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Creator";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // GitHub
-            // 
-            this.GitHub.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.GitHub.HeaderText = "GitHub";
-            this.GitHub.MinimumWidth = 6;
-            this.GitHub.Name = "GitHub";
-            this.GitHub.ReadOnly = true;
-            this.GitHub.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.GitHub.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Variant
-            // 
-            this.Variant.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Variant.HeaderText = "Variant";
-            this.Variant.MinimumWidth = 6;
-            this.Variant.Name = "Variant";
-            this.Variant.ReadOnly = true;
-            // 
-            // Download
-            // 
-            this.Download.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Download.HeaderText = "Download";
-            this.Download.MinimumWidth = 6;
-            this.Download.Name = "Download";
-            this.Download.ReadOnly = true;
-            this.Download.Text = "Download Pack";
             // 
             // Image_Packs
             // 
