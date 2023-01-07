@@ -33,6 +33,11 @@ Select the "**Organize Cores**" Option. From here you can customize the Core Nam
 
 ![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Organize_Cores.png)
 
+## Asset Image Packs ##
+Select the "**Asset Image Packs**" Option. This will allow you to download from the most popular Image Packs out there to spice things up on your Pocket. More Image Packs will be added as they become available from Creators
+
+![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Image_Packs.png)
+
 ## Settings ##
 Select "**Settings**" Option
 
