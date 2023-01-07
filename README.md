@@ -38,6 +38,12 @@ Select the "**Asset Image Packs**" Option. This will allow you to download from 
 
 ![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Image_Packs.png)
 
+#### Current Directory Location
+This option allows you to Update everything locally first and manually copy over all of the Files/Folders to your Pocket's SD Card after the Updater has finished. 
+
+#### Removable Storage Location
+This option allows you to Update directly to your Pocket's SD Card via plugging in your SD Card to your machine or by connecting your Pocket to your machine via USB Cable. (*Please use the Refresh button if you do not see your Pocket's SD Card Drive Letter within the Drop Down*)
+
 ## Settings ##
 Select "**Settings**" Option
 
