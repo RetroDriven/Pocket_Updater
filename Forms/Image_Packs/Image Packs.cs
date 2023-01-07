@@ -44,7 +44,7 @@ namespace Pocket_Updater.Forms.Image_Packs
             dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             foreach (DataGridViewColumn col in dataGridView1.Columns)
             {
-                //col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 col.HeaderCell.Style.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             }
 
@@ -122,14 +122,6 @@ namespace Pocket_Updater.Forms.Image_Packs
                     //dataGridView1.Rows[index].Tag = owner;
                     //dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
                 }
-
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-
-                    DataGridViewButtonCell btn = (DataGridViewButtonCell)row.Cells[3];
-                    btn.ReadOnly = true;
-                }
-                dataGridView1.Refresh();
             }
         }
         private async void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -152,35 +144,55 @@ namespace Pocket_Updater.Forms.Image_Packs
             _settings.UpdateConfig(config);
             _settings.SaveSettings();
 
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0)
+            //Make Sure Download Location is selected
+            if (comboBox2.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select Download Location!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else 
             {
 
+                //Make Sure Pocket Drive Letter is selected
+                String Location_Type = comboBox2.SelectedItem.ToString();
                 Pocket_Drive = this.comboBox1.GetItemText(this.comboBox1.SelectedItem);
 
-                if (comboBox1.SelectedIndex != -1)
-                {
-                    if (await packs[e.RowIndex].Install(Pocket_Drive))
-                    {
-                        MessageBox.Show("Asset Image Pack Installed!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Asset Image Pack did not Install. Please try Again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                if (Location_Type == "Removable Storage" && comboBox1.SelectedIndex == -1) {
+
+                    MessageBox.Show("Please Select your Pocket's Drive Letter!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    if (await packs[e.RowIndex].Install(Current_Dir))
+
+                //Error Checking is done.....grab the packs
+                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
                     {
-                        MessageBox.Show("Asset Image Pack Installed!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Asset Image Pack did not Install. Please try Again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //Pocket Drive Selected
+                        if (comboBox1.SelectedIndex != -1)
+                        {
+                            if (await packs[e.RowIndex].Install(Pocket_Drive))
+                            {
+                                MessageBox.Show("Asset Image Pack Installed!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Asset Image Pack did not Install. Please try Again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            //Current Directory Selected
+                            if (await packs[e.RowIndex].Install(Current_Dir))
+                            {
+                                MessageBox.Show("Asset Image Pack Installed!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Asset Image Pack did not Install. Please try Again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
                     }
                 }
-
             }
         }
 
@@ -213,14 +225,9 @@ namespace Pocket_Updater.Forms.Image_Packs
                 //Button_Removable.Enabled = true;
             }
         }
-        private void ButtonColumnEnable(bool enabled)
+        private void Button_Refresh_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                // Set Enabled property of the fourth column in the DGV.
-                ((DataGridViewDisableButtonCell)row.Cells[3]).Enabled = enabled;
-            }
-            dataGridView1.Refresh();
+            PopulateDrives();
         }
     }
 }
