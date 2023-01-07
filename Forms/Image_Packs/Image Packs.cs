@@ -158,25 +158,35 @@ namespace Pocket_Updater.Forms.Image_Packs
 
                 if (Location_Type == "Removable Storage" && comboBox1.SelectedIndex == -1) {
 
-                    MessageBox.Show("Please Select your Pocket's Drive Letter!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please select your Pocket's Drive Letter!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
 
-                //Error Checking is done.....grab the packs
+                //Error Checking is done.....grab the pack
                 if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
                     {
                         //Pocket Drive Selected
                         if (comboBox1.SelectedIndex != -1)
                         {
-                            if (await packs[e.RowIndex].Install(Pocket_Drive))
+
+                            //Make Sure Drive Letter still exists
+                            var drives = DriveInfo.GetDrives();
+                            if (drives.Where(data => data.Name == Pocket_Drive).Count() == 1)
                             {
-                                MessageBox.Show("Asset Image Pack Installed!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                if (await packs[e.RowIndex].Install(Pocket_Drive))
+                                {
+                                    MessageBox.Show("Asset Image Pack Installed!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Asset Image Pack did not Install. Please try Again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("Asset Image Pack did not Install. Please try Again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("The Drive Letter Was Not Found!", "Drive Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         else
