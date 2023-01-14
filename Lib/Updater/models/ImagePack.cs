@@ -12,7 +12,8 @@ public class ImagePack
     public async Task<bool> Install(string path)
     {
         string filepath = await fetchImagePack(path);
-        return await installImagePack(path, filepath);
+        await installImagePack(path, filepath);
+        return true;
     }
 
     private async Task<string> fetchImagePack(string path)
@@ -41,7 +42,7 @@ public class ImagePack
         return "";
     }
 
-    private async Task<bool> installImagePack(string path, string filepath)
+    private async Task installImagePack(string path, string filepath)
     {
         Console.WriteLine("Installing...");
         string extractPath = Path.Combine(path, "temp");
@@ -52,8 +53,6 @@ public class ImagePack
         Directory.Delete(extractPath, true);
         File.Delete(filepath);
         Console.WriteLine("All Done");
-
-        return true;
     }
 
     private string FindImagePack(string temp)
