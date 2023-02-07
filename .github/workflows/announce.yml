@@ -21,7 +21,7 @@ jobs:
                 "content": "",
                 "embeds": [{
                     "color": 16711680,
-                    "title": "Pocket Updater(Windows GUI) has been Updated!",
+                    "title": "${{ github.event.release.name }}",
                     "fields": [
                         { "name": "Version", "value": "${{ github.event.release.tag_name }}", "inline": true },
                         { "name": "Release Notes", "value": "[Read Me](https://github.com/RetroDriven/Pocket_Updater/releases/tag/${{ github.event.release.tag_name }})", "inline": true },
