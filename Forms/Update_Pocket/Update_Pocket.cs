@@ -206,7 +206,6 @@ namespace Pocket_Updater
         }
         private void _updater_UpdateProcessComplete(object? sender, UpdateProcessCompleteEventArgs e)
         {
-
             //No Updates Found
             if (e.InstalledCores.Count == 0 && e.InstalledAssets.Count == 0 && e.FirmwareUpdated == "")
             {
@@ -242,8 +241,6 @@ namespace Pocket_Updater
                 Summary.textBox1.AppendText(Environment.NewLine);
             }
 
-
-
             //Assets Downloaded
             if (e.InstalledAssets.Count > 0)
             {
@@ -259,7 +256,22 @@ namespace Pocket_Updater
                 }
                 Summary.textBox1.AppendText(Environment.NewLine);
             }
+            //Skipped Assets
+            if (e.SkippedAssets.Count > 0)
+            {
+                Summary.textBox1.AppendText(Environment.NewLine);
+                Summary.textBox1.AppendText("Assets Skipped:(" + e.SkippedAssets.Count + ")");
+                Summary.textBox1.AppendText(Environment.NewLine);
+                Summary.textBox1.AppendText("-----------------------");
+                Summary.textBox1.AppendText(Environment.NewLine);
 
+                foreach (string asset in e.SkippedAssets)
+                {
+                    Summary.textBox1.AppendText(Path.GetFileName(asset));
+                    Summary.textBox1.AppendText(", ");
+                }
+                Summary.textBox1.AppendText(Environment.NewLine);
+            }
             //Firmware Installed
             if (e.FirmwareUpdated != "")
             {
