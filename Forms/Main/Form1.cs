@@ -15,7 +15,7 @@ namespace Pocket_Updater
 {
     public partial class Form1 : Form
     { 
-        private const string VERSION = "1.4.5";
+        private const string VERSION = "1.4.6";
         private const string API_URL = "https://api.github.com/repos/RetroDriven/Pocket_Updater/releases";
         private const string RELEASE_URL = "https://github.com/RetroDriven/Pocket_Updater/releases/latest";
 
