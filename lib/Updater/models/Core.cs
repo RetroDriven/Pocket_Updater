@@ -28,6 +28,7 @@ public class Core : Base
     public bool downloadAssets { get; set; } = true;
     public archiveorg.Archive archiveFiles { get; set; }
     public string[] blacklist { get; set; }
+    public bool buildInstances { get; set; } = true;
 
     public override string ToString()
     {
@@ -219,17 +220,23 @@ public class Core : Base
                     } else {
                         path = Path.Combine(path, "common");
                     }
-                    path = Path.Combine(path, slot.filename);
-                    if(File.Exists(path) && CheckCRC(path)) {
-                        _writeMessage("Already installed: " + slot.filename);
-                    } else {
-                        if(await DownloadAsset(slot.filename, path)) {
-                            installed.Add(path.Replace(UpdateDirectory, ""));
+                    List<string> files = new List<string>();
+                    files.Add(slot.filename);
+                    if (slot.alternate_filenames != null) {
+                        files.AddRange(slot.alternate_filenames);
+                    }
+                    foreach (string f in files) {
+                        string filepath = Path.Combine(path, f);
+                        if(File.Exists(filepath) && CheckCRC(filepath)) {
+                            _writeMessage("Already installed: " + f);
                         } else {
-                            skipped.Add(path.Replace(UpdateDirectory, ""));
+                            if(await DownloadAsset(f, filepath)) {
+                                installed.Add(filepath.Replace(UpdateDirectory, ""));
+                            } else {
+                                skipped.Add(filepath.Replace(UpdateDirectory, ""));
+                            }
                         }
                     }
-                    
                 }
             }
         }
@@ -241,8 +248,7 @@ public class Core : Base
             }; //nah
         }
 
-        string instancePackagerFile = Path.Combine(UpdateDirectory, "Cores", this.identifier, "instance-packager.json");
-        if(File.Exists(instancePackagerFile)) {
+        if(CheckInstancePackager()) {
             BuildInstanceJSONs();
             return new Dictionary<string, List<string>>{
                 {"installed", installed },
@@ -364,8 +370,11 @@ public class Core : Base
         return false;
     }
 
-    private void BuildInstanceJSONs(bool overwrite = true)
+    public void BuildInstanceJSONs(bool overwrite = true)
     {
+        if(!this.buildInstances) {
+            return;
+        }
         string instancePackagerFile = Path.Combine(UpdateDirectory, "Cores", this.identifier, "instance-packager.json");
         if(!File.Exists(instancePackagerFile)) {
             return;
@@ -425,7 +434,7 @@ public class Core : Base
                 {
                     WriteIndented = true
                 };
-                if(File.Exists(Path.Combine(UpdateDirectory, packager.output, jsonFileName))) {
+                if(!overwrite && File.Exists(Path.Combine(UpdateDirectory, packager.output, jsonFileName))) {
                     _writeMessage(jsonFileName + " already exists.");
                 } else {
                     string json = JsonSerializer.Serialize<Analogue.SimpleInstanceJSON>(instancejson, options);
@@ -441,6 +450,12 @@ public class Core : Base
             _writeMessage(message.GetString());
         }
         _writeMessage("Finished");
+    }
+
+    public bool CheckInstancePackager()
+    {
+        string instancePackagerFile = Path.Combine(UpdateDirectory, "Cores", this.identifier, "instance-packager.json");
+        return File.Exists(instancePackagerFile);
     }
 }
 public class myReverserClass : IComparer  {
