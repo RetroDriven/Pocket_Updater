@@ -1,95 +1,33 @@
-using Analogue;
 using pannella.analoguepocket;
-using Pocket_Updater.Forms.Image_Packs;
-using System.Diagnostics;
-using System.IO;
+using Pocket_Updater.Forms.Message_Box;
 using System.Net;
-using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Security.Policy;
 using System.Text.Json;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Pocket_Updater
 {
     public partial class Form1 : Form
     { 
-        private const string VERSION = "1.4.4";
+        private const string VERSION = "1.5";
         private const string API_URL = "https://api.github.com/repos/RetroDriven/Pocket_Updater/releases";
         private const string RELEASE_URL = "https://github.com/RetroDriven/Pocket_Updater/releases/latest";
 
         public Form1()
         {
             InitializeComponent();
-            
+
             //Check for Internet Connection and App Updates
             try
             {
-                using (WebClient client2 = new WebClient())
-                {
-                    using (client2.OpenRead("http://www.google.com/"))
-                    {
-                        _ = CheckVersion_Load();
-                    }
-                }
+                _ = CheckVersion_Load();
             }
             catch
             {
-                MessageBox.Show("Failed to check for App Updates!", "No Internet Connection Detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-        private async void Button_Cores_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-                using (WebClient client = new WebClient())
-                {
-                    using (client.OpenRead("http://www.google.com/"))
-                    {
-                        List<pannella.analoguepocket.Core> cores = await CoresService.GetCores();
-                        CoreSelector form = new CoreSelector(cores);
-                        form.Show();
-                    }
-                }
-            }
-            catch
-            {
-                MessageBox.Show("No Internet Connection Detected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
-        }
-
-        private void Button_Settings_Click(object sender, EventArgs e)
-        {
-            Settings form = new Settings();
-            form.Show();
-        }
-
-        private void updateLogToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Updater_Summary form = new Updater_Summary();
-
-            string Current_Dir = Directory.GetCurrentDirectory();
-            string LogFile = Current_Dir + "\\Pocket_Updater_Log.txt";
-
-            if (File.Exists(LogFile))
-            {
-                form.textBox1.Text = File.ReadAllText(Current_Dir + "\\Pocket_Updater_Log.txt");
+                Message_Box form = new Message_Box();
+                form.label1.Text = "Failed to check for App Updates!";
                 form.Show();
-                form.textBox1.SelectionStart = form.textBox1.Text.Length;
-                form.textBox1.ScrollToCaret();
             }
-            else
-            {
-                MessageBox.Show("Pocket Update Log Not Found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
         }
         public async Task CheckVersion_Load()
         {
@@ -98,27 +36,15 @@ namespace Pocket_Updater
             {
                 try
                 {
-                    using (WebClient client = new WebClient())
-                    {
-                        using (client.OpenRead("http://www.google.com/"))
-                        {
-                            DialogResult dialogResult = MessageBox.Show("There is a New Version Available!\n\n Would you like to Download it?", "App Update", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                            if (dialogResult == DialogResult.Yes)
-                            {
-                                Process.Start("explorer", RELEASE_URL);
-                                Close();
-
-                            }
-                            else if (dialogResult == DialogResult.No)
-                            {
-                                //do something else
-                            }
-                        }
-                    }
+                    Updates_Message_Box form = new Updates_Message_Box();
+                    form.label1.Text = "There is a New Version Available!\n\n Would you like to Download it?";
+                    form.Show();
                 }
                 catch
                 {
-                    MessageBox.Show("No Internet Connection Detected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Message_Box form = new Message_Box();
+                    form.label1.Text = "No Internet Connection Detected!";
+                    form.Show();
                 }
             }
 
@@ -148,6 +74,7 @@ namespace Pocket_Updater
                 if (v != null)
                 {
                     return SemverUtil.SemverCompare(v, VERSION);
+                    //return SemverUtil.SemverCompare(v, "1.0");
 
                 }
                 return false;
@@ -155,159 +82,67 @@ namespace Pocket_Updater
             catch (HttpRequestException e)
             {
                 return false;
-
+                
             }
-        }
-
-        private async void checkForAppUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                using (WebClient client2 = new WebClient())
-                {
-                    using (client2.OpenRead("http://www.google.com/"))
-                    {
-
-                        if (await CheckVersion())
-                        {
-                            DialogResult dialogResult = MessageBox.Show("There is a New Version Available!\n\n Would you like to Download it?", "App Update", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                            if (dialogResult == DialogResult.Yes)
-                            {
-                                Process.Start("explorer", RELEASE_URL);
-                                Close();
-
-                            }
-                            else if (dialogResult == DialogResult.No)
-                            {
-                                //do something else
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("You are using the most recent App (v" + VERSION + ")", "No Updates Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Failed to check for App Updates!", "No Internet Connection Detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Update_Pocket form = new Update_Pocket();
-            form.Show();
-        }
-
-        private async void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            try
-            {
-                using (WebClient client = new WebClient())
-                {
-                    using (client.OpenRead("http://www.google.com/"))
-                    {
-                        List<pannella.analoguepocket.Core> cores = await CoresService.GetCores();
-                        CoreSelector form = new CoreSelector(cores);
-                        form.Show();
-                    }
-                }
-            }
-            catch
-            {
-                MessageBox.Show("No Internet Connection Detected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Settings form = new Settings();
-            form.Show();
-        }
-
-        private void viewLogFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Updater_Summary form = new Updater_Summary();
-
-            string Current_Dir = Directory.GetCurrentDirectory();
-            string LogFile = Current_Dir + "\\Pocket_Updater_Log.txt";
-
-            if (File.Exists(LogFile))
-            {
-                form.textBox1.Text = File.ReadAllText(Current_Dir + "\\Pocket_Updater_Log.txt");
-                form.Show();
-                form.textBox1.SelectionStart = form.textBox1.Text.Length;
-                form.textBox1.ScrollToCaret();
-            }
-            else
-            {
-                MessageBox.Show("No Log File Found!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void clearLogFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string Current_Dir = Directory.GetCurrentDirectory();
-            string LogFile = Current_Dir + "\\Pocket_Updater_Log.txt";
-
-            if (File.Exists(LogFile))
-            {
-                try
-                {
-                    File.Delete(LogFile);
-                    MessageBox.Show("Log File Cleared!","",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message,"",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("No Log File Found!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Button_Organize_Click(object sender, EventArgs e)
-        {
-            Organize_Cores form = new Organize_Cores();
-            form.Show();
-        }
-
-        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Organize_Cores form = new Organize_Cores();
-            form.Show();
-        }
-
-        private void Button_Pocket_Click(object sender, EventArgs e)
-        {
-            Update_Pocket form = new Update_Pocket();
-            form.Show();
         }
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
 
         }
-
-        private void Button_ImagePacks_Click(object sender, EventArgs e)
+        private void Update_Pocket_Click(object sender, EventArgs e)
         {
-            Image_Packs form = new Image_Packs();
-            form.Show();
+            Hide_Controls();
+            update_Pocket1.Visible= true;
+
+        }
+        private void Manage_Cores_Click(object sender, EventArgs e)
+        {
+            Hide_Controls();
+            manageCores1.Visible = true;
+            manageCores1.Enabled = true;
         }
 
-        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Hide_Controls()
         {
-            Image_Packs form = new Image_Packs();
-            form.Show();
+            update_Pocket1.Visible = false;
+            manageCores1.Visible = false;
+            organize_Cores1.Visible = false;
+            image_Packs1.Visible = false;
+            logs1.Visible= false;
+        }
+
+        private void Organize_Cores_Click(object sender, EventArgs e)
+        {
+            Hide_Controls();
+            organize_Cores1.Visible = true;
+        }
+
+        private void Image_Packs_Click(object sender, EventArgs e)
+        {
+            Hide_Controls();
+            image_Packs1.Visible = true;
+        }
+        private void Logs_Click(object sender, EventArgs e)
+        {
+            Hide_Controls();
+            string Current_Dir = Directory.GetCurrentDirectory();
+            string LogFile = Current_Dir + "\\Pocket_Updater_Log.txt";
+
+            if (File.Exists(LogFile))
+            {
+                logs1.textBox1.Text = File.ReadAllText(Current_Dir + "\\Pocket_Updater_Log.txt");
+                logs1.textBox1.SelectionStart = logs1.textBox1.Text.Length;
+                logs1.textBox1.ScrollToCaret();
+                logs1.textBox1.Refresh();
+                logs1.textBox1.Select();
+            }
+            else
+            {
+                logs1.textBox1.Text = "No Log File Found!";
+                logs1.Clear.Enabled = false;
+            }
+            logs1.Visible = true;
         }
     }
 }

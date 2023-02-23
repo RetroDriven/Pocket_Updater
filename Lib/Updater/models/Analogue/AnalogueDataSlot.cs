@@ -11,8 +11,13 @@ public class DataSlot
 
     public string? filename { get; set; }
 
+    public string[]? alternate_filenames{ get; set; }
+
     public bool isCoreSpecific()
     {
+        if(parameters == null) {
+            return false;
+        }
         int p = 0;
         if(parameters.StartsWith("0x")) {
             p = Convert.ToInt32(parameters, 16);

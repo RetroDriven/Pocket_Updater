@@ -3,12 +3,12 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
-	  <Version>1.4.4</Version>
+	  <Version>1.5</Version>
 	  <RootNamespace>Pocket_Updater</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationIcon>Resources\app_icon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\app_icon_new.ico</ApplicationIcon>
     <Authors>RetroDriven and mattpannella</Authors>
     <Product>Pocket Updater</Product>
     <PackageProjectUrl>https://github.com/RetroDriven/Pocket_Updater</PackageProjectUrl>
@@ -21,7 +21,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Resources\app_icon.ico" />
+    <Content Include="Resources\app_icon_new.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,6 +50,11 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Crc32.NET" Version="1.2.0" />
+    <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4" />
   </ItemGroup>
 
 </Project>

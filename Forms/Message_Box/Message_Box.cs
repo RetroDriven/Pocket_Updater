@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Pocket_Updater.Forms.Updater_Summary
+namespace Pocket_Updater.Forms.Message_Box
 {
-    public partial class Updater_Summary : Form
+    public partial class Message_Box : Form
     {
-        public Updater_Summary()
+        public Message_Box()
         {
             InitializeComponent();
+        }
+
+        private void Button_Ok_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
