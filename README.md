@@ -5,6 +5,13 @@ This is a free Windows Application for updating the openFPGA Cores, Pocket Firmw
 
 This Application can be run from the Pocket's SD Card or from any location on your Windows Machine based on what fits your needs best.
 
+## Bulding Exe from Source ##
+Please note that the following dependencies below are required if you plan to edit/build the EXE from Source via Visual Studio.
+
+[Crc32.NET](https://www.nuget.org/packages/Crc32.NET)
+
+[Guna.UI2.WinForms](https://www.nuget.org/packages/Guna.UI2.WinForms)
+
 ## Updating ##
 
 Select the "**Update Pocket**" Option
