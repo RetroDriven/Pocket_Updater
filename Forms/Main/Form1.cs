@@ -8,7 +8,7 @@ namespace Pocket_Updater
 {
     public partial class Form1 : Form
     { 
-        private const string VERSION = "1.5";
+        private const string VERSION = "1.5.0";
         private const string API_URL = "https://api.github.com/repos/RetroDriven/Pocket_Updater/releases";
         private const string RELEASE_URL = "https://github.com/RetroDriven/Pocket_Updater/releases/latest";
 
@@ -19,7 +19,10 @@ namespace Pocket_Updater
             //Check for Internet Connection and App Updates
             try
             {
-                _ = CheckVersion_Load();
+                using (WebClient client2 = new WebClient())
+                {
+                    _ = CheckVersion_Load();
+                }
             }
             catch
             {
@@ -31,20 +34,22 @@ namespace Pocket_Updater
         }
         public async Task CheckVersion_Load()
         {
-
-            if (await CheckVersion())
+            using (WebClient client = new WebClient())
             {
-                try
+                if (await CheckVersion())
                 {
-                    Updates_Message_Box form = new Updates_Message_Box();
-                    form.label1.Text = "There is a New Version Available!\n\n Would you like to Download it?";
-                    form.Show();
-                }
-                catch
-                {
-                    Message_Box form = new Message_Box();
-                    form.label1.Text = "No Internet Connection Detected!";
-                    form.Show();
+                    try
+                    {
+                        Updates_Message_Box form = new Updates_Message_Box();
+                        form.label1.Text = "There is a New Version Available!\n\n Would you like to Download it?";
+                        form.Show();
+                    }
+                    catch
+                    {
+                        Message_Box form = new Message_Box();
+                        form.label1.Text = "No Internet Connection Detected!";
+                        form.Show();
+                    }
                 }
             }
 
