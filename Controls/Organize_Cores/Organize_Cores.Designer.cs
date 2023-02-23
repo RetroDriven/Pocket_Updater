@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -59,9 +58,9 @@
             this.dataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.CoreName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CoreDeveloper = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ToolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.Panel_Top.SuspendLayout();
             this.Panel_Bottom.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -211,6 +210,7 @@
             this.Button_Refresh.ShadowDecoration.CustomizableEdges = customizableEdges6;
             this.Button_Refresh.Size = new System.Drawing.Size(39, 38);
             this.Button_Refresh.TabIndex = 0;
+            this.ToolTip.SetToolTip(this.Button_Refresh, "Refresh your Removable Drive List");
             // 
             // tableLayoutPanel5
             // 
@@ -335,14 +335,6 @@
             this.CoreDeveloper.MinimumWidth = 6;
             this.CoreDeveloper.Name = "CoreDeveloper";
             // 
-            // toolTip1
-            // 
-            this.toolTip1.AutoPopDelay = 50000;
-            this.toolTip1.InitialDelay = 500;
-            this.toolTip1.ReshowDelay = 100;
-            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip1.ToolTipTitle = "Refresh";
-            // 
             // guna2CircleButton1
             // 
             this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -368,6 +360,15 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel1.Size = new System.Drawing.Size(830, 567);
             this.panel1.TabIndex = 6;
+            // 
+            // ToolTip
+            // 
+            this.ToolTip.AllowLinksHandling = true;
+            this.ToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
+            this.ToolTip.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));
+            this.ToolTip.ForeColor = System.Drawing.Color.White;
+            this.ToolTip.MaximumSize = new System.Drawing.Size(0, 0);
+            this.ToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
             // Organize_Cores
             // 
@@ -411,11 +412,11 @@
         private TableLayoutPanel tableLayoutPanel5;
         private Guna.UI2.WinForms.Guna2Button Save;
         private Guna.UI2.WinForms.Guna2ComboBox Pocket_Drive;
-        private ToolTip toolTip1;
         private Guna.UI2.WinForms.Guna2Button Button_Refresh;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
         private DataGridViewTextBoxColumn CoreName;
         private DataGridViewTextBoxColumn CoreDeveloper;
         private Panel panel1;
+        private Guna.UI2.WinForms.Guna2HtmlToolTip ToolTip;
     }
 }

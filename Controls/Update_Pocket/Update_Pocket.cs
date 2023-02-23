@@ -30,9 +30,6 @@ namespace Pocket_Updater.Controls
             string Current_Dir = Directory.GetCurrentDirectory();
             _settings = new SettingsManager(Current_Dir);
 
-            //Tooltips
-            toolTip1.SetToolTip(Button_Refresh, "Refresh your Removable Drive List");
-
             Update.Enabled = false;
 
             //Read Settings Json file

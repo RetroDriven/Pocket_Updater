@@ -28,8 +28,6 @@ namespace Pocket_Updater.Controls.Organize_Cores
             //ReadPlatforms();
             //string Current_Dir = Directory.GetCurrentDirectory();
 
-            //Tooltips
-            toolTip1.SetToolTip(Button_Refresh, "Refresh your Removable Drive List");
         }
 
         private void Save_Click(object sender, EventArgs e)

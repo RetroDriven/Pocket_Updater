@@ -46,8 +46,8 @@
             this.Button_Save = new Guna.UI2.WinForms.Guna2Button();
             this.dataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Enabled = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.CoreAuthor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CoreName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CoreAuthor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Panel_Top.SuspendLayout();
             this.Panel_Bottom.SuspendLayout();
@@ -157,8 +157,8 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Enabled,
-            this.CoreAuthor,
-            this.CoreName});
+            this.CoreName,
+            this.CoreAuthor});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -222,6 +222,13 @@
             this.Enabled.TrueValue = "";
             this.Enabled.Width = 125;
             // 
+            // CoreName
+            // 
+            this.CoreName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CoreName.HeaderText = "Core Name";
+            this.CoreName.MinimumWidth = 6;
+            this.CoreName.Name = "CoreName";
+            // 
             // CoreAuthor
             // 
             this.CoreAuthor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -229,13 +236,6 @@
             this.CoreAuthor.MinimumWidth = 6;
             this.CoreAuthor.Name = "CoreAuthor";
             this.CoreAuthor.ReadOnly = true;
-            // 
-            // CoreName
-            // 
-            this.CoreName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CoreName.HeaderText = "Core Name";
-            this.CoreName.MinimumWidth = 6;
-            this.CoreName.Name = "CoreName";
             // 
             // panel1
             // 
@@ -279,9 +279,9 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2Button Button_Save;
         private Guna.UI2.WinForms.Guna2DataGridView dataGridView1;
-        private DataGridViewCheckBoxColumn Enabled;
-        private DataGridViewTextBoxColumn CoreAuthor;
-        private DataGridViewTextBoxColumn CoreName;
         private Panel panel1;
+        private DataGridViewCheckBoxColumn Enabled;
+        private DataGridViewTextBoxColumn CoreName;
+        private DataGridViewTextBoxColumn CoreAuthor;
     }
 }

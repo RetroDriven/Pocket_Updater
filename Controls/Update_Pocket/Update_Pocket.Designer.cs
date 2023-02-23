@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -107,12 +106,10 @@
             this.GitHub_Token = new Guna.UI2.WinForms.Guna2TextBox();
             this.Button_Save = new Guna.UI2.WinForms.Guna2Button();
             this.Panel_Left_Top = new System.Windows.Forms.Panel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.textBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.Panel_Right = new Guna.UI2.WinForms.Guna2Panel();
             this.Panel_Right_Main = new Guna.UI2.WinForms.Guna2Panel();
             this.Panel_Right_Top = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.ToolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.flowLayoutPanel1.SuspendLayout();
             this.Panel_Title.SuspendLayout();
@@ -273,7 +270,7 @@
             this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(465, 53);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(452, 44);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
             // label2
@@ -281,7 +278,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(28, 15);
+            this.label2.Location = new System.Drawing.Point(28, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(170, 23);
             this.label2.TabIndex = 7;
@@ -303,7 +300,7 @@
             this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.comboBox1.ItemHeight = 30;
-            this.comboBox1.Location = new System.Drawing.Point(204, 8);
+            this.comboBox1.Location = new System.Drawing.Point(204, 4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.ShadowDecoration.CustomizableEdges = customizableEdges8;
             this.comboBox1.Size = new System.Drawing.Size(200, 36);
@@ -327,9 +324,11 @@
             this.Button_Refresh.Location = new System.Drawing.Point(410, 3);
             this.Button_Refresh.Name = "Button_Refresh";
             this.Button_Refresh.PressedColor = System.Drawing.Color.Transparent;
+            this.Button_Refresh.ShadowDecoration.Color = System.Drawing.Color.Transparent;
             this.Button_Refresh.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            this.Button_Refresh.Size = new System.Drawing.Size(52, 47);
+            this.Button_Refresh.Size = new System.Drawing.Size(39, 38);
             this.Button_Refresh.TabIndex = 10;
+            this.ToolTip.SetToolTip(this.Button_Refresh, "Refresh your Removable Drive List");
             this.Button_Refresh.Visible = false;
             this.Button_Refresh.Click += new System.EventHandler(this.Button_Refresh_Click_1);
             // 
@@ -514,11 +513,11 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(89, 129);
+            this.label6.Location = new System.Drawing.Point(81, 129);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(152, 20);
+            this.label6.Size = new System.Drawing.Size(160, 20);
             this.label6.TabIndex = 11;
-            this.label6.Text = "Delete Sipped Cores:";
+            this.label6.Text = "Delete Skipped Cores:";
             this.ToolTip.SetToolTip(this.label6, "Delete Cores from your Pocket\'s SD Card that you have unchecked for Downloading");
             // 
             // label8
@@ -713,14 +712,6 @@
             this.Panel_Left_Top.Size = new System.Drawing.Size(584, 160);
             this.Panel_Left_Top.TabIndex = 13;
             // 
-            // toolTip1
-            // 
-            this.toolTip1.AutoPopDelay = 50000;
-            this.toolTip1.InitialDelay = 500;
-            this.toolTip1.ReshowDelay = 100;
-            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip1.ToolTipTitle = "Refresh";
-            // 
             // textBox1
             // 
             this.textBox1.AutoSize = true;
@@ -786,25 +777,14 @@
             this.Panel_Right_Top.Size = new System.Drawing.Size(551, 52);
             this.Panel_Right_Top.TabIndex = 0;
             // 
-            // guna2ContextMenuStrip1
-            // 
-            this.guna2ContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.guna2ContextMenuStrip1.Name = "guna2ContextMenuStrip1";
-            this.guna2ContextMenuStrip1.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.guna2ContextMenuStrip1.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
-            this.guna2ContextMenuStrip1.RenderStyle.ColorTable = null;
-            this.guna2ContextMenuStrip1.RenderStyle.RoundedEdges = true;
-            this.guna2ContextMenuStrip1.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
-            this.guna2ContextMenuStrip1.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
-            this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // ToolTip
             // 
             this.ToolTip.AllowLinksHandling = true;
+            this.ToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
+            this.ToolTip.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));
+            this.ToolTip.ForeColor = System.Drawing.Color.White;
             this.ToolTip.MaximumSize = new System.Drawing.Size(0, 0);
+            this.ToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
             // Update_Pocket
             // 
@@ -862,7 +842,6 @@
         private Guna.UI2.WinForms.Guna2Panel Panel_Left;
         private Guna.UI2.WinForms.Guna2Panel Panel_Title;
         private Guna.UI2.WinForms.Guna2ComboBox comboBox1;
-        private ToolTip toolTip1;
         private Guna.UI2.WinForms.Guna2Panel Panel_Status_Title;
         private Label label4;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator2;
@@ -870,7 +849,6 @@
         private Guna.UI2.WinForms.Guna2Panel Panel_Right;
         private Guna.UI2.WinForms.Guna2Panel Panel_Right_Top;
         private Guna.UI2.WinForms.Guna2Panel Panel_Right_Main;
-        private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
         private Guna.UI2.WinForms.Guna2Button Button_Refresh;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Label label5;

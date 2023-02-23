@@ -23,9 +23,6 @@ namespace Pocket_Updater.Controls.Image_Packs
             Current_Dir = Directory.GetCurrentDirectory();
             _settings = new SettingsManager(Current_Dir);
 
-            //Tooltips
-            toolTip1.SetToolTip(Button_Refresh, "Refresh your Removable Drive List");
-
             GetPacks();
 
         }
