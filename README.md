@@ -5,6 +5,13 @@ This is a free Windows Application for updating the openFPGA Cores, Pocket Firmw
 
 This Application can be run from the Pocket's SD Card or from any location on your Windows Machine based on what fits your needs best.
 
+## Bulding Exe from Source ##
+Please note that the following dependencies below are required if you plan to edit/build the EXE from Source via Visual Studio.
+
+[Crc32.NET](https://www.nuget.org/packages/Crc32.NET)
+
+[Guna.UI2.WinForms](https://www.nuget.org/packages/Guna.UI2.WinForms)
+
 ## Updating ##
 
 Select the "**Update Pocket**" Option
@@ -71,21 +78,16 @@ This will Delete Cores from your Pocket's SD Card that you have unchecked for Up
 This is an Optional Setting. If you're running up against the rate limit with the GitHub API, you can provide your Personal Access Token to resolve this issue.
 
 ## Update Log ##
+Select the "**Logs**" Option
 
 ![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Update_Log.png)
 
-You can view the Update Log via "**Log --> View Log File**" or by Pressing "**CTRL+V**"
-
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Summary.png)
-
-You can clear the Update Log File via "**Log --> Clear Log File**" or by Pressing "**CTRL+C**"
+You can clear the Update Log File via the "**Clear Logs**" Button
 
 ## App Updates ##
 This Application will self check for Updates when you run it. When an Update is found you will get a Prompt asking if you'd like to Download the latest Release. 
 
-You can manually check for App Updates as well via "**File --> Check for App Updates**" or by Pressing "**CTRL+U**"
-
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Check_Updates.png)
+![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Updates_Found.png)
 
 ## Credits ##
 Special thanks to [mattpannella](https://github.com/mattpannella) for Collaborating with me and providing me with his Updater Library Files. His updater can be found [Here](https://github.com/mattpannella/pocket_core_autoupdate_net)
