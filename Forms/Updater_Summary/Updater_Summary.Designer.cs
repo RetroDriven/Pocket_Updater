@@ -46,7 +46,6 @@
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
             this.textBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Panel_Top.SuspendLayout();
@@ -62,18 +61,18 @@
             // Panel_Top
             // 
             this.Panel_Top.AutoSize = true;
-            this.Panel_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(52)))));
+            this.Panel_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(26)))));
             this.Panel_Top.Controls.Add(this.guna2ControlBox1);
             this.Panel_Top.Controls.Add(this.guna2ControlBox2);
             this.Panel_Top.Controls.Add(this.guna2ControlBox3);
             this.Panel_Top.Controls.Add(this.label4);
-            this.Panel_Top.Controls.Add(this.guna2Separator2);
             this.Panel_Top.CustomizableEdges = customizableEdges9;
             this.Panel_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel_Top.Location = new System.Drawing.Point(0, 0);
+            this.Panel_Top.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Panel_Top.Name = "Panel_Top";
             this.Panel_Top.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            this.Panel_Top.Size = new System.Drawing.Size(598, 49);
+            this.Panel_Top.Size = new System.Drawing.Size(523, 28);
             this.Panel_Top.TabIndex = 3;
             // 
             // guna2ControlBox1
@@ -82,11 +81,14 @@
             this.guna2ControlBox1.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.guna2ControlBox1.CustomizableEdges = customizableEdges3;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));
+            this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(502, 7);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(439, 5);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            this.guna2ControlBox1.Size = new System.Drawing.Size(25, 25);
+            this.guna2ControlBox1.Size = new System.Drawing.Size(22, 19);
             this.guna2ControlBox1.TabIndex = 4;
             // 
             // guna2ControlBox2
@@ -95,11 +97,14 @@
             this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
             this.guna2ControlBox2.CustomizableEdges = customizableEdges5;
             this.guna2ControlBox2.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));
+            this.guna2ControlBox2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));
             this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(533, 7);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(466, 5);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            this.guna2ControlBox2.Size = new System.Drawing.Size(25, 25);
+            this.guna2ControlBox2.Size = new System.Drawing.Size(22, 19);
             this.guna2ControlBox2.TabIndex = 5;
             // 
             // guna2ControlBox3
@@ -109,30 +114,25 @@
             this.guna2ControlBox3.CustomizableEdges = customizableEdges7;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.guna2ControlBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));
+            this.guna2ControlBox3.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(564, 7);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(494, 5);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            this.guna2ControlBox3.Size = new System.Drawing.Size(25, 25);
+            this.guna2ControlBox3.Size = new System.Drawing.Size(22, 19);
             this.guna2ControlBox3.TabIndex = 6;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(5, 4);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(4, 3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(184, 28);
+            this.label4.Size = new System.Drawing.Size(176, 25);
             this.label4.TabIndex = 2;
             this.label4.Text = "Updater Summary";
-            // 
-            // guna2Separator2
-            // 
-            this.guna2Separator2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(107)))), ((int)(((byte)(121)))));
-            this.guna2Separator2.Location = new System.Drawing.Point(4, 34);
-            this.guna2Separator2.Name = "guna2Separator2";
-            this.guna2Separator2.Size = new System.Drawing.Size(250, 12);
-            this.guna2Separator2.TabIndex = 3;
             // 
             // textBox1
             // 
@@ -149,10 +149,10 @@
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
             this.textBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.textBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBox1.Location = new System.Drawing.Point(0, 49);
+            this.textBox1.Location = new System.Drawing.Point(0, 28);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.PasswordChar = '\0';
@@ -161,7 +161,7 @@
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.SelectedText = "";
             this.textBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            this.textBox1.Size = new System.Drawing.Size(598, 581);
+            this.textBox1.Size = new System.Drawing.Size(523, 444);
             this.textBox1.TabIndex = 4;
             // 
             // guna2DragControl1
@@ -172,15 +172,16 @@
             // 
             // Updater_Summary
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));
-            this.ClientSize = new System.Drawing.Size(598, 630);
+            this.ClientSize = new System.Drawing.Size(523, 472);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Panel_Top);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Updater_Summary";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Updater_Summary";
@@ -196,7 +197,6 @@
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private Guna.UI2.WinForms.Guna2Panel Panel_Top;
         private Label label4;
-        private Guna.UI2.WinForms.Guna2Separator guna2Separator2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;

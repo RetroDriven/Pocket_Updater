@@ -64,27 +64,29 @@
             this.Panel_Top.CustomizableEdges = customizableEdges1;
             this.Panel_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel_Top.Location = new System.Drawing.Point(0, 0);
+            this.Panel_Top.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Panel_Top.Name = "Panel_Top";
             this.Panel_Top.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            this.Panel_Top.Size = new System.Drawing.Size(816, 49);
+            this.Panel_Top.Size = new System.Drawing.Size(714, 37);
             this.Panel_Top.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(3, 3);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(3, 2);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(146, 28);
+            this.label4.Size = new System.Drawing.Size(139, 25);
             this.label4.TabIndex = 2;
             this.label4.Text = "Manage Cores";
             // 
             // guna2Separator2
             // 
             this.guna2Separator2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(107)))), ((int)(((byte)(121)))));
-            this.guna2Separator2.Location = new System.Drawing.Point(4, 34);
+            this.guna2Separator2.Location = new System.Drawing.Point(4, 26);
+            this.guna2Separator2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Separator2.Name = "guna2Separator2";
-            this.guna2Separator2.Size = new System.Drawing.Size(250, 12);
+            this.guna2Separator2.Size = new System.Drawing.Size(219, 9);
             this.guna2Separator2.TabIndex = 3;
             // 
             // Panel_Bottom
@@ -92,11 +94,12 @@
             this.Panel_Bottom.Controls.Add(this.tableLayoutPanel1);
             this.Panel_Bottom.CustomizableEdges = customizableEdges5;
             this.Panel_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Panel_Bottom.Location = new System.Drawing.Point(0, 667);
+            this.Panel_Bottom.Location = new System.Drawing.Point(0, 506);
+            this.Panel_Bottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Panel_Bottom.Name = "Panel_Bottom";
-            this.Panel_Bottom.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.Panel_Bottom.Padding = new System.Windows.Forms.Padding(0, 11, 0, 11);
             this.Panel_Bottom.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            this.Panel_Bottom.Size = new System.Drawing.Size(816, 69);
+            this.Panel_Bottom.Size = new System.Drawing.Size(714, 65);
             this.Panel_Bottom.TabIndex = 3;
             // 
             // tableLayoutPanel1
@@ -106,29 +109,32 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.Button_Save, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 15);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 11);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(816, 39);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(714, 43);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // Button_Save
             // 
             this.Button_Save.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Button_Save.BorderRadius = 5;
+            this.Button_Save.AutoRoundedCorners = true;
+            this.Button_Save.BorderRadius = 17;
             this.Button_Save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button_Save.CustomizableEdges = customizableEdges3;
             this.Button_Save.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Button_Save.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.Button_Save.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.Button_Save.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Button_Save.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Button_Save.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Button_Save.ForeColor = System.Drawing.Color.White;
-            this.Button_Save.Location = new System.Drawing.Point(363, 3);
+            this.Button_Save.Location = new System.Drawing.Point(318, 2);
+            this.Button_Save.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Button_Save.Name = "Button_Save";
             this.Button_Save.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            this.Button_Save.Size = new System.Drawing.Size(89, 36);
+            this.Button_Save.Size = new System.Drawing.Size(78, 37);
             this.Button_Save.TabIndex = 0;
             this.Button_Save.Text = "Save";
             this.Button_Save.Click += new System.EventHandler(this.Button_Save_Click);
@@ -139,7 +145,7 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(52)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
@@ -147,7 +153,7 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -161,7 +167,7 @@
             this.CoreAuthor});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(52)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
@@ -170,12 +176,13 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dataGridView1.Location = new System.Drawing.Point(2, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -184,7 +191,8 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(812, 618);
+            this.dataGridView1.ShowEditingIcon = false;
+            this.dataGridView1.Size = new System.Drawing.Size(710, 469);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -207,9 +215,8 @@
             this.dataGridView1.ThemeStyle.RowsStyle.Height = 29;
             this.dataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
-            this.dataGridView1.EnabledChanged += new System.EventHandler(this.dataGridView1_EnabledChanged);
             // 
             // Enabled
             // 
@@ -218,6 +225,7 @@
             this.Enabled.HeaderText = "";
             this.Enabled.MinimumWidth = 6;
             this.Enabled.Name = "Enabled";
+            this.Enabled.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Enabled.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Enabled.TrueValue = "";
             this.Enabled.Width = 125;
@@ -228,6 +236,7 @@
             this.CoreName.HeaderText = "Core Name";
             this.CoreName.MinimumWidth = 6;
             this.CoreName.Name = "CoreName";
+            this.CoreName.ReadOnly = true;
             // 
             // CoreAuthor
             // 
@@ -239,25 +248,28 @@
             // 
             // panel1
             // 
+            this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 49);
+            this.panel1.Location = new System.Drawing.Point(0, 37);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.panel1.Size = new System.Drawing.Size(816, 618);
+            this.panel1.Size = new System.Drawing.Size(714, 469);
             this.panel1.TabIndex = 5;
             // 
             // ManageCores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Panel_Bottom);
             this.Controls.Add(this.Panel_Top);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ManageCores";
-            this.Size = new System.Drawing.Size(816, 736);
+            this.Size = new System.Drawing.Size(714, 571);
             this.Panel_Top.ResumeLayout(false);
             this.Panel_Top.PerformLayout();
             this.Panel_Bottom.ResumeLayout(false);

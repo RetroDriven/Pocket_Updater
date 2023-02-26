@@ -31,8 +31,8 @@ namespace Pocket_Updater.Controls.Manage_Cores
 
             Select_All();
 
-            dataGridView1.RefreshEdit();
-            dataGridView1.Refresh();
+            //dataGridView1.RefreshEdit();
+            //dataGridView1.Refresh();
 
             //Get Cores
             _ = LoadCores();
@@ -137,7 +137,7 @@ namespace Pocket_Updater.Controls.Manage_Cores
                     string Core_Author = Identifier.Substring(0, (Identifier.Length - 1));
 
                     //array containing the data for the 3 columns
-                    object[] rows = { !_settingsManager.GetCoreSettings(core.identifier).skip, core.platform, Core_Author };
+                    object[] rows = { !_settingsManager.GetCoreSettings(core.identifier).skip, core.platform.name, Core_Author };
                     int index = dataGridView1.Rows.Add(rows);
 
                     dataGridView1.Rows[index].Tag = core.identifier;
@@ -148,28 +148,18 @@ namespace Pocket_Updater.Controls.Manage_Cores
             dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[1];
         }
 
-        private void dataGridView1_EnabledChanged(object sender, EventArgs e)
-        {
-            dataGridView1.EndEdit();
-            dataGridView1.RefreshEdit();
-            dataGridView1.Refresh();
-            //dataGridView1.EndEdit();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            dataGridView1.EndEdit();
-            dataGridView1.RefreshEdit();
-            dataGridView1.Refresh();
-            //dataGridView1.EndEdit();
-        }
-
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             dataGridView1.EndEdit();
-            dataGridView1.RefreshEdit();
-            dataGridView1.Refresh();
-            //dataGridView1.EndEdit();
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            bool currentValue = (bool)dataGridView1[0, e.RowIndex].Value;
+            dataGridView1[0, e.RowIndex].Value = !currentValue;
         }
     }
 }

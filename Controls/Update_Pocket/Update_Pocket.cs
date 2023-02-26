@@ -191,6 +191,7 @@ namespace Pocket_Updater.Controls
             String Location_Type = comboBox2.SelectedItem.ToString();
             if (Location_Type == "Removable Storage")
             {
+                PopulateDrives();
                 label2.Visible = true;
                 comboBox1.Visible = true;
                 Button_Refresh.Visible = true;
@@ -427,6 +428,15 @@ namespace Pocket_Updater.Controls
             {
                 Toggle_Skipped.Checked = false;
             }
+            //Build Jsons
+            if (_settings.GetConfig().build_instance_jsons == true)
+            {
+                Toggle_Jsons.Checked = true;
+            }
+            else
+            {
+                Toggle_Jsons.Checked = false;
+            }
             //Pre-release Cores
             List<Core> cores = await CoresService.GetCores();
             foreach (Core core in cores)
@@ -444,19 +454,6 @@ namespace Pocket_Updater.Controls
                 }
             }
         }
-
-        private void Toggle_GitHub_CheckedChanged(object sender, EventArgs e)
-        {
-            if (Toggle_GitHub.Checked == true)
-            {
-                GitHub_Token.Visible = true;
-            }
-            if (Toggle_GitHub.Checked == false)
-            {
-                GitHub_Token.Visible = false;
-            }
-        }
-
         private async void Button_Save_Click(object sender, EventArgs e)
         {
             string value = GitHub_Token.Text;
@@ -500,6 +497,15 @@ namespace Pocket_Updater.Controls
             else
             {
                 config.delete_skipped_cores = false;
+            }
+            //Build Jsons
+            if (Toggle_Jsons.Checked == true)
+            {
+                config.build_instance_jsons = true;
+            }
+            else
+            {
+                config.build_instance_jsons = false;
             }
             //Pre-Release Cores
             try
@@ -549,6 +555,18 @@ namespace Pocket_Updater.Controls
             else
             {
                 Update.Enabled = true;
+            }
+        }
+
+        private void Toggle_GitHub_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Toggle_GitHub.Checked == true)
+            {
+                GitHub_Token.Visible = true;
+            }
+            if (Toggle_GitHub.Checked == false)
+            {
+                GitHub_Token.Visible = false;
             }
         }
     }

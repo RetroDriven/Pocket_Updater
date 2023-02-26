@@ -1,5 +1,6 @@
 using pannella.analoguepocket;
 using Pocket_Updater.Forms.Message_Box;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Text.Json;
@@ -8,7 +9,7 @@ namespace Pocket_Updater
 {
     public partial class Form1 : Form
     { 
-        private const string VERSION = "1.5.1";
+        private const string VERSION = "1.5.3";
         private const string API_URL = "https://api.github.com/repos/RetroDriven/Pocket_Updater/releases";
         private const string RELEASE_URL = "https://github.com/RetroDriven/Pocket_Updater/releases/latest";
 
@@ -40,15 +41,11 @@ namespace Pocket_Updater
                 {
                     try
                     {
-                        Updates_Message_Box form = new Updates_Message_Box();
-                        form.label1.Text = "There is a New Version Available!\n\n Would you like to Download it?";
-                        form.Show();
+                        Update_Available.Visible = true;
                     }
                     catch
                     {
-                        Message_Box form = new Message_Box();
-                        form.label1.Text = "No Internet Connection Detected!";
-                        form.Show();
+                        No_Internet.Visible = true;
                     }
                 }
             }
@@ -115,6 +112,7 @@ namespace Pocket_Updater
             organize_Cores1.Visible = false;
             image_Packs1.Visible = false;
             logs1.Visible= false;
+            about1.Visible = false;
         }
 
         private void Organize_Cores_Click(object sender, EventArgs e)
@@ -148,6 +146,17 @@ namespace Pocket_Updater
                 logs1.Clear.Enabled = false;
             }
             logs1.Visible = true;
+        }
+
+        private void Update_Available_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer", RELEASE_URL);
+        }
+
+        private void About_Click(object sender, EventArgs e)
+        {
+            Hide_Controls();
+            about1.Visible= true;
         }
     }
 }
