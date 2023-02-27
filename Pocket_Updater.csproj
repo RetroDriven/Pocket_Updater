@@ -18,6 +18,7 @@
     <AssemblyName>Pocket Updater</AssemblyName>
     <Description>Windows GUI Application to Update Cores for the Analogue Pocket</Description>
     <Copyright>2023 - RetroDriven</Copyright>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
