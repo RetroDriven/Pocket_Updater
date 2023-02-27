@@ -105,7 +105,7 @@ namespace Pocket_Updater.Controls.Manage_Cores
         {
             Point headerCellLocation = this.dataGridView1.GetCellDisplayRectangle(0, -1, true).Location;
 
-            headerCheckBox.Location = new Point(headerCellLocation.X + 53, headerCellLocation.Y + 17);
+            headerCheckBox.Location = new Point(headerCellLocation.X + 55, headerCellLocation.Y + 17);
             headerCheckBox.BackColor = Color.FromArgb(94, 148, 255);
             headerCheckBox.Size = new Size(20, 20);
             headerCheckBox.Click += new EventHandler(HeaderCheckBox_Clicked);

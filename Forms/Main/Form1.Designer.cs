@@ -91,7 +91,7 @@ namespace Pocket_Updater
             // 
             // guna2BorderlessForm1
             // 
-            this.guna2BorderlessForm1.BorderRadius = 20;
+            this.guna2BorderlessForm1.BorderRadius = 10;
             this.guna2BorderlessForm1.ContainerControl = this;
             this.guna2BorderlessForm1.DockIndicatorColor = System.Drawing.Color.Black;
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 1D;
@@ -105,8 +105,10 @@ namespace Pocket_Updater
             // 
             // Panel_Top
             // 
+            this.Panel_Top.AutoRoundedCorners = true;
             this.Panel_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(26)))));
             this.Panel_Top.BorderColor = System.Drawing.Color.Transparent;
+            this.Panel_Top.BorderRadius = 22;
             this.Panel_Top.Controls.Add(this.guna2HtmlLabel1);
             this.Panel_Top.Controls.Add(this.guna2ControlBox1);
             this.Panel_Top.Controls.Add(this.guna2ControlBox2);
@@ -131,7 +133,7 @@ namespace Pocket_Updater
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(169, 23);
             this.guna2HtmlLabel1.TabIndex = 0;
-            this.guna2HtmlLabel1.Text = "Pocket Updater v1.5.3";
+            this.guna2HtmlLabel1.Text = "Pocket Updater v1.5.4";
             // 
             // guna2ControlBox1
             // 
@@ -193,7 +195,7 @@ namespace Pocket_Updater
             this.Update_Available.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.Update_Available.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Update_Available.ForeColor = System.Drawing.Color.White;
-            this.Update_Available.Location = new System.Drawing.Point(940, 6);
+            this.Update_Available.Location = new System.Drawing.Point(962, 8);
             this.Update_Available.Margin = new System.Windows.Forms.Padding(100, 20, 3, 3);
             this.Update_Available.Name = "Update_Available";
             this.Update_Available.ShadowDecoration.CustomizableEdges = customizableEdges20;
@@ -219,7 +221,7 @@ namespace Pocket_Updater
             this.No_Internet.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.No_Internet.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.No_Internet.ForeColor = System.Drawing.Color.White;
-            this.No_Internet.Location = new System.Drawing.Point(882, 6);
+            this.No_Internet.Location = new System.Drawing.Point(470, 7);
             this.No_Internet.Margin = new System.Windows.Forms.Padding(100, 20, 3, 3);
             this.No_Internet.Name = "No_Internet";
             this.No_Internet.ShadowDecoration.CustomizableEdges = customizableEdges22;
@@ -240,7 +242,7 @@ namespace Pocket_Updater
             this.Panel_Menu.Dock = System.Windows.Forms.DockStyle.Left;
             this.Panel_Menu.Location = new System.Drawing.Point(0, 46);
             this.Panel_Menu.Name = "Panel_Menu";
-            this.Panel_Menu.Size = new System.Drawing.Size(306, 642);
+            this.Panel_Menu.Size = new System.Drawing.Size(263, 642);
             this.Panel_Menu.TabIndex = 29;
             // 
             // flowLayoutPanel1
@@ -258,7 +260,7 @@ namespace Pocket_Updater
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(306, 642);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(263, 642);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // pictureBox1
@@ -269,7 +271,7 @@ namespace Pocket_Updater
             this.pictureBox1.Location = new System.Drawing.Point(0, 35);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0, 25, 50, 30);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(256, 68);
+            this.pictureBox1.Size = new System.Drawing.Size(213, 68);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 30;
             this.pictureBox1.TabStop = false;
@@ -299,7 +301,7 @@ namespace Pocket_Updater
             this.Update_Pocket.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.Update_Pocket.Name = "Update_Pocket";
             this.Update_Pocket.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            this.Update_Pocket.Size = new System.Drawing.Size(300, 43);
+            this.Update_Pocket.Size = new System.Drawing.Size(253, 43);
             this.Update_Pocket.TabIndex = 30;
             this.Update_Pocket.Text = "Update Pocket";
             this.Update_Pocket.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -330,7 +332,7 @@ namespace Pocket_Updater
             this.Manage_Cores.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.Manage_Cores.Name = "Manage_Cores";
             this.Manage_Cores.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            this.Manage_Cores.Size = new System.Drawing.Size(300, 43);
+            this.Manage_Cores.Size = new System.Drawing.Size(253, 43);
             this.Manage_Cores.TabIndex = 31;
             this.Manage_Cores.Text = "Manage Cores";
             this.Manage_Cores.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -361,7 +363,7 @@ namespace Pocket_Updater
             this.Organize_Cores.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.Organize_Cores.Name = "Organize_Cores";
             this.Organize_Cores.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            this.Organize_Cores.Size = new System.Drawing.Size(300, 43);
+            this.Organize_Cores.Size = new System.Drawing.Size(253, 43);
             this.Organize_Cores.TabIndex = 32;
             this.Organize_Cores.Text = "Organize Cores";
             this.Organize_Cores.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -392,7 +394,7 @@ namespace Pocket_Updater
             this.Image_Packs.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.Image_Packs.Name = "Image_Packs";
             this.Image_Packs.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            this.Image_Packs.Size = new System.Drawing.Size(300, 43);
+            this.Image_Packs.Size = new System.Drawing.Size(253, 43);
             this.Image_Packs.TabIndex = 33;
             this.Image_Packs.Text = "Asset Image Packs";
             this.Image_Packs.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -423,7 +425,7 @@ namespace Pocket_Updater
             this.Logs.Margin = new System.Windows.Forms.Padding(7, 10, 3, 3);
             this.Logs.Name = "Logs";
             this.Logs.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            this.Logs.Size = new System.Drawing.Size(296, 43);
+            this.Logs.Size = new System.Drawing.Size(249, 43);
             this.Logs.TabIndex = 36;
             this.Logs.Text = "Logs";
             this.Logs.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -454,7 +456,7 @@ namespace Pocket_Updater
             this.About.Margin = new System.Windows.Forms.Padding(7, 10, 3, 3);
             this.About.Name = "About";
             this.About.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            this.About.Size = new System.Drawing.Size(296, 43);
+            this.About.Size = new System.Drawing.Size(253, 43);
             this.About.TabIndex = 37;
             this.About.Text = "About";
             this.About.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -471,10 +473,10 @@ namespace Pocket_Updater
             this.Panel_Main.Controls.Add(this.logs1);
             this.Panel_Main.Controls.Add(this.about1);
             this.Panel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel_Main.Location = new System.Drawing.Point(306, 46);
+            this.Panel_Main.Location = new System.Drawing.Point(263, 46);
             this.Panel_Main.Name = "Panel_Main";
             this.Panel_Main.Padding = new System.Windows.Forms.Padding(0, 25, 0, 0);
-            this.Panel_Main.Size = new System.Drawing.Size(967, 642);
+            this.Panel_Main.Size = new System.Drawing.Size(1010, 642);
             this.Panel_Main.TabIndex = 31;
             // 
             // update_Pocket1
@@ -489,7 +491,7 @@ namespace Pocket_Updater
             this.update_Pocket1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.update_Pocket1.Name = "update_Pocket1";
             this.update_Pocket1.Pocket_Drive = null;
-            this.update_Pocket1.Size = new System.Drawing.Size(967, 617);
+            this.update_Pocket1.Size = new System.Drawing.Size(1010, 617);
             this.update_Pocket1.TabIndex = 0;
             // 
             // image_Packs1
@@ -503,7 +505,7 @@ namespace Pocket_Updater
             this.image_Packs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.image_Packs1.Name = "image_Packs1";
             this.image_Packs1.Pocket_Drive = null;
-            this.image_Packs1.Size = new System.Drawing.Size(967, 617);
+            this.image_Packs1.Size = new System.Drawing.Size(1010, 617);
             this.image_Packs1.TabIndex = 3;
             this.image_Packs1.Visible = false;
             // 
@@ -517,7 +519,7 @@ namespace Pocket_Updater
             this.organize_Cores1.Location = new System.Drawing.Point(0, 25);
             this.organize_Cores1.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.organize_Cores1.Name = "organize_Cores1";
-            this.organize_Cores1.Size = new System.Drawing.Size(967, 617);
+            this.organize_Cores1.Size = new System.Drawing.Size(1010, 617);
             this.organize_Cores1.TabIndex = 2;
             this.organize_Cores1.updateFile = null;
             this.organize_Cores1.Visible = false;
@@ -532,7 +534,7 @@ namespace Pocket_Updater
             this.manageCores1.Location = new System.Drawing.Point(0, 25);
             this.manageCores1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.manageCores1.Name = "manageCores1";
-            this.manageCores1.Size = new System.Drawing.Size(967, 617);
+            this.manageCores1.Size = new System.Drawing.Size(1010, 617);
             this.manageCores1.TabIndex = 1;
             this.manageCores1.updateFile = null;
             // 
@@ -544,7 +546,7 @@ namespace Pocket_Updater
             this.logs1.Location = new System.Drawing.Point(0, 25);
             this.logs1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logs1.Name = "logs1";
-            this.logs1.Size = new System.Drawing.Size(967, 617);
+            this.logs1.Size = new System.Drawing.Size(1010, 617);
             this.logs1.TabIndex = 5;
             this.logs1.Visible = false;
             // 
@@ -557,7 +559,7 @@ namespace Pocket_Updater
             this.about1.Location = new System.Drawing.Point(0, 25);
             this.about1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.about1.Name = "about1";
-            this.about1.Size = new System.Drawing.Size(967, 617);
+            this.about1.Size = new System.Drawing.Size(1010, 617);
             this.about1.TabIndex = 6;
             this.about1.Visible = false;
             // 

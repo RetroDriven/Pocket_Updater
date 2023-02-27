@@ -145,7 +145,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(570, 154);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(496, 154);
             this.flowLayoutPanel1.TabIndex = 11;
             // 
             // Panel_Title
@@ -362,7 +362,7 @@
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            this.guna2Panel1.Size = new System.Drawing.Size(567, 31);
+            this.guna2Panel1.Size = new System.Drawing.Size(493, 31);
             this.guna2Panel1.TabIndex = 10;
             // 
             // label5
@@ -399,7 +399,7 @@
             this.Panel_Status_Title.Name = "Panel_Status_Title";
             this.Panel_Status_Title.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
             this.Panel_Status_Title.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            this.Panel_Status_Title.Size = new System.Drawing.Size(603, 39);
+            this.Panel_Status_Title.Size = new System.Drawing.Size(677, 39);
             this.Panel_Status_Title.TabIndex = 3;
             // 
             // label4
@@ -432,7 +432,7 @@
             this.Panel_Left.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Panel_Left.Name = "Panel_Left";
             this.Panel_Left.ShadowDecoration.CustomizableEdges = customizableEdges34;
-            this.Panel_Left.Size = new System.Drawing.Size(570, 627);
+            this.Panel_Left.Size = new System.Drawing.Size(496, 627);
             this.Panel_Left.TabIndex = 13;
             // 
             // Panel_Left_Main
@@ -442,7 +442,7 @@
             this.Panel_Left_Main.Location = new System.Drawing.Point(0, 154);
             this.Panel_Left_Main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Panel_Left_Main.Name = "Panel_Left_Main";
-            this.Panel_Left_Main.Size = new System.Drawing.Size(570, 473);
+            this.Panel_Left_Main.Size = new System.Drawing.Size(496, 473);
             this.Panel_Left_Main.TabIndex = 14;
             // 
             // Panel_Left_Bottom
@@ -454,7 +454,7 @@
             this.Panel_Left_Bottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Panel_Left_Bottom.Name = "Panel_Left_Bottom";
             this.Panel_Left_Bottom.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.Panel_Left_Bottom.Size = new System.Drawing.Size(570, 473);
+            this.Panel_Left_Bottom.Size = new System.Drawing.Size(496, 473);
             this.Panel_Left_Bottom.TabIndex = 12;
             // 
             // flowLayoutPanel2
@@ -467,7 +467,7 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 31);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(567, 442);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(493, 442);
             this.flowLayoutPanel2.TabIndex = 11;
             // 
             // tableLayoutPanel3
@@ -838,7 +838,7 @@
             this.Panel_Left_Top.Location = new System.Drawing.Point(0, 0);
             this.Panel_Left_Top.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Panel_Left_Top.Name = "Panel_Left_Top";
-            this.Panel_Left_Top.Size = new System.Drawing.Size(570, 154);
+            this.Panel_Left_Top.Size = new System.Drawing.Size(496, 154);
             this.Panel_Left_Top.TabIndex = 13;
             // 
             // textBox1
@@ -869,7 +869,7 @@
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.SelectedText = "";
             this.textBox1.ShadowDecoration.CustomizableEdges = customizableEdges36;
-            this.textBox1.Size = new System.Drawing.Size(599, 588);
+            this.textBox1.Size = new System.Drawing.Size(673, 588);
             this.textBox1.TabIndex = 1;
             // 
             // Panel_Right
@@ -878,11 +878,11 @@
             this.Panel_Right.Controls.Add(this.Panel_Right_Top);
             this.Panel_Right.CustomizableEdges = customizableEdges41;
             this.Panel_Right.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel_Right.Location = new System.Drawing.Point(570, 0);
+            this.Panel_Right.Location = new System.Drawing.Point(496, 0);
             this.Panel_Right.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Panel_Right.Name = "Panel_Right";
             this.Panel_Right.ShadowDecoration.CustomizableEdges = customizableEdges42;
-            this.Panel_Right.Size = new System.Drawing.Size(603, 627);
+            this.Panel_Right.Size = new System.Drawing.Size(677, 627);
             this.Panel_Right.TabIndex = 14;
             // 
             // Panel_Right_Main
@@ -895,7 +895,7 @@
             this.Panel_Right_Main.Name = "Panel_Right_Main";
             this.Panel_Right_Main.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.Panel_Right_Main.ShadowDecoration.CustomizableEdges = customizableEdges38;
-            this.Panel_Right_Main.Size = new System.Drawing.Size(603, 588);
+            this.Panel_Right_Main.Size = new System.Drawing.Size(677, 588);
             this.Panel_Right_Main.TabIndex = 1;
             // 
             // Panel_Right_Top
@@ -907,7 +907,7 @@
             this.Panel_Right_Top.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Panel_Right_Top.Name = "Panel_Right_Top";
             this.Panel_Right_Top.ShadowDecoration.CustomizableEdges = customizableEdges40;
-            this.Panel_Right_Top.Size = new System.Drawing.Size(603, 39);
+            this.Panel_Right_Top.Size = new System.Drawing.Size(677, 39);
             this.Panel_Right_Top.TabIndex = 0;
             // 
             // ToolTip
