@@ -85,7 +85,7 @@ Select the "**Logs**" Option
 You can clear the Update Log File via the "**Clear Logs**" Button
 
 ## App Updates ##
-This Application will self check for Updates when you run it. When an Update is found you will see an App Update Notification banner within the Titlebar like below. 
+This Application will self check for Updates when you run it. When an Update is found you will see an App Update Notification banner within the Titlebar like below. When you click on this you will be take to the latest Release here on my GitHub to download it.
 
 ![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Updates_Found.png)
 
