@@ -32,27 +32,6 @@ Select the "**Update Cores**" Option and you will see a Status window as well as
 
 ![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Updates_Complete.png)
 
-## Manage Cores ##
-Select the "**Manage Cores**" Option. From here you can pick and choose the Cores that you'd like to download.
-
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Manage_Cores.png)
-
-## Organize Cores ##
-Select the "**Organize Cores**" Option. From here you can customize the Core Names and Categories to your liking.
-
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Organize_Cores.png)
-
-## Asset Image Packs ##
-Select the "**Asset Image Packs**" Option. This will allow you to download from the most popular Image Packs out there to spice things up on your Pocket. More Image Packs will be added as they become available from Creators
-
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Image_Packs.png)
-
-#### Current Directory Location
-This option allows you to Update everything locally first and manually copy over all of the Files/Folders to your Pocket's SD Card after the Updater has finished. 
-
-#### Removable Storage Location
-This option allows you to Update directly to your Pocket's SD Card via plugging in your SD Card to your machine or by connecting your Pocket to your machine via USB Cable. (*Please use the Refresh button if you do not see your Pocket's SD Card Drive Letter within the Drop Down*)
-
 ## Settings ##
 Select "**Settings**" Option
 
@@ -77,6 +56,27 @@ This will Delete Cores from your Pocket's SD Card that you have unchecked for Up
 #### GitHub Token
 This is an Optional Setting. If you're running up against the rate limit with the GitHub API, you can provide your Personal Access Token to resolve this issue.
 
+## Manage Cores ##
+Select the "**Manage Cores**" Option. From here you can pick and choose the Cores that you'd like to download.
+
+![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Manage_Cores.png)
+
+## Organize Cores ##
+Select the "**Organize Cores**" Option. From here you can customize the Core Names and Categories to your liking.
+
+![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Organize_Cores.png)
+
+## Asset Image Packs ##
+Select the "**Asset Image Packs**" Option. This will allow you to download from the most popular Image Packs out there to spice things up on your Pocket. More Image Packs will be added as they become available from Creators
+
+![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Image_Packs.png)
+
+#### Current Directory Location
+This option allows you to Update everything locally first and manually copy over all of the Files/Folders to your Pocket's SD Card after the Updater has finished. 
+
+#### Removable Storage Location
+This option allows you to Update directly to your Pocket's SD Card via plugging in your SD Card to your machine or by connecting your Pocket to your machine via USB Cable. (*Please use the Refresh button if you do not see your Pocket's SD Card Drive Letter within the Drop Down*)
+
 ## Update Log ##
 Select the "**Logs**" Option
 
@@ -85,9 +85,14 @@ Select the "**Logs**" Option
 You can clear the Update Log File via the "**Clear Logs**" Button
 
 ## App Updates ##
-This Application will self check for Updates when you run it. When an Update is found you will get a Prompt asking if you'd like to Download the latest Release. 
+This Application will self check for Updates when you run it. When an Update is found you will see an App Update Notification banner within the Titlebar like below. 
 
 ![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Updates_Found.png)
+
+## About
+Select the "**About**" Option to see some Useful Information and Links.
+
+![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/About.png)
 
 ## Credits ##
 Special thanks to [mattpannella](https://github.com/mattpannella) for Collaborating with me and providing me with his Updater Library Files. His updater can be found [Here](https://github.com/mattpannella/pocket_core_autoupdate_net)
