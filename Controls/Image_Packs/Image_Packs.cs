@@ -200,6 +200,7 @@ namespace Pocket_Updater.Controls.Image_Packs
                         else
                         {
                             //Current Directory Selected
+                            Current_Dir = Directory.GetCurrentDirectory();
                             if (await packs[e.RowIndex].Install(Current_Dir))
                             {
                                 Message_Box form = new Message_Box();

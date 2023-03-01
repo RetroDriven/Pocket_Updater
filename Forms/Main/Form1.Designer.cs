@@ -131,9 +131,9 @@ namespace Pocket_Updater
             this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(12, 12);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(169, 23);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(212, 30);
             this.guna2HtmlLabel1.TabIndex = 0;
-            this.guna2HtmlLabel1.Text = "Pocket Updater v1.5.4";
+            this.guna2HtmlLabel1.Text = "Pocket Updater v1.5.5";
             // 
             // guna2ControlBox1
             // 
@@ -185,7 +185,7 @@ namespace Pocket_Updater
             // 
             this.Update_Available.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Update_Available.AutoRoundedCorners = true;
-            this.Update_Available.BorderRadius = 14;
+            this.Update_Available.BorderRadius = 17;
             this.Update_Available.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Update_Available.CustomizableEdges = customizableEdges19;
             this.Update_Available.DefaultAutoSize = true;
@@ -195,11 +195,11 @@ namespace Pocket_Updater
             this.Update_Available.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.Update_Available.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Update_Available.ForeColor = System.Drawing.Color.White;
-            this.Update_Available.Location = new System.Drawing.Point(962, 8);
+            this.Update_Available.Location = new System.Drawing.Point(962, 7);
             this.Update_Available.Margin = new System.Windows.Forms.Padding(100, 20, 3, 3);
             this.Update_Available.Name = "Update_Available";
             this.Update_Available.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            this.Update_Available.Size = new System.Drawing.Size(190, 31);
+            this.Update_Available.Size = new System.Drawing.Size(232, 36);
             this.Update_Available.TabIndex = 3;
             this.Update_Available.Text = "App Update Available!";
             this.Update_Available.Visible = false;
@@ -209,7 +209,7 @@ namespace Pocket_Updater
             // 
             this.No_Internet.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.No_Internet.AutoRoundedCorners = true;
-            this.No_Internet.BorderRadius = 14;
+            this.No_Internet.BorderRadius = 17;
             this.No_Internet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.No_Internet.CustomizableEdges = customizableEdges21;
             this.No_Internet.DefaultAutoSize = true;
@@ -225,7 +225,7 @@ namespace Pocket_Updater
             this.No_Internet.Margin = new System.Windows.Forms.Padding(100, 20, 3, 3);
             this.No_Internet.Name = "No_Internet";
             this.No_Internet.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            this.No_Internet.Size = new System.Drawing.Size(271, 31);
+            this.No_Internet.Size = new System.Drawing.Size(332, 36);
             this.No_Internet.TabIndex = 4;
             this.No_Internet.Text = "No Internet Connection Detected!";
             this.No_Internet.Visible = false;
@@ -565,7 +565,7 @@ namespace Pocket_Updater
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));
             this.ClientSize = new System.Drawing.Size(1273, 688);
