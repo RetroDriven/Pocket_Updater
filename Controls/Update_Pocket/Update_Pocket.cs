@@ -41,7 +41,7 @@ namespace Pocket_Updater.Controls
             Button_Refresh.Enabled = false;
             comboBox1.Enabled = false;
             //GitHub Token
-            //_updater.SetGithubApiKey("apikey");
+            _updater.SetGithubApiKey("apikey");
             await _updater.RunUpdates();
             Update.Enabled = true;
             Button_Refresh.Enabled = true;
@@ -88,6 +88,7 @@ namespace Pocket_Updater.Controls
                     _updater.DownloadAssets(_settings.GetConfig().download_assets);
                     _updater.DeleteSkippedCores(_settings.GetConfig().delete_skipped_cores);
                     _updater.PreservePlatformsFolder(_settings.GetConfig().preserve_platforms_folder);
+                    _updater.RenameJotegoCores(_settings.GetConfig().fix_jt_names);
 
                     if (github_token != null)
                     {
@@ -134,6 +135,7 @@ namespace Pocket_Updater.Controls
                         _updater.DownloadAssets(_settings.GetConfig().download_assets);
                         _updater.DeleteSkippedCores(_settings.GetConfig().delete_skipped_cores);
                         _updater.PreservePlatformsFolder(_settings.GetConfig().preserve_platforms_folder);
+                        _updater.RenameJotegoCores(_settings.GetConfig().fix_jt_names);
 
                         if (github_token != null)
                         {
@@ -379,19 +381,33 @@ namespace Pocket_Updater.Controls
             string Current_Dir = Directory.GetCurrentDirectory();
             _settings = new SettingsManager(Current_Dir);
 
-            //GitHub Token
-            GitHub_Token.Text = _settings.GetConfig().github_token;
-
-            if (_settings.GetConfig().github_token != null)
+            //Alternate Arcade Files
+            if (_settings.GetConfig().skip_alternative_assets == true)
             {
-                Toggle_GitHub.Checked = true;
+                Toggle_Alternatives.Checked = true;
             }
             else
             {
-                Toggle_GitHub.Checked = false;
+                Toggle_Alternatives.Checked = false;
             }
+            //GitHub Token
+            //Alternate_Location.Text = _settings.GetConfig().use_custom_archive;
 
+            if (_settings.GetConfig().use_custom_archive == true)
+            {
+                Toggle_Alternate.Checked = true;
 
+                var custom = _settings.GetConfig().custom_archive;
+                var url = custom["url"];
+                var index = custom["index"];
+                Alternate_Location.Text = url;
+                //CRC_Json.Text = index;
+
+            }
+            else
+            {
+                Toggle_Alternate.Checked = false;
+            }
             //Download Pocket Firmware
             if (_settings.GetConfig().download_firmware == true)
             {
@@ -437,6 +453,24 @@ namespace Pocket_Updater.Controls
             {
                 Toggle_Jsons.Checked = false;
             }
+            //Jotego Core Rename
+            if (_settings.GetConfig().fix_jt_names == true)
+            {
+                Toggle_Jotego.Checked = true;
+            }
+            else
+            {
+                Toggle_Jotego.Checked = false;
+            }
+            //CRC Checking
+            if (_settings.GetConfig().crc_check == true)
+            {
+                Toggle_CRC.Checked = true;
+            }
+            else
+            {
+                Toggle_CRC.Checked = false;
+            }
             //Pre-release Cores
             List<Core> cores = await CoresService.GetCores();
             foreach (Core core in cores)
@@ -456,11 +490,36 @@ namespace Pocket_Updater.Controls
         }
         private async void Button_Save_Click(object sender, EventArgs e)
         {
-            string value = GitHub_Token.Text;
+            //string value = Alternate_Location.Text;
             Config config = _settings.GetConfig();
 
             //GitHub Token
-            config.github_token = value;
+            //config.github_token = value;
+
+            //Alternate Arcade Files
+            if (Toggle_Alternatives.Checked == true)
+            {
+                config.skip_alternative_assets = true;
+            }
+            else
+            {
+                config.skip_alternative_assets = false;
+            }
+
+            //Alternate Download Location
+            if (Toggle_Alternate.Checked == true)
+            {
+                config.use_custom_archive = true;
+
+                var custom = _settings.GetConfig().custom_archive;
+                custom["url"] = Alternate_Location.Text;
+                //custom["index"] = CRC_Json.Text;
+                _settings.GetConfig().custom_archive = custom;
+            }
+            else
+            {
+                config.use_custom_archive = false;
+            }
 
             //Download Pocket Firmware
             if (Toggle_Firmware.Checked == true)
@@ -506,6 +565,24 @@ namespace Pocket_Updater.Controls
             else
             {
                 config.build_instance_jsons = false;
+            }
+            //Jotego Rename
+            if (Toggle_Jotego.Checked == true)
+            {
+                config.fix_jt_names = true;
+            }
+            else
+            {
+                config.fix_jt_names = false;
+            }
+            //CRC Check
+            if (Toggle_CRC.Checked == true)
+            {
+                config.crc_check = true;
+            }
+            else
+            {
+                config.crc_check = false;
             }
             //Pre-Release Cores
             try
@@ -558,15 +635,25 @@ namespace Pocket_Updater.Controls
             }
         }
 
-        private void Toggle_GitHub_CheckedChanged(object sender, EventArgs e)
+        private void Toggle_Alternate_CheckedChanged(object sender, EventArgs e)
         {
-            if (Toggle_GitHub.Checked == true)
+            if (Toggle_Alternate.Checked == true)
             {
-                GitHub_Token.Visible = true;
+                Alternate_Location.Visible = true;
+                TextBox2.Visible = true;
+                //CRC_Json.Visible = true;
+                //label15.Visible = true;
+                //label17.Visible = true;
+                //label18.Visible = true;
             }
-            if (Toggle_GitHub.Checked == false)
+            if (Toggle_Alternate.Checked == false)
             {
-                GitHub_Token.Visible = false;
+                Alternate_Location.Visible = false;
+                TextBox2.Visible = false;
+                //CRC_Json.Visible = false;
+                //label15.Visible = false;
+                //label17.Visible = false;
+                //label18.Visible = false;
             }
         }
     }

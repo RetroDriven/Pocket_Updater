@@ -4,6 +4,7 @@ using pannella.analoguepocket;
 using System.Net;
 using System.ComponentModel;
 using Pocket_Updater.Forms.Message_Box;
+using System.Diagnostics;
 //using Analogue;
 
 namespace Pocket_Updater.Controls.Organize_Cores
@@ -89,6 +90,8 @@ namespace Pocket_Updater.Controls.Organize_Cores
         public void ReadPlatforms(string Dir)
         {
             var Dir_Check = Dir + "Platforms";
+
+            Debug.WriteLine(Dir_Check);
 
             if (Directory.Exists(Dir_Check))
             {
@@ -181,6 +184,44 @@ namespace Pocket_Updater.Controls.Organize_Cores
         {
             dataGridView1.Rows.Clear();
             PopulateDrives();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String Location_Type = comboBox2.SelectedItem.ToString();
+            if (Location_Type == "Removable Storage")
+            {
+                dataGridView1.Rows.Clear();
+                PopulateDrives();
+                label3.Visible = true;
+                Pocket_Drive.Visible = true;
+                Button_Refresh.Visible = true;
+
+                if (Pocket_Drive.SelectedIndex == -1)
+                {
+                  Save.Enabled = false;
+                }
+                else
+                {
+                    Save.Enabled = true;
+                }
+            }
+            else
+            {
+                label3.Visible = false;
+                Pocket_Drive.Visible = false;
+                Button_Refresh.Visible = false;
+            }
+            if (Location_Type == "Current Directory")
+            {
+                //Get Json Data
+                string Current = Directory.GetCurrentDirectory()+"\\";
+                _settings = new SettingsManager(Current);
+                dataGridView1.Rows.Clear();
+                ReadPlatforms(Current);
+
+                //Save.Enabled = true;
+            }
         }
     }
 }

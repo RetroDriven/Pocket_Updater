@@ -30,31 +30,36 @@
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             this.Panel_Top = new Guna.UI2.WinForms.Guna2Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
             this.Panel_Bottom = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.Save = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.Pocket_Drive = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.Button_Refresh = new Guna.UI2.WinForms.Guna2Button();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.Save = new Guna.UI2.WinForms.Guna2Button();
             this.dataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.CoreName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CoreDeveloper = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,9 +69,10 @@
             this.Panel_Top.SuspendLayout();
             this.Panel_Bottom.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -108,28 +114,122 @@
             // Panel_Bottom
             // 
             this.Panel_Bottom.Controls.Add(this.flowLayoutPanel1);
-            this.Panel_Bottom.CustomizableEdges = customizableEdges9;
+            this.Panel_Bottom.CustomizableEdges = customizableEdges11;
             this.Panel_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Panel_Bottom.Location = new System.Drawing.Point(0, 522);
+            this.Panel_Bottom.Location = new System.Drawing.Point(0, 534);
             this.Panel_Bottom.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.Panel_Bottom.Name = "Panel_Bottom";
             this.Panel_Bottom.Padding = new System.Windows.Forms.Padding(0, 11, 0, 11);
-            this.Panel_Bottom.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            this.Panel_Bottom.Size = new System.Drawing.Size(726, 84);
+            this.Panel_Bottom.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            this.Panel_Bottom.Size = new System.Drawing.Size(726, 124);
             this.Panel_Bottom.TabIndex = 4;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
+            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel5);
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel2);
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel4);
-            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel5);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 11);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 1, 4, 1);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(131, 0, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(726, 58);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(726, 110);
             this.flowLayoutPanel1.TabIndex = 22;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.comboBox2, 1, 0);
+            this.tableLayoutPanel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(134, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(325, 40);
+            this.tableLayoutPanel1.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(3, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(116, 20);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Cores Location:";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comboBox2.AutoRoundedCorners = true;
+            this.comboBox2.BackColor = System.Drawing.Color.Transparent;
+            this.comboBox2.BorderRadius = 17;
+            this.comboBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox2.CustomizableEdges = customizableEdges3;
+            this.comboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
+            this.comboBox2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.comboBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.comboBox2.ItemHeight = 30;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Current Directory",
+            "Removable Storage"});
+            this.comboBox2.ItemsAppearance.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBox2.Location = new System.Drawing.Point(125, 2);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            this.comboBox2.Size = new System.Drawing.Size(197, 36);
+            this.comboBox2.TabIndex = 10;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.AutoSize = true;
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel5.Controls.Add(this.Save, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(466, 1);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(107, 50);
+            this.tableLayoutPanel5.TabIndex = 11;
+            // 
+            // Save
+            // 
+            this.Save.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Save.AutoRoundedCorners = true;
+            this.Save.BorderRadius = 20;
+            this.Save.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Save.CustomizableEdges = customizableEdges5;
+            this.Save.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Save.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Save.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Save.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Save.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Save.ForeColor = System.Drawing.Color.White;
+            this.Save.Location = new System.Drawing.Point(4, 1);
+            this.Save.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
+            this.Save.Name = "Save";
+            this.Save.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            this.Save.Size = new System.Drawing.Size(99, 42);
+            this.Save.TabIndex = 1;
+            this.Save.Text = "Organize";
+            this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -140,7 +240,7 @@
             this.tableLayoutPanel2.Controls.Add(this.Pocket_Drive, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(135, 1);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(135, 53);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -155,7 +255,7 @@
             this.Pocket_Drive.BackColor = System.Drawing.Color.Transparent;
             this.Pocket_Drive.BorderRadius = 17;
             this.Pocket_Drive.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Pocket_Drive.CustomizableEdges = customizableEdges3;
+            this.Pocket_Drive.CustomizableEdges = customizableEdges7;
             this.Pocket_Drive.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.Pocket_Drive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Pocket_Drive.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
@@ -168,9 +268,10 @@
             this.Pocket_Drive.Location = new System.Drawing.Point(156, 1);
             this.Pocket_Drive.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.Pocket_Drive.Name = "Pocket_Drive";
-            this.Pocket_Drive.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            this.Pocket_Drive.ShadowDecoration.CustomizableEdges = customizableEdges8;
             this.Pocket_Drive.Size = new System.Drawing.Size(176, 36);
             this.Pocket_Drive.TabIndex = 16;
+            this.Pocket_Drive.Visible = false;
             this.Pocket_Drive.SelectedIndexChanged += new System.EventHandler(this.Pocket_Drive_SelectedIndexChanged);
             // 
             // label3
@@ -184,6 +285,7 @@
             this.label3.Size = new System.Drawing.Size(148, 20);
             this.label3.TabIndex = 15;
             this.label3.Text = "Pocket Drive Letter:";
+            this.label3.Visible = false;
             // 
             // tableLayoutPanel4
             // 
@@ -192,7 +294,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel4.Controls.Add(this.Button_Refresh, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(475, 1);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(475, 53);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
@@ -203,7 +305,7 @@
             // Button_Refresh
             // 
             this.Button_Refresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Button_Refresh.CustomizableEdges = customizableEdges5;
+            this.Button_Refresh.CustomizableEdges = customizableEdges9;
             this.Button_Refresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Button_Refresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.Button_Refresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -217,47 +319,11 @@
             this.Button_Refresh.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.Button_Refresh.Name = "Button_Refresh";
             this.Button_Refresh.PressedColor = System.Drawing.Color.Transparent;
-            this.Button_Refresh.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            this.Button_Refresh.ShadowDecoration.CustomizableEdges = customizableEdges10;
             this.Button_Refresh.Size = new System.Drawing.Size(36, 40);
             this.Button_Refresh.TabIndex = 0;
             this.ToolTip.SetToolTip(this.Button_Refresh, "Refresh your Removable Drive List");
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.AutoSize = true;
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel5.Controls.Add(this.Save, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(523, 1);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(107, 44);
-            this.tableLayoutPanel5.TabIndex = 3;
-            // 
-            // Save
-            // 
-            this.Save.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Save.AutoRoundedCorners = true;
-            this.Save.BorderRadius = 20;
-            this.Save.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Save.CustomizableEdges = customizableEdges7;
-            this.Save.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Save.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Save.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Save.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Save.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Save.ForeColor = System.Drawing.Color.White;
-            this.Save.Location = new System.Drawing.Point(4, 1);
-            this.Save.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.Save.Name = "Save";
-            this.Save.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            this.Save.Size = new System.Drawing.Size(99, 42);
-            this.Save.TabIndex = 1;
-            this.Save.Text = "Organize";
-            this.Save.Click += new System.EventHandler(this.Save_Click);
+            this.Button_Refresh.Visible = false;
             // 
             // dataGridView1
             // 
@@ -311,7 +377,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(722, 483);
+            this.dataGridView1.Size = new System.Drawing.Size(722, 495);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -360,7 +426,7 @@
             this.guna2CircleButton1.Location = new System.Drawing.Point(432, 436);
             this.guna2CircleButton1.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.guna2CircleButton1.Name = "guna2CircleButton1";
-            this.guna2CircleButton1.ShadowDecoration.CustomizableEdges = customizableEdges11;
+            this.guna2CircleButton1.ShadowDecoration.CustomizableEdges = customizableEdges13;
             this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton1.Size = new System.Drawing.Size(162, 101);
             this.guna2CircleButton1.TabIndex = 4;
@@ -374,7 +440,7 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.panel1.Size = new System.Drawing.Size(726, 483);
+            this.panel1.Size = new System.Drawing.Size(726, 495);
             this.panel1.TabIndex = 6;
             // 
             // ToolTip
@@ -401,16 +467,18 @@
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.Name = "Organize_Cores";
-            this.Size = new System.Drawing.Size(726, 606);
+            this.Size = new System.Drawing.Size(726, 658);
             this.Panel_Top.ResumeLayout(false);
             this.Panel_Top.PerformLayout();
             this.Panel_Bottom.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -429,8 +497,6 @@
         private TableLayoutPanel tableLayoutPanel2;
         private Label label3;
         private TableLayoutPanel tableLayoutPanel4;
-        private TableLayoutPanel tableLayoutPanel5;
-        private Guna.UI2.WinForms.Guna2Button Save;
         private Guna.UI2.WinForms.Guna2ComboBox Pocket_Drive;
         private Guna.UI2.WinForms.Guna2Button Button_Refresh;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
@@ -438,5 +504,10 @@
         private DataGridViewTextBoxColumn CoreDeveloper;
         private Panel panel1;
         private Guna.UI2.WinForms.Guna2HtmlToolTip ToolTip;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label label1;
+        private Guna.UI2.WinForms.Guna2ComboBox comboBox2;
+        private TableLayoutPanel tableLayoutPanel5;
+        private Guna.UI2.WinForms.Guna2Button Save;
     }
 }

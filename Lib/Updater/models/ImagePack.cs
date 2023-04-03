@@ -34,7 +34,7 @@ public class ImagePack
         }
         if(downloadUrl != "") {
             Console.WriteLine("Downloading image pack...");
-            await HttpHelper.DownloadFileAsync(downloadUrl, localFile);
+            await Factory.GetHttpHelper().DownloadFileAsync(downloadUrl, localFile);
             Console.WriteLine("Download complete.");
             return localFile;
         }
