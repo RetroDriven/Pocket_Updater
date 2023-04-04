@@ -42,10 +42,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -70,14 +70,16 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges49 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges50 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges51 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges52 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges47 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges48 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges49 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges50 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Panel_Title = new Guna.UI2.WinForms.Guna2Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -96,6 +98,7 @@
             this.Panel_Status_Title = new Guna.UI2.WinForms.Guna2Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
+            this.downloadProgressBar = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.Panel_Left = new Guna.UI2.WinForms.Guna2Panel();
             this.Panel_Left_Main = new System.Windows.Forms.Panel();
             this.Panel_Left_Bottom = new System.Windows.Forms.Panel();
@@ -436,17 +439,31 @@
             this.guna2Separator2.Size = new System.Drawing.Size(219, 9);
             this.guna2Separator2.TabIndex = 1;
             // 
+            // downloadProgressBar
+            // 
+            this.downloadProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.downloadProgressBar.CustomizableEdges = customizableEdges15;
+            this.downloadProgressBar.FillColor = System.Drawing.Color.White;
+            this.downloadProgressBar.Location = new System.Drawing.Point(24, 610);
+            this.downloadProgressBar.Name = "downloadProgressBar";
+            this.downloadProgressBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.downloadProgressBar.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.downloadProgressBar.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            this.downloadProgressBar.Size = new System.Drawing.Size(605, 13);
+            this.downloadProgressBar.TabIndex = 2;
+            this.downloadProgressBar.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
             // Panel_Left
             // 
             this.Panel_Left.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Panel_Left.Controls.Add(this.Panel_Left_Main);
             this.Panel_Left.Controls.Add(this.Panel_Left_Top);
-            this.Panel_Left.CustomizableEdges = customizableEdges41;
+            this.Panel_Left.CustomizableEdges = customizableEdges43;
             this.Panel_Left.Dock = System.Windows.Forms.DockStyle.Left;
             this.Panel_Left.Location = new System.Drawing.Point(0, 0);
             this.Panel_Left.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Panel_Left.Name = "Panel_Left";
-            this.Panel_Left.ShadowDecoration.CustomizableEdges = customizableEdges42;
+            this.Panel_Left.ShadowDecoration.CustomizableEdges = customizableEdges44;
             this.Panel_Left.Size = new System.Drawing.Size(512, 665);
             this.Panel_Left.TabIndex = 13;
             // 
@@ -564,11 +581,11 @@
             this.Toggle_Alternatives.CheckedState.InnerBorderRadius = 7;
             this.Toggle_Alternatives.CheckedState.InnerColor = System.Drawing.Color.White;
             this.Toggle_Alternatives.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Toggle_Alternatives.CustomizableEdges = customizableEdges15;
+            this.Toggle_Alternatives.CustomizableEdges = customizableEdges17;
             this.Toggle_Alternatives.Location = new System.Drawing.Point(279, 205);
             this.Toggle_Alternatives.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Toggle_Alternatives.Name = "Toggle_Alternatives";
-            this.Toggle_Alternatives.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            this.Toggle_Alternatives.ShadowDecoration.CustomizableEdges = customizableEdges18;
             this.Toggle_Alternatives.Size = new System.Drawing.Size(45, 25);
             this.Toggle_Alternatives.TabIndex = 16;
             this.Toggle_Alternatives.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -601,11 +618,11 @@
             this.Toggle_Jotego.CheckedState.InnerBorderRadius = 7;
             this.Toggle_Jotego.CheckedState.InnerColor = System.Drawing.Color.White;
             this.Toggle_Jotego.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Toggle_Jotego.CustomizableEdges = customizableEdges17;
+            this.Toggle_Jotego.CustomizableEdges = customizableEdges19;
             this.Toggle_Jotego.Location = new System.Drawing.Point(279, 176);
             this.Toggle_Jotego.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Toggle_Jotego.Name = "Toggle_Jotego";
-            this.Toggle_Jotego.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            this.Toggle_Jotego.ShadowDecoration.CustomizableEdges = customizableEdges20;
             this.Toggle_Jotego.Size = new System.Drawing.Size(45, 25);
             this.Toggle_Jotego.TabIndex = 15;
             this.Toggle_Jotego.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -674,11 +691,11 @@
             this.Toggle_PreRelease.CheckedState.InnerBorderRadius = 7;
             this.Toggle_PreRelease.CheckedState.InnerColor = System.Drawing.Color.White;
             this.Toggle_PreRelease.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Toggle_PreRelease.CustomizableEdges = customizableEdges19;
+            this.Toggle_PreRelease.CustomizableEdges = customizableEdges21;
             this.Toggle_PreRelease.Location = new System.Drawing.Point(279, 89);
             this.Toggle_PreRelease.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Toggle_PreRelease.Name = "Toggle_PreRelease";
-            this.Toggle_PreRelease.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            this.Toggle_PreRelease.ShadowDecoration.CustomizableEdges = customizableEdges22;
             this.Toggle_PreRelease.Size = new System.Drawing.Size(45, 25);
             this.Toggle_PreRelease.TabIndex = 10;
             this.Toggle_PreRelease.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -699,11 +716,11 @@
             this.Toggle_Platforms.CheckedState.InnerBorderRadius = 7;
             this.Toggle_Platforms.CheckedState.InnerColor = System.Drawing.Color.White;
             this.Toggle_Platforms.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Toggle_Platforms.CustomizableEdges = customizableEdges21;
+            this.Toggle_Platforms.CustomizableEdges = customizableEdges23;
             this.Toggle_Platforms.Location = new System.Drawing.Point(279, 60);
             this.Toggle_Platforms.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Toggle_Platforms.Name = "Toggle_Platforms";
-            this.Toggle_Platforms.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            this.Toggle_Platforms.ShadowDecoration.CustomizableEdges = customizableEdges24;
             this.Toggle_Platforms.Size = new System.Drawing.Size(45, 25);
             this.Toggle_Platforms.TabIndex = 15;
             this.Toggle_Platforms.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -724,11 +741,11 @@
             this.Toggle_Skipped.CheckedState.InnerBorderRadius = 7;
             this.Toggle_Skipped.CheckedState.InnerColor = System.Drawing.Color.White;
             this.Toggle_Skipped.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Toggle_Skipped.CustomizableEdges = customizableEdges23;
+            this.Toggle_Skipped.CustomizableEdges = customizableEdges25;
             this.Toggle_Skipped.Location = new System.Drawing.Point(279, 118);
             this.Toggle_Skipped.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Toggle_Skipped.Name = "Toggle_Skipped";
-            this.Toggle_Skipped.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            this.Toggle_Skipped.ShadowDecoration.CustomizableEdges = customizableEdges26;
             this.Toggle_Skipped.Size = new System.Drawing.Size(45, 25);
             this.Toggle_Skipped.TabIndex = 12;
             this.Toggle_Skipped.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -749,11 +766,11 @@
             this.Toggle_Assets.CheckedState.InnerBorderRadius = 7;
             this.Toggle_Assets.CheckedState.InnerColor = System.Drawing.Color.White;
             this.Toggle_Assets.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Toggle_Assets.CustomizableEdges = customizableEdges25;
+            this.Toggle_Assets.CustomizableEdges = customizableEdges27;
             this.Toggle_Assets.Location = new System.Drawing.Point(279, 31);
             this.Toggle_Assets.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Toggle_Assets.Name = "Toggle_Assets";
-            this.Toggle_Assets.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            this.Toggle_Assets.ShadowDecoration.CustomizableEdges = customizableEdges28;
             this.Toggle_Assets.Size = new System.Drawing.Size(45, 25);
             this.Toggle_Assets.TabIndex = 16;
             this.Toggle_Assets.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -774,11 +791,11 @@
             this.Toggle_Firmware.CheckedState.InnerBorderRadius = 7;
             this.Toggle_Firmware.CheckedState.InnerColor = System.Drawing.Color.White;
             this.Toggle_Firmware.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Toggle_Firmware.CustomizableEdges = customizableEdges27;
+            this.Toggle_Firmware.CustomizableEdges = customizableEdges29;
             this.Toggle_Firmware.Location = new System.Drawing.Point(279, 2);
             this.Toggle_Firmware.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Toggle_Firmware.Name = "Toggle_Firmware";
-            this.Toggle_Firmware.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            this.Toggle_Firmware.ShadowDecoration.CustomizableEdges = customizableEdges30;
             this.Toggle_Firmware.Size = new System.Drawing.Size(45, 25);
             this.Toggle_Firmware.TabIndex = 17;
             this.Toggle_Firmware.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -799,11 +816,11 @@
             this.Toggle_Jsons.CheckedState.InnerBorderRadius = 7;
             this.Toggle_Jsons.CheckedState.InnerColor = System.Drawing.Color.White;
             this.Toggle_Jsons.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Toggle_Jsons.CustomizableEdges = customizableEdges29;
+            this.Toggle_Jsons.CustomizableEdges = customizableEdges31;
             this.Toggle_Jsons.Location = new System.Drawing.Point(279, 147);
             this.Toggle_Jsons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Toggle_Jsons.Name = "Toggle_Jsons";
-            this.Toggle_Jsons.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            this.Toggle_Jsons.ShadowDecoration.CustomizableEdges = customizableEdges32;
             this.Toggle_Jsons.Size = new System.Drawing.Size(45, 25);
             this.Toggle_Jsons.TabIndex = 14;
             this.Toggle_Jsons.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -837,11 +854,11 @@
             this.Toggle_Alternate.CheckedState.InnerBorderRadius = 7;
             this.Toggle_Alternate.CheckedState.InnerColor = System.Drawing.Color.White;
             this.Toggle_Alternate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Toggle_Alternate.CustomizableEdges = customizableEdges31;
+            this.Toggle_Alternate.CustomizableEdges = customizableEdges33;
             this.Toggle_Alternate.Location = new System.Drawing.Point(279, 263);
             this.Toggle_Alternate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Toggle_Alternate.Name = "Toggle_Alternate";
-            this.Toggle_Alternate.ShadowDecoration.CustomizableEdges = customizableEdges32;
+            this.Toggle_Alternate.ShadowDecoration.CustomizableEdges = customizableEdges34;
             this.Toggle_Alternate.Size = new System.Drawing.Size(45, 25);
             this.Toggle_Alternate.TabIndex = 19;
             this.Toggle_Alternate.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -889,11 +906,11 @@
             this.Toggle_CRC.CheckedState.InnerBorderRadius = 7;
             this.Toggle_CRC.CheckedState.InnerColor = System.Drawing.Color.White;
             this.Toggle_CRC.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Toggle_CRC.CustomizableEdges = customizableEdges33;
+            this.Toggle_CRC.CustomizableEdges = customizableEdges35;
             this.Toggle_CRC.Location = new System.Drawing.Point(279, 234);
             this.Toggle_CRC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Toggle_CRC.Name = "Toggle_CRC";
-            this.Toggle_CRC.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            this.Toggle_CRC.ShadowDecoration.CustomizableEdges = customizableEdges36;
             this.Toggle_CRC.Size = new System.Drawing.Size(45, 25);
             this.Toggle_CRC.TabIndex = 15;
             this.Toggle_CRC.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -924,7 +941,7 @@
             // 
             this.Alternate_Location.AutoRoundedCorners = true;
             this.Alternate_Location.BorderRadius = 18;
-            this.Alternate_Location.CustomizableEdges = customizableEdges35;
+            this.Alternate_Location.CustomizableEdges = customizableEdges37;
             this.Alternate_Location.DefaultText = "";
             this.Alternate_Location.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.Alternate_Location.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -942,7 +959,7 @@
             this.Alternate_Location.PasswordChar = '\0';
             this.Alternate_Location.PlaceholderText = "";
             this.Alternate_Location.SelectedText = "";
-            this.Alternate_Location.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            this.Alternate_Location.ShadowDecoration.CustomizableEdges = customizableEdges38;
             this.Alternate_Location.Size = new System.Drawing.Size(304, 38);
             this.Alternate_Location.TabIndex = 1;
             this.Alternate_Location.Visible = false;
@@ -952,7 +969,7 @@
             this.TextBox2.BackColor = System.Drawing.Color.Transparent;
             this.TextBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));
             this.TextBox2.BorderThickness = 0;
-            this.TextBox2.CustomizableEdges = customizableEdges37;
+            this.TextBox2.CustomizableEdges = customizableEdges39;
             this.TextBox2.DefaultText = "Suggested Location: https://updater.retrodriven.com";
             this.TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -970,7 +987,7 @@
             this.TextBox2.PlaceholderText = "";
             this.TextBox2.ReadOnly = true;
             this.TextBox2.SelectedText = "";
-            this.TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges38;
+            this.TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges40;
             this.TextBox2.Size = new System.Drawing.Size(322, 21);
             this.TextBox2.TabIndex = 3;
             this.TextBox2.Visible = false;
@@ -981,7 +998,7 @@
             this.Button_Save.AutoRoundedCorners = true;
             this.Button_Save.BorderRadius = 17;
             this.Button_Save.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Button_Save.CustomizableEdges = customizableEdges39;
+            this.Button_Save.CustomizableEdges = customizableEdges41;
             this.Button_Save.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Button_Save.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.Button_Save.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -991,7 +1008,7 @@
             this.Button_Save.Location = new System.Drawing.Point(178, 79);
             this.Button_Save.Margin = new System.Windows.Forms.Padding(88, 0, 3, 2);
             this.Button_Save.Name = "Button_Save";
-            this.Button_Save.ShadowDecoration.CustomizableEdges = customizableEdges40;
+            this.Button_Save.ShadowDecoration.CustomizableEdges = customizableEdges42;
             this.Button_Save.Size = new System.Drawing.Size(81, 37);
             this.Button_Save.TabIndex = 0;
             this.Button_Save.Text = "Save";
@@ -1013,7 +1030,7 @@
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
             this.textBox1.BorderRadius = 10;
             this.textBox1.BorderThickness = 0;
-            this.textBox1.CustomizableEdges = customizableEdges43;
+            this.textBox1.CustomizableEdges = customizableEdges45;
             this.textBox1.DefaultText = "";
             this.textBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.textBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -1034,7 +1051,7 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.SelectedText = "";
-            this.textBox1.ShadowDecoration.CustomizableEdges = customizableEdges44;
+            this.textBox1.ShadowDecoration.CustomizableEdges = customizableEdges46;
             this.textBox1.Size = new System.Drawing.Size(657, 626);
             this.textBox1.TabIndex = 1;
             // 
@@ -1042,37 +1059,38 @@
             // 
             this.Panel_Right.Controls.Add(this.Panel_Right_Main);
             this.Panel_Right.Controls.Add(this.Panel_Right_Top);
-            this.Panel_Right.CustomizableEdges = customizableEdges49;
+            this.Panel_Right.CustomizableEdges = customizableEdges51;
             this.Panel_Right.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel_Right.Location = new System.Drawing.Point(512, 0);
             this.Panel_Right.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Panel_Right.Name = "Panel_Right";
-            this.Panel_Right.ShadowDecoration.CustomizableEdges = customizableEdges50;
+            this.Panel_Right.ShadowDecoration.CustomizableEdges = customizableEdges52;
             this.Panel_Right.Size = new System.Drawing.Size(661, 665);
             this.Panel_Right.TabIndex = 14;
             // 
             // Panel_Right_Main
             // 
+            this.Panel_Right_Main.Controls.Add(this.downloadProgressBar);
             this.Panel_Right_Main.Controls.Add(this.textBox1);
-            this.Panel_Right_Main.CustomizableEdges = customizableEdges45;
+            this.Panel_Right_Main.CustomizableEdges = customizableEdges47;
             this.Panel_Right_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel_Right_Main.Location = new System.Drawing.Point(0, 39);
             this.Panel_Right_Main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Panel_Right_Main.Name = "Panel_Right_Main";
             this.Panel_Right_Main.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.Panel_Right_Main.ShadowDecoration.CustomizableEdges = customizableEdges46;
+            this.Panel_Right_Main.ShadowDecoration.CustomizableEdges = customizableEdges48;
             this.Panel_Right_Main.Size = new System.Drawing.Size(661, 626);
             this.Panel_Right_Main.TabIndex = 1;
             // 
             // Panel_Right_Top
             // 
             this.Panel_Right_Top.Controls.Add(this.Panel_Status_Title);
-            this.Panel_Right_Top.CustomizableEdges = customizableEdges47;
+            this.Panel_Right_Top.CustomizableEdges = customizableEdges49;
             this.Panel_Right_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel_Right_Top.Location = new System.Drawing.Point(0, 0);
             this.Panel_Right_Top.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Panel_Right_Top.Name = "Panel_Right_Top";
-            this.Panel_Right_Top.ShadowDecoration.CustomizableEdges = customizableEdges48;
+            this.Panel_Right_Top.ShadowDecoration.CustomizableEdges = customizableEdges50;
             this.Panel_Right_Top.Size = new System.Drawing.Size(661, 39);
             this.Panel_Right_Top.TabIndex = 0;
             // 
@@ -1185,5 +1203,6 @@
         private Guna.UI2.WinForms.Guna2ToggleSwitch Toggle_Alternatives;
         private Label label16;
         private Guna.UI2.WinForms.Guna2TextBox TextBox2;
+        private Guna.UI2.WinForms.Guna2ProgressBar downloadProgressBar;
     }
 }

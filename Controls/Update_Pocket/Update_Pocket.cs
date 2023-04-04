@@ -89,6 +89,7 @@ namespace Pocket_Updater.Controls
                     _updater.DeleteSkippedCores(_settings.GetConfig().delete_skipped_cores);
                     _updater.PreservePlatformsFolder(_settings.GetConfig().preserve_platforms_folder);
                     _updater.RenameJotegoCores(_settings.GetConfig().fix_jt_names);
+                    _updater.SetDownloadProgressHandler(updater_ProgressUpdated);
 
                     if (github_token != null)
                     {
@@ -136,6 +137,7 @@ namespace Pocket_Updater.Controls
                         _updater.DeleteSkippedCores(_settings.GetConfig().delete_skipped_cores);
                         _updater.PreservePlatformsFolder(_settings.GetConfig().preserve_platforms_folder);
                         _updater.RenameJotegoCores(_settings.GetConfig().fix_jt_names);
+                        _updater.SetDownloadProgressHandler(updater_ProgressUpdated);
 
                         if (github_token != null)
                         {
@@ -172,6 +174,14 @@ namespace Pocket_Updater.Controls
                     form.Show();
                 }
             }
+        }
+
+        private void updater_ProgressUpdated(object sender, DownloadProgressEventArgs e)
+        {
+            var percentage = e.progress * 100;
+            int val = Convert.ToInt32(percentage);
+
+            downloadProgressBar.Value = val;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
