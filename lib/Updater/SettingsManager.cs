@@ -55,6 +55,10 @@ public class SettingsManager
                 _newCores.Add(core);
             }
         }
+        if(_newCores.Count > 0) 
+        {
+            EnableMissingCores(_newCores);
+        }
     }
 
     public List<Core> GetMissingCores() => _newCores;
