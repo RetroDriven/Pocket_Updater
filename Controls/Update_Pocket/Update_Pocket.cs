@@ -598,11 +598,13 @@ namespace Pocket_Updater.Controls
                     {
                         c.allowPrerelease = true;
                         _settings.UpdateCore(c, core.identifier);
+                        break;
                     }
                     else
                     {
                         c.allowPrerelease = false;
                         _settings.UpdateCore(c, core.identifier);
+                        break;
                     }
                 }
             } 
