@@ -30,6 +30,9 @@ namespace Pocket_Updater.Controls
             string Current_Dir = Directory.GetCurrentDirectory();
             _settings = new SettingsManager(Current_Dir);
 
+            _updater = new PocketCoreUpdater(Current_Dir);
+            _updater.Initialize();
+
             Update.Enabled = false;
 
             //Read Settings Json file
