@@ -4,7 +4,6 @@ using System.IO;
 using System.IO.Compression;
 using System.Net.Http;
 using System.Text.Json;
-using Force.Crc32;
 using System.Collections;
 
 public class Core : Base
@@ -19,12 +18,9 @@ public class Core : Base
     public string? version { get; set; }
 
     private const string ZIP_FILE_NAME = "core.zip";
+    public bool downloadAssets { get; set; } = Factory.GetGlobals().SettingsManager.GetConfig().download_assets;
+    public bool buildInstances { get; set; } = Factory.GetGlobals().SettingsManager.GetConfig().build_instance_jsons;
 
-    public string archive { get; set; }
-    public bool downloadAssets { get; set; } = true;
-    public bool buildInstances { get; set; } = true;
-    public bool useCRC { get; set; } = true;
-    public bool skipAlts { get; set; } = false;
 
     public override string ToString()
     {
@@ -58,7 +54,7 @@ public class Core : Base
         ZipFile.ExtractToDirectory(zipPath, tempDir, true);
 
         // Clean problematic directories and files.
-        Util.CleanDir(tempDir);
+        Util.CleanDir(tempDir, Factory.GetGlobals().SettingsManager.GetConfig().preserve_platforms_folder, this.platform_id);
 
         // Move the files into place and delete our core's temp directory.
         _writeMessage("Installing...");
@@ -99,11 +95,59 @@ public class Core : Base
         }
     }
 
+    public Platform? ReadPlatformFile()
+    {
+        var config = this.getConfig();
+        if (config == null)
+        {
+            return this.platform;
+        }
+        Analogue.Core info = config.core;
+        
+        string UpdateDirectory = Factory.GetGlobals().UpdateDirectory;
+        //cores with multiple platforms won't work...not sure any exist right now?
+        string platformsFolder = Path.Combine(UpdateDirectory, "Platforms");
+
+        string dataFile = Path.Combine(platformsFolder, info.metadata.platform_ids[0] + ".json");
+        var p = JsonSerializer.Deserialize<Dictionary<string,Platform>>(File.ReadAllText(dataFile));
+        
+        return p["platform"];
+    }
+
+    public bool UpdatePlatform(string title)
+    {
+        var config = this.getConfig();
+        if (config == null)
+        {
+            return false;
+        }
+        Analogue.Core info = config.core;
+        
+        string UpdateDirectory = Factory.GetGlobals().UpdateDirectory;
+        //cores with multiple platforms won't work...not sure any exist right now?
+        string platformsFolder = Path.Combine(UpdateDirectory, "Platforms");
+
+        string dataFile = Path.Combine(platformsFolder, info.metadata.platform_ids[0] + ".json");
+        if (!File.Exists(dataFile))
+        {
+            return false;
+        }
+
+        Dictionary<string, Platform> platform = new Dictionary<string, Platform>();
+        this.platform.name = title;
+        platform.Add("platform", this.platform);
+        string json = JsonSerializer.Serialize(platform);
+        
+        File.WriteAllText(dataFile, json);
+
+        return true;
+    }
+
     public async Task<Dictionary<string, List<string>>> DownloadAssets()
     {
         List<string> installed = new List<string>();
         List<string> skipped = new List<string>();
-        if(!downloadAssets) {
+        if(!downloadAssets || !Factory.GetGlobals().SettingsManager.GetCoreSettings(this.identifier).download_assets) {
             return new Dictionary<string, List<string>>{
                 {"installed", installed },
                 {"skipped", skipped }
@@ -113,17 +157,14 @@ public class Core : Base
         _writeMessage("Looking for Assets");
         Analogue.Core info = this.getConfig().core;
         string UpdateDirectory = Factory.GetGlobals().UpdateDirectory;
-        string coreDirectory = Path.Combine(UpdateDirectory, "Cores", this.identifier);
         //cores with multiple platforms won't work...not sure any exist right now?
         string instancesDirectory = Path.Combine(UpdateDirectory, "Assets", info.metadata.platform_ids[0], this.identifier);
-
-        string dataFile = Path.Combine(coreDirectory, "data.json");
         var options = new JsonSerializerOptions
         {
             Converters = { new StringConverter() }
         };
 
-        Analogue.DataJSON data = JsonSerializer.Deserialize<Analogue.DataJSON>(File.ReadAllText(dataFile), options);
+        Analogue.DataJSON data = ReadDataJSON();
         if(data.data.data_slots.Length > 0) {
             foreach(Analogue.DataSlot slot in data.data.data_slots) {
                 if(slot.filename != null && !Factory.GetGlobals().Blacklist.Contains(slot.filename)) {
@@ -177,7 +218,7 @@ public class Core : Base
                     if(File.GetAttributes(file).HasFlag(FileAttributes.Hidden)) {
                         continue;
                     }
-                    if(skipAlts && file.Contains(Path.Combine(instancesDirectory, "_alternatives"))) {
+                    if(Factory.GetGlobals().SettingsManager.GetConfig().skip_alternative_assets && file.Contains(Path.Combine(instancesDirectory, "_alternatives"))) {
                         continue;
                     }
                     Analogue.InstanceJSON instance = JsonSerializer.Deserialize<Analogue.InstanceJSON>(File.ReadAllText(file), options);
@@ -215,6 +256,10 @@ public class Core : Base
     {
         checkUpdateDirectory();
         string file = Path.Combine(Factory.GetGlobals().UpdateDirectory, "Cores", this.identifier, "core.json");
+        if (!File.Exists(file))
+        {
+            return null;
+        }
         string json = File.ReadAllText(file);
         var options = new JsonSerializerOptions()
         {
@@ -272,13 +317,13 @@ public class Core : Base
             Uri url = new Uri(baseUrl, filename);
             return url.ToString();
         } else {
-            return ARCHIVE_BASE_URL + "/" + archive + "/" + filename;
+            return ARCHIVE_BASE_URL + "/" + Factory.GetGlobals().SettingsManager.GetConfig().archive_name + "/" + filename;
         }
     }
 
     private bool CheckCRC(string filepath)
     {
-        if(Factory.GetGlobals().ArchiveFiles == null || !useCRC) {
+        if(Factory.GetGlobals().ArchiveFiles == null || !Factory.GetGlobals().SettingsManager.GetConfig().crc_check) {
             return true;
         }
         string filename = Path.GetFileName(filepath);
@@ -286,19 +331,18 @@ public class Core : Base
         if(file == null) {
             return true; //no checksum to compare to
         }
-        //_writeMessage("Checking crc for " + filename);
-        var checksum = Crc32Algorithm.Compute(File.ReadAllBytes(filepath));
-        if(checksum.ToString("x8").Equals(file.crc32, StringComparison.CurrentCultureIgnoreCase)) {
+
+        if(Util.CompareChecksum(filepath, file.crc32)) {
             return true;
         }
 
-        _writeMessage("Bad checksum!");
+        _writeMessage(filename + ": Bad checksum!");
         return false;
     }
 
     public void BuildInstanceJSONs(bool overwrite = true)
     {
-        if(!this.buildInstances) {
+        if(!buildInstances) {
             return;
         }
         string instancePackagerFile = Path.Combine(Factory.GetGlobals().UpdateDirectory, "Cores", this.identifier, "instance-packager.json");
@@ -394,6 +438,27 @@ public class Core : Base
     {
         string instancePackagerFile = Path.Combine(Factory.GetGlobals().UpdateDirectory, "Cores", this.identifier, "instance-packager.json");
         return File.Exists(instancePackagerFile);
+    }
+
+    public Analogue.DataJSON ReadDataJSON()
+    {
+        string UpdateDirectory = Factory.GetGlobals().UpdateDirectory;
+        string coreDirectory = Path.Combine(UpdateDirectory, "Cores", this.identifier);
+        string dataFile = Path.Combine(coreDirectory, "data.json");
+        var options = new JsonSerializerOptions
+        {
+            Converters = { new StringConverter() }
+        };
+
+        Analogue.DataJSON data = JsonSerializer.Deserialize<Analogue.DataJSON>(File.ReadAllText(dataFile), options);
+
+        return data;
+    }
+
+    public bool JTBetaCheck()
+    {
+        var data = ReadDataJSON();
+        return data.data.data_slots.Any(x=>x.name=="JTBETA");
     }
 }
 public class myReverserClass : IComparer  {

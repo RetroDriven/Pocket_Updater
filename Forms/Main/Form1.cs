@@ -8,8 +8,8 @@ using System.Text.Json;
 namespace Pocket_Updater
 {
     public partial class Form1 : Form
-    { 
-        private const string VERSION = "1.5.6";
+    {
+        private const string VERSION = "1.5.7";
         private const string API_URL = "https://api.github.com/repos/RetroDriven/Pocket_Updater/releases";
         private const string RELEASE_URL = "https://github.com/RetroDriven/Pocket_Updater/releases/latest";
 
@@ -84,7 +84,7 @@ namespace Pocket_Updater
             catch (HttpRequestException e)
             {
                 return false;
-                
+
             }
         }
 
@@ -95,7 +95,7 @@ namespace Pocket_Updater
         private void Update_Pocket_Click(object sender, EventArgs e)
         {
             Hide_Controls();
-            update_Pocket1.Visible= true;
+            update_Pocket1.Visible = true;
 
         }
         private void Manage_Cores_Click(object sender, EventArgs e)
@@ -111,7 +111,7 @@ namespace Pocket_Updater
             manageCores1.Visible = false;
             organize_Cores1.Visible = false;
             image_Packs1.Visible = false;
-            logs1.Visible= false;
+            logs1.Visible = false;
             about1.Visible = false;
         }
 
@@ -156,7 +156,7 @@ namespace Pocket_Updater
         private void About_Click(object sender, EventArgs e)
         {
             Hide_Controls();
-            about1.Visible= true;
+            about1.Visible = true;
         }
     }
 }
