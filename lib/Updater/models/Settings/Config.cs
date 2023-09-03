@@ -30,7 +30,7 @@ public class Config
         crc_check = true;
         fix_jt_names = true;
         skip_alternative_assets = true;
-        use_custom_archive = true;
+        use_custom_archive = false;
         custom_archive = new Dictionary<string, string>() {
             {"url", "https://updater.retrodriven.com"},
             {"index", "updater.php"}

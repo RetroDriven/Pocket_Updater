@@ -100,8 +100,8 @@ namespace Pocket_Updater.Controls
                     _updater.StatusUpdated += updater_StatusUpdated;
                     _updater.UpdateProcessComplete += _updater_UpdateProcessComplete;
 
-                    comboBox2.Enabled= false;
-                   
+                    comboBox2.Enabled = false;
+
                     RunCoreUpdateProcess(Current_Dir, Current_Dir, Current_Dir);
                 }
                 catch
@@ -346,7 +346,8 @@ namespace Pocket_Updater.Controls
                     }
                 }
             }
-            catch {
+            catch
+            {
                 Message_Box form = new Message_Box();
                 form.label1.Text = "Error retrieving Drive Information";
                 form.Show();
@@ -424,7 +425,7 @@ namespace Pocket_Updater.Controls
             }
             else
             {
-                Toggle_Assets.Checked= false;
+                Toggle_Assets.Checked = false;
             }
             //Preserve Core Images
             if (_settings.GetConfig().preserve_platforms_folder == true)
@@ -433,7 +434,7 @@ namespace Pocket_Updater.Controls
             }
             else
             {
-                Toggle_Platforms.Checked= false;
+                Toggle_Platforms.Checked = false;
             }
             //Delete Skipped Cores
             if (_settings.GetConfig().delete_skipped_cores == true)
@@ -470,22 +471,6 @@ namespace Pocket_Updater.Controls
             else
             {
                 Toggle_CRC.Checked = false;
-            }
-            //Pre-release Cores
-            List<Core> cores = await CoresService.GetCores();
-            foreach (Core core in cores)
-            {
-                CoreSettings c = _settings.GetCoreSettings(core.identifier);
-                if (c.allowPrerelease == true)
-                {
-                    Toggle_PreRelease.Checked = true;
-                    break;
-                }
-                else
-                {
-                    Toggle_PreRelease.Checked= false;
-                    break;
-                }
             }
         }
         private async void Button_Save_Click(object sender, EventArgs e)
@@ -584,35 +569,6 @@ namespace Pocket_Updater.Controls
             {
                 config.crc_check = false;
             }
-            //Pre-Release Cores
-            try
-            {
-                List<Core> cores = await CoresService.GetCores();
-                foreach (Core core in cores)
-                {
-                    CoreSettings c = _settings.GetCoreSettings(core.identifier);
-
-                    if (Toggle_PreRelease.Checked == true)
-                    {
-                        c.allowPrerelease = true;
-                        _settings.UpdateCore(c, core.identifier);
-                        break;
-                    }
-                    else
-                    {
-                        c.allowPrerelease = false;
-                        _settings.UpdateCore(c, core.identifier);
-                        break;
-                    }
-                }
-            } 
-            catch (Exception ex)
-            {
-                Message_Box form2 = new Message_Box();
-                form2.label1.Text = ex.Message;
-                form2.Show();
-            }
-
             //Save Sttings
             _settings.UpdateConfig(config);
             _settings.SaveSettings();
