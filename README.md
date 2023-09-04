@@ -46,9 +46,6 @@ This gives you the option to Check/Download the required Arcade Roms and Core Bi
 #### Preserve Platforms
 This gives you the option to keep any custom Core Images that you are using vs. the Stock Core Images. It will also preserve the entire Platforms folder which includes Core Names and Categories.
 
-#### Download Pre-Release Cores
-This gives you the option to Download any pre-release Cores. These Cores are typically beta/testing and likely to have some bugs.
-
 #### Delete Skipped Cores
 This will Delete Cores from your Pocket's SD Card that you have unchecked for Updating/Downloading
 *This option will be Enabled by Default
