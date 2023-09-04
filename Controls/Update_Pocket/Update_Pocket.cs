@@ -479,6 +479,8 @@ namespace Pocket_Updater.Controls
         private async void Button_Save_Click(object sender, EventArgs e)
         {
             //string value = Alternate_Location.Text;
+            string Current_Dir = Directory.GetCurrentDirectory();
+            _settings = new SettingsManager(Current_Dir);
             Config config = _settings.GetConfig();
 
             //GitHub Token
