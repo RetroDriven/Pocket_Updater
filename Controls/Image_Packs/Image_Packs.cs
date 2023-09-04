@@ -1,5 +1,6 @@
 ﻿using pannella.analoguepocket;
 using Pocket_Updater.Forms.Message_Box;
+using RetroDriven;
 using System.Data;
 using System.Net;
 
@@ -22,6 +23,9 @@ namespace Pocket_Updater.Controls.Image_Packs
             PopulateDrives();
             Current_Dir = Directory.GetCurrentDirectory();
             _settings = new SettingsManager(Current_Dir);
+
+            //Preferences
+            Get_Preferences_Json();
 
             GetPacks();
 
@@ -51,10 +55,11 @@ namespace Pocket_Updater.Controls.Image_Packs
                     }
                 }
             }
-            catch {
+            catch
+            {
                 Message_Box form = new Message_Box();
                 form.label1.Text = "Error retrieving Drive Information";
-                form.Show();            
+                form.Show();
             }
         }
 
@@ -79,7 +84,7 @@ namespace Pocket_Updater.Controls.Image_Packs
                     //dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
                 }
             }
-            catch 
+            catch
             {
                 Message_Box form = new Message_Box();
                 form.label1.Text = "No Internet Connection Detected!";
@@ -124,6 +129,8 @@ namespace Pocket_Updater.Controls.Image_Packs
 
         private async void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            Save_Preferences_Json();
+
             //Open Github Links
             if (e.ColumnIndex == 2)
             {
@@ -216,6 +223,42 @@ namespace Pocket_Updater.Controls.Image_Packs
                         }
                     }
                 }
+            }
+        }
+        private void Get_Preferences_Json()
+        {
+            string Json_File = @"updater_preferences.json";
+
+            if (File.Exists(Json_File) == true)
+            {
+                string Update_Location = Updater_Preferences.Get_Updater_Json("Update Location", Json_File);
+                string Update_Drive = Updater_Preferences.Get_Updater_Json("Update Drive Letter", Json_File);
+
+                comboBox2.SelectedIndex = comboBox2.FindStringExact(Update_Location);
+
+                if (Update_Location == "Removable Storage")
+                {
+                    comboBox1.SelectedIndex = comboBox1.FindStringExact(Update_Drive);
+                }
+            }
+        }
+
+        private void Save_Preferences_Json()
+        {
+            string Json_File = @"updater_preferences.json";
+
+            string Update_Location = comboBox2.SelectedItem.ToString();
+
+            if ((comboBox1.SelectedIndex == -1))
+            {
+                string[] Entries = new string[] { Update_Location, "" };
+                Updater_Preferences.Save_Updater_Json(Entries, Json_File);
+            }
+            else
+            {
+                string Update_Drive = comboBox1.SelectedItem.ToString();
+                string[] Entries = new string[] { Update_Location, Update_Drive };
+                Updater_Preferences.Save_Updater_Json(Entries, Json_File);
             }
         }
     }

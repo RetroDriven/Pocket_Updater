@@ -38,416 +38,409 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.Panel_Top = new Guna.UI2.WinForms.Guna2Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
-            this.Panel_Bottom = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.Button_Refresh = new Guna.UI2.WinForms.Guna2Button();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Variant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GitHub = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Download = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.ToolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
-            this.Panel_Top.SuspendLayout();
-            this.Panel_Bottom.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            Panel_Top = new Guna.UI2.WinForms.Guna2Panel();
+            label4 = new Label();
+            guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
+            Panel_Bottom = new Guna.UI2.WinForms.Guna2GradientPanel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            label1 = new Label();
+            comboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            comboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            label2 = new Label();
+            tableLayoutPanel4 = new TableLayoutPanel();
+            Button_Refresh = new Guna.UI2.WinForms.Guna2Button();
+            tableLayoutPanel5 = new TableLayoutPanel();
+            dataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            Variant = new DataGridViewTextBoxColumn();
+            GitHub = new DataGridViewLinkColumn();
+            Download = new DataGridViewButtonColumn();
+            panel1 = new Panel();
+            ToolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            Panel_Top.SuspendLayout();
+            Panel_Bottom.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
             // Panel_Top
             // 
-            this.Panel_Top.AutoSize = true;
-            this.Panel_Top.Controls.Add(this.label4);
-            this.Panel_Top.Controls.Add(this.guna2Separator2);
-            this.Panel_Top.CustomizableEdges = customizableEdges1;
-            this.Panel_Top.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Panel_Top.Location = new System.Drawing.Point(0, 0);
-            this.Panel_Top.Name = "Panel_Top";
-            this.Panel_Top.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            this.Panel_Top.Size = new System.Drawing.Size(920, 50);
-            this.Panel_Top.TabIndex = 4;
+            Panel_Top.AutoSize = true;
+            Panel_Top.Controls.Add(label4);
+            Panel_Top.Controls.Add(guna2Separator2);
+            Panel_Top.CustomizableEdges = customizableEdges1;
+            Panel_Top.Dock = DockStyle.Top;
+            Panel_Top.Location = new Point(0, 0);
+            Panel_Top.Name = "Panel_Top";
+            Panel_Top.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            Panel_Top.Size = new Size(920, 50);
+            Panel_Top.TabIndex = 4;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(3, 3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(223, 32);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Asset Image Packs";
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(3, 3);
+            label4.Name = "label4";
+            label4.Size = new Size(223, 32);
+            label4.TabIndex = 2;
+            label4.Text = "Asset Image Packs";
             // 
             // guna2Separator2
             // 
-            this.guna2Separator2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(107)))), ((int)(((byte)(121)))));
-            this.guna2Separator2.Location = new System.Drawing.Point(5, 35);
-            this.guna2Separator2.Name = "guna2Separator2";
-            this.guna2Separator2.Size = new System.Drawing.Size(250, 12);
-            this.guna2Separator2.TabIndex = 3;
+            guna2Separator2.FillColor = Color.FromArgb(104, 107, 121);
+            guna2Separator2.Location = new Point(5, 35);
+            guna2Separator2.Name = "guna2Separator2";
+            guna2Separator2.Size = new Size(250, 12);
+            guna2Separator2.TabIndex = 3;
             // 
             // Panel_Bottom
             // 
-            this.Panel_Bottom.Controls.Add(this.flowLayoutPanel1);
-            this.Panel_Bottom.CustomizableEdges = customizableEdges9;
-            this.Panel_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Panel_Bottom.Location = new System.Drawing.Point(0, 593);
-            this.Panel_Bottom.Name = "Panel_Bottom";
-            this.Panel_Bottom.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.Panel_Bottom.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            this.Panel_Bottom.Size = new System.Drawing.Size(920, 164);
-            this.Panel_Bottom.TabIndex = 5;
+            Panel_Bottom.Controls.Add(flowLayoutPanel1);
+            Panel_Bottom.CustomizableEdges = customizableEdges9;
+            Panel_Bottom.Dock = DockStyle.Bottom;
+            Panel_Bottom.Location = new Point(0, 593);
+            Panel_Bottom.Name = "Panel_Bottom";
+            Panel_Bottom.Padding = new Padding(0, 15, 0, 15);
+            Panel_Bottom.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            Panel_Bottom.Size = new Size(920, 164);
+            Panel_Bottom.TabIndex = 5;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
-            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel2);
-            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel4);
-            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel5);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(87, 19);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(150, 0, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(731, 128);
-            this.flowLayoutPanel1.TabIndex = 22;
+            flowLayoutPanel1.Anchor = AnchorStyles.Top;
+            flowLayoutPanel1.Controls.Add(tableLayoutPanel1);
+            flowLayoutPanel1.Controls.Add(tableLayoutPanel2);
+            flowLayoutPanel1.Controls.Add(tableLayoutPanel4);
+            flowLayoutPanel1.Controls.Add(tableLayoutPanel5);
+            flowLayoutPanel1.Location = new Point(87, 19);
+            flowLayoutPanel1.Margin = new Padding(0, 3, 3, 3);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Padding = new Padding(150, 0, 0, 0);
+            flowLayoutPanel1.Size = new Size(731, 128);
+            flowLayoutPanel1.TabIndex = 22;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox2, 1, 0);
-            this.tableLayoutPanel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(153, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(428, 42);
-            this.tableLayoutPanel1.TabIndex = 9;
+            tableLayoutPanel1.AutoSize = true;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.Controls.Add(label1, 0, 0);
+            tableLayoutPanel1.Controls.Add(comboBox2, 1, 0);
+            tableLayoutPanel1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            tableLayoutPanel1.Location = new Point(153, 3);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.Size = new Size(428, 42);
+            tableLayoutPanel1.TabIndex = 9;
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(3, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(191, 25);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Download Location:";
+            label1.Anchor = AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(3, 8);
+            label1.Name = "label1";
+            label1.Size = new Size(191, 25);
+            label1.TabIndex = 6;
+            label1.Text = "Download Location:";
             // 
             // comboBox2
             // 
-            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comboBox2.AutoRoundedCorners = true;
-            this.comboBox2.BackColor = System.Drawing.Color.Transparent;
-            this.comboBox2.BorderRadius = 17;
-            this.comboBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox2.CustomizableEdges = customizableEdges3;
-            this.comboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
-            this.comboBox2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.comboBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.comboBox2.ItemHeight = 30;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Current Directory",
-            "Removable Storage"});
-            this.comboBox2.ItemsAppearance.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboBox2.Location = new System.Drawing.Point(200, 3);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            this.comboBox2.Size = new System.Drawing.Size(225, 36);
-            this.comboBox2.TabIndex = 10;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            comboBox2.Anchor = AnchorStyles.Left;
+            comboBox2.AutoRoundedCorners = true;
+            comboBox2.BackColor = Color.Transparent;
+            comboBox2.BorderRadius = 17;
+            comboBox2.Cursor = Cursors.Hand;
+            comboBox2.CustomizableEdges = customizableEdges3;
+            comboBox2.DrawMode = DrawMode.OwnerDrawFixed;
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.FillColor = Color.FromArgb(39, 44, 66);
+            comboBox2.FocusedColor = Color.FromArgb(94, 148, 255);
+            comboBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            comboBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            comboBox2.ForeColor = SystemColors.ControlLightLight;
+            comboBox2.ItemHeight = 30;
+            comboBox2.Items.AddRange(new object[] { "Current Directory", "Removable Storage" });
+            comboBox2.ItemsAppearance.SelectedBackColor = Color.FromArgb(94, 148, 255);
+            comboBox2.Location = new Point(200, 3);
+            comboBox2.Name = "comboBox2";
+            comboBox2.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            comboBox2.Size = new Size(225, 36);
+            comboBox2.TabIndex = 10;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.AutoSize = true;
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.Controls.Add(this.comboBox1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(153, 51);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(424, 42);
-            this.tableLayoutPanel2.TabIndex = 0;
+            tableLayoutPanel2.AutoSize = true;
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel2.Controls.Add(comboBox1, 0, 0);
+            tableLayoutPanel2.Controls.Add(label2, 0, 0);
+            tableLayoutPanel2.Dock = DockStyle.Top;
+            tableLayoutPanel2.Location = new Point(153, 51);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.Size = new Size(424, 42);
+            tableLayoutPanel2.TabIndex = 0;
             // 
             // comboBox1
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comboBox1.AutoRoundedCorners = true;
-            this.comboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.comboBox1.BorderRadius = 17;
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1.CustomizableEdges = customizableEdges5;
-            this.comboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
-            this.comboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.comboBox1.ItemHeight = 30;
-            this.comboBox1.ItemsAppearance.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboBox1.Location = new System.Drawing.Point(194, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            this.comboBox1.Size = new System.Drawing.Size(227, 36);
-            this.comboBox1.TabIndex = 16;
-            this.comboBox1.Visible = false;
+            comboBox1.Anchor = AnchorStyles.Left;
+            comboBox1.AutoRoundedCorners = true;
+            comboBox1.BackColor = Color.Transparent;
+            comboBox1.BorderRadius = 17;
+            comboBox1.Cursor = Cursors.Hand;
+            comboBox1.CustomizableEdges = customizableEdges5;
+            comboBox1.DrawMode = DrawMode.OwnerDrawFixed;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FillColor = Color.FromArgb(39, 44, 66);
+            comboBox1.FocusedColor = Color.FromArgb(94, 148, 255);
+            comboBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            comboBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            comboBox1.ForeColor = SystemColors.ControlLightLight;
+            comboBox1.ItemHeight = 30;
+            comboBox1.ItemsAppearance.SelectedBackColor = Color.FromArgb(94, 148, 255);
+            comboBox1.Location = new Point(194, 3);
+            comboBox1.Name = "comboBox1";
+            comboBox1.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            comboBox1.Size = new Size(227, 36);
+            comboBox1.TabIndex = 16;
+            comboBox1.Visible = false;
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(2, 8);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(187, 25);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Pocket Drive Letter:";
-            this.label2.Visible = false;
+            label2.Anchor = AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(2, 8);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(187, 25);
+            label2.TabIndex = 15;
+            label2.Text = "Pocket Drive Letter:";
+            label2.Visible = false;
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.AutoSize = true;
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.Button_Refresh, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(583, 51);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(50, 51);
-            this.tableLayoutPanel4.TabIndex = 2;
+            tableLayoutPanel4.AutoSize = true;
+            tableLayoutPanel4.ColumnCount = 1;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel4.Controls.Add(Button_Refresh, 0, 0);
+            tableLayoutPanel4.Dock = DockStyle.Top;
+            tableLayoutPanel4.Location = new Point(583, 51);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 1;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 51F));
+            tableLayoutPanel4.Size = new Size(50, 51);
+            tableLayoutPanel4.TabIndex = 2;
             // 
             // Button_Refresh
             // 
-            this.Button_Refresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Button_Refresh.CustomizableEdges = customizableEdges7;
-            this.Button_Refresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Button_Refresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Button_Refresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Button_Refresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Button_Refresh.FillColor = System.Drawing.Color.Transparent;
-            this.Button_Refresh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Button_Refresh.ForeColor = System.Drawing.Color.White;
-            this.Button_Refresh.Image = global::Pocket_Updater.Properties.Resources.refresh;
-            this.Button_Refresh.ImageSize = new System.Drawing.Size(30, 30);
-            this.Button_Refresh.Location = new System.Drawing.Point(3, 3);
-            this.Button_Refresh.Name = "Button_Refresh";
-            this.Button_Refresh.PressedColor = System.Drawing.Color.Transparent;
-            this.Button_Refresh.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            this.Button_Refresh.Size = new System.Drawing.Size(34, 40);
-            this.Button_Refresh.TabIndex = 0;
-            this.ToolTip.SetToolTip(this.Button_Refresh, "Refresh your Removable Drive List");
-            this.Button_Refresh.Visible = false;
-            this.Button_Refresh.Click += new System.EventHandler(this.Button_Refresh_Click);
+            Button_Refresh.Cursor = Cursors.Hand;
+            Button_Refresh.CustomizableEdges = customizableEdges7;
+            Button_Refresh.DisabledState.BorderColor = Color.DarkGray;
+            Button_Refresh.DisabledState.CustomBorderColor = Color.DarkGray;
+            Button_Refresh.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            Button_Refresh.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            Button_Refresh.FillColor = Color.Transparent;
+            Button_Refresh.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Button_Refresh.ForeColor = Color.White;
+            Button_Refresh.Image = Properties.Resources.refresh;
+            Button_Refresh.ImageSize = new Size(30, 30);
+            Button_Refresh.Location = new Point(3, 3);
+            Button_Refresh.Name = "Button_Refresh";
+            Button_Refresh.PressedColor = Color.Transparent;
+            Button_Refresh.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            Button_Refresh.Size = new Size(34, 40);
+            Button_Refresh.TabIndex = 0;
+            ToolTip.SetToolTip(Button_Refresh, "Refresh your Removable Drive List");
+            Button_Refresh.Visible = false;
+            Button_Refresh.Click += Button_Refresh_Click;
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.AutoSize = true;
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(639, 51);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(0, 0);
-            this.tableLayoutPanel5.TabIndex = 3;
+            tableLayoutPanel5.AutoSize = true;
+            tableLayoutPanel5.ColumnCount = 1;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel5.Dock = DockStyle.Top;
+            tableLayoutPanel5.Location = new Point(639, 51);
+            tableLayoutPanel5.Name = "tableLayoutPanel5";
+            tableLayoutPanel5.RowCount = 1;
+            tableLayoutPanel5.RowStyles.Add(new RowStyle());
+            tableLayoutPanel5.Size = new Size(0, 0);
+            tableLayoutPanel5.TabIndex = 3;
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.ColumnHeadersHeight = 50;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.Variant,
-            this.GitHub,
-            this.Download});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dataGridView1.Location = new System.Drawing.Point(2, 0);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(916, 543);
-            this.dataGridView1.TabIndex = 6;
-            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dataGridView1.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
-            this.dataGridView1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.dataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.dataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dataGridView1.ThemeStyle.HeaderStyle.Height = 50;
-            this.dataGridView1.ThemeStyle.ReadOnly = false;
-            this.dataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dataGridView1.ThemeStyle.RowsStyle.Height = 29;
-            this.dataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(39, 44, 66);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(24, 30, 52);
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.BackgroundColor = Color.FromArgb(39, 44, 66);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(94, 148, 255);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(94, 148, 255);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.ColumnHeadersHeight = 50;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, Variant, GitHub, Download });
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(39, 44, 66);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(24, 30, 52);
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.GridColor = Color.FromArgb(71, 69, 94);
+            dataGridView1.Location = new Point(2, 0);
+            dataGridView1.MultiSelect = false;
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(39, 44, 66);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(39, 44, 66);
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowTemplate.Height = 29;
+            dataGridView1.Size = new Size(916, 543);
+            dataGridView1.TabIndex = 6;
+            dataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            dataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
+            dataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            dataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            dataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            dataGridView1.ThemeStyle.BackColor = Color.FromArgb(39, 44, 66);
+            dataGridView1.ThemeStyle.GridColor = Color.FromArgb(71, 69, 94);
+            dataGridView1.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(94, 148, 255);
+            dataGridView1.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridView1.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridView1.ThemeStyle.HeaderStyle.Height = 50;
+            dataGridView1.ThemeStyle.ReadOnly = false;
+            dataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dataGridView1.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridView1.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridView1.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridView1.ThemeStyle.RowsStyle.Height = 29;
+            dataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(71, 69, 94);
+            dataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Creator";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 15;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewTextBoxColumn1.HeaderText = "Creator";
+            dataGridViewTextBoxColumn1.MinimumWidth = 15;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // Variant
             // 
-            this.Variant.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Variant.HeaderText = "Variant";
-            this.Variant.MinimumWidth = 6;
-            this.Variant.Name = "Variant";
-            this.Variant.ReadOnly = true;
+            Variant.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Variant.HeaderText = "Variant";
+            Variant.MinimumWidth = 6;
+            Variant.Name = "Variant";
+            Variant.ReadOnly = true;
             // 
             // GitHub
             // 
-            this.GitHub.ActiveLinkColor = System.Drawing.Color.White;
-            this.GitHub.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.GitHub.HeaderText = "GitHub";
-            this.GitHub.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
-            this.GitHub.LinkColor = System.Drawing.Color.White;
-            this.GitHub.MinimumWidth = 6;
-            this.GitHub.Name = "GitHub";
-            this.GitHub.ReadOnly = true;
-            this.GitHub.VisitedLinkColor = System.Drawing.Color.White;
+            GitHub.ActiveLinkColor = Color.White;
+            GitHub.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            GitHub.HeaderText = "GitHub";
+            GitHub.LinkBehavior = LinkBehavior.AlwaysUnderline;
+            GitHub.LinkColor = Color.White;
+            GitHub.MinimumWidth = 6;
+            GitHub.Name = "GitHub";
+            GitHub.ReadOnly = true;
+            GitHub.VisitedLinkColor = Color.White;
             // 
             // Download
             // 
-            this.Download.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Download.HeaderText = "Download";
-            this.Download.MinimumWidth = 6;
-            this.Download.Name = "Download";
-            this.Download.ReadOnly = true;
-            this.Download.Width = 112;
+            Download.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            Download.HeaderText = "Download";
+            Download.MinimumWidth = 6;
+            Download.Name = "Download";
+            Download.ReadOnly = true;
+            Download.Width = 112;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 50);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.panel1.Size = new System.Drawing.Size(920, 543);
-            this.panel1.TabIndex = 7;
+            panel1.Controls.Add(dataGridView1);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 50);
+            panel1.Name = "panel1";
+            panel1.Padding = new Padding(2, 0, 2, 0);
+            panel1.Size = new Size(920, 543);
+            panel1.TabIndex = 7;
             // 
             // ToolTip
             // 
-            this.ToolTip.AllowLinksHandling = true;
-            this.ToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
-            this.ToolTip.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));
-            this.ToolTip.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ToolTip.ForeColor = System.Drawing.Color.White;
-            this.ToolTip.MaximumSize = new System.Drawing.Size(0, 0);
-            this.ToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            ToolTip.AllowLinksHandling = true;
+            ToolTip.BackColor = Color.FromArgb(39, 44, 66);
+            ToolTip.BorderColor = Color.FromArgb(59, 62, 78);
+            ToolTip.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            ToolTip.ForeColor = Color.White;
+            ToolTip.MaximumSize = new Size(0, 0);
+            ToolTip.ToolTipIcon = ToolTipIcon.Info;
             // 
             // Image_Packs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.Panel_Bottom);
-            this.Controls.Add(this.Panel_Top);
-            this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Name = "Image_Packs";
-            this.Size = new System.Drawing.Size(920, 757);
-            this.Panel_Top.ResumeLayout(false);
-            this.Panel_Top.PerformLayout();
-            this.Panel_Bottom.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(59, 62, 78);
+            Controls.Add(panel1);
+            Controls.Add(Panel_Bottom);
+            Controls.Add(Panel_Top);
+            ForeColor = SystemColors.ControlLightLight;
+            Name = "Image_Packs";
+            Size = new Size(920, 757);
+            Panel_Top.ResumeLayout(false);
+            Panel_Top.PerformLayout();
+            Panel_Bottom.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
+            tableLayoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel1.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

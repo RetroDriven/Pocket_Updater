@@ -4,7 +4,8 @@ using pannella.analoguepocket;
 using RetroDriven;
 using Pocket_Updater.Forms.Message_Box;
 using Pocket_Updater.Forms.Updater_Summary;
-
+using Analogue;
+using Newtonsoft.Json;
 namespace Pocket_Updater.Controls
 {
     public partial class Update_Pocket : UserControl
@@ -37,6 +38,10 @@ namespace Pocket_Updater.Controls
 
             //Read Settings Json file
             ReadSettingsAsync();
+
+            //Preferences
+            Get_Preferences_Json();
+
         }
         public async Task RunCoreUpdateProcess(string updatePath, string coresJsonPath, string LogDir)
         {
@@ -70,6 +75,8 @@ namespace Pocket_Updater.Controls
         private async void Update_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
+            Button_Save.Enabled = false;
+            Save_Settings("No");
 
             string Location_Type = comboBox2.SelectedItem.ToString();
             string Current_Dir = Directory.GetCurrentDirectory();
@@ -104,7 +111,7 @@ namespace Pocket_Updater.Controls
                     _updater.UpdateProcessComplete += _updater_UpdateProcessComplete;
 
                     comboBox2.Enabled = false;
-
+                    Save_Preferences_Json();
                     RunCoreUpdateProcess(Current_Dir, Current_Dir, Current_Dir);
                 }
                 catch
@@ -112,18 +119,21 @@ namespace Pocket_Updater.Controls
                     Message_Box form = new Message_Box();
                     form.label1.Text = "No Internet Connection Detected!";
                     form.Show();
+                    Button_Save.Enabled = true;
                 }
             }
             //Removable Drive Updater
             if (Location_Type == "Removable Storage")
             {
-                string pathToUpdate = Pocket_Drive;
+                //string pathToUpdate = Pocket_Drive;
+                string pathToUpdate = comboBox1.SelectedItem.ToString();
+                comboBox2.SelectedIndex = comboBox2.FindStringExact("Removable Storage");
 
                 try
                 {
                     //Make Sure Drive Letter still exists
                     var drives = DriveInfo.GetDrives();
-                    if (drives.Where(data => data.Name == Pocket_Drive).Count() == 1)
+                    if (drives.Where(data => data.Name == pathToUpdate).Count() == 1)
                     {
                         //Download_Json(pathToUpdate);
                         // string Current_Dir = Directory.GetCurrentDirectory();
@@ -153,6 +163,7 @@ namespace Pocket_Updater.Controls
                         comboBox1.Enabled = false;
                         comboBox2.Enabled = false;
 
+                        Save_Preferences_Json();
                         RunCoreUpdateProcess(pathToUpdate, Current_Dir, Current_Dir);
                     }
                     else
@@ -160,6 +171,7 @@ namespace Pocket_Updater.Controls
                         Message_Box form = new Message_Box();
                         form.label1.Text = "The Drive Letter Was Not Found!";
                         form.Show();
+                        Button_Save.Enabled = true;
 
                         label2.Enabled = true;
                         comboBox1.Enabled = true;
@@ -173,6 +185,7 @@ namespace Pocket_Updater.Controls
                     Message_Box form = new Message_Box();
                     form.label1.Text = "No Internet Connection Detected!";
                     form.Show();
+                    Button_Save.Enabled = true;
                 }
             }
         }
@@ -236,6 +249,7 @@ namespace Pocket_Updater.Controls
                 Update.Enabled = true;
                 comboBox1.Enabled = true;
                 comboBox2.Enabled = true;
+                Button_Save.Enabled = true;
             }
 
             //Updates Found
@@ -249,6 +263,7 @@ namespace Pocket_Updater.Controls
                 Summary.Show();
                 comboBox1.Enabled = true;
                 comboBox2.Enabled = true;
+                Button_Save.Enabled = true;
             }
 
             //Cores Installed
@@ -478,8 +493,13 @@ namespace Pocket_Updater.Controls
         }
         private async void Button_Save_Click(object sender, EventArgs e)
         {
+            Save_Settings("Yes");
+        }
+
+        private async void Save_Settings(string ShowBox)
+        {
             //string value = Alternate_Location.Text;
-            Config config = _settings.GetConfig();
+            pannella.analoguepocket.Config config = _settings.GetConfig();
 
             //GitHub Token
             //config.github_token = value;
@@ -575,9 +595,15 @@ namespace Pocket_Updater.Controls
             //Save Sttings
             _settings.UpdateConfig(config);
             _settings.SaveSettings();
-            Message_Box form = new Message_Box();
-            form.label1.Text = "Settings Saved!";
-            form.Show();
+
+            //Show Message Box
+            if (ShowBox == "Yes")
+            {
+
+                Message_Box form = new Message_Box();
+                form.label1.Text = "Settings Saved!";
+                form.Show();
+            }
         }
 
         private void Button_Refresh_Click_1(object sender, EventArgs e)
@@ -613,6 +639,42 @@ namespace Pocket_Updater.Controls
                 //label15.Visible = false;
                 //label17.Visible = false;
                 //label18.Visible = false;
+            }
+        }
+        private void Get_Preferences_Json()
+        {
+            string Json_File = @"updater_preferences.json";
+
+            if (File.Exists(Json_File) == true)
+            {
+                string Update_Location = Updater_Preferences.Get_Updater_Json("Update Location", Json_File);
+                string Update_Drive = Updater_Preferences.Get_Updater_Json("Update Drive Letter", Json_File);
+
+                comboBox2.SelectedIndex = comboBox2.FindStringExact(Update_Location);
+
+                if (Update_Location == "Removable Storage")
+                {
+                    comboBox1.SelectedIndex = comboBox1.FindStringExact(Update_Drive);
+                }
+            }
+        }
+
+        private void Save_Preferences_Json()
+        {
+            string Json_File = @"updater_preferences.json";
+
+            string Update_Location = comboBox2.SelectedItem.ToString();
+            
+            if((comboBox1.SelectedIndex == -1))
+            {
+                string[] Entries = new string[] { Update_Location, "" };
+                Updater_Preferences.Save_Updater_Json(Entries, Json_File);
+            }
+            else
+            {
+                string Update_Drive = comboBox1.SelectedItem.ToString();
+                string[] Entries = new string[] { Update_Location, Update_Drive };
+                Updater_Preferences.Save_Updater_Json(Entries, Json_File);
             }
         }
     }

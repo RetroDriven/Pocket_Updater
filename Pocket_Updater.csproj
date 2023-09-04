@@ -56,6 +56,7 @@
   <ItemGroup>
     <PackageReference Include="Crc32.NET" Version="1.2.0" />
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
 </Project>

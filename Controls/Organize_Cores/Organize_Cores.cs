@@ -29,6 +29,9 @@ namespace Pocket_Updater.Controls.Organize_Cores
             //ReadPlatforms();
             //string Current_Dir = Directory.GetCurrentDirectory();
 
+            //Preferences
+            Get_Preferences_Json();
+
         }
 
         private void Save_Click(object sender, EventArgs e)
@@ -49,6 +52,7 @@ namespace Pocket_Updater.Controls.Organize_Cores
                     config.preserve_platforms_folder = true;
                     _settings.UpdateConfig(config);
                     _settings.SaveSettings();
+                    Save_Preferences_Json();
 
                     var Json_Dir = Path.Combine(Pocket_Drive.Text, "Platforms");
                     foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -221,6 +225,43 @@ namespace Pocket_Updater.Controls.Organize_Cores
                 ReadPlatforms(Current);
 
                 //Save.Enabled = true;
+            }
+        }
+        private void Get_Preferences_Json()
+        {
+            string Json_File = @"updater_preferences.json";
+
+            if (File.Exists(Json_File) == true)
+            {
+                string Update_Location = Updater_Preferences.Get_Updater_Json("Update Location", Json_File);
+                string Update_Drive = Updater_Preferences.Get_Updater_Json("Update Drive Letter", Json_File);
+
+                comboBox2.SelectedIndex = comboBox2.FindStringExact(Update_Location);
+                comboBox2.Refresh();
+
+                if (Update_Location == "Removable Storage")
+                {
+                    Pocket_Drive.SelectedIndex = Pocket_Drive.FindStringExact(Update_Drive);
+                }
+            }
+        }
+
+        private void Save_Preferences_Json()
+        {
+            string Json_File = @"updater_preferences.json";
+
+            string Update_Location = comboBox2.SelectedItem.ToString();
+
+            if ((Pocket_Drive.SelectedIndex == -1))
+            {
+                string[] Entries = new string[] { Update_Location, "" };
+                Updater_Preferences.Save_Updater_Json(Entries, Json_File);
+            }
+            else
+            {
+                string Update_Drive = Pocket_Drive.SelectedItem.ToString();
+                string[] Entries = new string[] { Update_Location, Update_Drive };
+                Updater_Preferences.Save_Updater_Json(Entries, Json_File);
             }
         }
     }

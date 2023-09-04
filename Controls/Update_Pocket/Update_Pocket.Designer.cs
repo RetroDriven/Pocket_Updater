@@ -154,9 +154,9 @@
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(0, 0);
-            flowLayoutPanel1.Margin = new Padding(4, 3, 4, 3);
+            flowLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(768, 231);
+            flowLayoutPanel1.Size = new Size(640, 192);
             flowLayoutPanel1.TabIndex = 11;
             // 
             // Panel_Title
@@ -166,12 +166,12 @@
             Panel_Title.Controls.Add(label3);
             Panel_Title.Controls.Add(guna2Separator1);
             Panel_Title.CustomizableEdges = customizableEdges1;
-            Panel_Title.Location = new Point(4, 3);
-            Panel_Title.Margin = new Padding(4, 3, 4, 3);
+            Panel_Title.Location = new Point(3, 2);
+            Panel_Title.Margin = new Padding(3, 2, 3, 2);
             Panel_Title.Name = "Panel_Title";
-            Panel_Title.Padding = new Padding(39, 0, 0, 0);
+            Panel_Title.Padding = new Padding(32, 0, 0, 0);
             Panel_Title.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            Panel_Title.Size = new Size(452, 56);
+            Panel_Title.Size = new Size(377, 46);
             Panel_Title.TabIndex = 2;
             // 
             // label3
@@ -180,10 +180,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
             label3.Location = new Point(0, -2);
-            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Padding = new Padding(20, 0, 0, 0);
-            label3.Size = new Size(228, 38);
+            label3.Padding = new Padding(17, 0, 0, 0);
+            label3.Size = new Size(196, 32);
             label3.TabIndex = 0;
             label3.Text = "Update Pocket";
             // 
@@ -191,11 +190,11 @@
             // 
             guna2Separator1.Anchor = AnchorStyles.Left;
             guna2Separator1.FillColor = Color.FromArgb(104, 107, 121);
-            guna2Separator1.Location = new Point(26, 39);
-            guna2Separator1.Margin = new Padding(4, 3, 4, 3);
+            guna2Separator1.Location = new Point(22, 32);
+            guna2Separator1.Margin = new Padding(3, 2, 3, 2);
             guna2Separator1.Name = "guna2Separator1";
-            guna2Separator1.Padding = new Padding(20, 0, 0, 0);
-            guna2Separator1.Size = new Size(422, 14);
+            guna2Separator1.Padding = new Padding(17, 0, 0, 0);
+            guna2Separator1.Size = new Size(352, 12);
             guna2Separator1.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -209,13 +208,13 @@
             tableLayoutPanel1.Controls.Add(Update, 2, 0);
             tableLayoutPanel1.Controls.Add(comboBox2, 1, 0);
             tableLayoutPanel1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            tableLayoutPanel1.Location = new Point(4, 65);
-            tableLayoutPanel1.Margin = new Padding(4, 3, 4, 3);
+            tableLayoutPanel1.Location = new Point(3, 52);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.Padding = new Padding(33, 0, 0, 0);
+            tableLayoutPanel1.Padding = new Padding(28, 0, 0, 0);
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(699, 62);
+            tableLayoutPanel1.Size = new Size(588, 51);
             tableLayoutPanel1.TabIndex = 8;
             // 
             // label1
@@ -223,10 +222,9 @@
             label1.Anchor = AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(37, 16);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(31, 13);
             label1.Name = "label1";
-            label1.Size = new Size(190, 30);
+            label1.Size = new Size(164, 25);
             label1.TabIndex = 6;
             label1.Text = "Update Location:";
             // 
@@ -234,7 +232,7 @@
             // 
             Update.Anchor = AnchorStyles.Left;
             Update.AutoRoundedCorners = true;
-            Update.BorderRadius = 27;
+            Update.BorderRadius = 22;
             Update.Cursor = Cursors.Hand;
             Update.CustomizableEdges = customizableEdges3;
             Update.DisabledState.BorderColor = Color.DarkGray;
@@ -244,11 +242,11 @@
             Update.Enabled = false;
             Update.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             Update.ForeColor = Color.White;
-            Update.Location = new Point(531, 3);
-            Update.Margin = new Padding(4, 3, 4, 3);
+            Update.Location = new Point(448, 2);
+            Update.Margin = new Padding(3, 2, 3, 2);
             Update.Name = "Update";
             Update.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            Update.Size = new Size(164, 56);
+            Update.Size = new Size(137, 47);
             Update.TabIndex = 11;
             Update.Text = "Update";
             Update.Click += Update_Click;
@@ -270,11 +268,11 @@
             comboBox2.ItemHeight = 30;
             comboBox2.Items.AddRange(new object[] { "Current Directory", "Removable Storage" });
             comboBox2.ItemsAppearance.SelectedBackColor = Color.FromArgb(94, 148, 255);
-            comboBox2.Location = new Point(235, 13);
-            comboBox2.Margin = new Padding(4, 3, 4, 3);
+            comboBox2.Location = new Point(201, 7);
+            comboBox2.Margin = new Padding(3, 2, 3, 2);
             comboBox2.Name = "comboBox2";
             comboBox2.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            comboBox2.Size = new Size(288, 36);
+            comboBox2.Size = new Size(241, 36);
             comboBox2.TabIndex = 10;
             comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
@@ -289,13 +287,13 @@
             tableLayoutPanel2.Controls.Add(comboBox1, 1, 0);
             tableLayoutPanel2.Controls.Add(Button_Refresh, 2, 0);
             tableLayoutPanel2.Controls.Add(label2, 0, 0);
-            tableLayoutPanel2.Location = new Point(0, 130);
+            tableLayoutPanel2.Location = new Point(0, 105);
             tableLayoutPanel2.Margin = new Padding(0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.Padding = new Padding(33, 0, 0, 0);
+            tableLayoutPanel2.Padding = new Padding(28, 0, 0, 0);
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.Size = new Size(598, 60);
+            tableLayoutPanel2.Size = new Size(502, 49);
             tableLayoutPanel2.TabIndex = 9;
             // 
             // comboBox1
@@ -315,11 +313,11 @@
             comboBox1.ForeColor = SystemColors.ControlLightLight;
             comboBox1.ItemHeight = 30;
             comboBox1.ItemsAppearance.SelectedBackColor = Color.FromArgb(94, 148, 255);
-            comboBox1.Location = new Point(264, 12);
-            comboBox1.Margin = new Padding(4, 3, 4, 3);
+            comboBox1.Location = new Point(224, 6);
+            comboBox1.Margin = new Padding(3, 2, 3, 2);
             comboBox1.Name = "comboBox1";
             comboBox1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            comboBox1.Size = new Size(262, 36);
+            comboBox1.Size = new Size(219, 36);
             comboBox1.TabIndex = 11;
             comboBox1.Visible = false;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
@@ -337,13 +335,13 @@
             Button_Refresh.ForeColor = Color.White;
             Button_Refresh.Image = Properties.Resources.refresh;
             Button_Refresh.ImageSize = new Size(30, 30);
-            Button_Refresh.Location = new Point(534, 3);
-            Button_Refresh.Margin = new Padding(4, 3, 4, 3);
+            Button_Refresh.Location = new Point(449, 2);
+            Button_Refresh.Margin = new Padding(3, 2, 3, 2);
             Button_Refresh.Name = "Button_Refresh";
             Button_Refresh.PressedColor = Color.Transparent;
             Button_Refresh.ShadowDecoration.Color = Color.Transparent;
             Button_Refresh.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            Button_Refresh.Size = new Size(60, 54);
+            Button_Refresh.Size = new Size(50, 45);
             Button_Refresh.TabIndex = 10;
             ToolTip.SetToolTip(Button_Refresh, "Refresh your Removable Drive List");
             Button_Refresh.Visible = false;
@@ -354,10 +352,9 @@
             label2.Anchor = AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(37, 15);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(31, 12);
             label2.Name = "label2";
-            label2.Size = new Size(219, 30);
+            label2.Size = new Size(187, 25);
             label2.TabIndex = 7;
             label2.Text = "Pocket Drive Letter:";
             label2.Visible = false;
@@ -370,33 +367,32 @@
             guna2Panel1.Controls.Add(guna2Separator3);
             guna2Panel1.CustomizableEdges = customizableEdges11;
             guna2Panel1.Dock = DockStyle.Top;
-            guna2Panel1.Location = new Point(4, 0);
-            guna2Panel1.Margin = new Padding(4, 3, 4, 3);
+            guna2Panel1.Location = new Point(3, 0);
+            guna2Panel1.Margin = new Padding(3, 2, 3, 2);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            guna2Panel1.Size = new Size(764, 47);
+            guna2Panel1.Size = new Size(637, 39);
             guna2Panel1.TabIndex = 10;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(0, -4);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(0, -3);
             label5.Name = "label5";
-            label5.Padding = new Padding(20, 0, 0, 0);
-            label5.Size = new Size(144, 38);
+            label5.Padding = new Padding(17, 0, 0, 0);
+            label5.Size = new Size(123, 32);
             label5.TabIndex = 0;
             label5.Text = "Settings";
             // 
             // guna2Separator3
             // 
             guna2Separator3.FillColor = Color.FromArgb(104, 107, 121);
-            guna2Separator3.Location = new Point(26, 30);
-            guna2Separator3.Margin = new Padding(4, 3, 4, 3);
+            guna2Separator3.Location = new Point(22, 25);
+            guna2Separator3.Margin = new Padding(3, 2, 3, 2);
             guna2Separator3.Name = "guna2Separator3";
-            guna2Separator3.Padding = new Padding(20, 0, 0, 0);
-            guna2Separator3.Size = new Size(328, 14);
+            guna2Separator3.Padding = new Padding(17, 0, 0, 0);
+            guna2Separator3.Size = new Size(273, 12);
             guna2Separator3.TabIndex = 1;
             // 
             // Panel_Status_Title
@@ -408,31 +404,30 @@
             Panel_Status_Title.CustomizableEdges = customizableEdges13;
             Panel_Status_Title.Dock = DockStyle.Fill;
             Panel_Status_Title.Location = new Point(0, 0);
-            Panel_Status_Title.Margin = new Padding(4, 3, 4, 3);
+            Panel_Status_Title.Margin = new Padding(3, 2, 3, 2);
             Panel_Status_Title.Name = "Panel_Status_Title";
-            Panel_Status_Title.Padding = new Padding(39, 0, 0, 0);
+            Panel_Status_Title.Padding = new Padding(32, 0, 0, 0);
             Panel_Status_Title.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            Panel_Status_Title.Size = new Size(992, 58);
+            Panel_Status_Title.Size = new Size(827, 48);
             Panel_Status_Title.TabIndex = 3;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(9, 0);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(8, 0);
             label4.Name = "label4";
-            label4.Size = new Size(212, 38);
+            label4.Size = new Size(182, 32);
             label4.TabIndex = 0;
             label4.Text = "Updater Status";
             // 
             // guna2Separator2
             // 
             guna2Separator2.FillColor = Color.FromArgb(104, 107, 121);
-            guna2Separator2.Location = new Point(9, 38);
-            guna2Separator2.Margin = new Padding(4, 3, 4, 3);
+            guna2Separator2.Location = new Point(8, 32);
+            guna2Separator2.Margin = new Padding(3, 2, 3, 2);
             guna2Separator2.Name = "guna2Separator2";
-            guna2Separator2.Size = new Size(328, 14);
+            guna2Separator2.Size = new Size(273, 12);
             guna2Separator2.TabIndex = 1;
             // 
             // Panel_Left
@@ -443,20 +438,20 @@
             Panel_Left.CustomizableEdges = customizableEdges39;
             Panel_Left.Dock = DockStyle.Left;
             Panel_Left.Location = new Point(0, 0);
-            Panel_Left.Margin = new Padding(4, 3, 4, 3);
+            Panel_Left.Margin = new Padding(3, 2, 3, 2);
             Panel_Left.Name = "Panel_Left";
             Panel_Left.ShadowDecoration.CustomizableEdges = customizableEdges40;
-            Panel_Left.Size = new Size(768, 998);
+            Panel_Left.Size = new Size(640, 832);
             Panel_Left.TabIndex = 13;
             // 
             // Panel_Left_Main
             // 
             Panel_Left_Main.Controls.Add(Panel_Left_Bottom);
             Panel_Left_Main.Dock = DockStyle.Fill;
-            Panel_Left_Main.Location = new Point(0, 231);
-            Panel_Left_Main.Margin = new Padding(4, 3, 4, 3);
+            Panel_Left_Main.Location = new Point(0, 192);
+            Panel_Left_Main.Margin = new Padding(3, 2, 3, 2);
             Panel_Left_Main.Name = "Panel_Left_Main";
-            Panel_Left_Main.Size = new Size(768, 767);
+            Panel_Left_Main.Size = new Size(640, 640);
             Panel_Left_Main.TabIndex = 14;
             // 
             // Panel_Left_Bottom
@@ -465,10 +460,10 @@
             Panel_Left_Bottom.Controls.Add(guna2Panel1);
             Panel_Left_Bottom.Dock = DockStyle.Fill;
             Panel_Left_Bottom.Location = new Point(0, 0);
-            Panel_Left_Bottom.Margin = new Padding(4, 3, 4, 3);
+            Panel_Left_Bottom.Margin = new Padding(3, 2, 3, 2);
             Panel_Left_Bottom.Name = "Panel_Left_Bottom";
-            Panel_Left_Bottom.Padding = new Padding(4, 0, 0, 0);
-            Panel_Left_Bottom.Size = new Size(768, 767);
+            Panel_Left_Bottom.Padding = new Padding(3, 0, 0, 0);
+            Panel_Left_Bottom.Size = new Size(640, 640);
             Panel_Left_Bottom.TabIndex = 12;
             // 
             // flowLayoutPanel2
@@ -478,10 +473,10 @@
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            flowLayoutPanel2.Location = new Point(4, 47);
-            flowLayoutPanel2.Margin = new Padding(4, 3, 4, 3);
+            flowLayoutPanel2.Location = new Point(3, 39);
+            flowLayoutPanel2.Margin = new Padding(3, 2, 3, 2);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(764, 720);
+            flowLayoutPanel2.Size = new Size(637, 601);
             flowLayoutPanel2.TabIndex = 11;
             // 
             // tableLayoutPanel3
@@ -508,10 +503,10 @@
             tableLayoutPanel3.Controls.Add(label12, 0, 9);
             tableLayoutPanel3.Controls.Add(label14, 0, 8);
             tableLayoutPanel3.Controls.Add(Toggle_CRC, 1, 8);
-            tableLayoutPanel3.Location = new Point(4, 3);
-            tableLayoutPanel3.Margin = new Padding(4, 3, 4, 3);
+            tableLayoutPanel3.Location = new Point(3, 2);
+            tableLayoutPanel3.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.Padding = new Padding(33, 0, 0, 0);
+            tableLayoutPanel3.Padding = new Padding(28, 0, 0, 0);
             tableLayoutPanel3.RowCount = 10;
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
@@ -523,7 +518,7 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
-            tableLayoutPanel3.Size = new Size(482, 396);
+            tableLayoutPanel3.Size = new Size(412, 324);
             tableLayoutPanel3.TabIndex = 0;
             // 
             // label6
@@ -531,10 +526,9 @@
             label6.Anchor = AnchorStyles.Right;
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(162, 139);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(140, 113);
             label6.Name = "label6";
-            label6.Size = new Size(240, 30);
+            label6.Size = new Size(206, 25);
             label6.TabIndex = 11;
             label6.Text = "Delete Skipped Cores:";
             ToolTip.SetToolTip(label6, "Delete Cores from your Pocket's SD Card that you have unchecked for Downloading");
@@ -544,24 +538,24 @@
             Toggle_Alternatives.Anchor = AnchorStyles.Left;
             Toggle_Alternatives.AutoRoundedCorners = true;
             Toggle_Alternatives.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            Toggle_Alternatives.CheckedState.BorderRadius = 18;
+            Toggle_Alternatives.CheckedState.BorderRadius = 15;
             Toggle_Alternatives.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
             Toggle_Alternatives.CheckedState.InnerBorderColor = Color.White;
-            Toggle_Alternatives.CheckedState.InnerBorderRadius = 14;
+            Toggle_Alternatives.CheckedState.InnerBorderRadius = 11;
             Toggle_Alternatives.CheckedState.InnerColor = Color.White;
             Toggle_Alternatives.Cursor = Cursors.Hand;
             Toggle_Alternatives.CustomizableEdges = customizableEdges15;
-            Toggle_Alternatives.Location = new Point(410, 267);
-            Toggle_Alternatives.Margin = new Padding(4, 3, 4, 3);
+            Toggle_Alternatives.Location = new Point(352, 218);
+            Toggle_Alternatives.Margin = new Padding(3, 2, 3, 2);
             Toggle_Alternatives.Name = "Toggle_Alternatives";
             Toggle_Alternatives.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            Toggle_Alternatives.Size = new Size(68, 38);
+            Toggle_Alternatives.Size = new Size(57, 32);
             Toggle_Alternatives.TabIndex = 16;
             Toggle_Alternatives.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            Toggle_Alternatives.UncheckedState.BorderRadius = 18;
+            Toggle_Alternatives.UncheckedState.BorderRadius = 15;
             Toggle_Alternatives.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             Toggle_Alternatives.UncheckedState.InnerBorderColor = Color.White;
-            Toggle_Alternatives.UncheckedState.InnerBorderRadius = 14;
+            Toggle_Alternatives.UncheckedState.InnerBorderRadius = 11;
             Toggle_Alternatives.UncheckedState.InnerColor = Color.White;
             // 
             // label16
@@ -569,10 +563,9 @@
             label16.Anchor = AnchorStyles.Right;
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            label16.Location = new Point(88, 271);
-            label16.Margin = new Padding(4, 0, 4, 0);
+            label16.Location = new Point(78, 221);
             label16.Name = "label16";
-            label16.Size = new Size(314, 30);
+            label16.Size = new Size(268, 25);
             label16.TabIndex = 15;
             label16.Text = "Skip Alternative Arcade Files:";
             ToolTip.SetToolTip(label16, "Skip downloading any Alternative Arcade Files");
@@ -582,24 +575,24 @@
             Toggle_Jotego.Anchor = AnchorStyles.Left;
             Toggle_Jotego.AutoRoundedCorners = true;
             Toggle_Jotego.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            Toggle_Jotego.CheckedState.BorderRadius = 18;
+            Toggle_Jotego.CheckedState.BorderRadius = 15;
             Toggle_Jotego.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
             Toggle_Jotego.CheckedState.InnerBorderColor = Color.White;
-            Toggle_Jotego.CheckedState.InnerBorderRadius = 14;
+            Toggle_Jotego.CheckedState.InnerBorderRadius = 11;
             Toggle_Jotego.CheckedState.InnerColor = Color.White;
             Toggle_Jotego.Cursor = Cursors.Hand;
             Toggle_Jotego.CustomizableEdges = customizableEdges17;
-            Toggle_Jotego.Location = new Point(410, 223);
-            Toggle_Jotego.Margin = new Padding(4, 3, 4, 3);
+            Toggle_Jotego.Location = new Point(352, 182);
+            Toggle_Jotego.Margin = new Padding(3, 2, 3, 2);
             Toggle_Jotego.Name = "Toggle_Jotego";
             Toggle_Jotego.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            Toggle_Jotego.Size = new Size(68, 38);
+            Toggle_Jotego.Size = new Size(57, 32);
             Toggle_Jotego.TabIndex = 15;
             Toggle_Jotego.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            Toggle_Jotego.UncheckedState.BorderRadius = 18;
+            Toggle_Jotego.UncheckedState.BorderRadius = 15;
             Toggle_Jotego.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             Toggle_Jotego.UncheckedState.InnerBorderColor = Color.White;
-            Toggle_Jotego.UncheckedState.InnerBorderRadius = 14;
+            Toggle_Jotego.UncheckedState.InnerBorderRadius = 11;
             Toggle_Jotego.UncheckedState.InnerColor = Color.White;
             // 
             // label13
@@ -607,10 +600,9 @@
             label13.Anchor = AnchorStyles.Right;
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.Location = new Point(146, 227);
-            label13.Margin = new Padding(4, 0, 4, 0);
+            label13.Location = new Point(125, 185);
             label13.Name = "label13";
-            label13.Size = new Size(256, 30);
+            label13.Size = new Size(221, 25);
             label13.TabIndex = 14;
             label13.Text = "Fix Jotego Core Names:";
             ToolTip.SetToolTip(label13, "Automatically rename Jotego Cores to more friendly names");
@@ -620,10 +612,9 @@
             label9.Anchor = AnchorStyles.Right;
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(185, 95);
-            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Location = new Point(161, 77);
             label9.Name = "label9";
-            label9.Size = new Size(217, 30);
+            label9.Size = new Size(185, 25);
             label9.TabIndex = 7;
             label9.Text = "Preserve Platforms:";
             ToolTip.SetToolTip(label9, "Preserve Custom Core Images, Core Naming, and Category changes made manually");
@@ -633,10 +624,9 @@
             label10.Anchor = AnchorStyles.Right;
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(148, 51);
-            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Location = new Point(126, 41);
             label10.Name = "label10";
-            label10.Size = new Size(254, 30);
+            label10.Size = new Size(220, 25);
             label10.TabIndex = 5;
             label10.Text = "Download ROMS/BIOS:";
             ToolTip.SetToolTip(label10, "Enable/Disable Downloading Arcade ROMS and Core BIOS");
@@ -646,10 +636,9 @@
             label11.Anchor = AnchorStyles.Right;
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.Location = new Point(99, 7);
-            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Location = new Point(84, 5);
             label11.Name = "label11";
-            label11.Size = new Size(303, 30);
+            label11.Size = new Size(262, 25);
             label11.TabIndex = 3;
             label11.Text = "Download Pocket Firmware:";
             ToolTip.SetToolTip(label11, "Enable/Disable Downloading Pocket Firmware Updates");
@@ -659,24 +648,24 @@
             Toggle_Platforms.Anchor = AnchorStyles.Left;
             Toggle_Platforms.AutoRoundedCorners = true;
             Toggle_Platforms.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            Toggle_Platforms.CheckedState.BorderRadius = 18;
+            Toggle_Platforms.CheckedState.BorderRadius = 15;
             Toggle_Platforms.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
             Toggle_Platforms.CheckedState.InnerBorderColor = Color.White;
-            Toggle_Platforms.CheckedState.InnerBorderRadius = 14;
+            Toggle_Platforms.CheckedState.InnerBorderRadius = 11;
             Toggle_Platforms.CheckedState.InnerColor = Color.White;
             Toggle_Platforms.Cursor = Cursors.Hand;
             Toggle_Platforms.CustomizableEdges = customizableEdges19;
-            Toggle_Platforms.Location = new Point(410, 91);
-            Toggle_Platforms.Margin = new Padding(4, 3, 4, 3);
+            Toggle_Platforms.Location = new Point(352, 74);
+            Toggle_Platforms.Margin = new Padding(3, 2, 3, 2);
             Toggle_Platforms.Name = "Toggle_Platforms";
             Toggle_Platforms.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            Toggle_Platforms.Size = new Size(68, 38);
+            Toggle_Platforms.Size = new Size(57, 32);
             Toggle_Platforms.TabIndex = 15;
             Toggle_Platforms.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            Toggle_Platforms.UncheckedState.BorderRadius = 18;
+            Toggle_Platforms.UncheckedState.BorderRadius = 15;
             Toggle_Platforms.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             Toggle_Platforms.UncheckedState.InnerBorderColor = Color.White;
-            Toggle_Platforms.UncheckedState.InnerBorderRadius = 14;
+            Toggle_Platforms.UncheckedState.InnerBorderRadius = 11;
             Toggle_Platforms.UncheckedState.InnerColor = Color.White;
             // 
             // Toggle_Skipped
@@ -684,24 +673,24 @@
             Toggle_Skipped.Anchor = AnchorStyles.Left;
             Toggle_Skipped.AutoRoundedCorners = true;
             Toggle_Skipped.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            Toggle_Skipped.CheckedState.BorderRadius = 18;
+            Toggle_Skipped.CheckedState.BorderRadius = 15;
             Toggle_Skipped.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
             Toggle_Skipped.CheckedState.InnerBorderColor = Color.White;
-            Toggle_Skipped.CheckedState.InnerBorderRadius = 14;
+            Toggle_Skipped.CheckedState.InnerBorderRadius = 11;
             Toggle_Skipped.CheckedState.InnerColor = Color.White;
             Toggle_Skipped.Cursor = Cursors.Hand;
             Toggle_Skipped.CustomizableEdges = customizableEdges21;
-            Toggle_Skipped.Location = new Point(410, 135);
-            Toggle_Skipped.Margin = new Padding(4, 3, 4, 3);
+            Toggle_Skipped.Location = new Point(352, 110);
+            Toggle_Skipped.Margin = new Padding(3, 2, 3, 2);
             Toggle_Skipped.Name = "Toggle_Skipped";
             Toggle_Skipped.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            Toggle_Skipped.Size = new Size(68, 38);
+            Toggle_Skipped.Size = new Size(57, 32);
             Toggle_Skipped.TabIndex = 12;
             Toggle_Skipped.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            Toggle_Skipped.UncheckedState.BorderRadius = 18;
+            Toggle_Skipped.UncheckedState.BorderRadius = 15;
             Toggle_Skipped.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             Toggle_Skipped.UncheckedState.InnerBorderColor = Color.White;
-            Toggle_Skipped.UncheckedState.InnerBorderRadius = 14;
+            Toggle_Skipped.UncheckedState.InnerBorderRadius = 11;
             Toggle_Skipped.UncheckedState.InnerColor = Color.White;
             // 
             // Toggle_Assets
@@ -709,24 +698,24 @@
             Toggle_Assets.Anchor = AnchorStyles.Left;
             Toggle_Assets.AutoRoundedCorners = true;
             Toggle_Assets.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            Toggle_Assets.CheckedState.BorderRadius = 18;
+            Toggle_Assets.CheckedState.BorderRadius = 15;
             Toggle_Assets.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
             Toggle_Assets.CheckedState.InnerBorderColor = Color.White;
-            Toggle_Assets.CheckedState.InnerBorderRadius = 14;
+            Toggle_Assets.CheckedState.InnerBorderRadius = 11;
             Toggle_Assets.CheckedState.InnerColor = Color.White;
             Toggle_Assets.Cursor = Cursors.Hand;
             Toggle_Assets.CustomizableEdges = customizableEdges23;
-            Toggle_Assets.Location = new Point(410, 47);
-            Toggle_Assets.Margin = new Padding(4, 3, 4, 3);
+            Toggle_Assets.Location = new Point(352, 38);
+            Toggle_Assets.Margin = new Padding(3, 2, 3, 2);
             Toggle_Assets.Name = "Toggle_Assets";
             Toggle_Assets.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            Toggle_Assets.Size = new Size(68, 38);
+            Toggle_Assets.Size = new Size(57, 32);
             Toggle_Assets.TabIndex = 16;
             Toggle_Assets.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            Toggle_Assets.UncheckedState.BorderRadius = 18;
+            Toggle_Assets.UncheckedState.BorderRadius = 15;
             Toggle_Assets.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             Toggle_Assets.UncheckedState.InnerBorderColor = Color.White;
-            Toggle_Assets.UncheckedState.InnerBorderRadius = 14;
+            Toggle_Assets.UncheckedState.InnerBorderRadius = 11;
             Toggle_Assets.UncheckedState.InnerColor = Color.White;
             // 
             // Toggle_Firmware
@@ -734,24 +723,24 @@
             Toggle_Firmware.Anchor = AnchorStyles.Left;
             Toggle_Firmware.AutoRoundedCorners = true;
             Toggle_Firmware.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            Toggle_Firmware.CheckedState.BorderRadius = 18;
+            Toggle_Firmware.CheckedState.BorderRadius = 15;
             Toggle_Firmware.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
             Toggle_Firmware.CheckedState.InnerBorderColor = Color.White;
-            Toggle_Firmware.CheckedState.InnerBorderRadius = 14;
+            Toggle_Firmware.CheckedState.InnerBorderRadius = 11;
             Toggle_Firmware.CheckedState.InnerColor = Color.White;
             Toggle_Firmware.Cursor = Cursors.Hand;
             Toggle_Firmware.CustomizableEdges = customizableEdges25;
-            Toggle_Firmware.Location = new Point(410, 3);
-            Toggle_Firmware.Margin = new Padding(4, 3, 4, 3);
+            Toggle_Firmware.Location = new Point(352, 2);
+            Toggle_Firmware.Margin = new Padding(3, 2, 3, 2);
             Toggle_Firmware.Name = "Toggle_Firmware";
             Toggle_Firmware.ShadowDecoration.CustomizableEdges = customizableEdges26;
-            Toggle_Firmware.Size = new Size(68, 38);
+            Toggle_Firmware.Size = new Size(57, 32);
             Toggle_Firmware.TabIndex = 17;
             Toggle_Firmware.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            Toggle_Firmware.UncheckedState.BorderRadius = 18;
+            Toggle_Firmware.UncheckedState.BorderRadius = 15;
             Toggle_Firmware.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             Toggle_Firmware.UncheckedState.InnerBorderColor = Color.White;
-            Toggle_Firmware.UncheckedState.InnerBorderRadius = 14;
+            Toggle_Firmware.UncheckedState.InnerBorderRadius = 11;
             Toggle_Firmware.UncheckedState.InnerColor = Color.White;
             // 
             // Toggle_Jsons
@@ -759,24 +748,24 @@
             Toggle_Jsons.Anchor = AnchorStyles.Left;
             Toggle_Jsons.AutoRoundedCorners = true;
             Toggle_Jsons.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            Toggle_Jsons.CheckedState.BorderRadius = 18;
+            Toggle_Jsons.CheckedState.BorderRadius = 15;
             Toggle_Jsons.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
             Toggle_Jsons.CheckedState.InnerBorderColor = Color.White;
-            Toggle_Jsons.CheckedState.InnerBorderRadius = 14;
+            Toggle_Jsons.CheckedState.InnerBorderRadius = 11;
             Toggle_Jsons.CheckedState.InnerColor = Color.White;
             Toggle_Jsons.Cursor = Cursors.Hand;
             Toggle_Jsons.CustomizableEdges = customizableEdges27;
-            Toggle_Jsons.Location = new Point(410, 179);
-            Toggle_Jsons.Margin = new Padding(4, 3, 4, 3);
+            Toggle_Jsons.Location = new Point(352, 146);
+            Toggle_Jsons.Margin = new Padding(3, 2, 3, 2);
             Toggle_Jsons.Name = "Toggle_Jsons";
             Toggle_Jsons.ShadowDecoration.CustomizableEdges = customizableEdges28;
-            Toggle_Jsons.Size = new Size(68, 38);
+            Toggle_Jsons.Size = new Size(57, 32);
             Toggle_Jsons.TabIndex = 14;
             Toggle_Jsons.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            Toggle_Jsons.UncheckedState.BorderRadius = 18;
+            Toggle_Jsons.UncheckedState.BorderRadius = 15;
             Toggle_Jsons.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             Toggle_Jsons.UncheckedState.InnerBorderColor = Color.White;
-            Toggle_Jsons.UncheckedState.InnerBorderRadius = 14;
+            Toggle_Jsons.UncheckedState.InnerBorderRadius = 11;
             Toggle_Jsons.UncheckedState.InnerColor = Color.White;
             // 
             // label7
@@ -784,10 +773,9 @@
             label7.Anchor = AnchorStyles.Right;
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(140, 183);
-            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Location = new Point(122, 149);
             label7.Name = "label7";
-            label7.Size = new Size(262, 30);
+            label7.Size = new Size(224, 25);
             label7.TabIndex = 13;
             label7.Text = "Generate PCECD JSONs:";
             ToolTip.SetToolTip(label7, "This will auto create the required JSON Files for the PCECD Games on your SD Card");
@@ -797,24 +785,24 @@
             Toggle_Alternate.Anchor = AnchorStyles.Left;
             Toggle_Alternate.AutoRoundedCorners = true;
             Toggle_Alternate.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            Toggle_Alternate.CheckedState.BorderRadius = 18;
+            Toggle_Alternate.CheckedState.BorderRadius = 15;
             Toggle_Alternate.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
             Toggle_Alternate.CheckedState.InnerBorderColor = Color.White;
-            Toggle_Alternate.CheckedState.InnerBorderRadius = 14;
+            Toggle_Alternate.CheckedState.InnerBorderRadius = 11;
             Toggle_Alternate.CheckedState.InnerColor = Color.White;
             Toggle_Alternate.Cursor = Cursors.Hand;
             Toggle_Alternate.CustomizableEdges = customizableEdges29;
-            Toggle_Alternate.Location = new Point(410, 355);
-            Toggle_Alternate.Margin = new Padding(4, 3, 4, 3);
+            Toggle_Alternate.Location = new Point(352, 290);
+            Toggle_Alternate.Margin = new Padding(3, 2, 3, 2);
             Toggle_Alternate.Name = "Toggle_Alternate";
             Toggle_Alternate.ShadowDecoration.CustomizableEdges = customizableEdges30;
-            Toggle_Alternate.Size = new Size(68, 38);
+            Toggle_Alternate.Size = new Size(57, 32);
             Toggle_Alternate.TabIndex = 19;
             Toggle_Alternate.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            Toggle_Alternate.UncheckedState.BorderRadius = 18;
+            Toggle_Alternate.UncheckedState.BorderRadius = 15;
             Toggle_Alternate.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             Toggle_Alternate.UncheckedState.InnerBorderColor = Color.White;
-            Toggle_Alternate.UncheckedState.InnerBorderRadius = 14;
+            Toggle_Alternate.UncheckedState.InnerBorderRadius = 11;
             Toggle_Alternate.UncheckedState.InnerColor = Color.White;
             Toggle_Alternate.CheckedChanged += Toggle_Alternate_CheckedChanged;
             // 
@@ -823,10 +811,9 @@
             label12.Anchor = AnchorStyles.Right;
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            label12.Location = new Point(37, 359);
-            label12.Margin = new Padding(4, 0, 4, 0);
+            label12.Location = new Point(31, 293);
             label12.Name = "label12";
-            label12.Size = new Size(365, 30);
+            label12.Size = new Size(315, 25);
             label12.TabIndex = 18;
             label12.Text = "Use Alternate Download Location:";
             ToolTip.SetToolTip(label12, "You can supply your own Download URL/Location to get your ROMS and BIOS instead of using Archive.org by default.");
@@ -836,10 +823,9 @@
             label14.Anchor = AnchorStyles.Right;
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            label14.Location = new Point(263, 315);
-            label14.Margin = new Padding(4, 0, 4, 0);
+            label14.Location = new Point(227, 257);
             label14.Name = "label14";
-            label14.Size = new Size(139, 30);
+            label14.Size = new Size(119, 25);
             label14.TabIndex = 15;
             label14.Text = "CRC Checks:";
             ToolTip.SetToolTip(label14, "Enable/Disable CRC checking for ROMS/BIOS. Disabling should speed the update process up");
@@ -849,24 +835,24 @@
             Toggle_CRC.Anchor = AnchorStyles.Left;
             Toggle_CRC.AutoRoundedCorners = true;
             Toggle_CRC.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            Toggle_CRC.CheckedState.BorderRadius = 18;
+            Toggle_CRC.CheckedState.BorderRadius = 15;
             Toggle_CRC.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
             Toggle_CRC.CheckedState.InnerBorderColor = Color.White;
-            Toggle_CRC.CheckedState.InnerBorderRadius = 14;
+            Toggle_CRC.CheckedState.InnerBorderRadius = 11;
             Toggle_CRC.CheckedState.InnerColor = Color.White;
             Toggle_CRC.Cursor = Cursors.Hand;
             Toggle_CRC.CustomizableEdges = customizableEdges31;
-            Toggle_CRC.Location = new Point(410, 311);
-            Toggle_CRC.Margin = new Padding(4, 3, 4, 3);
+            Toggle_CRC.Location = new Point(352, 254);
+            Toggle_CRC.Margin = new Padding(3, 2, 3, 2);
             Toggle_CRC.Name = "Toggle_CRC";
             Toggle_CRC.ShadowDecoration.CustomizableEdges = customizableEdges32;
-            Toggle_CRC.Size = new Size(68, 38);
+            Toggle_CRC.Size = new Size(57, 32);
             Toggle_CRC.TabIndex = 15;
             Toggle_CRC.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            Toggle_CRC.UncheckedState.BorderRadius = 18;
+            Toggle_CRC.UncheckedState.BorderRadius = 15;
             Toggle_CRC.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             Toggle_CRC.UncheckedState.InnerBorderColor = Color.White;
-            Toggle_CRC.UncheckedState.InnerBorderRadius = 14;
+            Toggle_CRC.UncheckedState.InnerBorderRadius = 11;
             Toggle_CRC.UncheckedState.InnerColor = Color.White;
             // 
             // tableLayoutPanel4
@@ -876,20 +862,20 @@
             tableLayoutPanel4.Controls.Add(Alternate_Location, 0, 0);
             tableLayoutPanel4.Controls.Add(TextBox2, 0, 1);
             tableLayoutPanel4.Controls.Add(Button_Save, 0, 2);
-            tableLayoutPanel4.Location = new Point(4, 405);
-            tableLayoutPanel4.Margin = new Padding(4, 3, 4, 3);
+            tableLayoutPanel4.Location = new Point(3, 330);
+            tableLayoutPanel4.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 3;
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
-            tableLayoutPanel4.Size = new Size(528, 198);
+            tableLayoutPanel4.Size = new Size(440, 165);
             tableLayoutPanel4.TabIndex = 2;
             // 
             // Alternate_Location
             // 
             Alternate_Location.AutoRoundedCorners = true;
-            Alternate_Location.BorderRadius = 27;
+            Alternate_Location.BorderRadius = 23;
             Alternate_Location.CustomizableEdges = customizableEdges33;
             Alternate_Location.DefaultText = "";
             Alternate_Location.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -901,15 +887,15 @@
             Alternate_Location.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             Alternate_Location.ForeColor = SystemColors.ControlLightLight;
             Alternate_Location.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Alternate_Location.Location = new Point(42, 3);
-            Alternate_Location.Margin = new Padding(42, 3, 4, 3);
+            Alternate_Location.Location = new Point(35, 2);
+            Alternate_Location.Margin = new Padding(35, 2, 3, 2);
             Alternate_Location.Name = "Alternate_Location";
-            Alternate_Location.Padding = new Padding(42, 0, 0, 0);
+            Alternate_Location.Padding = new Padding(35, 0, 0, 0);
             Alternate_Location.PasswordChar = '\0';
             Alternate_Location.PlaceholderText = "";
             Alternate_Location.SelectedText = "";
             Alternate_Location.ShadowDecoration.CustomizableEdges = customizableEdges34;
-            Alternate_Location.Size = new Size(456, 57);
+            Alternate_Location.Size = new Size(380, 48);
             Alternate_Location.TabIndex = 1;
             Alternate_Location.Visible = false;
             // 
@@ -929,15 +915,15 @@
             TextBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             TextBox2.ForeColor = SystemColors.ControlLightLight;
             TextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            TextBox2.Location = new Point(42, 63);
-            TextBox2.Margin = new Padding(42, 0, 3, 3);
+            TextBox2.Location = new Point(35, 52);
+            TextBox2.Margin = new Padding(35, 0, 2, 2);
             TextBox2.Name = "TextBox2";
             TextBox2.PasswordChar = '\0';
             TextBox2.PlaceholderText = "";
             TextBox2.ReadOnly = true;
             TextBox2.SelectedText = "";
             TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges36;
-            TextBox2.Size = new Size(483, 32);
+            TextBox2.Size = new Size(402, 27);
             TextBox2.TabIndex = 3;
             TextBox2.Visible = false;
             // 
@@ -945,7 +931,7 @@
             // 
             Button_Save.Anchor = AnchorStyles.None;
             Button_Save.AutoRoundedCorners = true;
-            Button_Save.BorderRadius = 27;
+            Button_Save.BorderRadius = 22;
             Button_Save.Cursor = Cursors.Hand;
             Button_Save.CustomizableEdges = customizableEdges37;
             Button_Save.DisabledState.BorderColor = Color.DarkGray;
@@ -954,11 +940,11 @@
             Button_Save.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             Button_Save.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             Button_Save.ForeColor = Color.White;
-            Button_Save.Location = new Point(267, 118);
-            Button_Save.Margin = new Padding(132, 0, 4, 3);
+            Button_Save.Location = new Point(222, 98);
+            Button_Save.Margin = new Padding(110, 0, 3, 2);
             Button_Save.Name = "Button_Save";
             Button_Save.ShadowDecoration.CustomizableEdges = customizableEdges38;
-            Button_Save.Size = new Size(122, 56);
+            Button_Save.Size = new Size(102, 47);
             Button_Save.TabIndex = 0;
             Button_Save.Text = "Save";
             Button_Save.Click += Button_Save_Click;
@@ -968,9 +954,9 @@
             Panel_Left_Top.Controls.Add(flowLayoutPanel1);
             Panel_Left_Top.Dock = DockStyle.Top;
             Panel_Left_Top.Location = new Point(0, 0);
-            Panel_Left_Top.Margin = new Padding(4, 3, 4, 3);
+            Panel_Left_Top.Margin = new Padding(3, 2, 3, 2);
             Panel_Left_Top.Name = "Panel_Left_Top";
-            Panel_Left_Top.Size = new Size(768, 231);
+            Panel_Left_Top.Size = new Size(640, 192);
             Panel_Left_Top.TabIndex = 13;
             // 
             // textBox1
@@ -991,8 +977,8 @@
             textBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             textBox1.ForeColor = SystemColors.ControlLightLight;
             textBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBox1.Location = new Point(6, 0);
-            textBox1.Margin = new Padding(4, 3, 4, 3);
+            textBox1.Location = new Point(5, 0);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.PasswordChar = '\0';
@@ -1001,7 +987,7 @@
             textBox1.ScrollBars = ScrollBars.Vertical;
             textBox1.SelectedText = "";
             textBox1.ShadowDecoration.CustomizableEdges = customizableEdges42;
-            textBox1.Size = new Size(986, 940);
+            textBox1.Size = new Size(822, 784);
             textBox1.TabIndex = 1;
             // 
             // Panel_Right
@@ -1010,11 +996,11 @@
             Panel_Right.Controls.Add(Panel_Right_Top);
             Panel_Right.CustomizableEdges = customizableEdges47;
             Panel_Right.Dock = DockStyle.Fill;
-            Panel_Right.Location = new Point(768, 0);
-            Panel_Right.Margin = new Padding(4, 3, 4, 3);
+            Panel_Right.Location = new Point(640, 0);
+            Panel_Right.Margin = new Padding(3, 2, 3, 2);
             Panel_Right.Name = "Panel_Right";
             Panel_Right.ShadowDecoration.CustomizableEdges = customizableEdges48;
-            Panel_Right.Size = new Size(992, 998);
+            Panel_Right.Size = new Size(827, 832);
             Panel_Right.TabIndex = 14;
             // 
             // Panel_Right_Main
@@ -1022,12 +1008,12 @@
             Panel_Right_Main.Controls.Add(textBox1);
             Panel_Right_Main.CustomizableEdges = customizableEdges43;
             Panel_Right_Main.Dock = DockStyle.Fill;
-            Panel_Right_Main.Location = new Point(0, 58);
-            Panel_Right_Main.Margin = new Padding(4, 3, 4, 3);
+            Panel_Right_Main.Location = new Point(0, 48);
+            Panel_Right_Main.Margin = new Padding(3, 2, 3, 2);
             Panel_Right_Main.Name = "Panel_Right_Main";
-            Panel_Right_Main.Padding = new Padding(6, 0, 0, 0);
+            Panel_Right_Main.Padding = new Padding(5, 0, 0, 0);
             Panel_Right_Main.ShadowDecoration.CustomizableEdges = customizableEdges44;
-            Panel_Right_Main.Size = new Size(992, 940);
+            Panel_Right_Main.Size = new Size(827, 784);
             Panel_Right_Main.TabIndex = 1;
             // 
             // Panel_Right_Top
@@ -1036,10 +1022,10 @@
             Panel_Right_Top.CustomizableEdges = customizableEdges45;
             Panel_Right_Top.Dock = DockStyle.Top;
             Panel_Right_Top.Location = new Point(0, 0);
-            Panel_Right_Top.Margin = new Padding(4, 3, 4, 3);
+            Panel_Right_Top.Margin = new Padding(3, 2, 3, 2);
             Panel_Right_Top.Name = "Panel_Right_Top";
             Panel_Right_Top.ShadowDecoration.CustomizableEdges = customizableEdges46;
-            Panel_Right_Top.Size = new Size(992, 58);
+            Panel_Right_Top.Size = new Size(827, 48);
             Panel_Right_Top.TabIndex = 0;
             // 
             // ToolTip
@@ -1054,16 +1040,16 @@
             // 
             // Update_Pocket
             // 
-            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             AutoSize = true;
             BackColor = Color.FromArgb(59, 62, 78);
             Controls.Add(Panel_Right);
             Controls.Add(Panel_Left);
             ForeColor = SystemColors.ControlLightLight;
-            Margin = new Padding(4, 3, 4, 3);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Update_Pocket";
-            Size = new Size(1760, 998);
+            Size = new Size(1467, 832);
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
             Panel_Title.ResumeLayout(false);
@@ -1103,7 +1089,6 @@
         private TableLayoutPanel tableLayoutPanel2;
         private Label label2;
         private Guna.UI2.WinForms.Guna2Button Update;
-        private Guna.UI2.WinForms.Guna2ComboBox comboBox2;
         private Label label3;
         private Guna.UI2.WinForms.Guna2Panel Panel_Left;
         private Guna.UI2.WinForms.Guna2Panel Panel_Title;
@@ -1148,5 +1133,6 @@
         private Guna.UI2.WinForms.Guna2ToggleSwitch Toggle_Alternatives;
         private Label label16;
         private Guna.UI2.WinForms.Guna2TextBox TextBox2;
+        public Guna.UI2.WinForms.Guna2ComboBox comboBox2;
     }
 }
