@@ -76,23 +76,97 @@ namespace Pocket_Updater.Controls
         {
             textBox1.Clear();
             Button_Save.Enabled = false;
+
+            Update.Enabled = false;
             Save_Settings("No");
+            Current_Dir = Directory.GetCurrentDirectory();
 
-            string Location_Type = comboBox2.SelectedItem.ToString();
-            string Current_Dir = Directory.GetCurrentDirectory();
-            string github_token = _settings.GetConfig().github_token;
-
-            //Current Drive Updater
-            if (Location_Type == "Current Directory")
+            try
             {
+                string Location_Type = comboBox2.SelectedItem.ToString();
+                string github_token = _settings.GetConfig().github_token;
 
-                try
+                // where are we updating to
+                if (Location_Type == "Current Directory")
                 {
-                    //Download_Json(Current_Dir);
-                    _updater = new PocketCoreUpdater(Current_Dir);
+                    UpdateCurrentDirectory(github_token, Current_Dir);
+                }
+                else if (Location_Type == "Removable Storage")
+                {
+                    UpdateRemoveableStorage(github_token, Current_Dir);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Triggered!");
+                Update.Enabled = true;
+            }
+            finally
+            {
+                Button_Save.Enabled = true;
+            }
+        }
+
+        private async void UpdateCurrentDirectory(string github_token, string currentDirectory)
+        {
+            try
+            {
+                //Download_Json(Current_Dir);
+                _updater = new PocketCoreUpdater(currentDirectory);
+                await _updater.Initialize();
+                //_updater.DownloadAssets(true); //turns on the option to also download bios files
+
+                _updater.SetGithubApiKey(_settings.GetConfig().github_token);
+                _updater.DownloadFirmware(_settings.GetConfig().download_firmware);
+                _updater.DownloadAssets(_settings.GetConfig().download_assets);
+                _updater.DeleteSkippedCores(_settings.GetConfig().delete_skipped_cores);
+                _updater.PreservePlatformsFolder(_settings.GetConfig().preserve_platforms_folder);
+                _updater.RenameJotegoCores(_settings.GetConfig().fix_jt_names);
+
+                if (github_token != null)
+                {
+                    _updater.SetGithubApiKey(github_token);
+                }
+
+                //Status.Show();
+
+                _updater.StatusUpdated += updater_StatusUpdated;
+                _updater.UpdateProcessComplete += _updater_UpdateProcessComplete;
+
+                comboBox2.Enabled = false;
+                Save_Preferences_Json();
+                RunCoreUpdateProcess(currentDirectory, currentDirectory, currentDirectory);
+            }
+            catch (Exception ex)
+            {
+                // TODO: log the exception
+                Message_Box form = new Message_Box();
+                form.label1.Text = "No Internet Connection Detected!";
+                form.ShowDialog();
+                Update.Enabled = true;
+            }
+        }
+
+        private async void UpdateRemoveableStorage(string github_token, string currentDirectory)
+        {
+            //string pathToUpdate = Pocket_Drive;
+            string pathToUpdate = comboBox1.SelectedItem.ToString();
+            comboBox2.SelectedIndex = comboBox2.FindStringExact("Removable Storage");
+
+            try
+            {
+                //Make Sure Drive Letter still exists
+                var drives = DriveInfo.GetDrives();
+                if (drives.Where(data => data.Name == pathToUpdate).Count() == 1)
+                {
+                    //Download_Json(pathToUpdate);
+                    // string Current_Dir = Directory.GetCurrentDirectory();
+                    _updater = new PocketCoreUpdater(pathToUpdate, currentDirectory);
                     await _updater.Initialize();
+                    //_updater.CoresFile = pathToUpdate;
                     //_updater.DownloadAssets(true); //turns on the option to also download bios files
 
+                    //Get Config Settings
                     _updater.SetGithubApiKey(_settings.GetConfig().github_token);
                     _updater.DownloadFirmware(_settings.GetConfig().download_firmware);
                     _updater.DownloadAssets(_settings.GetConfig().download_assets);
@@ -110,83 +184,33 @@ namespace Pocket_Updater.Controls
                     _updater.StatusUpdated += updater_StatusUpdated;
                     _updater.UpdateProcessComplete += _updater_UpdateProcessComplete;
 
+                    comboBox1.Enabled = false;
                     comboBox2.Enabled = false;
+
                     Save_Preferences_Json();
-                    RunCoreUpdateProcess(Current_Dir, Current_Dir, Current_Dir);
+                    RunCoreUpdateProcess(pathToUpdate, currentDirectory, currentDirectory);
                 }
-                catch
+                else
                 {
                     Message_Box form = new Message_Box();
-                    form.label1.Text = "No Internet Connection Detected!";
-                    form.Show();
+                    form.label1.Text = "The Drive Letter Was Not Found!";
+                    form.ShowDialog();
                     Button_Save.Enabled = true;
+
+                    label2.Enabled = true;
+                    comboBox1.Enabled = true;
+                    Button_Refresh.Enabled = true;
+                    Update.Enabled = true;
+                    PopulateDrives();
                 }
             }
-            //Removable Drive Updater
-            if (Location_Type == "Removable Storage")
+            catch (Exception ex)
             {
-                //string pathToUpdate = Pocket_Drive;
-                string pathToUpdate = comboBox1.SelectedItem.ToString();
-                comboBox2.SelectedIndex = comboBox2.FindStringExact("Removable Storage");
-
-                try
-                {
-                    //Make Sure Drive Letter still exists
-                    var drives = DriveInfo.GetDrives();
-                    if (drives.Where(data => data.Name == pathToUpdate).Count() == 1)
-                    {
-                        //Download_Json(pathToUpdate);
-                        // string Current_Dir = Directory.GetCurrentDirectory();
-                        _updater = new PocketCoreUpdater(pathToUpdate, Current_Dir);
-                        await _updater.Initialize();
-                        //_updater.CoresFile = pathToUpdate;
-                        //_updater.DownloadAssets(true); //turns on the option to also download bios files
-
-                        //Get Config Settings
-                        _updater.SetGithubApiKey(_settings.GetConfig().github_token);
-                        _updater.DownloadFirmware(_settings.GetConfig().download_firmware);
-                        _updater.DownloadAssets(_settings.GetConfig().download_assets);
-                        _updater.DeleteSkippedCores(_settings.GetConfig().delete_skipped_cores);
-                        _updater.PreservePlatformsFolder(_settings.GetConfig().preserve_platforms_folder);
-                        _updater.RenameJotegoCores(_settings.GetConfig().fix_jt_names);
-
-                        if (github_token != null)
-                        {
-                            _updater.SetGithubApiKey(github_token);
-                        }
-
-                        //Status.Show();
-
-                        _updater.StatusUpdated += updater_StatusUpdated;
-                        _updater.UpdateProcessComplete += _updater_UpdateProcessComplete;
-
-                        comboBox1.Enabled = false;
-                        comboBox2.Enabled = false;
-
-                        Save_Preferences_Json();
-                        RunCoreUpdateProcess(pathToUpdate, Current_Dir, Current_Dir);
-                    }
-                    else
-                    {
-                        Message_Box form = new Message_Box();
-                        form.label1.Text = "The Drive Letter Was Not Found!";
-                        form.Show();
-                        Button_Save.Enabled = true;
-
-                        label2.Enabled = true;
-                        comboBox1.Enabled = true;
-                        Button_Refresh.Enabled = true;
-                        Update.Enabled = true;
-                        PopulateDrives();
-                    }
-                }
-                catch
-                {
-                    Message_Box form = new Message_Box();
-                    form.label1.Text = "No Internet Connection Detected!";
-                    form.Show();
-                    Button_Save.Enabled = true;
-                }
+                // TODO: log the exception
+                Message_Box form = new Message_Box();
+                form.label1.Text = "No Internet Connection Detected!";
+                form.ShowDialog();
+                Update.Enabled = true;
             }
         }
 
