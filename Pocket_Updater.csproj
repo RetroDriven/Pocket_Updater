@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
-	  <Version>1.5.7</Version>
+	  <Version>1.5.8</Version>
 	  <RootNamespace>Pocket_Updater</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
@@ -58,5 +58,4 @@
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
-
 </Project>

@@ -131,9 +131,9 @@ namespace Pocket_Updater
             guna2HtmlLabel1.ForeColor = SystemColors.ControlLightLight;
             guna2HtmlLabel1.Location = new Point(12, 12);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(255, 34);
+            guna2HtmlLabel1.Size = new Size(212, 30);
             guna2HtmlLabel1.TabIndex = 0;
-            guna2HtmlLabel1.Text = "Pocket Updater v1.5.7";
+            guna2HtmlLabel1.Text = "Pocket Updater v1.5.8";
             // 
             // guna2ControlBox1
             // 
@@ -185,7 +185,7 @@ namespace Pocket_Updater
             // 
             Update_Available.Anchor = AnchorStyles.Right;
             Update_Available.AutoRoundedCorners = true;
-            Update_Available.BorderRadius = 20;
+            Update_Available.BorderRadius = 17;
             Update_Available.Cursor = Cursors.Hand;
             Update_Available.CustomizableEdges = customizableEdges19;
             Update_Available.DefaultAutoSize = true;
@@ -199,7 +199,7 @@ namespace Pocket_Updater
             Update_Available.Margin = new Padding(100, 20, 3, 3);
             Update_Available.Name = "Update_Available";
             Update_Available.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            Update_Available.Size = new Size(273, 42);
+            Update_Available.Size = new Size(232, 36);
             Update_Available.TabIndex = 3;
             Update_Available.Text = "App Update Available!";
             Update_Available.Visible = false;
@@ -209,7 +209,7 @@ namespace Pocket_Updater
             // 
             No_Internet.Anchor = AnchorStyles.Right;
             No_Internet.AutoRoundedCorners = true;
-            No_Internet.BorderRadius = 20;
+            No_Internet.BorderRadius = 17;
             No_Internet.Cursor = Cursors.Hand;
             No_Internet.CustomizableEdges = customizableEdges21;
             No_Internet.DefaultAutoSize = true;
@@ -225,7 +225,7 @@ namespace Pocket_Updater
             No_Internet.Margin = new Padding(100, 20, 3, 3);
             No_Internet.Name = "No_Internet";
             No_Internet.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            No_Internet.Size = new Size(394, 42);
+            No_Internet.Size = new Size(332, 36);
             No_Internet.TabIndex = 4;
             No_Internet.Text = "No Internet Connection Detected!";
             No_Internet.Visible = false;
@@ -564,7 +564,7 @@ namespace Pocket_Updater
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(59, 62, 78);
             ClientSize = new Size(1399, 687);
