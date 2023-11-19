@@ -9,7 +9,7 @@ namespace Pocket_Updater
 {
     public partial class Form1 : Form
     {
-        private const string VERSION = "1.5.8";
+        private const string VERSION = "1.5.9";
         private const string API_URL = "https://api.github.com/repos/RetroDriven/Pocket_Updater/releases";
         private const string RELEASE_URL = "https://github.com/RetroDriven/Pocket_Updater/releases/latest";
 
@@ -157,6 +157,11 @@ namespace Pocket_Updater
         {
             Hide_Controls();
             about1.Visible = true;
+        }
+
+        private void update_Pocket1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

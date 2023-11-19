@@ -262,7 +262,7 @@ namespace Pocket_Updater.Controls
         {
 
             //No Updates Found
-            if (e.InstalledCores.Count == 0 && e.InstalledAssets.Count == 0 && e.FirmwareUpdated == "")
+            if (e.InstalledCores.Count == 0 && e.InstalledAssets.Count == 0 && e.FirmwareUpdated == "" && e.MissingBetaKeys.Count == 0)
             {
                 //Summary.Close();
                 Message_Box form = new Message_Box();
@@ -277,12 +277,8 @@ namespace Pocket_Updater.Controls
             }
 
             //Updates Found
-            if (e.InstalledCores.Count > 0 || e.InstalledAssets.Count > 0 || e.FirmwareUpdated != "")
+            if (e.InstalledCores.Count > 0 || e.InstalledAssets.Count > 0 || e.FirmwareUpdated != "" || e.MissingBetaKeys.Count > 0)
             {
-                //Message_Box form = new Message_Box();
-                //form.label1.Text = "Updates Complete!";
-                //form.Show();
-
                 //Status.Close();
                 Summary.Show();
                 comboBox1.Enabled = true;
@@ -338,7 +334,21 @@ namespace Pocket_Updater.Controls
                 }
                 Summary.textBox1.AppendText(Environment.NewLine);
             }
+            //JT Beta Key
+            if (e.MissingBetaKeys.Count > 0)
+            {
+                Summary.textBox1.AppendText("Missing/Incorrect JT Beta Key For:");
+                Summary.textBox1.AppendText(Environment.NewLine);
+                Summary.textBox1.AppendText("-----------------------");
+                Summary.textBox1.AppendText(Environment.NewLine);
 
+                foreach (string core in e.MissingBetaKeys)
+                {
+                    Summary.textBox1.AppendText(core);
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                }
+                Summary.textBox1.AppendText(Environment.NewLine);
+            }
             //Firmware Installed
             if (e.FirmwareUpdated != "")
             {
