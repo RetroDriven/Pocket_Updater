@@ -337,6 +337,7 @@ namespace Pocket_Updater.Controls
             //JT Beta Key
             if (e.MissingBetaKeys.Count > 0)
             {
+                Summary.textBox1.AppendText(Environment.NewLine);
                 Summary.textBox1.AppendText("Missing/Incorrect JT Beta Key For:");
                 Summary.textBox1.AppendText(Environment.NewLine);
                 Summary.textBox1.AppendText("-----------------------");
