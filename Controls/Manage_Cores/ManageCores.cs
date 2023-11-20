@@ -11,6 +11,7 @@ using System.Net;
 using pannella.analoguepocket;
 using System.Text.Json;
 using Pocket_Updater.Forms.Message_Box;
+using System.Xml.Linq;
 
 namespace Pocket_Updater.Controls.Manage_Cores
 {
@@ -137,7 +138,22 @@ namespace Pocket_Updater.Controls.Manage_Cores
                     string Core_Author = Identifier.Substring(0, (Identifier.Length - 1));
 
                     //array containing the data for the 3 columns
-                    object[] rows = { !_settingsManager.GetCoreSettings(core.identifier).skip, core.platform.name, Core_Author };
+                    //the core platform name from the api
+                    var platform = core.ReadPlatformFile();
+
+                    //readt he platform json file
+                    var name = core.platform.name;
+
+                    //if it finds one, use the name from there instead
+                    if (platform != null)
+                    {
+                        name = platform.name;
+                    }
+                    if (core.requires_license)
+                    {
+                        name += " (Beta Key Required from Patreon)";
+                    }
+                    object[] rows = { !_settingsManager.GetCoreSettings(core.identifier).skip, name, Core_Author };
                     int index = dataGridView1.Rows.Add(rows);
 
                     dataGridView1.Rows[index].Tag = core.identifier;
