@@ -1,15 +1,12 @@
-namespace pannella.analoguepocket;
+using Newtonsoft.Json;
+
+namespace Pannella.Models.Settings;
 
 public class Settings
 {
-    public Firmware firmware { get; set; }
-    public Config config { get; set; }
-    public Dictionary<string, CoreSettings> coreSettings { get; set; }
+    public Config config { get; set; } = new();
+    public Dictionary<string, CoreSettings> core_settings { get; set; } = new();
 
-    public Settings()
-    {
-        firmware = new Firmware();
-        config = new Config();
-        coreSettings = new Dictionary<string, CoreSettings>();
-    }
+    [JsonProperty]
+    private Dictionary<string, CoreSettings> coreSettings { set => this.core_settings = value; }
 }

@@ -1,134 +1,144 @@
-using System.IO;
-using System.Net.Http;
+using System.Net;
 
-namespace pannella.analoguepocket;
+namespace Pannella.Helpers;
 
 public class HttpHelper
 {
-    private static HttpHelper instance = null;
-    private static object syncLock = new object();
-    private HttpClient client = null;
+    private static HttpHelper instance;
+    private static readonly object SYNC_LOCK = new();
+    private HttpClient client;
+
     public event EventHandler<DownloadProgressEventArgs> DownloadProgressUpdate;
 
     private HttpHelper()
     {
-        createClient();
+        this.CreateClient();
     }
 
     public static HttpHelper Instance
     {
         get
         {
-            lock (syncLock)
+            lock (SYNC_LOCK)
             {
-                if (HttpHelper.instance == null) {
-                    HttpHelper.instance = new HttpHelper();
-                }
-
-                return HttpHelper.instance;
+                return instance ??= new HttpHelper();
             }
         }
     }
 
-
-   public async Task DownloadFileAsync(string uri, string outputPath, int timeout = 100)
-   {
+    public void DownloadFile(string uri, string outputPath, int timeout = 100)
+    {
         bool console = false;
-        try {
-            var test = Console.WindowWidth;
+
+        try
+        {
+            _ = Console.WindowWidth;
             console = true;
-        } catch (Exception) { }
+        }
+        catch
+        {
+            // Ignore
+        }
 
         using var cts = new CancellationTokenSource();
+
         cts.CancelAfter(TimeSpan.FromSeconds(timeout));
-        Uri? uriResult;
 
-        if (!Uri.TryCreate(uri, UriKind.Absolute, out uriResult))
+        if (!Uri.TryCreate(uri, UriKind.Absolute, out _))
+        {
             throw new InvalidOperationException("URI is invalid.");
+        }
 
-        using HttpResponseMessage r = await this.client.GetAsync(uri, HttpCompletionOption.ResponseHeadersRead, cts.Token);
+        using HttpResponseMessage responseMessage = this.client.GetAsync(uri, HttpCompletionOption.ResponseHeadersRead, cts.Token).Result;
 
-        var totalSize = r.Content.Headers.ContentLength ?? -1L;
+        // Just in case the HttpClient doesn't throw the error on 404 like it should.
+        if (responseMessage.StatusCode == HttpStatusCode.NotFound)
+        {
+            throw new HttpRequestException("Not Found.", null, HttpStatusCode.NotFound);
+        }
+
+        var totalSize = responseMessage.Content.Headers.ContentLength ?? -1L;
         var readSoFar = 0L;
         var buffer = new byte[4096];
         var isMoreToRead = true;
 
-        using var stream = await r.Content.ReadAsStreamAsync();
+        using var stream = responseMessage.Content.ReadAsStream(cts.Token);
         using var fileStream = new FileStream(outputPath, FileMode.Create, FileAccess.Write);
 
         while (isMoreToRead)
         {
-            var read = await stream.ReadAsync(buffer, 0, buffer.Length);
+            var read = stream.Read(buffer);
+
             if (read == 0)
             {
                 isMoreToRead = false;
-                if (console) {
+
+                if (console)
+                {
                     Console.Write("\r");
                 }
             }
             else
             {
                 readSoFar += read;
+
                 var progress = (double)readSoFar / totalSize;
-                if (console) {
-                    var progressWidth = Console.WindowWidth - 14;
-                    var progressBarWidth = (int)(progress * progressWidth);
-                    var progressBar = new string('=', progressBarWidth);
-                    var emptyProgressBar = new string(' ', progressWidth - progressBarWidth);
-                    Console.Write($"\r{progressBar}{emptyProgressBar}] {(progress * 100):0.00}%");
-                    if (readSoFar == totalSize)
-                    {
-                        Console.CursorLeft = 0;
-                        Console.Write(new string(' ', Console.WindowWidth));
-                        Console.CursorLeft = 0;
-                    }
+
+                if (console)
+                {
+                    ConsoleHelper.ShowProgressBar(readSoFar, totalSize);
                 }
-                DownloadProgressEventArgs args = new DownloadProgressEventArgs();
-                args.progress = progress;
+
+                DownloadProgressEventArgs args = new()
+                {
+                    Progress = progress
+                };
+
                 OnDownloadProgressUpdate(args);
-                await fileStream.WriteAsync(buffer, 0, read);
+
+                fileStream.Write(buffer, 0, read);
             }
         }
     }
 
-   public async Task<String> GetHTML(string uri, bool allowRedirect = true)
-   {
-        Uri? uriResult;
-
-        if (!Uri.TryCreate(uri, UriKind.Absolute, out uriResult))
+    public string GetHTML(string uri, bool allowRedirect = true)
+    {
+        if (!Uri.TryCreate(uri, UriKind.Absolute, out _))
+        {
             throw new InvalidOperationException("URI is invalid.");
-
-        if(!allowRedirect) {
-            createClient(false);
         }
 
-        var response = await this.client.GetAsync(uri);
-        string html = await response.Content.ReadAsStringAsync();
-
-        if(!allowRedirect) {
-            createClient();
+        if (!allowRedirect)
+        {
+            this.CreateClient(false);
         }
-        
+
+        var response = this.client.GetAsync(uri).Result;
+        string html = response.Content.ReadAsStringAsync().Result;
+
+        if (!allowRedirect)
+        {
+            this.CreateClient();
+        }
+
         return html;
-   }
+    }
 
-   private void createClient(bool allowRedirect = true)
-   {
-        this.client = new HttpClient(new HttpClientHandler() { AllowAutoRedirect = allowRedirect });
-        this.client.Timeout = TimeSpan.FromMinutes(10); //10min
-   }
+    private void CreateClient(bool allowRedirect = true)
+    {
+        this.client = new HttpClient(new HttpClientHandler { AllowAutoRedirect = allowRedirect });
+        this.client.Timeout = TimeSpan.FromMinutes(10); // 10min
+    }
 
-   protected virtual void OnDownloadProgressUpdate(DownloadProgressEventArgs e)
+    private void OnDownloadProgressUpdate(DownloadProgressEventArgs e)
     {
         EventHandler<DownloadProgressEventArgs> handler = DownloadProgressUpdate;
-        if(handler != null)
-        {
-            handler(this, e);
-        }
+
+        handler?.Invoke(this, e);
     }
 }
 
 public class DownloadProgressEventArgs : EventArgs
 {
-    public double progress = 0;
+    public double Progress;
 }

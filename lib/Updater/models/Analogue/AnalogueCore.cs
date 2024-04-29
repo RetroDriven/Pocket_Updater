@@ -1,3 +1,5 @@
+using pannella.analoguepocket.Analogue;
+
 namespace Analogue;
 
 public class Core

@@ -14,15 +14,25 @@ public class Core : Base
     public string platform_id { get; set; }
     public Sponsor? sponsor { get; set; }
     public string? download_url { get; set; }
-    public string? date_release { get; set; }
+    public string? release_date { get; set; }
     public string? version { get; set; }
+    public string[]? replaces { get; set; }
     public string? betaSlotId = null;
+    public int betaSlotPlatformIdIndex = 0;
 
     public bool requires_license { get; set; } = false;
 
     private const string ZIP_FILE_NAME = "core.zip";
     public bool downloadAssets { get; set; } = Factory.GetGlobals().SettingsManager.GetConfig().download_assets;
     public bool buildInstances { get; set; } = Factory.GetGlobals().SettingsManager.GetConfig().build_instance_jsons;
+
+    private string[] allModes = {
+        "0x10", "0x20", "0x30", "0x31", "0x32", "0x40", "0x41", "0x42", "0x51", "0x52", "0xE0"
+    };
+
+    private string[] gbModes = {
+        "0x21", "0x22", "0x23"
+    };
 
 
     public override string ToString()
@@ -100,12 +110,11 @@ public class Core : Base
 
     public Platform? ReadPlatformFile()
     {
-        var config = this.getConfig();
-        if (config == null)
+        var info = this.getConfig();
+        if (info == null)
         {
             return this.platform;
         }
-        Analogue.Core info = config.core;
         
         string UpdateDirectory = Factory.GetGlobals().UpdateDirectory;
         //cores with multiple platforms won't work...not sure any exist right now?
@@ -119,12 +128,11 @@ public class Core : Base
 
     public bool UpdatePlatform(string title, string category = null)
     {
-        var config = this.getConfig();
-        if (config == null)
+        var info = this.getConfig();
+        if (info == null)
         {
             return false;
         }
-        Analogue.Core info = config.core;
         
         string UpdateDirectory = Factory.GetGlobals().UpdateDirectory;
         //cores with multiple platforms won't work...not sure any exist right now?
@@ -170,7 +178,7 @@ public class Core : Base
         }
         checkUpdateDirectory();
         _writeMessage("Looking for Assets");
-        Analogue.Core info = this.getConfig().core;
+        Analogue.Cores.Core.Core info = this.getConfig();
         string UpdateDirectory = Factory.GetGlobals().UpdateDirectory;
         //cores with multiple platforms won't work...not sure any exist right now?
         string instancesDirectory = Path.Combine(UpdateDirectory, "Assets", info.metadata.platform_ids[0], this.identifier);
@@ -180,6 +188,9 @@ public class Core : Base
         };
 
         Analogue.DataJSON data = ReadDataJSON();
+        if (betaSlotId != null) {
+
+        }
         if(data.data.data_slots.Length > 0) {
             foreach(Analogue.DataSlot slot in data.data.data_slots) {
                 if(slot.filename != null && !slot.filename.EndsWith(".sav") && !Factory.GetGlobals().Blacklist.Contains(slot.filename)) {
@@ -242,11 +253,8 @@ public class Core : Base
                     if(instance.instance.data_slots.Length > 0) {
                         string data_path = instance.instance.data_path;
                         foreach(Analogue.DataSlot slot in instance.instance.data_slots) {
-                            var plat = info.metadata.platform_ids[0];
-                            if(info.metadata.author == "jotego") {
-                                plat = "jtpatreon";
-                            }
-                            if(!CheckBetaMD5(slot, info.metadata.platform_ids[0])) {
+                            var plat = info.metadata.platform_ids[betaSlotPlatformIdIndex];
+                            if(!CheckBetaMD5(slot, plat)) {
                                 _writeMessage("Invalid or missing beta key.");
                                 missingBetaKey = true;
                             }
@@ -278,7 +286,7 @@ public class Core : Base
         return results;
     }
 
-    public Analogue.Config? getConfig()
+    public Analogue.Cores.Core.Core? getConfig()
     {
         checkUpdateDirectory();
         string file = Path.Combine(Factory.GetGlobals().UpdateDirectory, "Cores", this.identifier, "core.json");
@@ -291,9 +299,31 @@ public class Core : Base
         {
             AllowTrailingCommas = true
         };
-        Analogue.Config? config = JsonSerializer.Deserialize<Analogue.Config>(json, options);
+        Analogue.Cores.Core.Core? config = JsonSerializer.Deserialize<Dictionary<string, Analogue.Cores.Core.Core>>(json, options)["core"];
 
         return config;
+    }
+
+    public Updater.Substitute[]? getSubstitutes()
+    {
+        checkUpdateDirectory();
+        string file = Path.Combine(Factory.GetGlobals().UpdateDirectory, "Cores", this.identifier, "updaters.json");
+        if (!File.Exists(file))
+        {
+            return null;
+        }
+        string json = File.ReadAllText(file);
+        var options = new JsonSerializerOptions()
+        {
+            AllowTrailingCommas = true
+        };
+        Updater.Updaters? config = JsonSerializer.Deserialize<Updater.Updaters>(json, options);
+
+        if (config == null) {
+            return null;
+        }
+
+        return config.previous;
     }
 
     public bool isInstalled()
@@ -503,10 +533,68 @@ public class Core : Base
         bool check = data.data.data_slots.Any(x=>x.name=="JTBETA");
 
         if (check) {
-            betaSlotId = data.data.data_slots.Where(x=>x.name=="JTBETA").First().id;
+            var slot = data.data.data_slots.Where(x=>x.name=="JTBETA").First();
+            betaSlotId = slot.id;
+            betaSlotPlatformIdIndex = slot.getPlatformIdIndex();
         }
 
         return check;
+    }
+
+    public async Task ReplaceCheck()
+    {
+        if (replaces != null) {
+            foreach(string id in replaces) {
+                Core c = new Core(){identifier = id};
+                if (c.isInstalled()) {
+                    c.Uninstall();
+                    _writeMessage($"Uninstalled {id}. It was replaced by this core.");
+                }
+            }
+        }
+    }
+
+    public async Task<Analogue.Cores.Video.Video> GetVideoConfig()
+    {
+        checkUpdateDirectory();
+        string file = Path.Combine(Factory.GetGlobals().UpdateDirectory, "Cores", this.identifier, "video.json");
+        if (!File.Exists(file))
+        {
+            return null;
+        }
+        string json = File.ReadAllText(file);
+        var options = new JsonSerializerOptions()
+        {
+            AllowTrailingCommas = true
+        };
+        Analogue.Cores.Video.Video? config = JsonSerializer.Deserialize<Dictionary<string, Analogue.Cores.Video.Video>>(json, options)["video"];
+
+        return config;
+    }
+
+    public async Task AddDisplayModes()
+    {
+        var video = await GetVideoConfig();
+        List<Analogue.Cores.Video.DisplayMode> all = new List<Analogue.Cores.Video.DisplayMode>();
+        foreach(string id in allModes) {
+            all.Add(new Analogue.Cores.Video.DisplayMode{id = id});
+        }
+        if(this.identifier == "Spiritualized.GB" || this.identifier == "Spiritualized.GBC") {
+            foreach(string id in gbModes) {
+                all.Add(new Analogue.Cores.Video.DisplayMode{id = id});
+            }
+        }
+        video.display_modes = all;
+
+        Dictionary<string, Analogue.Cores.Video.Video> output = new Dictionary<string, Analogue.Cores.Video.Video>();
+        output.Add("video", video);
+        var options = new JsonSerializerOptions()
+        {
+            WriteIndented = true
+        };
+        string json = JsonSerializer.Serialize(output, options);
+    
+        File.WriteAllText(Path.Combine(Factory.GetGlobals().UpdateDirectory, "Cores", this.identifier, "video.json"), json);
     }
 }
 
