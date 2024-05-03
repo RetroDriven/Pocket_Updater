@@ -6,6 +6,8 @@ using Pocket_Updater.Forms.Message_Box;
 using Pocket_Updater.Forms.Updater_Summary;
 using Analogue;
 using Newtonsoft.Json;
+using Pannella.Helpers;
+
 namespace Pocket_Updater.Controls
 {
     public partial class Update_Pocket : UserControl
@@ -29,10 +31,16 @@ namespace Pocket_Updater.Controls
             //Get USB Drives
             PopulateDrives();
             string Current_Dir = Directory.GetCurrentDirectory();
-            _settings = new SettingsManager(Current_Dir);
+            _settings = new SettingsService(Current_Dir);
 
-            _updater = new PocketCoreUpdater(Current_Dir);
-            _updater.Initialize();
+            ServiceHelper.Initialize(Current_Dir);
+            _updater = new CoreUpdaterService(
+                ServiceHelper.UpdateDirectory,
+                ServiceHelper.CoresService.Cores,
+                ServiceHelper.FirmwareService,
+                ServiceHelper.SettingsService,
+                ServiceHelper.CoresService
+            );
 
             Update.Enabled = false;
 
@@ -48,9 +56,7 @@ namespace Pocket_Updater.Controls
             Update.Enabled = false;
             Button_Refresh.Enabled = false;
             comboBox1.Enabled = false;
-            //GitHub Token
-            _updater.SetGithubApiKey("apikey");
-            await _updater.RunUpdates();
+            _updater.RunUpdates();
             Update.Enabled = true;
             Button_Refresh.Enabled = true;
             comboBox1.Enabled = true;
@@ -64,7 +70,7 @@ namespace Pocket_Updater.Controls
             //Close();
         }
 
-        private void updater_StatusUpdated(object sender, StatusUpdatedEventArgs e)
+        private void updater_StatusUpdated(object sender, Pannella.Models.StatusUpdatedEventArgs e)
         {
             //Show Updater Status in a new Form
             textBox1.AppendText(e.Message);
@@ -112,21 +118,15 @@ namespace Pocket_Updater.Controls
             try
             {
                 //Download_Json(Current_Dir);
-                _updater = new PocketCoreUpdater(currentDirectory);
-                await _updater.Initialize();
-                //_updater.DownloadAssets(true); //turns on the option to also download bios files
-
-                _updater.SetGithubApiKey(_settings.GetConfig().github_token);
-                _updater.DownloadFirmware(_settings.GetConfig().download_firmware);
-                _updater.DownloadAssets(_settings.GetConfig().download_assets);
-                _updater.DeleteSkippedCores(_settings.GetConfig().delete_skipped_cores);
-                _updater.PreservePlatformsFolder(_settings.GetConfig().preserve_platforms_folder);
-                _updater.RenameJotegoCores(_settings.GetConfig().fix_jt_names);
-
-                if (github_token != null)
-                {
-                    _updater.SetGithubApiKey(github_token);
-                }
+                ServiceHelper.Initialize(currentDirectory);
+                _updater = new CoreUpdaterService(
+                    ServiceHelper.UpdateDirectory,
+                    ServiceHelper.CoresService.Cores,
+                    ServiceHelper.FirmwareService,
+                    ServiceHelper.SettingsService,
+                    ServiceHelper.CoresService
+                );
+                
 
                 //Status.Show();
 
@@ -159,25 +159,15 @@ namespace Pocket_Updater.Controls
                 var drives = DriveInfo.GetDrives();
                 if (drives.Where(data => data.Name == pathToUpdate).Count() == 1)
                 {
-                    //Download_Json(pathToUpdate);
-                    // string Current_Dir = Directory.GetCurrentDirectory();
-                    _updater = new PocketCoreUpdater(pathToUpdate, currentDirectory);
-                    await _updater.Initialize();
-                    //_updater.CoresFile = pathToUpdate;
-                    //_updater.DownloadAssets(true); //turns on the option to also download bios files
+                    ServiceHelper.Initialize(pathToUpdate);
+                    _updater = new CoreUpdaterService(
+                        ServiceHelper.UpdateDirectory,
+                        ServiceHelper.CoresService.Cores,
+                        ServiceHelper.FirmwareService,
+                        ServiceHelper.SettingsService,
+                        ServiceHelper.CoresService
+                    );
 
-                    //Get Config Settings
-                    _updater.SetGithubApiKey(_settings.GetConfig().github_token);
-                    _updater.DownloadFirmware(_settings.GetConfig().download_firmware);
-                    _updater.DownloadAssets(_settings.GetConfig().download_assets);
-                    _updater.DeleteSkippedCores(_settings.GetConfig().delete_skipped_cores);
-                    _updater.PreservePlatformsFolder(_settings.GetConfig().preserve_platforms_folder);
-                    _updater.RenameJotegoCores(_settings.GetConfig().fix_jt_names);
-
-                    if (github_token != null)
-                    {
-                        _updater.SetGithubApiKey(github_token);
-                    }
 
                     //Status.Show();
 
@@ -258,7 +248,7 @@ namespace Pocket_Updater.Controls
                 Update.Enabled = true;
             }
         }
-        private void _updater_UpdateProcessComplete(object? sender, UpdateProcessCompleteEventArgs e)
+        private void _updater_UpdateProcessComplete(object? sender, Pannella.Models.UpdateProcessCompleteEventArgs e)
         {
 
             //No Updates Found
@@ -433,7 +423,7 @@ namespace Pocket_Updater.Controls
         public async Task ReadSettingsAsync()
         {
             string Current_Dir = Directory.GetCurrentDirectory();
-            _settings = new SettingsManager(Current_Dir);
+            _settings = new SettingsService(Current_Dir);
 
             //Alternate Arcade Files
             if (_settings.GetConfig().skip_alternative_assets == true)
@@ -629,7 +619,7 @@ namespace Pocket_Updater.Controls
             }
             //Save Sttings
             _settings.UpdateConfig(config);
-            _settings.SaveSettings();
+            _settings.Save();
 
             //Show Message Box
             if (ShowBox == "Yes")

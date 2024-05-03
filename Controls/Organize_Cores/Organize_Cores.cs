@@ -22,7 +22,7 @@ namespace Pocket_Updater.Controls.Organize_Cores
         {
             InitializeComponent();
             string Current_Dir = Directory.GetCurrentDirectory();
-            _settings = new SettingsManager(Current_Dir);
+            _settings = new SettingsService(Current_Dir);
 
             //Get USB Drives
             PopulateDrives();
@@ -48,10 +48,10 @@ namespace Pocket_Updater.Controls.Organize_Cores
                 //Enable Preserve Platform Folder
                 try
                 {
-                    Config config = _settings.GetConfig();
+                    Pannella.Models.Settings.Config config = _settings.GetConfig();
                     config.preserve_platforms_folder = true;
                     _settings.UpdateConfig(config);
-                    _settings.SaveSettings();
+                    _settings.Save();
                     Save_Preferences_Json();
 
                     var Json_Dir = Path.Combine(Pocket_Drive.Text, "Platforms");
@@ -220,7 +220,7 @@ namespace Pocket_Updater.Controls.Organize_Cores
             {
                 //Get Json Data
                 string Current = Directory.GetCurrentDirectory()+"\\";
-                _settings = new SettingsManager(Current);
+                _settings = new SettingsService(Current);
                 dataGridView1.Rows.Clear();
                 ReadPlatforms(Current);
 
