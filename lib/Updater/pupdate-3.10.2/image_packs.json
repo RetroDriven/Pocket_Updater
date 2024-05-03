@@ -1,0 +1,64 @@
+[
+    {
+        "owner": "spiritualized1997",
+        "repository": "openFPGA-Platform-Art-Set"
+    },
+    {
+        "owner": "dyreschlock",
+        "repository": "pocket-platform-images",
+        "variant": "arcade"
+    },
+    {
+        "owner": "dyreschlock",
+        "repository": "pocket-platform-images",
+        "variant": "home"
+    },
+    {
+        "owner": "dyreschlock",
+        "repository": "pocket-platform-images",
+        "variant": "home_jp_alts"
+    },
+    {
+        "owner": "dyreschlock",
+        "repository": "pocket-platform-images",
+        "variant": "home_pal_alts"
+    },
+    {
+        "owner": "terminator2k2",
+        "repository": "Analogue-Pocket-Core-Art"
+    },
+    {
+        "owner": "MegaZXretro",
+        "repository": "Analogue-Pocket-Custom-Platform-Art",
+        "variant": "JAPAN"
+    },
+    {
+        "owner": "MegaZXretro",
+        "repository": "Analogue-Pocket-Custom-Platform-Art",
+        "variant": "PAL-EU"
+    },
+    {
+        "owner": "MegaZXretro",
+        "repository": "Analogue-Pocket-Custom-Platform-Art",
+        "variant": "USA"
+    },
+    {
+        "owner": "Skyyblaze",
+        "repository": "Hyperdimension-Pocket-Core-Art"
+    },
+    {
+        "owner": "Shissa43",
+        "repository": "Analogue-Pocket-Platform-Art",
+        "variant": "Arcade_platforms"
+    },
+    {
+        "owner": "Shissa43",
+        "repository": "Analogue-Pocket-Platform-Art",
+        "variant": "Home_platforms"
+    },
+    {
+        "owner": "Shissa43",
+        "repository": "Analogue-Pocket-Platform-Art",
+        "variant": "Simple_platforms"
+    }
+]

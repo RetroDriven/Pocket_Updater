@@ -1,20 +1,23 @@
 ﻿using System;
 using System.Text.Json;
 using System.IO;
-using pannella.analoguepocket;
+using Pannella.Services;
+using Pannella.Models.OpenFPGA_Cores_Inventory;
+using Pannella.Models.Settings;
+using Pannella.Helpers;
 
 namespace Pocket_Updater
 {
     public class CoreManager
     {
-        private pannella.analoguepocket.Settings _settings;
+        private SettingsService _settings;
         private string _settingsFile;
         private string _coresFile;
         private List<Core> _cores;
 
         public CoreManager(string settingsFile, string coresFile)
         {
-            _settings = new pannella.analoguepocket.Settings();
+            _settings = new SettingsService();
             if (File.Exists(settingsFile))
             {
                 string json = File.ReadAllText(settingsFile);

@@ -1,0 +1,81 @@
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    name: Release
+    strategy:
+      matrix:
+        kind: ['macOS', 'windows', 'linux']
+        include:
+          - kind: macOS
+            os: macos-latest
+            target: osx
+            arm: true
+          - kind: windows
+            os: windows-latest
+            target: win
+            arm: false
+          - kind: linux
+            os: ubuntu-latest
+            target: linux
+            arm: true
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 7.0.302
+
+      - name: Build
+        shell: bash
+        run: |
+          tag=$(git describe --tags --abbrev=0)
+          release_name="App-$tag-${{ matrix.target }}"
+
+          # Build everything
+          dotnet publish pupdate.csproj -r ${{ matrix.target }}-x64 --self-contained true -c Release -o "$release_name" --consoleloggerparameters:ErrorsOnly -p:TrimMode=partial
+          if ${{ matrix.arm }}; then
+            mv ${release_name}/pupdate ${release_name}/pupdate_x64
+            dotnet publish pupdate.csproj -r ${{ matrix.target }}-arm64 --self-contained true -c Release -o "$release_name" --consoleloggerparameters:ErrorsOnly -p:TrimMode=partial
+            mv ${release_name}/pupdate ${release_name}/pupdate_arm64
+            if [ "${{ matrix.target }}" == "linux" ]; then
+              dotnet publish pupdate.csproj -r ${{ matrix.target }}-arm --self-contained true -c Release -o "$release_name" --consoleloggerparameters:ErrorsOnly -p:TrimMode=partial
+              mv ${release_name}/pupdate ${release_name}/pupdate_arm32
+            fi
+          fi
+
+          # Pack files
+          if [ "${{ matrix.target }}" == "win" ]; then
+            # Pack to zip for Windows
+            7z a -tzip "pupdate_win.zip" "./${release_name}/pupdate.exe"
+          elif [ "${{ matrix.target }}" == "osx" ]; then
+            cd $release_name
+            lipo -create -output pupdate pupdate_arm64 pupdate_x64
+            rm pupdate_arm64
+            rm pupdate_x64
+            zip "../pupdate_mac.zip" "pupdate"; cd ..;
+          else
+            cd $release_name
+            mv pupdate_x64 pupdate
+            zip "../pupdate_linux.zip" "pupdate"
+            zip "../pupdate_linux_arm64.zip" "pupdate_arm64"
+            zip "../pupdate_linux_arm32.zip" "pupdate_arm32"
+            cd ..
+          fi
+
+          # Delete output directory
+          rm -r "$release_name"
+
+      - name: Publish
+        uses: softprops/action-gh-release@v1
+        with:
+          files: "pupdate*.zip"
+        env:
+          GITHUB_TOKEN: ${{ secrets.API_TOKEN }}

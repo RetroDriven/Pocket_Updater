@@ -1,0 +1,15 @@
+title: Pupdate
+author:
+  name: Matt Pannella
+  email: mattpannella@gmail.com
+description: A thing for updating your Analogue Pocket and some other stuff
+
+show_downloads: true
+
+domain: https://mattpannella.github.io
+baseurl: "/pupdate"
+url: https://mattpannella.github.io
+
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+- jekyll-remote-theme
