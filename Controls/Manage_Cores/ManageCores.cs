@@ -140,7 +140,7 @@ namespace Pocket_Updater.Controls.Manage_Cores
 
                     //array containing the data for the 3 columns
                     //the core platform name from the api
-                    var platform = core.ReadPlatformFile();
+                    var platform = core.platform;
 
                     //readt he platform json file
                     var name = core.platform.name;

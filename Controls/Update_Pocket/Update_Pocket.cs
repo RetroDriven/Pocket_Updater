@@ -441,9 +441,8 @@ namespace Pocket_Updater.Controls
             {
                 Toggle_Alternate.Checked = true;
 
-                var custom = _settings.GetConfig().custom_archive;
-                var url = custom["url"];
-                var index = custom["index"];
+                var url = _settings.GetConfig().archives[1].url;
+                var index = _settings.GetConfig().archives[1].index;
                 Alternate_Location.Text = url;
                 //CRC_Json.Text = index;
 
@@ -544,10 +543,7 @@ namespace Pocket_Updater.Controls
             {
                 config.use_custom_archive = true;
 
-                var custom = _settings.GetConfig().custom_archive;
-                custom["url"] = Alternate_Location.Text;
-                //custom["index"] = CRC_Json.Text;
-                _settings.GetConfig().custom_archive = custom;
+                _settings.GetConfig().archives[1].url = Alternate_Location.Text;
             }
             else
             {
