@@ -1,6 +1,6 @@
 ﻿using System.Data;
 using System.Net;
-using pannella.analoguepocket;
+using Pannella.Services;
 using RetroDriven;
 using Pocket_Updater.Forms.Message_Box;
 using Pocket_Updater.Forms.Updater_Summary;
@@ -14,8 +14,8 @@ namespace Pocket_Updater.Controls
         public string Current_Dir { get; set; }
 
         private WebClient WebClient;
-        private PocketCoreUpdater _updater;
-        SettingsManager _settings;
+        private CoreUpdaterService _updater;
+        SettingsService _settings;
 
         //Initialize Update Status Form Popup
         Updater_Summary Summary = new Updater_Summary();
@@ -534,7 +534,7 @@ namespace Pocket_Updater.Controls
         private async void Save_Settings(string ShowBox)
         {
             //string value = Alternate_Location.Text;
-            pannella.analoguepocket.Config config = _settings.GetConfig();
+            Pannella.Models.Settings.Config config = _settings.GetConfig();
 
             //GitHub Token
             //config.github_token = value;

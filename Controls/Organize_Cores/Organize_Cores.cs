@@ -1,6 +1,6 @@
 ﻿using RetroDriven;
 using System.Text.Json;
-using pannella.analoguepocket;
+using Pannella.Services;
 using System.Net;
 using System.ComponentModel;
 using Pocket_Updater.Forms.Message_Box;
@@ -15,7 +15,7 @@ namespace Pocket_Updater.Controls.Organize_Cores
         public string Current_Dir { get; set; }
         public string updateFile { get; set; }
 
-        private SettingsManager _settings;
+        private SettingsService _settings;
 
         private Dictionary<string, CoreInfo> platforms;
         public Organize_Cores()

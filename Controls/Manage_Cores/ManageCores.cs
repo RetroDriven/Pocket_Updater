@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
-using pannella.analoguepocket;
+using Pannella.Services;
+using Pannella.Models.OpenFPGA_Cores_Inventory;
 using System.Text.Json;
 using Pocket_Updater.Forms.Message_Box;
 using System.Xml.Linq;
@@ -19,7 +20,7 @@ namespace Pocket_Updater.Controls.Manage_Cores
     {
         public List<Core> _cores;
 
-        public SettingsManager _settingsManager;
+        public SettingsService _settingsManager;
         public WebClient WebClient;
         public string Current_Dir { get; set; }
         public string updateFile { get; set; }
@@ -47,7 +48,7 @@ namespace Pocket_Updater.Controls.Manage_Cores
             {
                 Button_Save.Enabled = false;
                 _readChecklist();
-                _settingsManager.SaveSettings();
+                _settingsManager.Save();
 
                 Message_Box form = new Message_Box();
                 form.label1.Text = "Core Selection Has Been Saved!";
@@ -126,9 +127,9 @@ namespace Pocket_Updater.Controls.Manage_Cores
         }
         public async Task LoadCores()
         {
-            _cores = await CoresService.GetCores();
+            _cores = Pannella.Helpers.ServiceHelper.CoresService.Cores;
 
-            _settingsManager = new SettingsManager(Directory.GetCurrentDirectory(), _cores);
+            _settingsManager = new SettingsService(Directory.GetCurrentDirectory(), _cores);
 
             foreach (Core core in _cores)
             {
