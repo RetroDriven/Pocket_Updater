@@ -82,7 +82,7 @@ namespace Pocket_Updater.Controls
                 textBox1.AppendText(e.Message);
                 textBox1.AppendText(Environment.NewLine);
             }));
-            
+
             //textBox1.Refresh();
         }
 
@@ -121,6 +121,19 @@ namespace Pocket_Updater.Controls
             }
         }
 
+        private void updater_ProgressUpdated(object sender, DownloadProgressEventArgs e)
+        {
+            var percent = e.Progress * 100;
+            int val = Convert.ToInt32(percent);
+            BeginInvoke((Action)(() =>
+            {
+                /* !!! update the progress bar here !!! */
+                //downloadProgressBar.Value = val;
+                textBox1.AppendText(val.ToString());
+            }));
+
+        }
+
         private async Task UpdateCurrentDirectory(string github_token, string currentDirectory)
         {
             try
@@ -134,7 +147,7 @@ namespace Pocket_Updater.Controls
                     ServiceHelper.SettingsService,
                     ServiceHelper.CoresService
                 );
-                
+                HttpHelper.Instance.DownloadProgressUpdate += updater_ProgressUpdated;
 
                 //Status.Show();
 
@@ -693,8 +706,8 @@ namespace Pocket_Updater.Controls
             string Json_File = @"updater_preferences.json";
 
             string Update_Location = comboBox2.SelectedItem.ToString();
-            
-            if((comboBox1.SelectedIndex == -1))
+
+            if ((comboBox1.SelectedIndex == -1))
             {
                 string[] Entries = new string[] { Update_Location, "" };
                 Updater_Preferences.Save_Updater_Json(Entries, Json_File);
