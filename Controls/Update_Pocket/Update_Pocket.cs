@@ -56,7 +56,10 @@ namespace Pocket_Updater.Controls
             Update.Enabled = false;
             Button_Refresh.Enabled = false;
             comboBox1.Enabled = false;
-            _updater.RunUpdates();
+            await Task.Run(() =>
+            {
+                _updater.RunUpdates();
+            });
             ServiceHelper.CoresService.RefreshInstalledCores();
             Update.Enabled = true;
             Button_Refresh.Enabled = true;
@@ -74,8 +77,12 @@ namespace Pocket_Updater.Controls
         private void updater_StatusUpdated(object sender, Pannella.Models.StatusUpdatedEventArgs e)
         {
             //Show Updater Status in a new Form
-            textBox1.AppendText(e.Message);
-            textBox1.AppendText(Environment.NewLine);
+            BeginInvoke((Action)(() =>
+            {
+                textBox1.AppendText(e.Message);
+                textBox1.AppendText(Environment.NewLine);
+            }));
+            
             //textBox1.Refresh();
         }
 
@@ -96,11 +103,11 @@ namespace Pocket_Updater.Controls
                 // where are we updating to
                 if (Location_Type == "Current Directory")
                 {
-                    UpdateCurrentDirectory(github_token, Current_Dir);
+                    await UpdateCurrentDirectory(github_token, Current_Dir);
                 }
                 else if (Location_Type == "Removable Storage")
                 {
-                    UpdateRemoveableStorage(github_token, Current_Dir);
+                    await UpdateRemoveableStorage(github_token, Current_Dir);
                 }
             }
             catch
@@ -114,7 +121,7 @@ namespace Pocket_Updater.Controls
             }
         }
 
-        private async void UpdateCurrentDirectory(string github_token, string currentDirectory)
+        private async Task UpdateCurrentDirectory(string github_token, string currentDirectory)
         {
             try
             {
@@ -136,7 +143,7 @@ namespace Pocket_Updater.Controls
 
                 comboBox2.Enabled = false;
                 Save_Preferences_Json();
-                RunCoreUpdateProcess(currentDirectory, currentDirectory, currentDirectory);
+                await RunCoreUpdateProcess(currentDirectory, currentDirectory, currentDirectory);
             }
             catch (Exception ex)
             {
@@ -148,7 +155,7 @@ namespace Pocket_Updater.Controls
             }
         }
 
-        private async void UpdateRemoveableStorage(string github_token, string currentDirectory)
+        private async Task UpdateRemoveableStorage(string github_token, string currentDirectory)
         {
             //string pathToUpdate = Pocket_Drive;
             string pathToUpdate = comboBox1.SelectedItem.ToString();
@@ -179,7 +186,7 @@ namespace Pocket_Updater.Controls
                     comboBox2.Enabled = false;
 
                     Save_Preferences_Json();
-                    RunCoreUpdateProcess(pathToUpdate, currentDirectory, currentDirectory);
+                    await RunCoreUpdateProcess(pathToUpdate, currentDirectory, currentDirectory);
                 }
                 else
                 {
