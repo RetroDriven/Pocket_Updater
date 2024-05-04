@@ -54,6 +54,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.9.1" />
+    <PackageReference Include="ConsoleMenu-simple" Version="2.7.0" />
     <PackageReference Include="Crc32.NET" Version="1.2.0" />
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
