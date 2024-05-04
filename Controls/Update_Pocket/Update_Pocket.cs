@@ -33,7 +33,7 @@ namespace Pocket_Updater.Controls
             string Current_Dir = Directory.GetCurrentDirectory();
             _settings = new SettingsService(Current_Dir);
 
-            ServiceHelper.Initialize(Current_Dir);
+            ServiceHelper.Initialize(Current_Dir, updater_StatusUpdated, _updater_UpdateProcessComplete);
             _updater = new CoreUpdaterService(
                 ServiceHelper.UpdateDirectory,
                 ServiceHelper.CoresService.Cores,
@@ -57,6 +57,7 @@ namespace Pocket_Updater.Controls
             Button_Refresh.Enabled = false;
             comboBox1.Enabled = false;
             _updater.RunUpdates();
+            ServiceHelper.CoresService.RefreshInstalledCores();
             Update.Enabled = true;
             Button_Refresh.Enabled = true;
             comboBox1.Enabled = true;
@@ -118,7 +119,7 @@ namespace Pocket_Updater.Controls
             try
             {
                 //Download_Json(Current_Dir);
-                ServiceHelper.Initialize(currentDirectory);
+                ServiceHelper.Initialize(currentDirectory, updater_StatusUpdated, _updater_UpdateProcessComplete);
                 _updater = new CoreUpdaterService(
                     ServiceHelper.UpdateDirectory,
                     ServiceHelper.CoresService.Cores,
@@ -159,7 +160,7 @@ namespace Pocket_Updater.Controls
                 var drives = DriveInfo.GetDrives();
                 if (drives.Where(data => data.Name == pathToUpdate).Count() == 1)
                 {
-                    ServiceHelper.Initialize(pathToUpdate);
+                    ServiceHelper.Initialize(pathToUpdate, updater_StatusUpdated, _updater_UpdateProcessComplete);
                     _updater = new CoreUpdaterService(
                         ServiceHelper.UpdateDirectory,
                         ServiceHelper.CoresService.Cores,
