@@ -17,13 +17,10 @@ public class AssetsService
         {
             if (this.blacklist == null)
             {
-#if DEBUG
-                string json = File.ReadAllText("blacklist.json");
-#else
                 string json = useLocalBlacklist
                     ? File.ReadAllText("blacklist.json")
                     : HttpHelper.Instance.GetHTML(BLACKLIST);
-#endif
+
                 this.blacklist = JsonConvert.DeserializeObject<List<string>>(json);
             }
 

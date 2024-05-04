@@ -22,13 +22,11 @@ public partial class CoresService
 
     private List<PocketExtra> GetPocketExtrasList()
     {
-#if DEBUG
-        string json = File.ReadAllText("pocket_extras.json");
-#else
+
         string json = this.settingsService.GetConfig().use_local_pocket_extras
             ? File.ReadAllText("pocket_extras.json")
             : HttpHelper.Instance.GetHTML(EXTRAS_END_POINT);
-#endif
+
         PocketExtras files = JsonConvert.DeserializeObject<PocketExtras>(json);
 
         return files.pocket_extras;
