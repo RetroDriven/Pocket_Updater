@@ -23,13 +23,11 @@ public class PlatformImagePacksService : Base
         {
             if (this.list == null)
             {
-#if DEBUG
-                string json = File.ReadAllText("image_packs.json");
-#else
+
                 string json = this.useLocalImagePacks
                     ? File.ReadAllText("image_packs.json")
                     : HttpHelper.Instance.GetHTML(END_POINT);
-#endif
+
                 this.list = JsonConvert.DeserializeObject<List<PlatformImagePack>>(json);
             }
 
