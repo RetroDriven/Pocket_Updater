@@ -4,7 +4,7 @@ using Pannella.Services;
 using RetroDriven;
 using Pocket_Updater.Forms.Message_Box;
 using Pocket_Updater.Forms.Updater_Summary;
-using Analogue;
+
 using Newtonsoft.Json;
 using Pannella.Helpers;
 
@@ -90,7 +90,7 @@ namespace Pocket_Updater.Controls
             try
             {
                 string Location_Type = comboBox2.SelectedItem.ToString();
-                string github_token = _settings.GetConfig().github_token;
+                string github_token = ServiceHelper.SettingsService.GetConfig().github_token;
 
                 // where are we updating to
                 if (Location_Type == "Current Directory")
@@ -426,7 +426,7 @@ namespace Pocket_Updater.Controls
             _settings = new SettingsService(Current_Dir);
 
             //Alternate Arcade Files
-            if (_settings.GetConfig().skip_alternative_assets == true)
+            if (ServiceHelper.SettingsService.GetConfig().skip_alternative_assets == true)
             {
                 Toggle_Alternatives.Checked = true;
             }
@@ -435,14 +435,14 @@ namespace Pocket_Updater.Controls
                 Toggle_Alternatives.Checked = false;
             }
             //GitHub Token
-            //Alternate_Location.Text = _settings.GetConfig().use_custom_archive;
+            //Alternate_Location.Text = ServiceHelper.SettingsService.GetConfig().use_custom_archive;
 
-            if (_settings.GetConfig().use_custom_archive == true)
+            if (ServiceHelper.SettingsService.GetConfig().use_custom_archive == true)
             {
                 Toggle_Alternate.Checked = true;
 
-                var url = _settings.GetConfig().archives[1].url;
-                var index = _settings.GetConfig().archives[1].index;
+                var url = ServiceHelper.SettingsService.GetConfig().archives[1].url;
+                var index = ServiceHelper.SettingsService.GetConfig().archives[1].index;
                 Alternate_Location.Text = url;
                 //CRC_Json.Text = index;
 
@@ -452,7 +452,7 @@ namespace Pocket_Updater.Controls
                 Toggle_Alternate.Checked = false;
             }
             //Download Pocket Firmware
-            if (_settings.GetConfig().download_firmware == true)
+            if (ServiceHelper.SettingsService.GetConfig().download_firmware == true)
             {
                 Toggle_Firmware.Checked = true;
             }
@@ -461,7 +461,7 @@ namespace Pocket_Updater.Controls
                 Toggle_Firmware.Checked = false;
             }
             //Download Assets
-            if (_settings.GetConfig().download_assets == true)
+            if (ServiceHelper.SettingsService.GetConfig().download_assets == true)
             {
                 Toggle_Assets.Checked = true;
             }
@@ -470,7 +470,7 @@ namespace Pocket_Updater.Controls
                 Toggle_Assets.Checked = false;
             }
             //Preserve Core Images
-            if (_settings.GetConfig().preserve_platforms_folder == true)
+            if (ServiceHelper.SettingsService.GetConfig().preserve_platforms_folder == true)
             {
                 Toggle_Platforms.Checked = true;
             }
@@ -479,7 +479,7 @@ namespace Pocket_Updater.Controls
                 Toggle_Platforms.Checked = false;
             }
             //Delete Skipped Cores
-            if (_settings.GetConfig().delete_skipped_cores == true)
+            if (ServiceHelper.SettingsService.GetConfig().delete_skipped_cores == true)
             {
                 Toggle_Skipped.Checked = true;
             }
@@ -488,7 +488,7 @@ namespace Pocket_Updater.Controls
                 Toggle_Skipped.Checked = false;
             }
             //Build Jsons
-            if (_settings.GetConfig().build_instance_jsons == true)
+            if (ServiceHelper.SettingsService.GetConfig().build_instance_jsons == true)
             {
                 Toggle_Jsons.Checked = true;
             }
@@ -497,7 +497,7 @@ namespace Pocket_Updater.Controls
                 Toggle_Jsons.Checked = false;
             }
             //Jotego Core Rename
-            if (_settings.GetConfig().fix_jt_names == true)
+            if (ServiceHelper.SettingsService.GetConfig().fix_jt_names == true)
             {
                 Toggle_Jotego.Checked = true;
             }
@@ -506,7 +506,7 @@ namespace Pocket_Updater.Controls
                 Toggle_Jotego.Checked = false;
             }
             //CRC Checking
-            if (_settings.GetConfig().crc_check == true)
+            if (ServiceHelper.SettingsService.GetConfig().crc_check == true)
             {
                 Toggle_CRC.Checked = true;
             }
@@ -523,7 +523,7 @@ namespace Pocket_Updater.Controls
         private async void Save_Settings(string ShowBox)
         {
             //string value = Alternate_Location.Text;
-            Pannella.Models.Settings.Config config = _settings.GetConfig();
+            Pannella.Models.Settings.Config config = ServiceHelper.SettingsService.GetConfig();
 
             //GitHub Token
             //config.github_token = value;
@@ -543,7 +543,7 @@ namespace Pocket_Updater.Controls
             {
                 config.use_custom_archive = true;
 
-                _settings.GetConfig().archives[1].url = Alternate_Location.Text;
+                ServiceHelper.SettingsService.GetConfig().archives[1].url = Alternate_Location.Text;
             }
             else
             {
@@ -614,8 +614,8 @@ namespace Pocket_Updater.Controls
                 config.crc_check = false;
             }
             //Save Sttings
-            _settings.UpdateConfig(config);
-            _settings.Save();
+            ServiceHelper.SettingsService.UpdateConfig(config);
+            ServiceHelper.SettingsService.Save();
 
             //Show Message Box
             if (ShowBox == "Yes")

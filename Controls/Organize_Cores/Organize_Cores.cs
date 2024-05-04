@@ -1,6 +1,7 @@
 ﻿using RetroDriven;
 using System.Text.Json;
 using Pannella.Services;
+using Pannella.Helpers;
 using System.Net;
 using System.ComponentModel;
 using Pocket_Updater.Forms.Message_Box;
@@ -48,10 +49,10 @@ namespace Pocket_Updater.Controls.Organize_Cores
                 //Enable Preserve Platform Folder
                 try
                 {
-                    Pannella.Models.Settings.Config config = _settings.GetConfig();
+                    Pannella.Models.Settings.Config config = ServiceHelper.SettingsService.GetConfig();
                     config.preserve_platforms_folder = true;
-                    _settings.UpdateConfig(config);
-                    _settings.Save();
+                    ServiceHelper.SettingsService.UpdateConfig(config);
+                    ServiceHelper.SettingsService.Save();
                     Save_Preferences_Json();
 
                     var Json_Dir = Path.Combine(Pocket_Drive.Text, "Platforms");

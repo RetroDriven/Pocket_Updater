@@ -1,4 +1,4 @@
-using pannella.analoguepocket;
+using Pannella;
 using Pocket_Updater.Forms.Message_Box;
 using System.Diagnostics;
 using System.Net;

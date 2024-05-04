@@ -1,4 +1,6 @@
-﻿using pannella.analoguepocket;
+﻿using Pannella.Services;
+using Pannella.Helpers;
+using Pannella.Models;
 using Pocket_Updater.Forms.Message_Box;
 using RetroDriven;
 using System.Data;
@@ -13,8 +15,7 @@ namespace Pocket_Updater.Controls.Image_Packs
 
         private WebClient WebClient;
 
-        private SettingsManager _settings;
-        private ImagePack[] packs;
+        private List<PlatformImagePack> packs;
         public Image_Packs()
         {
             InitializeComponent();
@@ -22,7 +23,7 @@ namespace Pocket_Updater.Controls.Image_Packs
             //Get USB Drives
             PopulateDrives();
             Current_Dir = Directory.GetCurrentDirectory();
-            _settings = new SettingsManager(Current_Dir);
+           // _settings = new SettingsManager(Current_Dir);
 
             //Preferences
             Get_Preferences_Json();
@@ -67,7 +68,7 @@ namespace Pocket_Updater.Controls.Image_Packs
         {
             try
             {
-                packs = await ImagePacksService.GetImagePacks();
+                packs = ServiceHelper.PlatformImagePacksService.List;
                 int i = 0;
 
                 foreach (var pack in packs)
@@ -144,10 +145,10 @@ namespace Pocket_Updater.Controls.Image_Packs
             var senderGrid = (DataGridView)sender;
 
             //Preserve Platforms
-            pannella.analoguepocket.Config config = _settings.GetConfig();
+            Pannella.Models.Settings.Config config = ServiceHelper.SettingsService.GetConfig();
             config.preserve_platforms_folder = true;
-            _settings.UpdateConfig(config);
-            _settings.SaveSettings();
+            ServiceHelper.SettingsService.UpdateConfig(config);
+            ServiceHelper.SettingsService.Save();
 
             //Make Sure Download Location is selected
             if (comboBox2.SelectedIndex == -1)
@@ -184,18 +185,10 @@ namespace Pocket_Updater.Controls.Image_Packs
                             var drives = DriveInfo.GetDrives();
                             if (drives.Where(data => data.Name == Pocket_Drive).Count() == 1)
                             {
-                                if (await packs[e.RowIndex].Install(Pocket_Drive))
-                                {
-                                    Message_Box form = new Message_Box();
-                                    form.label1.Text = "Asset Image Pack Installed!";
-                                    form.Show();
-                                }
-                                else
-                                {
-                                    Message_Box form = new Message_Box();
-                                    form.label1.Text = "Asset Image Pack did not Install. Please try Again!";
-                                    form.Show();
-                                }
+                                ServiceHelper.PlatformImagePacksService.Install(packs[e.RowIndex].owner, packs[e.RowIndex].repository, packs[e.RowIndex].variant);
+                                Message_Box form = new Message_Box();
+                                form.label1.Text = "Asset Image Pack Installed!";
+                                form.Show();
                             }
                             else
                             {
@@ -208,18 +201,10 @@ namespace Pocket_Updater.Controls.Image_Packs
                         {
                             //Current Directory Selected
                             Current_Dir = Directory.GetCurrentDirectory();
-                            if (await packs[e.RowIndex].Install(Current_Dir))
-                            {
-                                Message_Box form = new Message_Box();
-                                form.label1.Text = "Asset Image Pack Installed!";
-                                form.Show();
-                            }
-                            else
-                            {
-                                Message_Box form = new Message_Box();
-                                form.label1.Text = "Asset Image Pack did not Install. Please try Again!";
-                                form.Show();
-                            }
+                            ServiceHelper.PlatformImagePacksService.Install(packs[e.RowIndex].owner, packs[e.RowIndex].repository, packs[e.RowIndex].variant);
+                            Message_Box form = new Message_Box();
+                            form.label1.Text = "Asset Image Pack Installed!";
+                            form.Show();
                         }
                     }
                 }
