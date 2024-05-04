@@ -637,6 +637,7 @@ namespace Pocket_Updater.Controls
             //Save Sttings
             ServiceHelper.SettingsService.UpdateConfig(config);
             ServiceHelper.SettingsService.Save();
+            ServiceHelper.ReloadSettings();
 
             //Show Message Box
             if (ShowBox == "Yes")

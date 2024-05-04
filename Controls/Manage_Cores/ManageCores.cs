@@ -13,6 +13,7 @@ using Pannella.Models.OpenFPGA_Cores_Inventory;
 using System.Text.Json;
 using Pocket_Updater.Forms.Message_Box;
 using System.Xml.Linq;
+using Pannella.Helpers;
 
 namespace Pocket_Updater.Controls.Manage_Cores
 {
@@ -49,6 +50,7 @@ namespace Pocket_Updater.Controls.Manage_Cores
                 Button_Save.Enabled = false;
                 _readChecklist();
                 _settingsManager.Save();
+                ServiceHelper.ReloadSettings();
 
                 Message_Box form = new Message_Box();
                 form.label1.Text = "Core Selection Has Been Saved!";
