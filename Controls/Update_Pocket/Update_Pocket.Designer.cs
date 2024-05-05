@@ -28,56 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges49 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges50 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges47 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges48 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges51 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges52 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges53 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges54 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges55 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges56 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges57 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges58 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges59 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges60 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges61 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges62 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges63 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges64 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges65 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges66 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges67 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges68 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges69 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges70 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges71 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges72 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges73 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges74 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges75 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges76 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges77 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges78 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges79 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges80 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges81 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges82 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges83 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges84 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges85 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges86 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges87 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges88 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges89 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges90 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges91 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges92 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges93 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges94 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges97 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges98 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges99 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges100 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges95 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges96 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             flowLayoutPanel1 = new FlowLayoutPanel();
             Panel_Title = new Guna.UI2.WinForms.Guna2Panel();
             label3 = new Label();
@@ -118,7 +118,7 @@
             label7 = new Label();
             label14 = new Label();
             Toggle_CRC = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            Backup_Saves = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            Toggle_Backup_Saves = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             Toggle_Alternate = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             label12 = new Label();
             tableLayoutPanel4 = new TableLayoutPanel();
@@ -170,12 +170,12 @@
             Panel_Title.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Panel_Title.Controls.Add(label3);
             Panel_Title.Controls.Add(guna2Separator1);
-            Panel_Title.CustomizableEdges = customizableEdges1;
+            Panel_Title.CustomizableEdges = customizableEdges51;
             Panel_Title.Location = new Point(2, 2);
             Panel_Title.Margin = new Padding(2);
             Panel_Title.Name = "Panel_Title";
             Panel_Title.Padding = new Padding(26, 0, 0, 0);
-            Panel_Title.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            Panel_Title.ShadowDecoration.CustomizableEdges = customizableEdges52;
             Panel_Title.Size = new Size(302, 39);
             Panel_Title.TabIndex = 2;
             // 
@@ -241,7 +241,7 @@
             Update.AutoRoundedCorners = true;
             Update.BorderRadius = 18;
             Update.Cursor = Cursors.Hand;
-            Update.CustomizableEdges = customizableEdges3;
+            Update.CustomizableEdges = customizableEdges53;
             Update.DisabledState.BorderColor = Color.DarkGray;
             Update.DisabledState.CustomBorderColor = Color.DarkGray;
             Update.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -252,7 +252,7 @@
             Update.Location = new Point(354, 2);
             Update.Margin = new Padding(2);
             Update.Name = "Update";
-            Update.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            Update.ShadowDecoration.CustomizableEdges = customizableEdges54;
             Update.Size = new Size(110, 38);
             Update.TabIndex = 11;
             Update.Text = "Update";
@@ -265,7 +265,7 @@
             comboBox2.BackColor = Color.Transparent;
             comboBox2.BorderRadius = 17;
             comboBox2.Cursor = Cursors.Hand;
-            comboBox2.CustomizableEdges = customizableEdges5;
+            comboBox2.CustomizableEdges = customizableEdges55;
             comboBox2.DrawMode = DrawMode.OwnerDrawFixed;
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.FillColor = Color.FromArgb(39, 44, 66);
@@ -278,7 +278,7 @@
             comboBox2.Location = new Point(156, 3);
             comboBox2.Margin = new Padding(2);
             comboBox2.Name = "comboBox2";
-            comboBox2.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            comboBox2.ShadowDecoration.CustomizableEdges = customizableEdges56;
             comboBox2.Size = new Size(194, 36);
             comboBox2.TabIndex = 10;
             comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
@@ -310,7 +310,7 @@
             comboBox1.BackColor = Color.Transparent;
             comboBox1.BorderRadius = 17;
             comboBox1.Cursor = Cursors.Hand;
-            comboBox1.CustomizableEdges = customizableEdges7;
+            comboBox1.CustomizableEdges = customizableEdges57;
             comboBox1.DrawMode = DrawMode.OwnerDrawFixed;
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FillColor = Color.FromArgb(39, 44, 66);
@@ -323,7 +323,7 @@
             comboBox1.Location = new Point(176, 2);
             comboBox1.Margin = new Padding(2);
             comboBox1.Name = "comboBox1";
-            comboBox1.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            comboBox1.ShadowDecoration.CustomizableEdges = customizableEdges58;
             comboBox1.Size = new Size(176, 36);
             comboBox1.TabIndex = 11;
             comboBox1.Visible = false;
@@ -332,7 +332,7 @@
             // Button_Refresh
             // 
             Button_Refresh.Cursor = Cursors.Hand;
-            Button_Refresh.CustomizableEdges = customizableEdges9;
+            Button_Refresh.CustomizableEdges = customizableEdges59;
             Button_Refresh.DisabledState.BorderColor = Color.DarkGray;
             Button_Refresh.DisabledState.CustomBorderColor = Color.DarkGray;
             Button_Refresh.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -347,7 +347,7 @@
             Button_Refresh.Name = "Button_Refresh";
             Button_Refresh.PressedColor = Color.Transparent;
             Button_Refresh.ShadowDecoration.Color = Color.Transparent;
-            Button_Refresh.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            Button_Refresh.ShadowDecoration.CustomizableEdges = customizableEdges60;
             Button_Refresh.Size = new Size(40, 36);
             Button_Refresh.TabIndex = 10;
             ToolTip.SetToolTip(Button_Refresh, "Refresh your Removable Drive List");
@@ -373,12 +373,12 @@
             guna2Panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             guna2Panel1.Controls.Add(label5);
             guna2Panel1.Controls.Add(guna2Separator3);
-            guna2Panel1.CustomizableEdges = customizableEdges11;
+            guna2Panel1.CustomizableEdges = customizableEdges61;
             guna2Panel1.Dock = DockStyle.Top;
             guna2Panel1.Location = new Point(2, 0);
             guna2Panel1.Margin = new Padding(2);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges62;
             guna2Panel1.Size = new Size(510, 32);
             guna2Panel1.TabIndex = 10;
             // 
@@ -410,13 +410,13 @@
             Panel_Status_Title.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Panel_Status_Title.Controls.Add(label4);
             Panel_Status_Title.Controls.Add(guna2Separator2);
-            Panel_Status_Title.CustomizableEdges = customizableEdges13;
+            Panel_Status_Title.CustomizableEdges = customizableEdges63;
             Panel_Status_Title.Dock = DockStyle.Fill;
             Panel_Status_Title.Location = new Point(0, 0);
             Panel_Status_Title.Margin = new Padding(2);
             Panel_Status_Title.Name = "Panel_Status_Title";
             Panel_Status_Title.Padding = new Padding(26, 0, 0, 0);
-            Panel_Status_Title.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            Panel_Status_Title.ShadowDecoration.CustomizableEdges = customizableEdges64;
             Panel_Status_Title.Size = new Size(662, 38);
             Panel_Status_Title.TabIndex = 3;
             // 
@@ -445,12 +445,12 @@
             Panel_Left.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Panel_Left.Controls.Add(Panel_Left_Main);
             Panel_Left.Controls.Add(Panel_Left_Top);
-            Panel_Left.CustomizableEdges = customizableEdges41;
+            Panel_Left.CustomizableEdges = customizableEdges65;
             Panel_Left.Dock = DockStyle.Left;
             Panel_Left.Location = new Point(0, 0);
             Panel_Left.Margin = new Padding(2);
             Panel_Left.Name = "Panel_Left";
-            Panel_Left.ShadowDecoration.CustomizableEdges = customizableEdges42;
+            Panel_Left.ShadowDecoration.CustomizableEdges = customizableEdges66;
             Panel_Left.Size = new Size(512, 670);
             Panel_Left.TabIndex = 13;
             // 
@@ -512,7 +512,7 @@
             tableLayoutPanel3.Controls.Add(label7, 0, 5);
             tableLayoutPanel3.Controls.Add(label14, 0, 8);
             tableLayoutPanel3.Controls.Add(Toggle_CRC, 1, 8);
-            tableLayoutPanel3.Controls.Add(Backup_Saves, 1, 10);
+            tableLayoutPanel3.Controls.Add(Toggle_Backup_Saves, 1, 10);
             tableLayoutPanel3.Controls.Add(Toggle_Alternate, 1, 11);
             tableLayoutPanel3.Controls.Add(label12, 0, 11);
             tableLayoutPanel3.Location = new Point(2, 2);
@@ -572,11 +572,11 @@
             Toggle_Alternatives.CheckedState.InnerBorderRadius = 8;
             Toggle_Alternatives.CheckedState.InnerColor = Color.White;
             Toggle_Alternatives.Cursor = Cursors.Hand;
-            Toggle_Alternatives.CustomizableEdges = customizableEdges15;
+            Toggle_Alternatives.CustomizableEdges = customizableEdges67;
             Toggle_Alternatives.Location = new Point(276, 182);
             Toggle_Alternatives.Margin = new Padding(2);
             Toggle_Alternatives.Name = "Toggle_Alternatives";
-            Toggle_Alternatives.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            Toggle_Alternatives.ShadowDecoration.CustomizableEdges = customizableEdges68;
             Toggle_Alternatives.Size = new Size(46, 26);
             Toggle_Alternatives.TabIndex = 16;
             Toggle_Alternatives.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
@@ -610,11 +610,11 @@
             Toggle_Jotego.CheckedState.InnerBorderRadius = 8;
             Toggle_Jotego.CheckedState.InnerColor = Color.White;
             Toggle_Jotego.Cursor = Cursors.Hand;
-            Toggle_Jotego.CustomizableEdges = customizableEdges17;
+            Toggle_Jotego.CustomizableEdges = customizableEdges69;
             Toggle_Jotego.Location = new Point(276, 152);
             Toggle_Jotego.Margin = new Padding(2);
             Toggle_Jotego.Name = "Toggle_Jotego";
-            Toggle_Jotego.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            Toggle_Jotego.ShadowDecoration.CustomizableEdges = customizableEdges70;
             Toggle_Jotego.Size = new Size(46, 26);
             Toggle_Jotego.TabIndex = 15;
             Toggle_Jotego.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
@@ -687,11 +687,11 @@
             Toggle_Platforms.CheckedState.InnerBorderRadius = 8;
             Toggle_Platforms.CheckedState.InnerColor = Color.White;
             Toggle_Platforms.Cursor = Cursors.Hand;
-            Toggle_Platforms.CustomizableEdges = customizableEdges19;
+            Toggle_Platforms.CustomizableEdges = customizableEdges71;
             Toggle_Platforms.Location = new Point(276, 62);
             Toggle_Platforms.Margin = new Padding(2);
             Toggle_Platforms.Name = "Toggle_Platforms";
-            Toggle_Platforms.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            Toggle_Platforms.ShadowDecoration.CustomizableEdges = customizableEdges72;
             Toggle_Platforms.Size = new Size(46, 26);
             Toggle_Platforms.TabIndex = 15;
             Toggle_Platforms.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
@@ -712,11 +712,11 @@
             Toggle_Skipped.CheckedState.InnerBorderRadius = 8;
             Toggle_Skipped.CheckedState.InnerColor = Color.White;
             Toggle_Skipped.Cursor = Cursors.Hand;
-            Toggle_Skipped.CustomizableEdges = customizableEdges21;
+            Toggle_Skipped.CustomizableEdges = customizableEdges73;
             Toggle_Skipped.Location = new Point(276, 92);
             Toggle_Skipped.Margin = new Padding(2);
             Toggle_Skipped.Name = "Toggle_Skipped";
-            Toggle_Skipped.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            Toggle_Skipped.ShadowDecoration.CustomizableEdges = customizableEdges74;
             Toggle_Skipped.Size = new Size(46, 26);
             Toggle_Skipped.TabIndex = 12;
             Toggle_Skipped.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
@@ -737,11 +737,11 @@
             Toggle_Assets.CheckedState.InnerBorderRadius = 8;
             Toggle_Assets.CheckedState.InnerColor = Color.White;
             Toggle_Assets.Cursor = Cursors.Hand;
-            Toggle_Assets.CustomizableEdges = customizableEdges23;
+            Toggle_Assets.CustomizableEdges = customizableEdges75;
             Toggle_Assets.Location = new Point(276, 32);
             Toggle_Assets.Margin = new Padding(2);
             Toggle_Assets.Name = "Toggle_Assets";
-            Toggle_Assets.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            Toggle_Assets.ShadowDecoration.CustomizableEdges = customizableEdges76;
             Toggle_Assets.Size = new Size(46, 26);
             Toggle_Assets.TabIndex = 16;
             Toggle_Assets.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
@@ -762,11 +762,11 @@
             Toggle_Firmware.CheckedState.InnerBorderRadius = 8;
             Toggle_Firmware.CheckedState.InnerColor = Color.White;
             Toggle_Firmware.Cursor = Cursors.Hand;
-            Toggle_Firmware.CustomizableEdges = customizableEdges25;
+            Toggle_Firmware.CustomizableEdges = customizableEdges77;
             Toggle_Firmware.Location = new Point(276, 2);
             Toggle_Firmware.Margin = new Padding(2);
             Toggle_Firmware.Name = "Toggle_Firmware";
-            Toggle_Firmware.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            Toggle_Firmware.ShadowDecoration.CustomizableEdges = customizableEdges78;
             Toggle_Firmware.Size = new Size(46, 26);
             Toggle_Firmware.TabIndex = 17;
             Toggle_Firmware.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
@@ -787,11 +787,11 @@
             Toggle_Jsons.CheckedState.InnerBorderRadius = 8;
             Toggle_Jsons.CheckedState.InnerColor = Color.White;
             Toggle_Jsons.Cursor = Cursors.Hand;
-            Toggle_Jsons.CustomizableEdges = customizableEdges27;
+            Toggle_Jsons.CustomizableEdges = customizableEdges79;
             Toggle_Jsons.Location = new Point(276, 122);
             Toggle_Jsons.Margin = new Padding(2);
             Toggle_Jsons.Name = "Toggle_Jsons";
-            Toggle_Jsons.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            Toggle_Jsons.ShadowDecoration.CustomizableEdges = customizableEdges80;
             Toggle_Jsons.Size = new Size(46, 26);
             Toggle_Jsons.TabIndex = 14;
             Toggle_Jsons.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
@@ -838,11 +838,11 @@
             Toggle_CRC.CheckedState.InnerBorderRadius = 8;
             Toggle_CRC.CheckedState.InnerColor = Color.White;
             Toggle_CRC.Cursor = Cursors.Hand;
-            Toggle_CRC.CustomizableEdges = customizableEdges29;
+            Toggle_CRC.CustomizableEdges = customizableEdges81;
             Toggle_CRC.Location = new Point(276, 212);
             Toggle_CRC.Margin = new Padding(2);
             Toggle_CRC.Name = "Toggle_CRC";
-            Toggle_CRC.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            Toggle_CRC.ShadowDecoration.CustomizableEdges = customizableEdges82;
             Toggle_CRC.Size = new Size(46, 26);
             Toggle_CRC.TabIndex = 15;
             Toggle_CRC.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
@@ -852,30 +852,30 @@
             Toggle_CRC.UncheckedState.InnerBorderRadius = 8;
             Toggle_CRC.UncheckedState.InnerColor = Color.White;
             // 
-            // Backup_Saves
+            // Toggle_Backup_Saves
             // 
-            Backup_Saves.Anchor = AnchorStyles.Left;
-            Backup_Saves.AutoRoundedCorners = true;
-            Backup_Saves.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            Backup_Saves.CheckedState.BorderRadius = 12;
-            Backup_Saves.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            Backup_Saves.CheckedState.InnerBorderColor = Color.White;
-            Backup_Saves.CheckedState.InnerBorderRadius = 8;
-            Backup_Saves.CheckedState.InnerColor = Color.White;
-            Backup_Saves.Cursor = Cursors.Hand;
-            Backup_Saves.CustomizableEdges = customizableEdges31;
-            Backup_Saves.Location = new Point(276, 242);
-            Backup_Saves.Margin = new Padding(2);
-            Backup_Saves.Name = "Backup_Saves";
-            Backup_Saves.ShadowDecoration.CustomizableEdges = customizableEdges32;
-            Backup_Saves.Size = new Size(46, 26);
-            Backup_Saves.TabIndex = 20;
-            Backup_Saves.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            Backup_Saves.UncheckedState.BorderRadius = 12;
-            Backup_Saves.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
-            Backup_Saves.UncheckedState.InnerBorderColor = Color.White;
-            Backup_Saves.UncheckedState.InnerBorderRadius = 8;
-            Backup_Saves.UncheckedState.InnerColor = Color.White;
+            Toggle_Backup_Saves.Anchor = AnchorStyles.Left;
+            Toggle_Backup_Saves.AutoRoundedCorners = true;
+            Toggle_Backup_Saves.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            Toggle_Backup_Saves.CheckedState.BorderRadius = 12;
+            Toggle_Backup_Saves.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            Toggle_Backup_Saves.CheckedState.InnerBorderColor = Color.White;
+            Toggle_Backup_Saves.CheckedState.InnerBorderRadius = 8;
+            Toggle_Backup_Saves.CheckedState.InnerColor = Color.White;
+            Toggle_Backup_Saves.Cursor = Cursors.Hand;
+            Toggle_Backup_Saves.CustomizableEdges = customizableEdges83;
+            Toggle_Backup_Saves.Location = new Point(276, 242);
+            Toggle_Backup_Saves.Margin = new Padding(2);
+            Toggle_Backup_Saves.Name = "Toggle_Backup_Saves";
+            Toggle_Backup_Saves.ShadowDecoration.CustomizableEdges = customizableEdges84;
+            Toggle_Backup_Saves.Size = new Size(46, 26);
+            Toggle_Backup_Saves.TabIndex = 20;
+            Toggle_Backup_Saves.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            Toggle_Backup_Saves.UncheckedState.BorderRadius = 12;
+            Toggle_Backup_Saves.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            Toggle_Backup_Saves.UncheckedState.InnerBorderColor = Color.White;
+            Toggle_Backup_Saves.UncheckedState.InnerBorderRadius = 8;
+            Toggle_Backup_Saves.UncheckedState.InnerColor = Color.White;
             // 
             // Toggle_Alternate
             // 
@@ -889,11 +889,11 @@
             Toggle_Alternate.CheckedState.InnerBorderRadius = 8;
             Toggle_Alternate.CheckedState.InnerColor = Color.White;
             Toggle_Alternate.Cursor = Cursors.Hand;
-            Toggle_Alternate.CustomizableEdges = customizableEdges33;
+            Toggle_Alternate.CustomizableEdges = customizableEdges85;
             Toggle_Alternate.Location = new Point(276, 272);
             Toggle_Alternate.Margin = new Padding(2);
             Toggle_Alternate.Name = "Toggle_Alternate";
-            Toggle_Alternate.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            Toggle_Alternate.ShadowDecoration.CustomizableEdges = customizableEdges86;
             Toggle_Alternate.Size = new Size(46, 26);
             Toggle_Alternate.TabIndex = 19;
             Toggle_Alternate.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
@@ -938,7 +938,7 @@
             // 
             Alternate_Location.AutoRoundedCorners = true;
             Alternate_Location.BorderRadius = 18;
-            Alternate_Location.CustomizableEdges = customizableEdges35;
+            Alternate_Location.CustomizableEdges = customizableEdges87;
             Alternate_Location.DefaultText = "https://updater.retrodriven.com";
             Alternate_Location.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             Alternate_Location.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -956,7 +956,7 @@
             Alternate_Location.PasswordChar = '\0';
             Alternate_Location.PlaceholderText = "";
             Alternate_Location.SelectedText = "";
-            Alternate_Location.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            Alternate_Location.ShadowDecoration.CustomizableEdges = customizableEdges88;
             Alternate_Location.Size = new Size(304, 38);
             Alternate_Location.TabIndex = 1;
             Alternate_Location.Visible = false;
@@ -966,7 +966,7 @@
             TextBox2.BackColor = Color.Transparent;
             TextBox2.BorderColor = Color.FromArgb(59, 62, 78);
             TextBox2.BorderThickness = 0;
-            TextBox2.CustomizableEdges = customizableEdges37;
+            TextBox2.CustomizableEdges = customizableEdges89;
             TextBox2.DefaultText = "Suggested Location: https://updater.retrodriven.com";
             TextBox2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             TextBox2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -984,7 +984,7 @@
             TextBox2.PlaceholderText = "";
             TextBox2.ReadOnly = true;
             TextBox2.SelectedText = "";
-            TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges38;
+            TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges90;
             TextBox2.Size = new Size(322, 22);
             TextBox2.TabIndex = 3;
             TextBox2.Visible = false;
@@ -995,7 +995,7 @@
             Button_Save.AutoRoundedCorners = true;
             Button_Save.BorderRadius = 18;
             Button_Save.Cursor = Cursors.Hand;
-            Button_Save.CustomizableEdges = customizableEdges39;
+            Button_Save.CustomizableEdges = customizableEdges91;
             Button_Save.DisabledState.BorderColor = Color.DarkGray;
             Button_Save.DisabledState.CustomBorderColor = Color.DarkGray;
             Button_Save.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -1005,7 +1005,7 @@
             Button_Save.Location = new Point(178, 79);
             Button_Save.Margin = new Padding(88, 0, 2, 2);
             Button_Save.Name = "Button_Save";
-            Button_Save.ShadowDecoration.CustomizableEdges = customizableEdges40;
+            Button_Save.ShadowDecoration.CustomizableEdges = customizableEdges92;
             Button_Save.Size = new Size(82, 38);
             Button_Save.TabIndex = 0;
             Button_Save.Text = "Save";
@@ -1027,7 +1027,7 @@
             textBox1.BackColor = Color.FromArgb(39, 44, 66);
             textBox1.BorderRadius = 10;
             textBox1.BorderThickness = 0;
-            textBox1.CustomizableEdges = customizableEdges43;
+            textBox1.CustomizableEdges = customizableEdges93;
             textBox1.DefaultText = "";
             textBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1048,7 +1048,7 @@
             textBox1.ReadOnly = true;
             textBox1.ScrollBars = ScrollBars.Vertical;
             textBox1.SelectedText = "";
-            textBox1.ShadowDecoration.CustomizableEdges = customizableEdges44;
+            textBox1.ShadowDecoration.CustomizableEdges = customizableEdges94;
             textBox1.Size = new Size(662, 590);
             textBox1.TabIndex = 1;
             // 
@@ -1057,12 +1057,12 @@
             Panel_Right.Controls.Add(textBox1);
             Panel_Right.Controls.Add(panel1);
             Panel_Right.Controls.Add(Panel_Right_Top);
-            Panel_Right.CustomizableEdges = customizableEdges49;
+            Panel_Right.CustomizableEdges = customizableEdges97;
             Panel_Right.Dock = DockStyle.Fill;
             Panel_Right.Location = new Point(512, 0);
             Panel_Right.Margin = new Padding(2);
             Panel_Right.Name = "Panel_Right";
-            Panel_Right.ShadowDecoration.CustomizableEdges = customizableEdges50;
+            Panel_Right.ShadowDecoration.CustomizableEdges = customizableEdges98;
             Panel_Right.Size = new Size(662, 670);
             Panel_Right.TabIndex = 14;
             // 
@@ -1077,14 +1077,14 @@
             // 
             // guna2ProgressBar1
             // 
-            guna2ProgressBar1.CustomizableEdges = customizableEdges45;
+            guna2ProgressBar1.CustomizableEdges = customizableEdges99;
             guna2ProgressBar1.Dock = DockStyle.Fill;
             guna2ProgressBar1.FillColor = Color.FromArgb(39, 44, 66);
             guna2ProgressBar1.Location = new Point(0, 0);
             guna2ProgressBar1.Name = "guna2ProgressBar1";
             guna2ProgressBar1.ProgressColor = Color.FromArgb(94, 148, 255);
             guna2ProgressBar1.ProgressColor2 = Color.FromArgb(94, 148, 255);
-            guna2ProgressBar1.ShadowDecoration.CustomizableEdges = customizableEdges46;
+            guna2ProgressBar1.ShadowDecoration.CustomizableEdges = customizableEdges100;
             guna2ProgressBar1.Size = new Size(662, 42);
             guna2ProgressBar1.Style = ProgressBarStyle.Continuous;
             guna2ProgressBar1.TabIndex = 0;
@@ -1094,12 +1094,12 @@
             // Panel_Right_Top
             // 
             Panel_Right_Top.Controls.Add(Panel_Status_Title);
-            Panel_Right_Top.CustomizableEdges = customizableEdges47;
+            Panel_Right_Top.CustomizableEdges = customizableEdges95;
             Panel_Right_Top.Dock = DockStyle.Top;
             Panel_Right_Top.Location = new Point(0, 0);
             Panel_Right_Top.Margin = new Padding(2);
             Panel_Right_Top.Name = "Panel_Right_Top";
-            Panel_Right_Top.ShadowDecoration.CustomizableEdges = customizableEdges48;
+            Panel_Right_Top.ShadowDecoration.CustomizableEdges = customizableEdges96;
             Panel_Right_Top.Size = new Size(662, 38);
             Panel_Right_Top.TabIndex = 0;
             // 
@@ -1211,6 +1211,6 @@
         private Panel panel1;
         private Guna.UI2.WinForms.Guna2ProgressBar guna2ProgressBar1;
         private Label label8;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch Backup_Saves;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch Toggle_Backup_Saves;
     }
 }

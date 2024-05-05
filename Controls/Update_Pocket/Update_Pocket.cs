@@ -97,15 +97,9 @@ namespace Pocket_Updater.Controls
             textBox1.Clear();
             Button_Save.Enabled = false;
 
-            //Save Sttings
-            ServiceHelper.ReloadSettings();
-            Pannella.Models.Settings.Config config = ServiceHelper.SettingsService.GetConfig();
-            ServiceHelper.SettingsService.UpdateConfig(config);
-            ServiceHelper.SettingsService.Save();
-            ServiceHelper.ReloadSettings();
-
             Update.Enabled = false;
             Save_Settings("No");
+
             Current_Dir = Directory.GetCurrentDirectory();
 
             try
@@ -557,6 +551,15 @@ namespace Pocket_Updater.Controls
             {
                 Toggle_CRC.Checked = false;
             }
+            //Backup Saves
+            if (ServiceHelper.SettingsService.GetConfig().backup_saves == true)
+            {
+                Toggle_Backup_Saves.Checked = true;
+            }
+            else
+            {
+                Toggle_Backup_Saves.Checked = false;
+            }
         }
         private async void Button_Save_Click(object sender, EventArgs e)
         {
@@ -656,6 +659,16 @@ namespace Pocket_Updater.Controls
             {
                 config.crc_check = false;
             }
+            //Backup Saves
+            if (Toggle_Backup_Saves.Checked == true)
+            {
+                config.backup_saves = true;
+            }
+            else
+            {
+                config.backup_saves = false;
+            }
+
             //Save Sttings
             ServiceHelper.SettingsService.UpdateConfig(config);
             ServiceHelper.SettingsService.Save();
