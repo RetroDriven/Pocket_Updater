@@ -64,11 +64,10 @@ namespace Pocket_Updater.Controls
             await Task.Run(() =>
             {
                 _updater.RunUpdates();
-                guna2ProgressBar1.ShowText = false;
-                guna2ProgressBar1.Value = 0;
-                guna2ProgressBar1.Update();
-
             });
+            guna2ProgressBar1.ShowText = false;
+            guna2ProgressBar1.Value = 0;
+            guna2ProgressBar1.Update();
 
             Update.Enabled = true;
             Button_Refresh.Enabled = true;
@@ -294,7 +293,7 @@ namespace Pocket_Updater.Controls
             BeginInvoke((Action)(() =>
             {
                 //No Updates Found
-                if (e.InstalledCores.Count == 0 && e.InstalledAssets.Count == 0 && e.FirmwareUpdated == "" && e.MissingBetaKeys.Count == 0)
+                if (e.InstalledCores.Count == 0 && e.InstalledAssets.Count == 0 && e.FirmwareUpdated == null && e.MissingBetaKeys.Count == 0)
                 {
                     //Summary.Close();
                     Message_Box form = new Message_Box();
@@ -309,7 +308,7 @@ namespace Pocket_Updater.Controls
                 }
 
                 //Updates Found
-                if (e.InstalledCores.Count > 0 || e.InstalledAssets.Count > 0 || e.FirmwareUpdated != "" || e.MissingBetaKeys.Count > 0)
+                if (e.InstalledCores.Count > 0 || e.InstalledAssets.Count > 0 || e.FirmwareUpdated != null || e.MissingBetaKeys.Count > 0)
                 {
                     //Status.Close();
                     Summary = new Updater_Summary();
