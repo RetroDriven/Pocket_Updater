@@ -44,6 +44,9 @@ namespace Pocket_Updater.Controls
                 ServiceHelper.CoresService
             );
 
+            _updater.StatusUpdated += updater_StatusUpdated;
+            _updater.UpdateProcessComplete += _updater_UpdateProcessComplete;
+
             Update.Enabled = false;
 
             //Read Settings Json file
@@ -66,7 +69,7 @@ namespace Pocket_Updater.Controls
                 guna2ProgressBar1.Update();
 
             });
-            ServiceHelper.CoresService.RefreshInstalledCores();
+
             Update.Enabled = true;
             Button_Refresh.Enabled = true;
             comboBox1.Enabled = true;
@@ -381,7 +384,7 @@ namespace Pocket_Updater.Controls
                     Summary.textBox1.AppendText(Environment.NewLine);
                 }
                 //Firmware Installed
-                if (e.FirmwareUpdated != "")
+                if (e.FirmwareUpdated != null)
                 {
                     Summary.textBox1.AppendText("-----------------------");
                     Summary.textBox1.AppendText(Environment.NewLine);
