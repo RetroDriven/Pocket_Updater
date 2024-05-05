@@ -271,104 +271,106 @@ namespace Pocket_Updater.Controls
         }
         private void _updater_UpdateProcessComplete(object? sender, Pannella.Models.UpdateProcessCompleteEventArgs e)
         {
-
-            //No Updates Found
-            if (e.InstalledCores.Count == 0 && e.InstalledAssets.Count == 0 && e.FirmwareUpdated == "" && e.MissingBetaKeys.Count == 0)
+            BeginInvoke((Action)(() =>
             {
-                //Summary.Close();
-                Message_Box form = new Message_Box();
-                form.label1.Text = "No Updates Found!";
-                form.Show();
-
-                //Status.Close();
-                Update.Enabled = true;
-                comboBox1.Enabled = true;
-                comboBox2.Enabled = true;
-                Button_Save.Enabled = true;
-            }
-
-            //Updates Found
-            if (e.InstalledCores.Count > 0 || e.InstalledAssets.Count > 0 || e.FirmwareUpdated != "" || e.MissingBetaKeys.Count > 0)
-            {
-                //Status.Close();
-                Summary.Show();
-                comboBox1.Enabled = true;
-                comboBox2.Enabled = true;
-                Button_Save.Enabled = true;
-            }
-
-            //Cores Installed
-            if (e.InstalledCores.Count > 0)
-            {
-                Summary.textBox1.AppendText("Cores Updated:(" + e.InstalledCores.Count + ")");
-                Summary.textBox1.AppendText(Environment.NewLine);
-                Summary.textBox1.AppendText("-----------------------");
-                Summary.textBox1.AppendText(Environment.NewLine);
-
-                foreach (Dictionary<string, string> core in e.InstalledCores)
+                //No Updates Found
+                if (e.InstalledCores.Count == 0 && e.InstalledAssets.Count == 0 && e.FirmwareUpdated == "" && e.MissingBetaKeys.Count == 0)
                 {
-                    Summary.textBox1.AppendText(core["platform"] + " v" + core["version"]);
+                    //Summary.Close();
+                    Message_Box form = new Message_Box();
+                    form.label1.Text = "No Updates Found!";
+                    form.Show();
+
+                    //Status.Close();
+                    Update.Enabled = true;
+                    comboBox1.Enabled = true;
+                    comboBox2.Enabled = true;
+                    Button_Save.Enabled = true;
+                }
+
+                //Updates Found
+                if (e.InstalledCores.Count > 0 || e.InstalledAssets.Count > 0 || e.FirmwareUpdated != "" || e.MissingBetaKeys.Count > 0)
+                {
+                    //Status.Close();
+                    Summary.Show();
+                    comboBox1.Enabled = true;
+                    comboBox2.Enabled = true;
+                    Button_Save.Enabled = true;
+                }
+
+                //Cores Installed
+                if (e.InstalledCores.Count > 0)
+                {
+                    Summary.textBox1.AppendText("Cores Updated:(" + e.InstalledCores.Count + ")");
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                    Summary.textBox1.AppendText("-----------------------");
+                    Summary.textBox1.AppendText(Environment.NewLine);
+
+                    foreach (Dictionary<string, string> core in e.InstalledCores)
+                    {
+                        Summary.textBox1.AppendText(core["platform"] + " v" + core["version"]);
+                        Summary.textBox1.AppendText(Environment.NewLine);
+                    }
                     Summary.textBox1.AppendText(Environment.NewLine);
                 }
-                Summary.textBox1.AppendText(Environment.NewLine);
-            }
 
-            //Assets Downloaded
-            if (e.InstalledAssets.Count > 0)
-            {
-                Summary.textBox1.AppendText("Assets Updated:(" + e.InstalledAssets.Count + ")");
-                Summary.textBox1.AppendText(Environment.NewLine);
-                Summary.textBox1.AppendText("-----------------------");
-                Summary.textBox1.AppendText(Environment.NewLine);
-
-                foreach (string asset in e.InstalledAssets)
+                //Assets Downloaded
+                if (e.InstalledAssets.Count > 0)
                 {
-                    Summary.textBox1.AppendText(Path.GetFileName(asset));
-                    Summary.textBox1.AppendText(", ");
-                }
-                Summary.textBox1.AppendText(Environment.NewLine);
-            }
+                    Summary.textBox1.AppendText("Assets Updated:(" + e.InstalledAssets.Count + ")");
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                    Summary.textBox1.AppendText("-----------------------");
+                    Summary.textBox1.AppendText(Environment.NewLine);
 
-            //Skipped Assets
-            if (e.SkippedAssets.Count > 0)
-            {
-                Summary.textBox1.AppendText(Environment.NewLine);
-                Summary.textBox1.AppendText("Assets Skipped:(" + e.SkippedAssets.Count + ")");
-                Summary.textBox1.AppendText(Environment.NewLine);
-                Summary.textBox1.AppendText("-----------------------");
-                Summary.textBox1.AppendText(Environment.NewLine);
-
-                foreach (string asset in e.SkippedAssets)
-                {
-                    Summary.textBox1.AppendText(Path.GetFileName(asset));
-                    Summary.textBox1.AppendText(", ");
-                }
-                Summary.textBox1.AppendText(Environment.NewLine);
-            }
-            //JT Beta Key
-            if (e.MissingBetaKeys.Count > 0)
-            {
-                Summary.textBox1.AppendText(Environment.NewLine);
-                Summary.textBox1.AppendText("Missing/Incorrect JT Beta Key For:");
-                Summary.textBox1.AppendText(Environment.NewLine);
-                Summary.textBox1.AppendText("-----------------------");
-                Summary.textBox1.AppendText(Environment.NewLine);
-
-                foreach (string core in e.MissingBetaKeys)
-                {
-                    Summary.textBox1.AppendText(core);
+                    foreach (string asset in e.InstalledAssets)
+                    {
+                        Summary.textBox1.AppendText(Path.GetFileName(asset));
+                        Summary.textBox1.AppendText(", ");
+                    }
                     Summary.textBox1.AppendText(Environment.NewLine);
                 }
-                Summary.textBox1.AppendText(Environment.NewLine);
-            }
-            //Firmware Installed
-            if (e.FirmwareUpdated != "")
-            {
-                Summary.textBox1.AppendText("-----------------------");
-                Summary.textBox1.AppendText(Environment.NewLine);
-                Summary.textBox1.AppendText("New Firmware was Downloaded(" + e.FirmwareUpdated + ") - Restart your Pocket to Install!");
-                Summary.textBox1.AppendText(Environment.NewLine);
-            }
+
+                //Skipped Assets
+                if (e.SkippedAssets.Count > 0)
+                {
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                    Summary.textBox1.AppendText("Assets Skipped:(" + e.SkippedAssets.Count + ")");
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                    Summary.textBox1.AppendText("-----------------------");
+                    Summary.textBox1.AppendText(Environment.NewLine);
+
+                    foreach (string asset in e.SkippedAssets)
+                    {
+                        Summary.textBox1.AppendText(Path.GetFileName(asset));
+                        Summary.textBox1.AppendText(", ");
+                    }
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                }
+                //JT Beta Key
+                if (e.MissingBetaKeys.Count > 0)
+                {
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                    Summary.textBox1.AppendText("Missing/Incorrect JT Beta Key For:");
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                    Summary.textBox1.AppendText("-----------------------");
+                    Summary.textBox1.AppendText(Environment.NewLine);
+
+                    foreach (string core in e.MissingBetaKeys)
+                    {
+                        Summary.textBox1.AppendText(core);
+                        Summary.textBox1.AppendText(Environment.NewLine);
+                    }
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                }
+                //Firmware Installed
+                if (e.FirmwareUpdated != "")
+                {
+                    Summary.textBox1.AppendText("-----------------------");
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                    Summary.textBox1.AppendText("New Firmware was Downloaded(" + e.FirmwareUpdated + ") - Restart your Pocket to Install!");
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                }
+            }));
         }
         public void Write_Log(string LogDir, string LogName, string LogSource)
         {
