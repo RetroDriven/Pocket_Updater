@@ -62,6 +62,8 @@ namespace Pocket_Updater.Controls
             {
                 _updater.RunUpdates();
                 guna2ProgressBar1.ShowText = false;
+                guna2ProgressBar1.Value = 0;
+                guna2ProgressBar1.Update();
 
             });
             ServiceHelper.CoresService.RefreshInstalledCores();

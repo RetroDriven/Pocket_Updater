@@ -1040,6 +1040,7 @@
             guna2ProgressBar1.ProgressColor2 = Color.FromArgb(94, 148, 255);
             guna2ProgressBar1.ShadowDecoration.CustomizableEdges = customizableEdges44;
             guna2ProgressBar1.Size = new Size(662, 42);
+            guna2ProgressBar1.Style = ProgressBarStyle.Continuous;
             guna2ProgressBar1.TabIndex = 0;
             guna2ProgressBar1.Text = "guna2ProgressBar1";
             guna2ProgressBar1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
