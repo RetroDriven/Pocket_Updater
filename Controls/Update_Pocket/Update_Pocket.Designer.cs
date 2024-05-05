@@ -42,8 +42,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -68,14 +68,16 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges47 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges48 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges49 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges50 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges47 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges48 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             flowLayoutPanel1 = new FlowLayoutPanel();
             Panel_Title = new Guna.UI2.WinForms.Guna2Panel();
             label3 = new Label();
@@ -99,6 +101,7 @@
             Panel_Left_Bottom = new Panel();
             flowLayoutPanel2 = new FlowLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
+            label8 = new Label();
             label6 = new Label();
             Toggle_Alternatives = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             label16 = new Label();
@@ -113,10 +116,11 @@
             Toggle_Firmware = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             Toggle_Jsons = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             label7 = new Label();
-            Toggle_Alternate = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            label12 = new Label();
             label14 = new Label();
             Toggle_CRC = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            Backup_Saves = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            Toggle_Alternate = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            label12 = new Label();
             tableLayoutPanel4 = new TableLayoutPanel();
             Alternate_Location = new Guna.UI2.WinForms.Guna2TextBox();
             TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
@@ -441,13 +445,13 @@
             Panel_Left.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Panel_Left.Controls.Add(Panel_Left_Main);
             Panel_Left.Controls.Add(Panel_Left_Top);
-            Panel_Left.CustomizableEdges = customizableEdges39;
+            Panel_Left.CustomizableEdges = customizableEdges41;
             Panel_Left.Dock = DockStyle.Left;
             Panel_Left.Location = new Point(0, 0);
             Panel_Left.Margin = new Padding(2);
             Panel_Left.Name = "Panel_Left";
-            Panel_Left.ShadowDecoration.CustomizableEdges = customizableEdges40;
-            Panel_Left.Size = new Size(512, 666);
+            Panel_Left.ShadowDecoration.CustomizableEdges = customizableEdges42;
+            Panel_Left.Size = new Size(512, 670);
             Panel_Left.TabIndex = 13;
             // 
             // Panel_Left_Main
@@ -457,7 +461,7 @@
             Panel_Left_Main.Location = new Point(0, 154);
             Panel_Left_Main.Margin = new Padding(2);
             Panel_Left_Main.Name = "Panel_Left_Main";
-            Panel_Left_Main.Size = new Size(512, 512);
+            Panel_Left_Main.Size = new Size(512, 516);
             Panel_Left_Main.TabIndex = 14;
             // 
             // Panel_Left_Bottom
@@ -469,7 +473,7 @@
             Panel_Left_Bottom.Margin = new Padding(2);
             Panel_Left_Bottom.Name = "Panel_Left_Bottom";
             Panel_Left_Bottom.Padding = new Padding(2, 0, 0, 0);
-            Panel_Left_Bottom.Size = new Size(512, 512);
+            Panel_Left_Bottom.Size = new Size(512, 516);
             Panel_Left_Bottom.TabIndex = 12;
             // 
             // flowLayoutPanel2
@@ -482,7 +486,7 @@
             flowLayoutPanel2.Location = new Point(2, 32);
             flowLayoutPanel2.Margin = new Padding(2);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(510, 480);
+            flowLayoutPanel2.Size = new Size(510, 484);
             flowLayoutPanel2.TabIndex = 11;
             // 
             // tableLayoutPanel3
@@ -491,6 +495,7 @@
             tableLayoutPanel3.ColumnCount = 2;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel3.Controls.Add(label8, 0, 10);
             tableLayoutPanel3.Controls.Add(label6, 0, 4);
             tableLayoutPanel3.Controls.Add(Toggle_Alternatives, 1, 7);
             tableLayoutPanel3.Controls.Add(label16, 0, 7);
@@ -505,15 +510,16 @@
             tableLayoutPanel3.Controls.Add(Toggle_Firmware, 1, 0);
             tableLayoutPanel3.Controls.Add(Toggle_Jsons, 1, 5);
             tableLayoutPanel3.Controls.Add(label7, 0, 5);
-            tableLayoutPanel3.Controls.Add(Toggle_Alternate, 1, 9);
-            tableLayoutPanel3.Controls.Add(label12, 0, 9);
             tableLayoutPanel3.Controls.Add(label14, 0, 8);
             tableLayoutPanel3.Controls.Add(Toggle_CRC, 1, 8);
+            tableLayoutPanel3.Controls.Add(Backup_Saves, 1, 10);
+            tableLayoutPanel3.Controls.Add(Toggle_Alternate, 1, 11);
+            tableLayoutPanel3.Controls.Add(label12, 0, 11);
             tableLayoutPanel3.Location = new Point(2, 2);
             tableLayoutPanel3.Margin = new Padding(2);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.Padding = new Padding(22, 0, 0, 0);
-            tableLayoutPanel3.RowCount = 10;
+            tableLayoutPanel3.RowCount = 11;
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
@@ -524,8 +530,23 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
-            tableLayoutPanel3.Size = new Size(324, 270);
+            tableLayoutPanel3.RowStyles.Add(new RowStyle());
+            tableLayoutPanel3.RowStyles.Add(new RowStyle());
+            tableLayoutPanel3.Size = new Size(324, 300);
             tableLayoutPanel3.TabIndex = 0;
+            // 
+            // label8
+            // 
+            label8.Anchor = AnchorStyles.Right;
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(169, 245);
+            label8.Margin = new Padding(2, 0, 2, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(103, 20);
+            label8.TabIndex = 21;
+            label8.Text = "Backup Saves";
+            ToolTip.SetToolTip(label8, "This will compress the Saves and Memories directories from your Pocket to the \"Backups\" folder");
             // 
             // label6
             // 
@@ -793,46 +814,6 @@
             label7.Text = "Generate PCECD JSONs:";
             ToolTip.SetToolTip(label7, "This will auto create the required JSON Files for the PCECD Games on your SD Card");
             // 
-            // Toggle_Alternate
-            // 
-            Toggle_Alternate.Anchor = AnchorStyles.Left;
-            Toggle_Alternate.AutoRoundedCorners = true;
-            Toggle_Alternate.Checked = true;
-            Toggle_Alternate.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            Toggle_Alternate.CheckedState.BorderRadius = 12;
-            Toggle_Alternate.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            Toggle_Alternate.CheckedState.InnerBorderColor = Color.White;
-            Toggle_Alternate.CheckedState.InnerBorderRadius = 8;
-            Toggle_Alternate.CheckedState.InnerColor = Color.White;
-            Toggle_Alternate.Cursor = Cursors.Hand;
-            Toggle_Alternate.CustomizableEdges = customizableEdges29;
-            Toggle_Alternate.Location = new Point(276, 242);
-            Toggle_Alternate.Margin = new Padding(2);
-            Toggle_Alternate.Name = "Toggle_Alternate";
-            Toggle_Alternate.ShadowDecoration.CustomizableEdges = customizableEdges30;
-            Toggle_Alternate.Size = new Size(46, 26);
-            Toggle_Alternate.TabIndex = 19;
-            Toggle_Alternate.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            Toggle_Alternate.UncheckedState.BorderRadius = 12;
-            Toggle_Alternate.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
-            Toggle_Alternate.UncheckedState.InnerBorderColor = Color.White;
-            Toggle_Alternate.UncheckedState.InnerBorderRadius = 8;
-            Toggle_Alternate.UncheckedState.InnerColor = Color.White;
-            Toggle_Alternate.CheckedChanged += Toggle_Alternate_CheckedChanged;
-            // 
-            // label12
-            // 
-            label12.Anchor = AnchorStyles.Right;
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            label12.Location = new Point(24, 245);
-            label12.Margin = new Padding(2, 0, 2, 0);
-            label12.Name = "label12";
-            label12.Size = new Size(248, 20);
-            label12.TabIndex = 18;
-            label12.Text = "Use Alternate Download Location:";
-            ToolTip.SetToolTip(label12, "You can supply your own Download URL/Location to get your ROMS and BIOS instead of using Archive.org by default.");
-            // 
             // label14
             // 
             label14.Anchor = AnchorStyles.Right;
@@ -857,11 +838,11 @@
             Toggle_CRC.CheckedState.InnerBorderRadius = 8;
             Toggle_CRC.CheckedState.InnerColor = Color.White;
             Toggle_CRC.Cursor = Cursors.Hand;
-            Toggle_CRC.CustomizableEdges = customizableEdges31;
+            Toggle_CRC.CustomizableEdges = customizableEdges29;
             Toggle_CRC.Location = new Point(276, 212);
             Toggle_CRC.Margin = new Padding(2);
             Toggle_CRC.Name = "Toggle_CRC";
-            Toggle_CRC.ShadowDecoration.CustomizableEdges = customizableEdges32;
+            Toggle_CRC.ShadowDecoration.CustomizableEdges = customizableEdges30;
             Toggle_CRC.Size = new Size(46, 26);
             Toggle_CRC.TabIndex = 15;
             Toggle_CRC.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
@@ -871,6 +852,71 @@
             Toggle_CRC.UncheckedState.InnerBorderRadius = 8;
             Toggle_CRC.UncheckedState.InnerColor = Color.White;
             // 
+            // Backup_Saves
+            // 
+            Backup_Saves.Anchor = AnchorStyles.Left;
+            Backup_Saves.AutoRoundedCorners = true;
+            Backup_Saves.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            Backup_Saves.CheckedState.BorderRadius = 12;
+            Backup_Saves.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            Backup_Saves.CheckedState.InnerBorderColor = Color.White;
+            Backup_Saves.CheckedState.InnerBorderRadius = 8;
+            Backup_Saves.CheckedState.InnerColor = Color.White;
+            Backup_Saves.Cursor = Cursors.Hand;
+            Backup_Saves.CustomizableEdges = customizableEdges31;
+            Backup_Saves.Location = new Point(276, 242);
+            Backup_Saves.Margin = new Padding(2);
+            Backup_Saves.Name = "Backup_Saves";
+            Backup_Saves.ShadowDecoration.CustomizableEdges = customizableEdges32;
+            Backup_Saves.Size = new Size(46, 26);
+            Backup_Saves.TabIndex = 20;
+            Backup_Saves.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            Backup_Saves.UncheckedState.BorderRadius = 12;
+            Backup_Saves.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            Backup_Saves.UncheckedState.InnerBorderColor = Color.White;
+            Backup_Saves.UncheckedState.InnerBorderRadius = 8;
+            Backup_Saves.UncheckedState.InnerColor = Color.White;
+            // 
+            // Toggle_Alternate
+            // 
+            Toggle_Alternate.Anchor = AnchorStyles.Left;
+            Toggle_Alternate.AutoRoundedCorners = true;
+            Toggle_Alternate.Checked = true;
+            Toggle_Alternate.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            Toggle_Alternate.CheckedState.BorderRadius = 12;
+            Toggle_Alternate.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            Toggle_Alternate.CheckedState.InnerBorderColor = Color.White;
+            Toggle_Alternate.CheckedState.InnerBorderRadius = 8;
+            Toggle_Alternate.CheckedState.InnerColor = Color.White;
+            Toggle_Alternate.Cursor = Cursors.Hand;
+            Toggle_Alternate.CustomizableEdges = customizableEdges33;
+            Toggle_Alternate.Location = new Point(276, 272);
+            Toggle_Alternate.Margin = new Padding(2);
+            Toggle_Alternate.Name = "Toggle_Alternate";
+            Toggle_Alternate.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            Toggle_Alternate.Size = new Size(46, 26);
+            Toggle_Alternate.TabIndex = 19;
+            Toggle_Alternate.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            Toggle_Alternate.UncheckedState.BorderRadius = 12;
+            Toggle_Alternate.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            Toggle_Alternate.UncheckedState.InnerBorderColor = Color.White;
+            Toggle_Alternate.UncheckedState.InnerBorderRadius = 8;
+            Toggle_Alternate.UncheckedState.InnerColor = Color.White;
+            Toggle_Alternate.CheckedChanged += Toggle_Alternate_CheckedChanged;
+            // 
+            // label12
+            // 
+            label12.Anchor = AnchorStyles.Right;
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.Location = new Point(24, 275);
+            label12.Margin = new Padding(2, 0, 2, 0);
+            label12.Name = "label12";
+            label12.Size = new Size(248, 20);
+            label12.TabIndex = 18;
+            label12.Text = "Use Alternate Download Location:";
+            ToolTip.SetToolTip(label12, "You can supply your own Download URL/Location to get your ROMS and BIOS instead of using Archive.org by default.");
+            // 
             // tableLayoutPanel4
             // 
             tableLayoutPanel4.ColumnCount = 1;
@@ -878,7 +924,7 @@
             tableLayoutPanel4.Controls.Add(Alternate_Location, 0, 0);
             tableLayoutPanel4.Controls.Add(TextBox2, 0, 1);
             tableLayoutPanel4.Controls.Add(Button_Save, 0, 2);
-            tableLayoutPanel4.Location = new Point(2, 276);
+            tableLayoutPanel4.Location = new Point(2, 306);
             tableLayoutPanel4.Margin = new Padding(2);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 3;
@@ -892,7 +938,7 @@
             // 
             Alternate_Location.AutoRoundedCorners = true;
             Alternate_Location.BorderRadius = 18;
-            Alternate_Location.CustomizableEdges = customizableEdges33;
+            Alternate_Location.CustomizableEdges = customizableEdges35;
             Alternate_Location.DefaultText = "https://updater.retrodriven.com";
             Alternate_Location.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             Alternate_Location.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -910,7 +956,7 @@
             Alternate_Location.PasswordChar = '\0';
             Alternate_Location.PlaceholderText = "";
             Alternate_Location.SelectedText = "";
-            Alternate_Location.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            Alternate_Location.ShadowDecoration.CustomizableEdges = customizableEdges36;
             Alternate_Location.Size = new Size(304, 38);
             Alternate_Location.TabIndex = 1;
             Alternate_Location.Visible = false;
@@ -920,7 +966,7 @@
             TextBox2.BackColor = Color.Transparent;
             TextBox2.BorderColor = Color.FromArgb(59, 62, 78);
             TextBox2.BorderThickness = 0;
-            TextBox2.CustomizableEdges = customizableEdges35;
+            TextBox2.CustomizableEdges = customizableEdges37;
             TextBox2.DefaultText = "Suggested Location: https://updater.retrodriven.com";
             TextBox2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             TextBox2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -938,7 +984,7 @@
             TextBox2.PlaceholderText = "";
             TextBox2.ReadOnly = true;
             TextBox2.SelectedText = "";
-            TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges38;
             TextBox2.Size = new Size(322, 22);
             TextBox2.TabIndex = 3;
             TextBox2.Visible = false;
@@ -949,7 +995,7 @@
             Button_Save.AutoRoundedCorners = true;
             Button_Save.BorderRadius = 18;
             Button_Save.Cursor = Cursors.Hand;
-            Button_Save.CustomizableEdges = customizableEdges37;
+            Button_Save.CustomizableEdges = customizableEdges39;
             Button_Save.DisabledState.BorderColor = Color.DarkGray;
             Button_Save.DisabledState.CustomBorderColor = Color.DarkGray;
             Button_Save.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -959,7 +1005,7 @@
             Button_Save.Location = new Point(178, 79);
             Button_Save.Margin = new Padding(88, 0, 2, 2);
             Button_Save.Name = "Button_Save";
-            Button_Save.ShadowDecoration.CustomizableEdges = customizableEdges38;
+            Button_Save.ShadowDecoration.CustomizableEdges = customizableEdges40;
             Button_Save.Size = new Size(82, 38);
             Button_Save.TabIndex = 0;
             Button_Save.Text = "Save";
@@ -981,7 +1027,7 @@
             textBox1.BackColor = Color.FromArgb(39, 44, 66);
             textBox1.BorderRadius = 10;
             textBox1.BorderThickness = 0;
-            textBox1.CustomizableEdges = customizableEdges41;
+            textBox1.CustomizableEdges = customizableEdges43;
             textBox1.DefaultText = "";
             textBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1002,8 +1048,8 @@
             textBox1.ReadOnly = true;
             textBox1.ScrollBars = ScrollBars.Vertical;
             textBox1.SelectedText = "";
-            textBox1.ShadowDecoration.CustomizableEdges = customizableEdges42;
-            textBox1.Size = new Size(662, 586);
+            textBox1.ShadowDecoration.CustomizableEdges = customizableEdges44;
+            textBox1.Size = new Size(662, 590);
             textBox1.TabIndex = 1;
             // 
             // Panel_Right
@@ -1011,34 +1057,34 @@
             Panel_Right.Controls.Add(textBox1);
             Panel_Right.Controls.Add(panel1);
             Panel_Right.Controls.Add(Panel_Right_Top);
-            Panel_Right.CustomizableEdges = customizableEdges47;
+            Panel_Right.CustomizableEdges = customizableEdges49;
             Panel_Right.Dock = DockStyle.Fill;
             Panel_Right.Location = new Point(512, 0);
             Panel_Right.Margin = new Padding(2);
             Panel_Right.Name = "Panel_Right";
-            Panel_Right.ShadowDecoration.CustomizableEdges = customizableEdges48;
-            Panel_Right.Size = new Size(662, 666);
+            Panel_Right.ShadowDecoration.CustomizableEdges = customizableEdges50;
+            Panel_Right.Size = new Size(662, 670);
             Panel_Right.TabIndex = 14;
             // 
             // panel1
             // 
             panel1.Controls.Add(guna2ProgressBar1);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 624);
+            panel1.Location = new Point(0, 628);
             panel1.Name = "panel1";
             panel1.Size = new Size(662, 42);
             panel1.TabIndex = 2;
             // 
             // guna2ProgressBar1
             // 
-            guna2ProgressBar1.CustomizableEdges = customizableEdges43;
+            guna2ProgressBar1.CustomizableEdges = customizableEdges45;
             guna2ProgressBar1.Dock = DockStyle.Fill;
             guna2ProgressBar1.FillColor = Color.FromArgb(39, 44, 66);
             guna2ProgressBar1.Location = new Point(0, 0);
             guna2ProgressBar1.Name = "guna2ProgressBar1";
             guna2ProgressBar1.ProgressColor = Color.FromArgb(94, 148, 255);
             guna2ProgressBar1.ProgressColor2 = Color.FromArgb(94, 148, 255);
-            guna2ProgressBar1.ShadowDecoration.CustomizableEdges = customizableEdges44;
+            guna2ProgressBar1.ShadowDecoration.CustomizableEdges = customizableEdges46;
             guna2ProgressBar1.Size = new Size(662, 42);
             guna2ProgressBar1.Style = ProgressBarStyle.Continuous;
             guna2ProgressBar1.TabIndex = 0;
@@ -1048,12 +1094,12 @@
             // Panel_Right_Top
             // 
             Panel_Right_Top.Controls.Add(Panel_Status_Title);
-            Panel_Right_Top.CustomizableEdges = customizableEdges45;
+            Panel_Right_Top.CustomizableEdges = customizableEdges47;
             Panel_Right_Top.Dock = DockStyle.Top;
             Panel_Right_Top.Location = new Point(0, 0);
             Panel_Right_Top.Margin = new Padding(2);
             Panel_Right_Top.Name = "Panel_Right_Top";
-            Panel_Right_Top.ShadowDecoration.CustomizableEdges = customizableEdges46;
+            Panel_Right_Top.ShadowDecoration.CustomizableEdges = customizableEdges48;
             Panel_Right_Top.Size = new Size(662, 38);
             Panel_Right_Top.TabIndex = 0;
             // 
@@ -1078,7 +1124,7 @@
             ForeColor = SystemColors.ControlLightLight;
             Margin = new Padding(2);
             Name = "Update_Pocket";
-            Size = new Size(1174, 666);
+            Size = new Size(1174, 670);
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
             Panel_Title.ResumeLayout(false);
@@ -1164,5 +1210,7 @@
         public Guna.UI2.WinForms.Guna2ComboBox comboBox2;
         private Panel panel1;
         private Guna.UI2.WinForms.Guna2ProgressBar guna2ProgressBar1;
+        private Label label8;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch Backup_Saves;
     }
 }
