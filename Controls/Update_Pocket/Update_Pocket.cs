@@ -121,10 +121,11 @@ namespace Pocket_Updater.Controls
                     await UpdateRemoveableStorage(github_token, Current_Dir);
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Triggered!");
-                Update.Enabled = true;
+                Message_Box form = new Message_Box();
+                form.label1.Text = ex.ToString();
+                form.Show();
             }
             finally
             {
@@ -178,7 +179,7 @@ namespace Pocket_Updater.Controls
             {
                 // TODO: log the exception
                 Message_Box form = new Message_Box();
-                form.label1.Text = "No Internet Connection Detected!";
+                form.label1.Text = ex.ToString();
                 form.ShowDialog();
                 Update.Enabled = true;
             }
@@ -235,11 +236,9 @@ namespace Pocket_Updater.Controls
             }
             catch (Exception ex)
             {
-                // TODO: log the exception
                 Message_Box form = new Message_Box();
-                form.label1.Text = "No Internet Connection Detected!";
-                form.ShowDialog();
-                Update.Enabled = true;
+                form.label1.Text = ex.ToString();
+                form.Show();
             }
         }
 
@@ -310,6 +309,7 @@ namespace Pocket_Updater.Controls
                 if (e.InstalledCores.Count > 0 || e.InstalledAssets.Count > 0 || e.FirmwareUpdated != "" || e.MissingBetaKeys.Count > 0)
                 {
                     //Status.Close();
+                    Summary = new Updater_Summary();
                     Summary.Show();
                     comboBox1.Enabled = true;
                     comboBox2.Enabled = true;
