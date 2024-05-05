@@ -7,6 +7,8 @@ using Pocket_Updater.Forms.Updater_Summary;
 
 using Newtonsoft.Json;
 using Pannella.Helpers;
+using Guna.UI2.WinForms;
+using Pannella.Models.Settings;
 
 namespace Pocket_Updater.Controls
 {
@@ -59,6 +61,8 @@ namespace Pocket_Updater.Controls
             await Task.Run(() =>
             {
                 _updater.RunUpdates();
+                guna2ProgressBar1.ShowText = false;
+
             });
             ServiceHelper.CoresService.RefreshInstalledCores();
             Update.Enabled = true;
@@ -82,14 +86,19 @@ namespace Pocket_Updater.Controls
                 textBox1.AppendText(e.Message);
                 textBox1.AppendText(Environment.NewLine);
             }));
-
-            //textBox1.Refresh();
         }
 
         private async void Update_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
             Button_Save.Enabled = false;
+
+            //Save Sttings
+            ServiceHelper.ReloadSettings();
+            Pannella.Models.Settings.Config config = ServiceHelper.SettingsService.GetConfig();
+            ServiceHelper.SettingsService.UpdateConfig(config);
+            ServiceHelper.SettingsService.Save();
+            ServiceHelper.ReloadSettings();
 
             Update.Enabled = false;
             Save_Settings("No");
@@ -125,11 +134,14 @@ namespace Pocket_Updater.Controls
         {
             var percent = e.Progress * 100;
             int val = Convert.ToInt32(percent);
+
+            guna2ProgressBar1.ShowText = true;
+            
             BeginInvoke((Action)(() =>
             {
-                /* !!! update the progress bar here !!! */
-                //downloadProgressBar.Value = val;
-                textBox1.AppendText(val.ToString());
+
+                    guna2ProgressBar1.Value = val;
+                    guna2ProgressBar1.Update();
             }));
 
         }
@@ -147,6 +159,8 @@ namespace Pocket_Updater.Controls
                     ServiceHelper.SettingsService,
                     ServiceHelper.CoresService
                 );
+
+                //Progress Bar
                 HttpHelper.Instance.DownloadProgressUpdate += updater_ProgressUpdated;
 
                 //Status.Show();
@@ -189,6 +203,8 @@ namespace Pocket_Updater.Controls
                         ServiceHelper.CoresService
                     );
 
+                    //Progress Bar
+                    HttpHelper.Instance.DownloadProgressUpdate += updater_ProgressUpdated;
 
                     //Status.Show();
 
