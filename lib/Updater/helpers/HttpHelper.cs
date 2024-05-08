@@ -30,6 +30,8 @@ public class HttpHelper
     {
         bool console = false;
 
+        MessageBox.Show("Download Location: " + uri);
+
         try
         {
             _ = Console.WindowWidth;

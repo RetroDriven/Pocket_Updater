@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using Pannella.Helpers;
 using Guna.UI2.WinForms;
 using Pannella.Models.Settings;
+using Microsoft.VisualBasic;
 
 namespace Pocket_Updater.Controls
 {
@@ -61,6 +62,7 @@ namespace Pocket_Updater.Controls
             Update.Enabled = false;
             Button_Refresh.Enabled = false;
             comboBox1.Enabled = false;
+
             await Task.Run(() =>
             {
                 _updater.RunUpdates();
@@ -98,7 +100,14 @@ namespace Pocket_Updater.Controls
             Button_Save.Enabled = false;
 
             Update.Enabled = false;
-            Save_Settings("No");
+
+            BeginInvoke((Action)(() =>
+            {
+
+                Save_Settings("No");
+                //ServiceHelper.ReloadSettings();
+
+            }));
 
             Current_Dir = Directory.GetCurrentDirectory();
 
@@ -149,6 +158,8 @@ namespace Pocket_Updater.Controls
         {
             try
             {
+
+
                 //Download_Json(Current_Dir);
                 ServiceHelper.Initialize(currentDirectory, updater_StatusUpdated, _updater_UpdateProcessComplete);
                 _updater = new CoreUpdaterService(
@@ -670,10 +681,14 @@ namespace Pocket_Updater.Controls
             }
 
             //Save Sttings
-            ServiceHelper.SettingsService.UpdateConfig(config);
-            ServiceHelper.SettingsService.Save();
-            ServiceHelper.ReloadSettings();
+            BeginInvoke((Action)(() =>
+            {
+                ServiceHelper.SettingsService.UpdateConfig(config);
+                ServiceHelper.SettingsService.Save();
 
+                setupUpdater(Current_Dir);
+
+            }));
             //Show Message Box
             if (ShowBox == "Yes")
             {
@@ -754,6 +769,20 @@ namespace Pocket_Updater.Controls
                 string[] Entries = new string[] { Update_Location, Update_Drive };
                 Updater_Preferences.Save_Updater_Json(Entries, Json_File);
             }
+        }
+        private void setupUpdater(string path)
+        {
+            ServiceHelper.Initialize(path, updater_StatusUpdated, _updater_UpdateProcessComplete);
+            _updater = new CoreUpdaterService(
+                ServiceHelper.UpdateDirectory,
+                ServiceHelper.CoresService.Cores,
+                ServiceHelper.FirmwareService,
+                ServiceHelper.SettingsService,
+                ServiceHelper.CoresService
+            );
+
+            _updater.StatusUpdated += updater_StatusUpdated;
+            _updater.UpdateProcessComplete += _updater_UpdateProcessComplete;
         }
     }
 }
