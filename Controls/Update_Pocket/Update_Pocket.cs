@@ -642,7 +642,7 @@ namespace Pocket_Updater.Controls
             //Save Sttings
             ServiceHelper.SettingsService.UpdateConfig(config);
             ServiceHelper.SettingsService.Save();
-            setupUpdater(Current_Dir);
+
 
             //Show Message Box
             if (ShowBox == "Yes")
