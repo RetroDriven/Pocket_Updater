@@ -727,10 +727,7 @@ namespace Pocket_Updater.Controls
         }
         private void setupUpdater(string path)
         {
-            ServiceHelper.Initialize(path, updater_StatusUpdated, _updater_UpdateProcessComplete);
-            
-            ServiceHelper.ReloadSettings();
-            
+            ServiceHelper.Initialize(path, updater_StatusUpdated, _updater_UpdateProcessComplete, true);
             _updater = new CoreUpdaterService(
                 ServiceHelper.UpdateDirectory,
                 ServiceHelper.CoresService.Cores,

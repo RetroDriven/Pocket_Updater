@@ -17,9 +17,9 @@ public static class ServiceHelper
     private static bool isInitialized;
 
     public static void Initialize(string path, EventHandler<StatusUpdatedEventArgs> statusUpdated = null,
-        EventHandler<UpdateProcessCompleteEventArgs> updateProcessComplete = null)
+        EventHandler<UpdateProcessCompleteEventArgs> updateProcessComplete = null, bool forceReload = false)
     {
-        if (!isInitialized)
+        if (!isInitialized || forceReload)
         {
             isInitialized = true;
             UpdateDirectory = path;
@@ -52,10 +52,5 @@ public static class ServiceHelper
     public static void ReloadSettings()
     {
         SettingsService = new SettingsService(UpdateDirectory, CoresService.Cores);
-
-        //reload the archive service, in case that setting has changed
-        ArchiveService = new ArchiveService(SettingsService.GetConfig().archives,
-                SettingsService.GetConfig().crc_check, SettingsService.GetConfig().use_custom_archive);
-        CoresService = new CoresService(UpdateDirectory, SettingsService, ArchiveService, AssetsService);
     }
 }
