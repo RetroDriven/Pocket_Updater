@@ -36,17 +36,7 @@ namespace Pocket_Updater.Controls
             string Current_Dir = Directory.GetCurrentDirectory();
             _settings = new SettingsService(Current_Dir);
 
-            ServiceHelper.Initialize(Current_Dir, updater_StatusUpdated, _updater_UpdateProcessComplete);
-            _updater = new CoreUpdaterService(
-                ServiceHelper.UpdateDirectory,
-                ServiceHelper.CoresService.Cores,
-                ServiceHelper.FirmwareService,
-                ServiceHelper.SettingsService,
-                ServiceHelper.CoresService
-            );
-
-            _updater.StatusUpdated += updater_StatusUpdated;
-            _updater.UpdateProcessComplete += _updater_UpdateProcessComplete;
+            setupUpdater(Current_Dir);
 
             Update.Enabled = false;
 
@@ -161,22 +151,10 @@ namespace Pocket_Updater.Controls
 
 
                 //Download_Json(Current_Dir);
-                ServiceHelper.Initialize(currentDirectory, updater_StatusUpdated, _updater_UpdateProcessComplete);
-                _updater = new CoreUpdaterService(
-                    ServiceHelper.UpdateDirectory,
-                    ServiceHelper.CoresService.Cores,
-                    ServiceHelper.FirmwareService,
-                    ServiceHelper.SettingsService,
-                    ServiceHelper.CoresService
-                );
+                setupUpdater(currentDirectory);
 
                 //Progress Bar
                 HttpHelper.Instance.DownloadProgressUpdate += updater_ProgressUpdated;
-
-                //Status.Show();
-
-                _updater.StatusUpdated += updater_StatusUpdated;
-                _updater.UpdateProcessComplete += _updater_UpdateProcessComplete;
 
                 comboBox2.Enabled = false;
                 Save_Preferences_Json();
@@ -204,22 +182,11 @@ namespace Pocket_Updater.Controls
                 var drives = DriveInfo.GetDrives();
                 if (drives.Where(data => data.Name == pathToUpdate).Count() == 1)
                 {
-                    ServiceHelper.Initialize(pathToUpdate, updater_StatusUpdated, _updater_UpdateProcessComplete);
-                    _updater = new CoreUpdaterService(
-                        ServiceHelper.UpdateDirectory,
-                        ServiceHelper.CoresService.Cores,
-                        ServiceHelper.FirmwareService,
-                        ServiceHelper.SettingsService,
-                        ServiceHelper.CoresService
-                    );
+                    setupUpdater(pathToUpdate);
 
                     //Progress Bar
                     HttpHelper.Instance.DownloadProgressUpdate += updater_ProgressUpdated;
 
-                    //Status.Show();
-
-                    _updater.StatusUpdated += updater_StatusUpdated;
-                    _updater.UpdateProcessComplete += _updater_UpdateProcessComplete;
 
                     comboBox1.Enabled = false;
                     comboBox2.Enabled = false;
@@ -681,14 +648,10 @@ namespace Pocket_Updater.Controls
             }
 
             //Save Sttings
-            BeginInvoke((Action)(() =>
-            {
-                ServiceHelper.SettingsService.UpdateConfig(config);
-                ServiceHelper.SettingsService.Save();
+            ServiceHelper.SettingsService.UpdateConfig(config);
+            ServiceHelper.SettingsService.Save();
+            setupUpdater(Current_Dir);
 
-                setupUpdater(Current_Dir);
-
-            }));
             //Show Message Box
             if (ShowBox == "Yes")
             {
@@ -773,6 +736,7 @@ namespace Pocket_Updater.Controls
         private void setupUpdater(string path)
         {
             ServiceHelper.Initialize(path, updater_StatusUpdated, _updater_UpdateProcessComplete);
+            ServiceHelper.ReloadSettings();
             _updater = new CoreUpdaterService(
                 ServiceHelper.UpdateDirectory,
                 ServiceHelper.CoresService.Cores,
