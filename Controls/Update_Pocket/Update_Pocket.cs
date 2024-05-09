@@ -91,13 +91,7 @@ namespace Pocket_Updater.Controls
 
             Update.Enabled = false;
 
-            BeginInvoke((Action)(() =>
-            {
-
-                Save_Settings("No");
-                //ServiceHelper.ReloadSettings();
-
-            }));
+            Save_Settings("No");
 
             Current_Dir = Directory.GetCurrentDirectory();
 
@@ -148,8 +142,6 @@ namespace Pocket_Updater.Controls
         {
             try
             {
-
-
                 //Download_Json(Current_Dir);
                 setupUpdater(currentDirectory);
 
@@ -736,7 +728,9 @@ namespace Pocket_Updater.Controls
         private void setupUpdater(string path)
         {
             ServiceHelper.Initialize(path, updater_StatusUpdated, _updater_UpdateProcessComplete);
+            
             ServiceHelper.ReloadSettings();
+            
             _updater = new CoreUpdaterService(
                 ServiceHelper.UpdateDirectory,
                 ServiceHelper.CoresService.Cores,

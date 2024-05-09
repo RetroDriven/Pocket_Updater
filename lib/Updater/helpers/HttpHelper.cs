@@ -30,7 +30,7 @@ public class HttpHelper
     {
         bool console = false;
 
-        MessageBox.Show("Download Location: " + uri);
+        //MessageBox.Show("Download Location: " + uri);
 
         try
         {
