@@ -349,9 +349,14 @@ namespace Pocket_Updater.Controls
                 //Firmware Installed
                 if (e.FirmwareUpdated != null)
                 {
-                    Summary.textBox1.AppendText("-----------------------");
-                    Summary.textBox1.AppendText(Environment.NewLine);
-                    Summary.textBox1.AppendText("New Firmware was Downloaded(" + e.FirmwareUpdated + ") - Restart your Pocket to Install!");
+                    if (e.InstalledCores.Count != 0 || e.InstalledAssets.Count != 0 || e.MissingBetaKeys.Count != 0)
+                    {
+                        Summary.textBox1.AppendText("-----------------------");
+                        Summary.textBox1.AppendText(Environment.NewLine);
+                    }
+					
+					//Summary.textBox1.AppendText("New Firmware was Downloaded(" + e.FirmwareUpdated + ") - Restart your Pocket to Install!");
+                    Summary.textBox1.AppendText("New Firmware was Downloaded - Restart your Pocket to Install!");
                     Summary.textBox1.AppendText(Environment.NewLine);
                 }
             }));

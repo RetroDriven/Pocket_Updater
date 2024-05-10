@@ -153,6 +153,12 @@ public class Config
             }
         }
 
+        if (archive.url == "https://updater.retrodriven.com")
+        {
+            use_custom_archive = true;
+            archive.index = "updater.php";
+        }
+
         // bugfix: check to make sure the custom archives has archive_name populated
         if (archive is { type: ArchiveType.custom_archive } && string.IsNullOrEmpty(archive.archive_name))
         {
