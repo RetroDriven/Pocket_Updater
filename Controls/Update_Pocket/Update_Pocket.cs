@@ -1,11 +1,16 @@
 ﻿using System.Data;
 using System.Net;
-using pannella.analoguepocket;
+using Pannella.Services;
 using RetroDriven;
 using Pocket_Updater.Forms.Message_Box;
 using Pocket_Updater.Forms.Updater_Summary;
-using Analogue;
+
 using Newtonsoft.Json;
+using Pannella.Helpers;
+using Guna.UI2.WinForms;
+using Pannella.Models.Settings;
+using Microsoft.VisualBasic;
+
 namespace Pocket_Updater.Controls
 {
     public partial class Update_Pocket : UserControl
@@ -14,8 +19,8 @@ namespace Pocket_Updater.Controls
         public string Current_Dir { get; set; }
 
         private WebClient WebClient;
-        private PocketCoreUpdater _updater;
-        SettingsManager _settings;
+        private CoreUpdaterService _updater;
+        SettingsService _settings;
 
         //Initialize Update Status Form Popup
         Updater_Summary Summary = new Updater_Summary();
@@ -29,10 +34,9 @@ namespace Pocket_Updater.Controls
             //Get USB Drives
             PopulateDrives();
             string Current_Dir = Directory.GetCurrentDirectory();
-            _settings = new SettingsManager(Current_Dir);
+            _settings = new SettingsService(Current_Dir);
 
-            _updater = new PocketCoreUpdater(Current_Dir);
-            _updater.Initialize();
+            setupUpdater(Current_Dir);
 
             Update.Enabled = false;
 
@@ -48,9 +52,15 @@ namespace Pocket_Updater.Controls
             Update.Enabled = false;
             Button_Refresh.Enabled = false;
             comboBox1.Enabled = false;
-            //GitHub Token
-            _updater.SetGithubApiKey("apikey");
-            await _updater.RunUpdates();
+
+            await Task.Run(() =>
+            {
+                _updater.RunUpdates();
+            });
+            guna2ProgressBar1.ShowText = false;
+            guna2ProgressBar1.Value = 0;
+            guna2ProgressBar1.Update();
+
             Update.Enabled = true;
             Button_Refresh.Enabled = true;
             comboBox1.Enabled = true;
@@ -64,12 +74,14 @@ namespace Pocket_Updater.Controls
             //Close();
         }
 
-        private void updater_StatusUpdated(object sender, StatusUpdatedEventArgs e)
+        private void updater_StatusUpdated(object sender, Pannella.Models.StatusUpdatedEventArgs e)
         {
             //Show Updater Status in a new Form
-            textBox1.AppendText(e.Message);
-            textBox1.AppendText(Environment.NewLine);
-            //textBox1.Refresh();
+            BeginInvoke((Action)(() =>
+            {
+                textBox1.AppendText(e.Message);
+                textBox1.AppendText(Environment.NewLine);
+            }));
         }
 
         private async void Update_Click(object sender, EventArgs e)
@@ -78,28 +90,31 @@ namespace Pocket_Updater.Controls
             Button_Save.Enabled = false;
 
             Update.Enabled = false;
+
             Save_Settings("No");
+
             Current_Dir = Directory.GetCurrentDirectory();
 
             try
             {
                 string Location_Type = comboBox2.SelectedItem.ToString();
-                string github_token = _settings.GetConfig().github_token;
+                string github_token = ServiceHelper.SettingsService.GetConfig().github_token;
 
                 // where are we updating to
                 if (Location_Type == "Current Directory")
                 {
-                    UpdateCurrentDirectory(github_token, Current_Dir);
+                    await UpdateCurrentDirectory(github_token, Current_Dir);
                 }
                 else if (Location_Type == "Removable Storage")
                 {
-                    UpdateRemoveableStorage(github_token, Current_Dir);
+                    await UpdateRemoveableStorage(github_token, Current_Dir);
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Triggered!");
-                Update.Enabled = true;
+                Message_Box form = new Message_Box();
+                form.label1.Text = ex.ToString();
+                form.Show();
             }
             finally
             {
@@ -107,47 +122,47 @@ namespace Pocket_Updater.Controls
             }
         }
 
-        private async void UpdateCurrentDirectory(string github_token, string currentDirectory)
+        private void updater_ProgressUpdated(object sender, DownloadProgressEventArgs e)
+        {
+            var percent = e.Progress * 100;
+            int val = Convert.ToInt32(percent);
+
+            guna2ProgressBar1.ShowText = true;
+            
+            BeginInvoke((Action)(() =>
+            {
+
+                    guna2ProgressBar1.Value = val;
+                    guna2ProgressBar1.Update();
+            }));
+
+        }
+
+        private async Task UpdateCurrentDirectory(string github_token, string currentDirectory)
         {
             try
             {
                 //Download_Json(Current_Dir);
-                _updater = new PocketCoreUpdater(currentDirectory);
-                await _updater.Initialize();
-                //_updater.DownloadAssets(true); //turns on the option to also download bios files
+                setupUpdater(currentDirectory);
 
-                _updater.SetGithubApiKey(_settings.GetConfig().github_token);
-                _updater.DownloadFirmware(_settings.GetConfig().download_firmware);
-                _updater.DownloadAssets(_settings.GetConfig().download_assets);
-                _updater.DeleteSkippedCores(_settings.GetConfig().delete_skipped_cores);
-                _updater.PreservePlatformsFolder(_settings.GetConfig().preserve_platforms_folder);
-                _updater.RenameJotegoCores(_settings.GetConfig().fix_jt_names);
-
-                if (github_token != null)
-                {
-                    _updater.SetGithubApiKey(github_token);
-                }
-
-                //Status.Show();
-
-                _updater.StatusUpdated += updater_StatusUpdated;
-                _updater.UpdateProcessComplete += _updater_UpdateProcessComplete;
+                //Progress Bar
+                HttpHelper.Instance.DownloadProgressUpdate += updater_ProgressUpdated;
 
                 comboBox2.Enabled = false;
                 Save_Preferences_Json();
-                RunCoreUpdateProcess(currentDirectory, currentDirectory, currentDirectory);
+                await RunCoreUpdateProcess(currentDirectory, currentDirectory, currentDirectory);
             }
             catch (Exception ex)
             {
                 // TODO: log the exception
                 Message_Box form = new Message_Box();
-                form.label1.Text = "No Internet Connection Detected!";
+                form.label1.Text = ex.ToString();
                 form.ShowDialog();
                 Update.Enabled = true;
             }
         }
 
-        private async void UpdateRemoveableStorage(string github_token, string currentDirectory)
+        private async Task UpdateRemoveableStorage(string github_token, string currentDirectory)
         {
             //string pathToUpdate = Pocket_Drive;
             string pathToUpdate = comboBox1.SelectedItem.ToString();
@@ -159,36 +174,17 @@ namespace Pocket_Updater.Controls
                 var drives = DriveInfo.GetDrives();
                 if (drives.Where(data => data.Name == pathToUpdate).Count() == 1)
                 {
-                    //Download_Json(pathToUpdate);
-                    // string Current_Dir = Directory.GetCurrentDirectory();
-                    _updater = new PocketCoreUpdater(pathToUpdate, currentDirectory);
-                    await _updater.Initialize();
-                    //_updater.CoresFile = pathToUpdate;
-                    //_updater.DownloadAssets(true); //turns on the option to also download bios files
+                    setupUpdater(pathToUpdate);
 
-                    //Get Config Settings
-                    _updater.SetGithubApiKey(_settings.GetConfig().github_token);
-                    _updater.DownloadFirmware(_settings.GetConfig().download_firmware);
-                    _updater.DownloadAssets(_settings.GetConfig().download_assets);
-                    _updater.DeleteSkippedCores(_settings.GetConfig().delete_skipped_cores);
-                    _updater.PreservePlatformsFolder(_settings.GetConfig().preserve_platforms_folder);
-                    _updater.RenameJotegoCores(_settings.GetConfig().fix_jt_names);
+                    //Progress Bar
+                    HttpHelper.Instance.DownloadProgressUpdate += updater_ProgressUpdated;
 
-                    if (github_token != null)
-                    {
-                        _updater.SetGithubApiKey(github_token);
-                    }
-
-                    //Status.Show();
-
-                    _updater.StatusUpdated += updater_StatusUpdated;
-                    _updater.UpdateProcessComplete += _updater_UpdateProcessComplete;
 
                     comboBox1.Enabled = false;
                     comboBox2.Enabled = false;
 
                     Save_Preferences_Json();
-                    RunCoreUpdateProcess(pathToUpdate, currentDirectory, currentDirectory);
+                    await RunCoreUpdateProcess(pathToUpdate, currentDirectory, currentDirectory);
                 }
                 else
                 {
@@ -206,11 +202,9 @@ namespace Pocket_Updater.Controls
             }
             catch (Exception ex)
             {
-                // TODO: log the exception
                 Message_Box form = new Message_Box();
-                form.label1.Text = "No Internet Connection Detected!";
-                form.ShowDialog();
-                Update.Enabled = true;
+                form.label1.Text = ex.ToString();
+                form.Show();
             }
         }
 
@@ -258,106 +252,114 @@ namespace Pocket_Updater.Controls
                 Update.Enabled = true;
             }
         }
-        private void _updater_UpdateProcessComplete(object? sender, UpdateProcessCompleteEventArgs e)
+        private void _updater_UpdateProcessComplete(object? sender, Pannella.Models.UpdateProcessCompleteEventArgs e)
         {
-
-            //No Updates Found
-            if (e.InstalledCores.Count == 0 && e.InstalledAssets.Count == 0 && e.FirmwareUpdated == "" && e.MissingBetaKeys.Count == 0)
+            BeginInvoke((Action)(() =>
             {
-                //Summary.Close();
-                Message_Box form = new Message_Box();
-                form.label1.Text = "No Updates Found!";
-                form.Show();
-
-                //Status.Close();
-                Update.Enabled = true;
-                comboBox1.Enabled = true;
-                comboBox2.Enabled = true;
-                Button_Save.Enabled = true;
-            }
-
-            //Updates Found
-            if (e.InstalledCores.Count > 0 || e.InstalledAssets.Count > 0 || e.FirmwareUpdated != "" || e.MissingBetaKeys.Count > 0)
-            {
-                //Status.Close();
-                Summary.Show();
-                comboBox1.Enabled = true;
-                comboBox2.Enabled = true;
-                Button_Save.Enabled = true;
-            }
-
-            //Cores Installed
-            if (e.InstalledCores.Count > 0)
-            {
-                Summary.textBox1.AppendText("Cores Updated:(" + e.InstalledCores.Count + ")");
-                Summary.textBox1.AppendText(Environment.NewLine);
-                Summary.textBox1.AppendText("-----------------------");
-                Summary.textBox1.AppendText(Environment.NewLine);
-
-                foreach (Dictionary<string, string> core in e.InstalledCores)
+                //No Updates Found
+                if (e.InstalledCores.Count == 0 && e.InstalledAssets.Count == 0 && e.FirmwareUpdated == null && e.MissingBetaKeys.Count == 0)
                 {
-                    Summary.textBox1.AppendText(core["platform"] + " v" + core["version"]);
+                    //Summary.Close();
+                    Message_Box form = new Message_Box();
+                    form.label1.Text = "No Updates Found!";
+                    form.Show();
+
+                    //Status.Close();
+                    Update.Enabled = true;
+                    comboBox1.Enabled = true;
+                    comboBox2.Enabled = true;
+                    Button_Save.Enabled = true;
+                }
+
+                //Updates Found
+                if (e.InstalledCores.Count > 0 || e.InstalledAssets.Count > 0 || e.FirmwareUpdated != null || e.MissingBetaKeys.Count > 0)
+                {
+                    //Status.Close();
+                    Summary = new Updater_Summary();
+                    Summary.Show();
+                    comboBox1.Enabled = true;
+                    comboBox2.Enabled = true;
+                    Button_Save.Enabled = true;
+                }
+
+                //Cores Installed
+                if (e.InstalledCores.Count > 0)
+                {
+                    Summary.textBox1.AppendText("Cores Updated:(" + e.InstalledCores.Count + ")");
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                    Summary.textBox1.AppendText("-----------------------");
+                    Summary.textBox1.AppendText(Environment.NewLine);
+
+                    foreach (Dictionary<string, string> core in e.InstalledCores)
+                    {
+                        Summary.textBox1.AppendText(core["platform"] + " v" + core["version"]);
+                        Summary.textBox1.AppendText(Environment.NewLine);
+                    }
                     Summary.textBox1.AppendText(Environment.NewLine);
                 }
-                Summary.textBox1.AppendText(Environment.NewLine);
-            }
 
-            //Assets Downloaded
-            if (e.InstalledAssets.Count > 0)
-            {
-                Summary.textBox1.AppendText("Assets Updated:(" + e.InstalledAssets.Count + ")");
-                Summary.textBox1.AppendText(Environment.NewLine);
-                Summary.textBox1.AppendText("-----------------------");
-                Summary.textBox1.AppendText(Environment.NewLine);
-
-                foreach (string asset in e.InstalledAssets)
+                //Assets Downloaded
+                if (e.InstalledAssets.Count > 0)
                 {
-                    Summary.textBox1.AppendText(Path.GetFileName(asset));
-                    Summary.textBox1.AppendText(", ");
-                }
-                Summary.textBox1.AppendText(Environment.NewLine);
-            }
+                    Summary.textBox1.AppendText("Assets Updated:(" + e.InstalledAssets.Count + ")");
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                    Summary.textBox1.AppendText("-----------------------");
+                    Summary.textBox1.AppendText(Environment.NewLine);
 
-            //Skipped Assets
-            if (e.SkippedAssets.Count > 0)
-            {
-                Summary.textBox1.AppendText(Environment.NewLine);
-                Summary.textBox1.AppendText("Assets Skipped:(" + e.SkippedAssets.Count + ")");
-                Summary.textBox1.AppendText(Environment.NewLine);
-                Summary.textBox1.AppendText("-----------------------");
-                Summary.textBox1.AppendText(Environment.NewLine);
-
-                foreach (string asset in e.SkippedAssets)
-                {
-                    Summary.textBox1.AppendText(Path.GetFileName(asset));
-                    Summary.textBox1.AppendText(", ");
-                }
-                Summary.textBox1.AppendText(Environment.NewLine);
-            }
-            //JT Beta Key
-            if (e.MissingBetaKeys.Count > 0)
-            {
-                Summary.textBox1.AppendText(Environment.NewLine);
-                Summary.textBox1.AppendText("Missing/Incorrect JT Beta Key For:");
-                Summary.textBox1.AppendText(Environment.NewLine);
-                Summary.textBox1.AppendText("-----------------------");
-                Summary.textBox1.AppendText(Environment.NewLine);
-
-                foreach (string core in e.MissingBetaKeys)
-                {
-                    Summary.textBox1.AppendText(core);
+                    foreach (string asset in e.InstalledAssets)
+                    {
+                        Summary.textBox1.AppendText(Path.GetFileName(asset));
+                        Summary.textBox1.AppendText(", ");
+                    }
                     Summary.textBox1.AppendText(Environment.NewLine);
                 }
-                Summary.textBox1.AppendText(Environment.NewLine);
-            }
-            //Firmware Installed
-            if (e.FirmwareUpdated != "")
-            {
-                Summary.textBox1.AppendText("-----------------------");
-                Summary.textBox1.AppendText(Environment.NewLine);
-                Summary.textBox1.AppendText("New Firmware was Downloaded(" + e.FirmwareUpdated + ") - Restart your Pocket to Install!");
-                Summary.textBox1.AppendText(Environment.NewLine);
-            }
+
+                //Skipped Assets
+                if (e.SkippedAssets.Count > 0)
+                {
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                    Summary.textBox1.AppendText("Assets Skipped:(" + e.SkippedAssets.Count + ")");
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                    Summary.textBox1.AppendText("-----------------------");
+                    Summary.textBox1.AppendText(Environment.NewLine);
+
+                    foreach (string asset in e.SkippedAssets)
+                    {
+                        Summary.textBox1.AppendText(Path.GetFileName(asset));
+                        Summary.textBox1.AppendText(", ");
+                    }
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                }
+                //JT Beta Key
+                if (e.MissingBetaKeys.Count > 0)
+                {
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                    Summary.textBox1.AppendText("Missing/Incorrect JT Beta Key For:");
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                    Summary.textBox1.AppendText("-----------------------");
+                    Summary.textBox1.AppendText(Environment.NewLine);
+
+                    foreach (string core in e.MissingBetaKeys)
+                    {
+                        Summary.textBox1.AppendText(core);
+                        Summary.textBox1.AppendText(Environment.NewLine);
+                    }
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                }
+                //Firmware Installed
+                if (e.FirmwareUpdated != null)
+                {
+                    if (e.InstalledCores.Count != 0 || e.InstalledAssets.Count != 0 || e.MissingBetaKeys.Count != 0)
+                    {
+                        Summary.textBox1.AppendText("-----------------------");
+                        Summary.textBox1.AppendText(Environment.NewLine);
+                    }
+					
+					//Summary.textBox1.AppendText("New Firmware was Downloaded(" + e.FirmwareUpdated + ") - Restart your Pocket to Install!");
+                    Summary.textBox1.AppendText("New Firmware was Downloaded - Restart your Pocket to Install!");
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                }
+            }));
         }
         public void Write_Log(string LogDir, string LogName, string LogSource)
         {
@@ -433,10 +435,10 @@ namespace Pocket_Updater.Controls
         public async Task ReadSettingsAsync()
         {
             string Current_Dir = Directory.GetCurrentDirectory();
-            _settings = new SettingsManager(Current_Dir);
+            _settings = new SettingsService(Current_Dir);
 
             //Alternate Arcade Files
-            if (_settings.GetConfig().skip_alternative_assets == true)
+            if (ServiceHelper.SettingsService.GetConfig().skip_alternative_assets == true)
             {
                 Toggle_Alternatives.Checked = true;
             }
@@ -445,15 +447,14 @@ namespace Pocket_Updater.Controls
                 Toggle_Alternatives.Checked = false;
             }
             //GitHub Token
-            //Alternate_Location.Text = _settings.GetConfig().use_custom_archive;
+            //Alternate_Location.Text = ServiceHelper.SettingsService.GetConfig().use_custom_archive;
 
-            if (_settings.GetConfig().use_custom_archive == true)
+            if (ServiceHelper.SettingsService.GetConfig().use_custom_archive == true)
             {
                 Toggle_Alternate.Checked = true;
 
-                var custom = _settings.GetConfig().custom_archive;
-                var url = custom["url"];
-                var index = custom["index"];
+                var url = ServiceHelper.SettingsService.GetConfig().archives[1].url;
+                var index = ServiceHelper.SettingsService.GetConfig().archives[1].index;
                 Alternate_Location.Text = url;
                 //CRC_Json.Text = index;
 
@@ -463,7 +464,7 @@ namespace Pocket_Updater.Controls
                 Toggle_Alternate.Checked = false;
             }
             //Download Pocket Firmware
-            if (_settings.GetConfig().download_firmware == true)
+            if (ServiceHelper.SettingsService.GetConfig().download_firmware == true)
             {
                 Toggle_Firmware.Checked = true;
             }
@@ -472,7 +473,7 @@ namespace Pocket_Updater.Controls
                 Toggle_Firmware.Checked = false;
             }
             //Download Assets
-            if (_settings.GetConfig().download_assets == true)
+            if (ServiceHelper.SettingsService.GetConfig().download_assets == true)
             {
                 Toggle_Assets.Checked = true;
             }
@@ -481,7 +482,7 @@ namespace Pocket_Updater.Controls
                 Toggle_Assets.Checked = false;
             }
             //Preserve Core Images
-            if (_settings.GetConfig().preserve_platforms_folder == true)
+            if (ServiceHelper.SettingsService.GetConfig().preserve_platforms_folder == true)
             {
                 Toggle_Platforms.Checked = true;
             }
@@ -490,7 +491,7 @@ namespace Pocket_Updater.Controls
                 Toggle_Platforms.Checked = false;
             }
             //Delete Skipped Cores
-            if (_settings.GetConfig().delete_skipped_cores == true)
+            if (ServiceHelper.SettingsService.GetConfig().delete_skipped_cores == true)
             {
                 Toggle_Skipped.Checked = true;
             }
@@ -499,7 +500,7 @@ namespace Pocket_Updater.Controls
                 Toggle_Skipped.Checked = false;
             }
             //Build Jsons
-            if (_settings.GetConfig().build_instance_jsons == true)
+            if (ServiceHelper.SettingsService.GetConfig().build_instance_jsons == true)
             {
                 Toggle_Jsons.Checked = true;
             }
@@ -508,7 +509,7 @@ namespace Pocket_Updater.Controls
                 Toggle_Jsons.Checked = false;
             }
             //Jotego Core Rename
-            if (_settings.GetConfig().fix_jt_names == true)
+            if (ServiceHelper.SettingsService.GetConfig().fix_jt_names == true)
             {
                 Toggle_Jotego.Checked = true;
             }
@@ -517,13 +518,22 @@ namespace Pocket_Updater.Controls
                 Toggle_Jotego.Checked = false;
             }
             //CRC Checking
-            if (_settings.GetConfig().crc_check == true)
+            if (ServiceHelper.SettingsService.GetConfig().crc_check == true)
             {
                 Toggle_CRC.Checked = true;
             }
             else
             {
                 Toggle_CRC.Checked = false;
+            }
+            //Backup Saves
+            if (ServiceHelper.SettingsService.GetConfig().backup_saves == true)
+            {
+                Toggle_Backup_Saves.Checked = true;
+            }
+            else
+            {
+                Toggle_Backup_Saves.Checked = false;
             }
         }
         private async void Button_Save_Click(object sender, EventArgs e)
@@ -534,7 +544,7 @@ namespace Pocket_Updater.Controls
         private async void Save_Settings(string ShowBox)
         {
             //string value = Alternate_Location.Text;
-            pannella.analoguepocket.Config config = _settings.GetConfig();
+            Pannella.Models.Settings.Config config = ServiceHelper.SettingsService.GetConfig();
 
             //GitHub Token
             //config.github_token = value;
@@ -554,10 +564,7 @@ namespace Pocket_Updater.Controls
             {
                 config.use_custom_archive = true;
 
-                var custom = _settings.GetConfig().custom_archive;
-                custom["url"] = Alternate_Location.Text;
-                //custom["index"] = CRC_Json.Text;
-                _settings.GetConfig().custom_archive = custom;
+                ServiceHelper.SettingsService.GetConfig().archives[1].url = Alternate_Location.Text;
             }
             else
             {
@@ -627,9 +634,20 @@ namespace Pocket_Updater.Controls
             {
                 config.crc_check = false;
             }
+            //Backup Saves
+            if (Toggle_Backup_Saves.Checked == true)
+            {
+                config.backup_saves = true;
+            }
+            else
+            {
+                config.backup_saves = false;
+            }
+
             //Save Sttings
-            _settings.UpdateConfig(config);
-            _settings.SaveSettings();
+            ServiceHelper.SettingsService.UpdateConfig(config);
+            ServiceHelper.SettingsService.Save();
+
 
             //Show Message Box
             if (ShowBox == "Yes")
@@ -699,8 +717,8 @@ namespace Pocket_Updater.Controls
             string Json_File = @"updater_preferences.json";
 
             string Update_Location = comboBox2.SelectedItem.ToString();
-            
-            if((comboBox1.SelectedIndex == -1))
+
+            if ((comboBox1.SelectedIndex == -1))
             {
                 string[] Entries = new string[] { Update_Location, "" };
                 Updater_Preferences.Save_Updater_Json(Entries, Json_File);
@@ -711,6 +729,20 @@ namespace Pocket_Updater.Controls
                 string[] Entries = new string[] { Update_Location, Update_Drive };
                 Updater_Preferences.Save_Updater_Json(Entries, Json_File);
             }
+        }
+        private void setupUpdater(string path)
+        {
+            ServiceHelper.Initialize(path, updater_StatusUpdated, _updater_UpdateProcessComplete, true);
+            _updater = new CoreUpdaterService(
+                ServiceHelper.UpdateDirectory,
+                ServiceHelper.CoresService.Cores,
+                ServiceHelper.FirmwareService,
+                ServiceHelper.SettingsService,
+                ServiceHelper.CoresService
+            );
+
+            _updater.StatusUpdated += updater_StatusUpdated;
+            _updater.UpdateProcessComplete += _updater_UpdateProcessComplete;
         }
     }
 }

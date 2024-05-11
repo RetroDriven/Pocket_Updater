@@ -1,6 +1,7 @@
 ﻿using RetroDriven;
 using System.Text.Json;
-using pannella.analoguepocket;
+using Pannella.Services;
+using Pannella.Helpers;
 using System.Net;
 using System.ComponentModel;
 using Pocket_Updater.Forms.Message_Box;
@@ -15,14 +16,14 @@ namespace Pocket_Updater.Controls.Organize_Cores
         public string Current_Dir { get; set; }
         public string updateFile { get; set; }
 
-        private SettingsManager _settings;
+        private SettingsService _settings;
 
         private Dictionary<string, CoreInfo> platforms;
         public Organize_Cores()
         {
             InitializeComponent();
             string Current_Dir = Directory.GetCurrentDirectory();
-            _settings = new SettingsManager(Current_Dir);
+            _settings = new SettingsService(Current_Dir);
 
             //Get USB Drives
             PopulateDrives();
@@ -48,10 +49,10 @@ namespace Pocket_Updater.Controls.Organize_Cores
                 //Enable Preserve Platform Folder
                 try
                 {
-                    Config config = _settings.GetConfig();
+                    Pannella.Models.Settings.Config config = ServiceHelper.SettingsService.GetConfig();
                     config.preserve_platforms_folder = true;
-                    _settings.UpdateConfig(config);
-                    _settings.SaveSettings();
+                    ServiceHelper.SettingsService.UpdateConfig(config);
+                    ServiceHelper.SettingsService.Save();
                     Save_Preferences_Json();
 
                     var Json_Dir = Path.Combine(Pocket_Drive.Text, "Platforms");
@@ -220,7 +221,7 @@ namespace Pocket_Updater.Controls.Organize_Cores
             {
                 //Get Json Data
                 string Current = Directory.GetCurrentDirectory()+"\\";
-                _settings = new SettingsManager(Current);
+                _settings = new SettingsService(Current);
                 dataGridView1.Rows.Clear();
                 ReadPlatforms(Current);
 

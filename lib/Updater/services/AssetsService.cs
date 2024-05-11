@@ -1,33 +1,78 @@
-using System.Text.Json;
+using System.IO.Compression;
+using Newtonsoft.Json;
+using Pannella.Helpers;
 
-namespace pannella.analoguepocket;
+namespace Pannella.Services;
 
-public static class AssetsService
+public class AssetsService
 {
-    private const string IMAGE_PACKS = "https://raw.githubusercontent.com/mattpannella/pocket-updater-utility/main/image_packs.json";
-    private const string BLACKLIST = "https://raw.githubusercontent.com/mattpannella/pocket-updater-utility/main/blacklist.json";
+    private const string BLACKLIST = "https://raw.githubusercontent.com/mattpannella/pupdate/main/blacklist.json";
 
-    public static async Task<ImagePack[]> GetImagePacks()
+    private readonly bool useLocalBlacklist;
+    private List<string> blacklist;
+
+    public List<string> Blacklist
     {
-        string json = await Factory.GetHttpHelper().GetHTML(IMAGE_PACKS);
-        ImagePack[] packs = JsonSerializer.Deserialize<ImagePack[]?>(json);
+        get
+        {
+            if (this.blacklist == null)
+            {
+                string json = useLocalBlacklist
+                    ? File.ReadAllText("blacklist.json")
+                    : HttpHelper.Instance.GetHTML(BLACKLIST);
 
-        if(packs != null) {
-            return packs;
+                this.blacklist = JsonConvert.DeserializeObject<List<string>>(json);
+            }
+
+            return this.blacklist;
         }
-
-        return new ImagePack[0];
     }
 
-    public static async Task<string[]> GetBlacklist()
+    public AssetsService(bool useLocalBlacklist)
     {
-        string json = await Factory.GetHttpHelper().GetHTML(BLACKLIST);
-        string[] files = JsonSerializer.Deserialize<string[]?>(json);
+        this.useLocalBlacklist = useLocalBlacklist;
+    }
 
-        if(files != null) {
-            return files;
+    public static void BackupSaves(string directory, string backupLocation)
+    {
+        BackupDirectory(directory, "Saves", backupLocation);
+    }
+
+    public static void BackupMemories(string directory, string backupLocation)
+    {
+        BackupDirectory(directory, "Memories", backupLocation);
+    }
+
+    private static void BackupDirectory(string rootDirectory, string folderName, string backupLocation)
+    {
+        if (string.IsNullOrEmpty(rootDirectory))
+        {
+            throw new ArgumentNullException(nameof(rootDirectory));
         }
 
-        return new string[0];
+        if (string.IsNullOrEmpty(backupLocation))
+        {
+            throw new ArgumentNullException(nameof(backupLocation));
+        }
+
+        Console.WriteLine($"Compressing and backing up {folderName} directory...");
+        string savesPath = Path.Combine(rootDirectory, folderName);
+        string fileName = $"{folderName}_Backup_{DateTime.Now:yyyy-MM-dd_HH.mm.ss}.zip";
+        string archiveName = Path.Combine(backupLocation, fileName);
+
+        if (Directory.Exists(savesPath))
+        {
+            if (!Directory.Exists(backupLocation))
+            {
+                Directory.CreateDirectory(backupLocation);
+            }
+
+            ZipFile.CreateFromDirectory(savesPath, archiveName);
+            Console.WriteLine("Complete.");
+        }
+        else
+        {
+            Console.WriteLine($"No {folderName} directory found, skipping backup...");
+        }
     }
 }

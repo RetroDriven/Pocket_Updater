@@ -1,39 +1,170 @@
-namespace pannella.analoguepocket;
+using System.ComponentModel;
+using Newtonsoft.Json;
+
+namespace Pannella.Models.Settings;
 
 public class Config
 {
-    public bool download_assets { get; set; }
-    public string archive_name { get; set; }
-    public string? github_token { get; set; }
-    public bool download_firmware { get; set; }
-    public bool core_selector { get; set; }
-    public bool preserve_platforms_folder { get; set; }
-    public bool delete_skipped_cores { get; set; }
-    public string? download_new_cores { get; set; }
-    public bool build_instance_jsons { get; set; }
-    public bool crc_check { get; set; }
-    public bool fix_jt_names { get; set; }
-    public bool skip_alternative_assets { get; set; }
-    public bool use_custom_archive { get; set; }
-    public Dictionary<string, string> custom_archive { get; set; }
+    [Description("Download Missing Assets (ROMs and BIOS Files) during 'Update All'")]
+    public bool download_assets { get; set; } = true;
 
-    public Config()
+    public string github_token { get; set; } = string.Empty;
+
+    [Description("Download Firmware Updates during 'Update All'")]
+    public bool download_firmware { get; set; } = true;
+
+    [Description("Preserve 'Platforms' folder during 'Update All'")]
+    public bool preserve_platforms_folder { get; set; } = false;
+
+    [Description("Delete untracked cores during 'Update All'")]
+    public bool delete_skipped_cores { get; set; } = true;
+
+    public string download_new_cores { get; set; }
+
+    [Description("Build game JSON files for supported cores during 'Update All'")]
+    public bool build_instance_jsons { get; set; } = true;
+
+    [Description("Use CRC check when checking ROMs and BIOS files")]
+    public bool crc_check { get; set; } = true;
+
+    [Description("Automatically rename Jotego cores during 'Update All'")]
+    public bool fix_jt_names { get; set; } = true;
+
+    [Description("Skip alternative roms when downloading assets")]
+    public bool skip_alternative_assets { get; set; } = true;
+
+    [Description("Compress and backup Saves and Memories directories during 'Update All'")]
+    public bool backup_saves { get; set; }
+
+    public string backup_saves_location { get; set; } = "Backups";
+
+    [Description("Show descriptions for advanced menu items")]
+    public bool show_menu_descriptions { get; set; } = true;
+
+    [Description("Use custom asset archive")]
+    public bool use_custom_archive { get; set; } = false;
+
+    public string temp_directory { get; set; } = null;
+
+    [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+    public bool use_local_blacklist { get; set; } = false;
+
+    [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+    public bool use_local_image_packs { get; set; } = false;
+
+    [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+    public bool use_local_pocket_extras { get; set; } = false;
+
+    [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+    public bool suppress_already_installed { get; set; }
+
+    [JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
+    public List<Archive> archives { get; set; } = new()
     {
-        download_assets = true;
-        download_firmware = true;
-        archive_name = "openFPGA-Files";
-        core_selector = true;
-        preserve_platforms_folder = false;
-        delete_skipped_cores = true;
-        download_new_cores = null;
-        build_instance_jsons = true;
-        crc_check = true;
-        fix_jt_names = true;
-        skip_alternative_assets = true;
-        use_custom_archive = false;
-        custom_archive = new Dictionary<string, string>() {
-            {"url", "https://updater.retrodriven.com"},
-            {"index", "updater.php"}
-        };
+        new Archive
+        {
+            name = "default",
+            type = ArchiveType.internet_archive,
+            archive_name = "openFPGA-Files",
+        },
+        new Archive
+        {
+            name = "custom",
+            type = ArchiveType.custom_archive,
+            archive_name = "custom",
+            url = "https://updater.retrodriven.com",
+            index = "updater.php",
+        },
+        new Archive
+        {
+            name = "agg23.GameAndWatch",
+            type = ArchiveType.core_specific_archive,
+            archive_name = "fpga-gnw-opt",
+            archive_folder = null,
+            file_extensions = new List<string> { ".gnw" },
+            enabled = false,
+        }
+    };
+
+    #region Old Settings
+
+    private string _archive_name;
+
+    [JsonProperty]
+    private string archive_name { set { _archive_name = value; } }
+
+    private string _gnw_archive_name;
+
+    [JsonProperty]
+    private string gnw_archive_name { set { _gnw_archive_name = value; } }
+
+    private bool? _download_gnw_roms;
+
+    [JsonProperty]
+    private bool? download_gnw_roms { set { _download_gnw_roms = value; } }
+
+    private CustomArchive _custom_archive;
+
+    [JsonProperty]
+    private CustomArchive custom_archive { set { _custom_archive = value; } }
+
+    public void Migrate()
+    {
+        Archive archive;
+
+        if (!string.IsNullOrEmpty(_archive_name))
+        {
+            archive = this.archives.FirstOrDefault(x => x.name == "default");
+
+            if (archive != null)
+            {
+                archive.archive_name = _archive_name;
+            }
+        }
+
+        if (!string.IsNullOrEmpty(_gnw_archive_name))
+        {
+            archive = this.archives.FirstOrDefault(x => x.name == "agg23.GameAndWatch");
+
+            if (archive != null)
+            {
+                archive.archive_name = _gnw_archive_name;
+            }
+        }
+
+        if (_download_gnw_roms.HasValue)
+        {
+            archive = this.archives.FirstOrDefault(x => x.name == "agg23.GameAndWatch");
+
+            if (archive != null)
+            {
+                archive.enabled = _download_gnw_roms.Value;
+            }
+        }
+
+        archive = this.archives.FirstOrDefault(x => x.name == "custom");
+
+        if (_custom_archive != null)
+        {
+            if (archive != null)
+            {
+                archive.url = _custom_archive.url;
+                archive.index = _custom_archive.index;
+            }
+        }
+
+        if (archive.url == "https://updater.retrodriven.com")
+        {
+            use_custom_archive = true;
+            archive.index = "updater.php";
+        }
+
+        // bugfix: check to make sure the custom archives has archive_name populated
+        if (archive is { type: ArchiveType.custom_archive } && string.IsNullOrEmpty(archive.archive_name))
+        {
+            archive.archive_name = "custom";
+        }
     }
+
+    #endregion
 }

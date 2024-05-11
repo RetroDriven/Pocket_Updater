@@ -1,4 +1,4 @@
-using pannella.analoguepocket;
+using Pannella;
 using Pocket_Updater.Forms.Message_Box;
 using System.Diagnostics;
 using System.Net;
@@ -9,7 +9,7 @@ namespace Pocket_Updater
 {
     public partial class Form1 : Form
     {
-        private const string VERSION = "1.6.0";
+        private const string VERSION = "1.6.1";
         private const string API_URL = "https://api.github.com/repos/RetroDriven/Pocket_Updater/releases";
         private const string RELEASE_URL = "https://github.com/RetroDriven/Pocket_Updater/releases/latest";
 
@@ -69,13 +69,13 @@ namespace Pocket_Updater
                 response.EnsureSuccessStatusCode();
 
                 var responseBody = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-                List<Github.Release>? releases = JsonSerializer.Deserialize<List<Github.Release>>(responseBody);
+                List<Pannella.Models.Github.Release>? releases = JsonSerializer.Deserialize<List<Pannella.Models.Github.Release>>(responseBody);
 
                 string tag_name = releases[0].tag_name;
-                string? v = SemverUtil.FindSemver(tag_name);
+                string? v = Pannella.Helpers.SemverUtil.FindSemver(tag_name);
                 if (v != null)
                 {
-                    return SemverUtil.SemverCompare(v, VERSION);
+                    return Pannella.Helpers.SemverUtil.SemverCompare(v, VERSION);
                     //return SemverUtil.SemverCompare(v, "1.0");
 
                 }

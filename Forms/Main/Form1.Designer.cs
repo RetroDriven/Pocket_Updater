@@ -131,9 +131,9 @@ namespace Pocket_Updater
             guna2HtmlLabel1.ForeColor = SystemColors.ControlLightLight;
             guna2HtmlLabel1.Location = new Point(12, 12);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(212, 30);
+            guna2HtmlLabel1.Size = new Size(169, 23);
             guna2HtmlLabel1.TabIndex = 0;
-            guna2HtmlLabel1.Text = "Pocket Updater v1.6.0";
+            guna2HtmlLabel1.Text = "Pocket Updater v1.6.1";
             // 
             // guna2ControlBox1
             // 
@@ -185,7 +185,7 @@ namespace Pocket_Updater
             // 
             Update_Available.Anchor = AnchorStyles.Right;
             Update_Available.AutoRoundedCorners = true;
-            Update_Available.BorderRadius = 17;
+            Update_Available.BorderRadius = 14;
             Update_Available.Cursor = Cursors.Hand;
             Update_Available.CustomizableEdges = customizableEdges19;
             Update_Available.DefaultAutoSize = true;
@@ -199,7 +199,7 @@ namespace Pocket_Updater
             Update_Available.Margin = new Padding(100, 20, 3, 3);
             Update_Available.Name = "Update_Available";
             Update_Available.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            Update_Available.Size = new Size(232, 36);
+            Update_Available.Size = new Size(190, 31);
             Update_Available.TabIndex = 3;
             Update_Available.Text = "App Update Available!";
             Update_Available.Visible = false;
@@ -209,7 +209,7 @@ namespace Pocket_Updater
             // 
             No_Internet.Anchor = AnchorStyles.Right;
             No_Internet.AutoRoundedCorners = true;
-            No_Internet.BorderRadius = 17;
+            No_Internet.BorderRadius = 14;
             No_Internet.Cursor = Cursors.Hand;
             No_Internet.CustomizableEdges = customizableEdges21;
             No_Internet.DefaultAutoSize = true;
@@ -225,7 +225,7 @@ namespace Pocket_Updater
             No_Internet.Margin = new Padding(100, 20, 3, 3);
             No_Internet.Name = "No_Internet";
             No_Internet.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            No_Internet.Size = new Size(332, 36);
+            No_Internet.Size = new Size(271, 31);
             No_Internet.TabIndex = 4;
             No_Internet.Text = "No Internet Connection Detected!";
             No_Internet.Visible = false;
@@ -242,7 +242,7 @@ namespace Pocket_Updater
             Panel_Menu.Dock = DockStyle.Left;
             Panel_Menu.Location = new Point(0, 46);
             Panel_Menu.Name = "Panel_Menu";
-            Panel_Menu.Size = new Size(263, 641);
+            Panel_Menu.Size = new Size(263, 685);
             Panel_Menu.TabIndex = 29;
             // 
             // flowLayoutPanel1
@@ -260,7 +260,7 @@ namespace Pocket_Updater
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Padding = new Padding(0, 10, 0, 0);
-            flowLayoutPanel1.Size = new Size(263, 641);
+            flowLayoutPanel1.Size = new Size(263, 685);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // pictureBox1
@@ -476,7 +476,7 @@ namespace Pocket_Updater
             Panel_Main.Location = new Point(263, 46);
             Panel_Main.Name = "Panel_Main";
             Panel_Main.Padding = new Padding(0, 25, 0, 0);
-            Panel_Main.Size = new Size(1136, 641);
+            Panel_Main.Size = new Size(1136, 685);
             Panel_Main.TabIndex = 31;
             // 
             // update_Pocket1
@@ -491,7 +491,7 @@ namespace Pocket_Updater
             update_Pocket1.Margin = new Padding(3, 2, 3, 2);
             update_Pocket1.Name = "update_Pocket1";
             update_Pocket1.Pocket_Drive = null;
-            update_Pocket1.Size = new Size(1136, 616);
+            update_Pocket1.Size = new Size(1136, 660);
             update_Pocket1.TabIndex = 0;
             update_Pocket1.Load += update_Pocket1_Load;
             // 
@@ -505,7 +505,7 @@ namespace Pocket_Updater
             image_Packs1.Margin = new Padding(3, 2, 3, 2);
             image_Packs1.Name = "image_Packs1";
             image_Packs1.Pocket_Drive = null;
-            image_Packs1.Size = new Size(1136, 616);
+            image_Packs1.Size = new Size(1136, 660);
             image_Packs1.TabIndex = 3;
             image_Packs1.Visible = false;
             // 
@@ -519,7 +519,7 @@ namespace Pocket_Updater
             organize_Cores1.Location = new Point(0, 25);
             organize_Cores1.Margin = new Padding(4, 1, 4, 1);
             organize_Cores1.Name = "organize_Cores1";
-            organize_Cores1.Size = new Size(1136, 616);
+            organize_Cores1.Size = new Size(1136, 660);
             organize_Cores1.TabIndex = 2;
             organize_Cores1.updateFile = null;
             organize_Cores1.Visible = false;
@@ -534,7 +534,7 @@ namespace Pocket_Updater
             manageCores1.Location = new Point(0, 25);
             manageCores1.Margin = new Padding(3, 2, 3, 2);
             manageCores1.Name = "manageCores1";
-            manageCores1.Size = new Size(1136, 616);
+            manageCores1.Size = new Size(1136, 660);
             manageCores1.TabIndex = 1;
             manageCores1.updateFile = null;
             // 
@@ -546,7 +546,7 @@ namespace Pocket_Updater
             logs1.Location = new Point(0, 25);
             logs1.Margin = new Padding(3, 2, 3, 2);
             logs1.Name = "logs1";
-            logs1.Size = new Size(1136, 616);
+            logs1.Size = new Size(1136, 660);
             logs1.TabIndex = 5;
             logs1.Visible = false;
             // 
@@ -559,16 +559,16 @@ namespace Pocket_Updater
             about1.Location = new Point(0, 25);
             about1.Margin = new Padding(3, 4, 3, 4);
             about1.Name = "about1";
-            about1.Size = new Size(1136, 616);
+            about1.Size = new Size(1136, 660);
             about1.TabIndex = 6;
             about1.Visible = false;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(59, 62, 78);
-            ClientSize = new Size(1399, 687);
+            ClientSize = new Size(1399, 731);
             Controls.Add(Panel_Main);
             Controls.Add(Panel_Menu);
             Controls.Add(Panel_Top);
