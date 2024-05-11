@@ -257,7 +257,7 @@ namespace Pocket_Updater.Controls
             BeginInvoke((Action)(() =>
             {
                 //No Updates Found
-                if (e.InstalledCores.Count == 0 && e.InstalledAssets.Count == 0 && e.FirmwareUpdated == null && e.MissingBetaKeys.Count == 0)
+                if (e.InstalledCores.Count == 0 && e.InstalledAssets.Count == 0 && string.IsNullOrEmpty(e.FirmwareUpdated) && e.MissingBetaKeys.Count == 0)
                 {
                     //Summary.Close();
                     Message_Box form = new Message_Box();
@@ -272,7 +272,7 @@ namespace Pocket_Updater.Controls
                 }
 
                 //Updates Found
-                if (e.InstalledCores.Count > 0 || e.InstalledAssets.Count > 0 || e.FirmwareUpdated != null || e.MissingBetaKeys.Count > 0)
+                if (e.InstalledCores.Count > 0 || e.InstalledAssets.Count > 0 || !string.IsNullOrEmpty(e.FirmwareUpdated) || e.MissingBetaKeys.Count > 0)
                 {
                     //Status.Close();
                     Summary = new Updater_Summary();
@@ -347,21 +347,18 @@ namespace Pocket_Updater.Controls
                     Summary.textBox1.AppendText(Environment.NewLine);
                 }
                 //Firmware Installed
-                if (e.FirmwareUpdated != null)
+                if (!string.IsNullOrEmpty(e.FirmwareUpdated))
                 {
                     if (e.InstalledCores.Count != 0 || e.InstalledAssets.Count != 0 || e.MissingBetaKeys.Count != 0)
                     {
                         Summary.textBox1.AppendText("-----------------------");
-                        Summary.textBox1.AppendText(Environment.NewLine);
-                    }
-                    else
-                    {
-                        Summary.textBox1.AppendText(Environment.NewLine);
-                        //Summary.textBox1.AppendText("New Firmware was Downloaded(" + e.FirmwareUpdated + ") - Restart your Pocket to Install!");
-                        Summary.textBox1.AppendText("New Firmware was Downloaded - Restart your Pocket to Install!");
-                        Summary.textBox1.AppendText(Environment.NewLine);
                     }
 
+                    Summary.textBox1.AppendText(Environment.NewLine);
+                    //Summary.textBox1.AppendText("New Firmware was Downloaded(" + e.FirmwareUpdated + ") - Restart your Pocket to Install!");
+                    Summary.textBox1.AppendText("New Firmware was Downloaded - Restart your Pocket to Install!");
+                    //Summary.textBox1.AppendText(e.FirmwareUpdated);
+                    Summary.textBox1.AppendText(Environment.NewLine);
                 }
             }));
         }

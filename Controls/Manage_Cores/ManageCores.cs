@@ -156,6 +156,13 @@ namespace Pocket_Updater.Controls.Manage_Cores
                     {
                         name += " (Beta Key Required from Patreon)";
                     }
+
+                    //Analogizer Cores
+                    if (core.identifier.Contains("_Analogizer"))
+                    {
+                        name += " (Analogizer Version)";
+                    }
+
                     object[] rows = { !_settingsManager.GetCoreSettings(core.identifier).skip, name, Core_Author };
                     int index = dataGridView1.Rows.Add(rows);
 
