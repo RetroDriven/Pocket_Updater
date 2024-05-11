@@ -42,7 +42,7 @@ public class Config
     public bool show_menu_descriptions { get; set; } = true;
 
     [Description("Use custom asset archive")]
-    public bool use_custom_archive { get; set; } = false;
+    public bool use_custom_archive { get; set; } = true;
 
     public string temp_directory { get; set; } = null;
 
