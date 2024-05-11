@@ -354,10 +354,14 @@ namespace Pocket_Updater.Controls
                         Summary.textBox1.AppendText("-----------------------");
                         Summary.textBox1.AppendText(Environment.NewLine);
                     }
-					
-					//Summary.textBox1.AppendText("New Firmware was Downloaded(" + e.FirmwareUpdated + ") - Restart your Pocket to Install!");
-                    Summary.textBox1.AppendText("New Firmware was Downloaded - Restart your Pocket to Install!");
-                    Summary.textBox1.AppendText(Environment.NewLine);
+                    else
+                    {
+                        Summary.textBox1.AppendText(Environment.NewLine);
+                        //Summary.textBox1.AppendText("New Firmware was Downloaded(" + e.FirmwareUpdated + ") - Restart your Pocket to Install!");
+                        Summary.textBox1.AppendText("New Firmware was Downloaded - Restart your Pocket to Install!");
+                        Summary.textBox1.AppendText(Environment.NewLine);
+                    }
+
                 }
             }));
         }
