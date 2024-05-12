@@ -17,9 +17,9 @@ public static class ServiceHelper
     private static bool isInitialized;
 
     public static void Initialize(string path, EventHandler<StatusUpdatedEventArgs> statusUpdated = null,
-        EventHandler<UpdateProcessCompleteEventArgs> updateProcessComplete = null, bool forceReload = false)
+        EventHandler<UpdateProcessCompleteEventArgs> updateProcessComplete = null)
     {
-        if (!isInitialized || forceReload)
+        if (!isInitialized)
         {
             isInitialized = true;
             UpdateDirectory = path;

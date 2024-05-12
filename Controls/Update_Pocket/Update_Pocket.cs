@@ -10,6 +10,8 @@ using Pannella.Helpers;
 using Guna.UI2.WinForms;
 using Pannella.Models.Settings;
 using Microsoft.VisualBasic;
+using Pocket_Updater.Properties;
+using System.Runtime;
 
 namespace Pocket_Updater.Controls
 {
@@ -33,10 +35,11 @@ namespace Pocket_Updater.Controls
 
             //Get USB Drives
             PopulateDrives();
+
             string Current_Dir = Directory.GetCurrentDirectory();
             _settings = new SettingsService(Current_Dir);
 
-            setupUpdater(Current_Dir);
+            setupUpdater(Current_Dir, Current_Dir);
 
             Update.Enabled = false;
 
@@ -45,7 +48,6 @@ namespace Pocket_Updater.Controls
 
             //Preferences
             Get_Preferences_Json();
-
         }
         public async Task RunCoreUpdateProcess(string updatePath, string coresJsonPath, string LogDir)
         {
@@ -143,7 +145,7 @@ namespace Pocket_Updater.Controls
             try
             {
                 //Download_Json(Current_Dir);
-                setupUpdater(currentDirectory);
+                setupUpdater(currentDirectory,currentDirectory);
 
                 //Progress Bar
                 HttpHelper.Instance.DownloadProgressUpdate += updater_ProgressUpdated;
@@ -174,7 +176,7 @@ namespace Pocket_Updater.Controls
                 var drives = DriveInfo.GetDrives();
                 if (drives.Where(data => data.Name == pathToUpdate).Count() == 1)
                 {
-                    setupUpdater(pathToUpdate);
+                    setupUpdater(pathToUpdate, currentDirectory);
 
                     //Progress Bar
                     HttpHelper.Instance.DownloadProgressUpdate += updater_ProgressUpdated;
@@ -646,8 +648,14 @@ namespace Pocket_Updater.Controls
             }
 
             //Save Sttings
-            ServiceHelper.SettingsService.UpdateConfig(config);
-            ServiceHelper.SettingsService.Save();
+            SettingsService _settings;
+            string Current_Dir = Directory.GetCurrentDirectory();
+            _settings = new SettingsService(Current_Dir);
+
+            _settings.UpdateConfig(config);
+            _settings.Save();
+            //ServiceHelper.SettingsService.UpdateConfig(config);
+            //ServiceHelper.SettingsService.Save();
 
 
             //Show Message Box
@@ -731,16 +739,16 @@ namespace Pocket_Updater.Controls
                 Updater_Preferences.Save_Updater_Json(Entries, Json_File);
             }
         }
-        private void setupUpdater(string path)
+        private void setupUpdater(string path, string config_path)
         {
-            ServiceHelper.Initialize(path, updater_StatusUpdated, _updater_UpdateProcessComplete, true);
-            _updater = new CoreUpdaterService(
-                ServiceHelper.UpdateDirectory,
-                ServiceHelper.CoresService.Cores,
-                ServiceHelper.FirmwareService,
-                ServiceHelper.SettingsService,
-                ServiceHelper.CoresService
-            );
+                ServiceHelper.Initialize(path, config_path, updater_StatusUpdated, _updater_UpdateProcessComplete, true);
+                _updater = new CoreUpdaterService(
+                    ServiceHelper.UpdateDirectory,
+                    ServiceHelper.CoresService.Cores,
+                    ServiceHelper.FirmwareService,
+                    ServiceHelper.SettingsService,
+                    ServiceHelper.CoresService
+                );
 
             _updater.StatusUpdated += updater_StatusUpdated;
             _updater.UpdateProcessComplete += _updater_UpdateProcessComplete;
