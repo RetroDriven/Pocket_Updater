@@ -33,40 +33,20 @@ Select the "**Update Cores**" Option and you will see a Status window as well as
 ![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Updates_Complete.png)
 
 ## Settings ##
-Select "**Settings**" Option
 
 ![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Settings.png)
 
-#### Download Pocket Firmware
-This gives you the option to Check/Download Pocket Firmware.
-
-#### Download Roms/Bios
-This gives you the option to Check/Download the required Arcade Roms and Core Bios files.
-
-#### Preserve Platforms
-This gives you the option to keep any custom Core Images that you are using vs. the Stock Core Images. It will also preserve the entire Platforms folder which includes Core Names and Categories.
-
-#### Delete Skipped Cores
-This will Delete Cores from your Pocket's SD Card that you have unchecked for Updating/Downloading
-*This option will be Enabled by Default
-
-#### Generate PCECD JSONs
-This will auto create the required JSON Files for the PCECD Games on your SD Card
-
-#### Fix Jotego Core Names
-Automatically rename Jotego Cores to more friendly names
-
-#### Skip Alternative Arcade Files
-Skip downloading any Alternative Arcade Files that an Arcade Core may have
-
-#### CRC Checks
-Enable/Disable CRC checking for ROMS/BIOS. Disabling should speed the update process up
-
-#### Backup Saves
-This will compress the Saves and Memories directories from your Pocket to the "Backups" folder
-
-#### Use Alternative Location
-You can supply your own Download URL/Location to get your ROMS and BIOS. If you uncheck this Archive.org will be used instead. **I strongly recommend using this over Archive.org as that has very slow download speeds**
+| Setting                                | Description                                                                                                                                                                                                                                                                      |
+|----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Download Pocket Firmware               | This gives you the option to Check/Download Pocket Firmware                                                                                                                                                                                                                             |
+| Download Roms/Bios                     | This gives you the option to Check/Download the required Arcade Roms and Core Bios files                                                                                                                                                                                                                             |
+| Preserve Platforms                     | This gives you the option to keep any custom Core Images that you are using vs. the Stock Core Images. It will also preserve the entire Platforms folder which includes Core Names and Categories                                                                                                                                                                                                                             |
+| Delete Skipped Cores                   | This will Delete Cores from your Pocket's SD Card that you have unchecked for Updating/Downloading                                                                                                                                                                                                                             |
+| Generate PCECD JSONs                   | This will auto create the required JSON Files for the PCECD Games on your SD Card                                                                                                                                                                                                                             |
+| Fix Jotego Core Names                  | Automatically rename Jotego Cores to more friendly names                                                                                                                                                                                                                             |
+| Skip Alternative Arcade Files          | Skip downloading any Alternative Arcade Files that an Arcade Core may have                                                                                                                                                                                                                             |
+| CRC Checks                             | Enable/Disable CRC checking for ROMS/BIOS. Disabling should speed the update process up                                                                                                                                                                                                                             |
+| Use Alternative Location               | You can supply your own Download URL/Location to get your ROMS and BIOS. If you uncheck this Archive.org will be used instead. **I strongly recommend using this over Archive.org as that has very slow download speeds** 
 
 ## Manage Cores ##
 Select the "**Manage Cores**" Option. From here you can pick and choose the Cores that you'd like to download.
