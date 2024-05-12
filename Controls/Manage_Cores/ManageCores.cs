@@ -37,33 +37,47 @@ namespace Pocket_Updater.Controls.Manage_Cores
             //dataGridView1.RefreshEdit();
             //dataGridView1.Refresh();
 
-            //Get Cores
-            _ = LoadCores();
+            if (Check_Internet())
+            {
+                //Get Cores
+                _ = LoadCores();
+            }
+
             //_readChecklist();
+
             Button_Save.Enabled = true;
         }
 
         private void Button_Save_Click(object sender, EventArgs e)
         {
-            try
+            if (!Check_Internet())
             {
-                Button_Save.Enabled = false;
-                _readChecklist();
-                _settingsManager.Save();
-                ServiceHelper.ReloadSettings();
-
                 Message_Box form = new Message_Box();
-                form.label1.Text = "Core Selection Has Been Saved!";
+                form.label1.Text = "No Internet Connection Detected!";
                 form.Show();
-
-                Button_Save.Enabled = true;
             }
-            catch (Exception ex)
+            else
             {
-                Message_Box form = new Message_Box();
-                form.label1.Text = ex.Message;
-                form.Show();
-                Button_Save.Enabled = true;
+                try
+                {
+                    Button_Save.Enabled = false;
+                    _readChecklist();
+                    _settingsManager.Save();
+                    ServiceHelper.ReloadSettings();
+
+                    Message_Box form = new Message_Box();
+                    form.label1.Text = "Core Selection Has Been Saved!";
+                    form.Show();
+
+                    Button_Save.Enabled = true;
+                }
+                catch (Exception ex)
+                {
+                    Message_Box form = new Message_Box();
+                    form.label1.Text = ex.Message;
+                    form.Show();
+                    Button_Save.Enabled = true;
+                }
             }
         }
         public void _readChecklist()
@@ -186,6 +200,23 @@ namespace Pocket_Updater.Controls.Manage_Cores
 
             bool currentValue = (bool)dataGridView1[0, e.RowIndex].Value;
             dataGridView1[0, e.RowIndex].Value = !currentValue;
+        }
+        public static bool Check_Internet()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                {
+                    using (var stream = client.OpenRead("http://www.google.com"))
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

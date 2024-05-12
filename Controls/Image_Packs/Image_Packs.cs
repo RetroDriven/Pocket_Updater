@@ -28,8 +28,10 @@ namespace Pocket_Updater.Controls.Image_Packs
             //Preferences
             Get_Preferences_Json();
 
-            GetPacks();
-
+            if (Check_Internet())
+            {
+                GetPacks();
+            }
         }
         public void PopulateDrives()
         {
@@ -244,6 +246,23 @@ namespace Pocket_Updater.Controls.Image_Packs
                 string Update_Drive = comboBox1.SelectedItem.ToString();
                 string[] Entries = new string[] { Update_Location, Update_Drive };
                 Updater_Preferences.Save_Updater_Json(Entries, Json_File);
+            }
+        }
+        public static bool Check_Internet()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                {
+                    using (var stream = client.OpenRead("http://www.google.com"))
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
             }
         }
     }

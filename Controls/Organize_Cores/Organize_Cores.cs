@@ -49,33 +49,42 @@ namespace Pocket_Updater.Controls.Organize_Cores
                 //Enable Preserve Platform Folder
                 try
                 {
-                    Pannella.Models.Settings.Config config = ServiceHelper.SettingsService.GetConfig();
-                    config.preserve_platforms_folder = true;
-                    ServiceHelper.SettingsService.UpdateConfig(config);
-                    ServiceHelper.SettingsService.Save();
-                    Save_Preferences_Json();
-
-                    var Json_Dir = Path.Combine(Pocket_Drive.Text, "Platforms");
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    if (!Check_Internet())
                     {
-                        string Row_Name = row.Cells[0].Value.ToString();
-                        //System.Diagnostics.Debug.WriteLine(Row_Name);
-                        string Row_Category = row.Cells[1].Value.ToString();
-                        //System.Diagnostics.Debug.WriteLine(Row_Category);
-                        string filename = row.Tag as String;
-                        CoreInfo info = platforms[filename];
-
-                        info.platform.name = Row_Name;
-                        info.platform.category = Row_Category;
-
-                        var options = new JsonSerializerOptions { WriteIndented = true };
-                        string fullPath = Path.Combine(Json_Dir, filename);
-                        File.WriteAllText(fullPath, JsonSerializer.Serialize(info, options));
+                        Message_Box form = new Message_Box();
+                        form.label1.Text = "No Internet Connection Detected!";
+                        form.Show();
                     }
+                    else
+                    {
+                        Pannella.Models.Settings.Config config = ServiceHelper.SettingsService.GetConfig();
+                        config.preserve_platforms_folder = true;
+                        ServiceHelper.SettingsService.UpdateConfig(config);
+                        ServiceHelper.SettingsService.Save();
+                        Save_Preferences_Json();
 
-                    Message_Box form = new Message_Box();
-                    form.label1.Text = "Core Organization Saved!";
-                    form.Show();
+                        var Json_Dir = Path.Combine(Pocket_Drive.Text, "Platforms");
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        {
+                            string Row_Name = row.Cells[0].Value.ToString();
+                            //System.Diagnostics.Debug.WriteLine(Row_Name);
+                            string Row_Category = row.Cells[1].Value.ToString();
+                            //System.Diagnostics.Debug.WriteLine(Row_Category);
+                            string filename = row.Tag as String;
+                            CoreInfo info = platforms[filename];
+
+                            info.platform.name = Row_Name;
+                            info.platform.category = Row_Category;
+
+                            var options = new JsonSerializerOptions { WriteIndented = true };
+                            string fullPath = Path.Combine(Json_Dir, filename);
+                            File.WriteAllText(fullPath, JsonSerializer.Serialize(info, options));
+                        }
+
+                        Message_Box form = new Message_Box();
+                        form.label1.Text = "Core Organization Saved!";
+                        form.Show();
+                    }
                 }
                 catch (IOException ioex)
                 {
@@ -263,6 +272,23 @@ namespace Pocket_Updater.Controls.Organize_Cores
                 string Update_Drive = Pocket_Drive.SelectedItem.ToString();
                 string[] Entries = new string[] { Update_Location, Update_Drive };
                 Updater_Preferences.Save_Updater_Json(Entries, Json_File);
+            }
+        }
+        public static bool Check_Internet()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                {
+                    using (var stream = client.OpenRead("http://www.google.com"))
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
             }
         }
     }

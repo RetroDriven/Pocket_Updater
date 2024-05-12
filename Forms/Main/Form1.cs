@@ -1,8 +1,10 @@
 using Pannella;
 using Pocket_Updater.Forms.Message_Box;
 using System.Diagnostics;
+using System.Globalization;
 using System.Net;
 using System.Net.Http.Headers;
+using System.Net.NetworkInformation;
 using System.Text.Json;
 
 namespace Pocket_Updater
@@ -17,19 +19,26 @@ namespace Pocket_Updater
         {
             InitializeComponent();
 
-            //Check for Internet Connection and App Updates
-            try
+            if (Check_Internet())
             {
-                using (WebClient client2 = new WebClient())
+                //Check for App Updates
+                try
                 {
-                    _ = CheckVersion_Load();
+                    using (WebClient client2 = new WebClient())
+                    {
+                        _ = CheckVersion_Load();
+                    }
+                }
+                catch
+                {
+                    Message_Box form = new Message_Box();
+                    form.label1.Text = "Failed to check for App Updates!";
+                    form.Show();
                 }
             }
-            catch
+            else
             {
-                Message_Box form = new Message_Box();
-                form.label1.Text = "Failed to check for App Updates!";
-                form.Show();
+                No_Internet.Visible = true;
             }
 
         }
@@ -83,14 +92,12 @@ namespace Pocket_Updater
             }
             catch (HttpRequestException e)
             {
+                Message_Box form = new Message_Box();
+                form.label1.Text = e.ToString();
+                form.Show();
                 return false;
 
             }
-        }
-
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-
         }
         private void Update_Pocket_Click(object sender, EventArgs e)
         {
@@ -158,10 +165,22 @@ namespace Pocket_Updater
             Hide_Controls();
             about1.Visible = true;
         }
-
-        private void update_Pocket1_Load(object sender, EventArgs e)
+        public static bool Check_Internet()
         {
-
+            try
+            {
+                using (var client = new WebClient())
+                {
+                    using (var stream = client.OpenRead("http://www.google.com"))
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

@@ -59,12 +59,12 @@ namespace Pocket_Updater
             guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(components);
             Panel_Top = new Guna.UI2.WinForms.Guna2Panel();
+            No_Internet = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             Update_Available = new Guna.UI2.WinForms.Guna2Button();
-            No_Internet = new Guna.UI2.WinForms.Guna2Button();
             guna2ResizeForm1 = new Guna.UI2.WinForms.Guna2ResizeForm(components);
             Panel_Menu = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
@@ -109,12 +109,12 @@ namespace Pocket_Updater
             Panel_Top.BackColor = Color.FromArgb(24, 25, 26);
             Panel_Top.BorderColor = Color.Transparent;
             Panel_Top.BorderRadius = 22;
+            Panel_Top.Controls.Add(No_Internet);
             Panel_Top.Controls.Add(guna2HtmlLabel1);
             Panel_Top.Controls.Add(guna2ControlBox1);
             Panel_Top.Controls.Add(guna2ControlBox2);
             Panel_Top.Controls.Add(guna2ControlBox3);
             Panel_Top.Controls.Add(Update_Available);
-            Panel_Top.Controls.Add(No_Internet);
             Panel_Top.CustomizableEdges = customizableEdges23;
             Panel_Top.Dock = DockStyle.Top;
             Panel_Top.Location = new Point(0, 0);
@@ -122,6 +122,34 @@ namespace Pocket_Updater
             Panel_Top.ShadowDecoration.CustomizableEdges = customizableEdges24;
             Panel_Top.Size = new Size(1399, 46);
             Panel_Top.TabIndex = 28;
+            // 
+            // No_Internet
+            // 
+            No_Internet.Anchor = AnchorStyles.Right;
+            No_Internet.AutoRoundedCorners = true;
+            No_Internet.BorderRadius = 14;
+            No_Internet.Cursor = Cursors.Hand;
+            No_Internet.CustomizableEdges = customizableEdges13;
+            No_Internet.DefaultAutoSize = true;
+            No_Internet.DisabledState.BorderColor = Color.FromArgb(192, 0, 0);
+            No_Internet.DisabledState.CustomBorderColor = Color.FromArgb(192, 0, 0);
+            No_Internet.DisabledState.FillColor = Color.FromArgb(192, 0, 0);
+            No_Internet.DisabledState.ForeColor = SystemColors.ControlLightLight;
+            No_Internet.Enabled = false;
+            No_Internet.FillColor = Color.FromArgb(192, 0, 0);
+            No_Internet.FocusedColor = Color.FromArgb(192, 0, 0);
+            No_Internet.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            No_Internet.ForeColor = Color.White;
+            No_Internet.HoverState.FillColor = Color.FromArgb(192, 0, 0);
+            No_Internet.Location = new Point(596, 7);
+            No_Internet.Margin = new Padding(100, 20, 3, 3);
+            No_Internet.Name = "No_Internet";
+            No_Internet.PressedColor = Color.FromArgb(192, 0, 0);
+            No_Internet.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            No_Internet.Size = new Size(271, 31);
+            No_Internet.TabIndex = 4;
+            No_Internet.Text = "No Internet Connection Detected!";
+            No_Internet.Visible = false;
             // 
             // guna2HtmlLabel1
             // 
@@ -139,14 +167,14 @@ namespace Pocket_Updater
             // 
             guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2ControlBox1.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            guna2ControlBox1.CustomizableEdges = customizableEdges13;
+            guna2ControlBox1.CustomizableEdges = customizableEdges15;
             guna2ControlBox1.FillColor = Color.Transparent;
             guna2ControlBox1.HoverState.BorderColor = Color.FromArgb(59, 62, 78);
             guna2ControlBox1.HoverState.FillColor = Color.FromArgb(59, 62, 78);
             guna2ControlBox1.IconColor = Color.White;
             guna2ControlBox1.Location = new Point(1301, 7);
             guna2ControlBox1.Name = "guna2ControlBox1";
-            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2ControlBox1.Size = new Size(28, 28);
             guna2ControlBox1.TabIndex = 0;
             // 
@@ -154,14 +182,14 @@ namespace Pocket_Updater
             // 
             guna2ControlBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            guna2ControlBox2.CustomizableEdges = customizableEdges15;
+            guna2ControlBox2.CustomizableEdges = customizableEdges17;
             guna2ControlBox2.FillColor = Color.Transparent;
             guna2ControlBox2.HoverState.BorderColor = Color.FromArgb(59, 62, 78);
             guna2ControlBox2.HoverState.FillColor = Color.FromArgb(59, 62, 78);
             guna2ControlBox2.IconColor = Color.White;
             guna2ControlBox2.Location = new Point(1332, 7);
             guna2ControlBox2.Name = "guna2ControlBox2";
-            guna2ControlBox2.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            guna2ControlBox2.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2ControlBox2.Size = new Size(28, 28);
             guna2ControlBox2.TabIndex = 1;
             // 
@@ -169,7 +197,7 @@ namespace Pocket_Updater
             // 
             guna2ControlBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2ControlBox3.Animated = true;
-            guna2ControlBox3.CustomizableEdges = customizableEdges17;
+            guna2ControlBox3.CustomizableEdges = customizableEdges19;
             guna2ControlBox3.FillColor = Color.Transparent;
             guna2ControlBox3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             guna2ControlBox3.HoverState.BorderColor = Color.FromArgb(59, 62, 78);
@@ -177,7 +205,7 @@ namespace Pocket_Updater
             guna2ControlBox3.IconColor = Color.White;
             guna2ControlBox3.Location = new Point(1363, 7);
             guna2ControlBox3.Name = "guna2ControlBox3";
-            guna2ControlBox3.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            guna2ControlBox3.ShadowDecoration.CustomizableEdges = customizableEdges20;
             guna2ControlBox3.Size = new Size(28, 28);
             guna2ControlBox3.TabIndex = 2;
             // 
@@ -187,7 +215,7 @@ namespace Pocket_Updater
             Update_Available.AutoRoundedCorners = true;
             Update_Available.BorderRadius = 14;
             Update_Available.Cursor = Cursors.Hand;
-            Update_Available.CustomizableEdges = customizableEdges19;
+            Update_Available.CustomizableEdges = customizableEdges21;
             Update_Available.DefaultAutoSize = true;
             Update_Available.DisabledState.BorderColor = Color.DarkGray;
             Update_Available.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -198,37 +226,12 @@ namespace Pocket_Updater
             Update_Available.Location = new Point(1088, 7);
             Update_Available.Margin = new Padding(100, 20, 3, 3);
             Update_Available.Name = "Update_Available";
-            Update_Available.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            Update_Available.ShadowDecoration.CustomizableEdges = customizableEdges22;
             Update_Available.Size = new Size(190, 31);
             Update_Available.TabIndex = 3;
             Update_Available.Text = "App Update Available!";
             Update_Available.Visible = false;
             Update_Available.Click += Update_Available_Click;
-            // 
-            // No_Internet
-            // 
-            No_Internet.Anchor = AnchorStyles.Right;
-            No_Internet.AutoRoundedCorners = true;
-            No_Internet.BorderRadius = 14;
-            No_Internet.Cursor = Cursors.Hand;
-            No_Internet.CustomizableEdges = customizableEdges21;
-            No_Internet.DefaultAutoSize = true;
-            No_Internet.DisabledState.BorderColor = Color.DarkGray;
-            No_Internet.DisabledState.CustomBorderColor = Color.DarkGray;
-            No_Internet.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            No_Internet.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            No_Internet.Enabled = false;
-            No_Internet.FillColor = Color.FromArgb(192, 0, 0);
-            No_Internet.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            No_Internet.ForeColor = Color.White;
-            No_Internet.Location = new Point(596, 7);
-            No_Internet.Margin = new Padding(100, 20, 3, 3);
-            No_Internet.Name = "No_Internet";
-            No_Internet.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            No_Internet.Size = new Size(271, 31);
-            No_Internet.TabIndex = 4;
-            No_Internet.Text = "No Internet Connection Detected!";
-            No_Internet.Visible = false;
             // 
             // guna2ResizeForm1
             // 
@@ -493,12 +496,11 @@ namespace Pocket_Updater
             update_Pocket1.Pocket_Drive = null;
             update_Pocket1.Size = new Size(1136, 660);
             update_Pocket1.TabIndex = 0;
-            update_Pocket1.Load += update_Pocket1_Load;
             // 
             // image_Packs1
             // 
             image_Packs1.BackColor = Color.FromArgb(59, 62, 78);
-            image_Packs1.Current_Dir = "\\\\?\\C:\\Users\\jsavage\\AppData\\Local\\Microsoft\\VisualStudio\\17.0_1fa20820\\WinFormsDesigner\\421upsnr.pvw";
+            image_Packs1.Current_Dir = "";
             image_Packs1.Dock = DockStyle.Fill;
             image_Packs1.ForeColor = SystemColors.ControlLightLight;
             image_Packs1.Location = new Point(0, 25);
@@ -580,7 +582,6 @@ namespace Pocket_Updater
             Margin = new Padding(2);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Load += Form1_Load_1;
             Panel_Top.ResumeLayout(false);
             Panel_Top.PerformLayout();
             Panel_Menu.ResumeLayout(false);

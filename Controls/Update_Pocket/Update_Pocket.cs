@@ -12,6 +12,7 @@ using Pannella.Models.Settings;
 using Microsoft.VisualBasic;
 using Pocket_Updater.Properties;
 using System.Runtime;
+using System.Net.NetworkInformation;
 
 namespace Pocket_Updater.Controls
 {
@@ -39,12 +40,17 @@ namespace Pocket_Updater.Controls
             string Current_Dir = Directory.GetCurrentDirectory();
             _settings = new SettingsService(Current_Dir);
 
-            setupUpdater(Current_Dir, Current_Dir);
+
+            //Check for Internet
+            if (Check_Internet())
+            {
+                setupUpdater(Current_Dir, Current_Dir);
+
+                //Read Settings Json file
+                ReadSettingsAsync();
+            }
 
             Update.Enabled = false;
-
-            //Read Settings Json file
-            ReadSettingsAsync();
 
             //Preferences
             Get_Preferences_Json();
@@ -88,39 +94,49 @@ namespace Pocket_Updater.Controls
 
         private async void Update_Click(object sender, EventArgs e)
         {
-            textBox1.Clear();
-            Button_Save.Enabled = false;
-
-            Update.Enabled = false;
-
-            Save_Settings("No");
-
-            Current_Dir = Directory.GetCurrentDirectory();
-
-            try
-            {
-                string Location_Type = comboBox2.SelectedItem.ToString();
-                string github_token = ServiceHelper.SettingsService.GetConfig().github_token;
-
-                // where are we updating to
-                if (Location_Type == "Current Directory")
-                {
-                    await UpdateCurrentDirectory(github_token, Current_Dir);
-                }
-                else if (Location_Type == "Removable Storage")
-                {
-                    await UpdateRemoveableStorage(github_token, Current_Dir);
-                }
-            }
-            catch (Exception ex)
+            if (!Check_Internet())
             {
                 Message_Box form = new Message_Box();
-                form.label1.Text = ex.ToString();
+                form.label1.Text = "No Internet Connection Detected!";
                 form.Show();
             }
-            finally
+            else
             {
-                Button_Save.Enabled = true;
+
+                textBox1.Clear();
+                Button_Save.Enabled = false;
+
+                Update.Enabled = false;
+
+                Save_Settings("No");
+
+                Current_Dir = Directory.GetCurrentDirectory();
+
+                try
+                {
+                    string Location_Type = comboBox2.SelectedItem.ToString();
+                    string github_token = ServiceHelper.SettingsService.GetConfig().github_token;
+
+                    // where are we updating to
+                    if (Location_Type == "Current Directory")
+                    {
+                        await UpdateCurrentDirectory(github_token, Current_Dir);
+                    }
+                    else if (Location_Type == "Removable Storage")
+                    {
+                        await UpdateRemoveableStorage(github_token, Current_Dir);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Message_Box form = new Message_Box();
+                    form.label1.Text = ex.ToString();
+                    form.Show();
+                }
+                finally
+                {
+                    Button_Save.Enabled = true;
+                }
             }
         }
 
@@ -546,125 +562,135 @@ namespace Pocket_Updater.Controls
 
         private async void Save_Settings(string ShowBox)
         {
-            //string value = Alternate_Location.Text;
-            Pannella.Models.Settings.Config config = ServiceHelper.SettingsService.GetConfig();
-
-            //GitHub Token
-            //config.github_token = value;
-
-            //Alternate Arcade Files
-            if (Toggle_Alternatives.Checked == true)
+            if (!Check_Internet())
             {
-                config.skip_alternative_assets = true;
-            }
-            else
-            {
-                config.skip_alternative_assets = false;
-            }
-
-            //Alternate Download Location
-            if (Toggle_Alternate.Checked == true)
-            {
-                config.use_custom_archive = true;
-
-                ServiceHelper.SettingsService.GetConfig().archives[1].url = Alternate_Location.Text;
-            }
-            else
-            {
-                config.use_custom_archive = false;
-            }
-
-            //Download Pocket Firmware
-            if (Toggle_Firmware.Checked == true)
-            {
-                config.download_firmware = true;
-            }
-            else
-            {
-                config.download_firmware = false;
-            }
-            //Download Assets
-            if (Toggle_Assets.Checked == true)
-            {
-                config.download_assets = true;
-            }
-            else
-            {
-                config.download_assets = false;
-            }
-            //Preserve Core Images
-            if (Toggle_Platforms.Checked == true)
-            {
-                config.preserve_platforms_folder = true;
-            }
-            else
-            {
-                config.preserve_platforms_folder = false;
-            }
-            //Delete Skipped Cores
-            if (Toggle_Skipped.Checked == true)
-            {
-                config.delete_skipped_cores = true;
-            }
-            else
-            {
-                config.delete_skipped_cores = false;
-            }
-            //Build Jsons
-            if (Toggle_Jsons.Checked == true)
-            {
-                config.build_instance_jsons = true;
-            }
-            else
-            {
-                config.build_instance_jsons = false;
-            }
-            //Jotego Rename
-            if (Toggle_Jotego.Checked == true)
-            {
-                config.fix_jt_names = true;
-            }
-            else
-            {
-                config.fix_jt_names = false;
-            }
-            //CRC Check
-            if (Toggle_CRC.Checked == true)
-            {
-                config.crc_check = true;
-            }
-            else
-            {
-                config.crc_check = false;
-            }
-            //Backup Saves
-            if (Toggle_Backup_Saves.Checked == true)
-            {
-                config.backup_saves = true;
-            }
-            else
-            {
-                config.backup_saves = false;
-            }
-
-            //Save Sttings
-            SettingsService _settings;
-            string Current_Dir = Directory.GetCurrentDirectory();
-            _settings = new SettingsService(Current_Dir);
-
-            _settings.UpdateConfig(config);
-            _settings.Save();
-            //ServiceHelper.SettingsService.UpdateConfig(config);
-            //ServiceHelper.SettingsService.Save();
-
-
-            //Show Message Box
-            if (ShowBox == "Yes")
-            {
-
                 Message_Box form = new Message_Box();
-                form.label1.Text = "Settings Saved!";
+                form.label1.Text = "No Internet Connection Detected!";
                 form.Show();
+            }
+            else
+            {
+
+                //string value = Alternate_Location.Text;
+                Pannella.Models.Settings.Config config = ServiceHelper.SettingsService.GetConfig();
+
+                //GitHub Token
+                //config.github_token = value;
+
+                //Alternate Arcade Files
+                if (Toggle_Alternatives.Checked == true)
+                {
+                    config.skip_alternative_assets = true;
+                }
+                else
+                {
+                    config.skip_alternative_assets = false;
+                }
+
+                //Alternate Download Location
+                if (Toggle_Alternate.Checked == true)
+                {
+                    config.use_custom_archive = true;
+
+                    ServiceHelper.SettingsService.GetConfig().archives[1].url = Alternate_Location.Text;
+                }
+                else
+                {
+                    config.use_custom_archive = false;
+                }
+
+                //Download Pocket Firmware
+                if (Toggle_Firmware.Checked == true)
+                {
+                    config.download_firmware = true;
+                }
+                else
+                {
+                    config.download_firmware = false;
+                }
+                //Download Assets
+                if (Toggle_Assets.Checked == true)
+                {
+                    config.download_assets = true;
+                }
+                else
+                {
+                    config.download_assets = false;
+                }
+                //Preserve Core Images
+                if (Toggle_Platforms.Checked == true)
+                {
+                    config.preserve_platforms_folder = true;
+                }
+                else
+                {
+                    config.preserve_platforms_folder = false;
+                }
+                //Delete Skipped Cores
+                if (Toggle_Skipped.Checked == true)
+                {
+                    config.delete_skipped_cores = true;
+                }
+                else
+                {
+                    config.delete_skipped_cores = false;
+                }
+                //Build Jsons
+                if (Toggle_Jsons.Checked == true)
+                {
+                    config.build_instance_jsons = true;
+                }
+                else
+                {
+                    config.build_instance_jsons = false;
+                }
+                //Jotego Rename
+                if (Toggle_Jotego.Checked == true)
+                {
+                    config.fix_jt_names = true;
+                }
+                else
+                {
+                    config.fix_jt_names = false;
+                }
+                //CRC Check
+                if (Toggle_CRC.Checked == true)
+                {
+                    config.crc_check = true;
+                }
+                else
+                {
+                    config.crc_check = false;
+                }
+                //Backup Saves
+                if (Toggle_Backup_Saves.Checked == true)
+                {
+                    config.backup_saves = true;
+                }
+                else
+                {
+                    config.backup_saves = false;
+                }
+
+                //Save Sttings
+                SettingsService _settings;
+                string Current_Dir = Directory.GetCurrentDirectory();
+                _settings = new SettingsService(Current_Dir);
+
+                _settings.UpdateConfig(config);
+                _settings.Save();
+                //ServiceHelper.SettingsService.UpdateConfig(config);
+                //ServiceHelper.SettingsService.Save();
+
+
+                //Show Message Box
+                if (ShowBox == "Yes")
+                {
+
+                    Message_Box form = new Message_Box();
+                    form.label1.Text = "Settings Saved!";
+                    form.Show();
+                }
             }
         }
 
@@ -741,6 +767,8 @@ namespace Pocket_Updater.Controls
         }
         private void setupUpdater(string path, string config_path)
         {
+            try
+            {
                 ServiceHelper.Initialize(path, config_path, updater_StatusUpdated, _updater_UpdateProcessComplete, true);
                 _updater = new CoreUpdaterService(
                     ServiceHelper.UpdateDirectory,
@@ -750,8 +778,32 @@ namespace Pocket_Updater.Controls
                     ServiceHelper.CoresService
                 );
 
-            _updater.StatusUpdated += updater_StatusUpdated;
-            _updater.UpdateProcessComplete += _updater_UpdateProcessComplete;
+                _updater.StatusUpdated += updater_StatusUpdated;
+                _updater.UpdateProcessComplete += _updater_UpdateProcessComplete;
+            }
+            catch(Exception ex)
+            {
+                Message_Box form = new Message_Box();
+                form.label1.Text = ex.ToString();
+                form.Show();
+            }
+        }
+        public static bool Check_Internet()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                {
+                    using (var stream = client.OpenRead("http://www.google.com"))
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
