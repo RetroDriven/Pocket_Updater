@@ -34,8 +34,6 @@ Select the "**Update Cores**" Option and you will see a Status window as well as
 
 ## Settings ##
 
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Settings.png)
-
 | Setting Name                                     | Description |
 | ------------------------------------------------ | ----------- |
 | Download Pocket Firmware                         | This gives you the option to Check/Download Pocket Firmware                                                                                                                                                               
@@ -48,6 +46,8 @@ Select the "**Update Cores**" Option and you will see a Status window as well as
 | CRC Checks                                       | Enable/Disable CRC checking for ROMS/BIOS. Disabling should speed the update process up                                                                                                                                   
 | Backup Saves                                     | This will compress the Saves and Memories directories from your Pocket to the "Backups" folder                                                                                                                            
 | Use Alternative Location                         | You can supply your own Download URL/Location to get your ROMS and BIOS. If you uncheck this Archive.org will be used instead. **I strongly recommend using this over Archive.org as that has very slow download speeds** 
+
+![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Settings.png)
 
 ## Manage Cores ##
 Select the "**Manage Cores**" Option. From here you can pick and choose the Cores that you'd like to download.
