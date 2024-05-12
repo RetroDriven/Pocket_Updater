@@ -8,7 +8,7 @@ public static class ServiceHelper
     public static string UpdateDirectory { get; private set; } // move off this
     public static string TempDirectory { get; private set; }
     public static CoresService CoresService { get; private set; }
-    public static SettingsService SettingsService { get; private set ;}
+    public static SettingsService SettingsService { get; private set; }
     public static PlatformImagePacksService PlatformImagePacksService { get; private set; }
     public static FirmwareService FirmwareService { get; private set; }
     public static ArchiveService ArchiveService { get; private set; }
@@ -16,14 +16,14 @@ public static class ServiceHelper
 
     private static bool isInitialized;
 
-    public static void Initialize(string path, EventHandler<StatusUpdatedEventArgs> statusUpdated = null,
-        EventHandler<UpdateProcessCompleteEventArgs> updateProcessComplete = null)
+    public static void Initialize(string path, string config_path, EventHandler<StatusUpdatedEventArgs> statusUpdated = null,
+        EventHandler<UpdateProcessCompleteEventArgs> updateProcessComplete = null, bool forceReload = false)
     {
-        if (!isInitialized)
+        if (!isInitialized || forceReload)
         {
             isInitialized = true;
             UpdateDirectory = path;
-            SettingsService = new SettingsService(path);
+            SettingsService = new SettingsService(config_path);
             ArchiveService = new ArchiveService(SettingsService.GetConfig().archives,
                 SettingsService.GetConfig().crc_check, SettingsService.GetConfig().use_custom_archive);
             TempDirectory = SettingsService.GetConfig().temp_directory ?? UpdateDirectory;
@@ -52,5 +52,9 @@ public static class ServiceHelper
     public static void ReloadSettings()
     {
         SettingsService = new SettingsService(UpdateDirectory, CoresService.Cores);
+        //reload the archive service, in case that setting has changed
+        ArchiveService = new ArchiveService(SettingsService.GetConfig().archives,
+                SettingsService.GetConfig().crc_check, SettingsService.GetConfig().use_custom_archive);
+        CoresService = new CoresService(UpdateDirectory, SettingsService, ArchiveService, AssetsService);
     }
 }
