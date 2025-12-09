@@ -6,14 +6,17 @@ using System.Net;
 using System.ComponentModel;
 using Pocket_Updater.Forms.Message_Box;
 using System.Diagnostics;
-//using Analogue;
 
 namespace Pocket_Updater.Controls.Organize_Cores
 {
     public partial class Organize_Cores : UserControl
     {
         private WebClient WebClient;
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Current_Dir { get; set; }
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string updateFile { get; set; }
 
         private SettingsService _settings;

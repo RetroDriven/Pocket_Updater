@@ -1,24 +1,20 @@
-﻿using System.Data;
-using System.Net;
+﻿using Pannella.Helpers;
 using Pannella.Services;
-using RetroDriven;
 using Pocket_Updater.Forms.Message_Box;
 using Pocket_Updater.Forms.Updater_Summary;
-
-using Newtonsoft.Json;
-using Pannella.Helpers;
-using Guna.UI2.WinForms;
-using Pannella.Models.Settings;
-using Microsoft.VisualBasic;
-using Pocket_Updater.Properties;
-using System.Runtime;
-using System.Net.NetworkInformation;
+using RetroDriven;
+using System.ComponentModel;
+using System.Data;
+using System.Net;
 
 namespace Pocket_Updater.Controls
 {
     public partial class Update_Pocket : UserControl
     {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Pocket_Drive { get; set; }
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Current_Dir { get; set; }
 
         private WebClient WebClient;

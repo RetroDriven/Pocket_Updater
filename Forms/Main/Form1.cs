@@ -1,10 +1,7 @@
-using Pannella;
 using Pocket_Updater.Forms.Message_Box;
 using System.Diagnostics;
-using System.Globalization;
 using System.Net;
 using System.Net.Http.Headers;
-using System.Net.NetworkInformation;
 using System.Text.Json;
 
 namespace Pocket_Updater

@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Net;
-using Pannella.Services;
+﻿using Pannella.Helpers;
 using Pannella.Models.OpenFPGA_Cores_Inventory;
-using System.Text.Json;
+using Pannella.Services;
 using Pocket_Updater.Forms.Message_Box;
-using System.Xml.Linq;
-using Pannella.Helpers;
+using System.ComponentModel;
+using System.Net;
+using System.Text.Json;
 
 namespace Pocket_Updater.Controls.Manage_Cores
 {
@@ -23,7 +14,11 @@ namespace Pocket_Updater.Controls.Manage_Cores
 
         public SettingsService _settingsManager;
         public WebClient WebClient;
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Current_Dir { get; set; }
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string updateFile { get; set; }
 
 

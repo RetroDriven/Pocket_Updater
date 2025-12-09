@@ -1,8 +1,8 @@
-﻿using Pannella.Services;
-using Pannella.Helpers;
+﻿using Pannella.Helpers;
 using Pannella.Models;
 using Pocket_Updater.Forms.Message_Box;
 using RetroDriven;
+using System.ComponentModel;
 using System.Data;
 using System.Net;
 
@@ -10,7 +10,10 @@ namespace Pocket_Updater.Controls.Image_Packs
 {
     public partial class Image_Packs : UserControl
     {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Pocket_Drive { get; set; }
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Current_Dir { get; set; }
 
         private WebClient WebClient;
