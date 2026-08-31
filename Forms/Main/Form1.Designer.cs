@@ -77,11 +77,11 @@ namespace Pocket_Updater
             About = new Guna.UI2.WinForms.Guna2Button();
             Panel_Main = new Panel();
             update_Pocket1 = new Update_Pocket();
-            image_Packs1 = new Controls.Image_Packs.Image_Packs();
-            organize_Cores1 = new Controls.Organize_Cores.Organize_Cores();
-            manageCores1 = new Controls.Manage_Cores.ManageCores();
-            logs1 = new Controls.Logs.Logs();
-            about1 = new Controls.About.About();
+            image_Packs1 = new Pocket_Updater.Controls.Image_Packs.Image_Packs();
+            organize_Cores1 = new Pocket_Updater.Controls.Organize_Cores.Organize_Cores();
+            manageCores1 = new Pocket_Updater.Controls.Manage_Cores.ManageCores();
+            logs1 = new Pocket_Updater.Controls.Logs.Logs();
+            about1 = new Pocket_Updater.Controls.About.About();
             Panel_Top.SuspendLayout();
             Panel_Menu.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -161,7 +161,7 @@ namespace Pocket_Updater
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(169, 23);
             guna2HtmlLabel1.TabIndex = 0;
-            guna2HtmlLabel1.Text = "Pocket Updater v1.6.1";
+            guna2HtmlLabel1.Text = "Pocket Updater v1.6.2";
             // 
             // guna2ControlBox1
             // 

@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 namespace Pannella.Models.OpenFPGA_Cores_Inventory;
 
 public class Core
@@ -12,7 +13,10 @@ public class Core
     public string version { get; set; }
     public string beta_slot_id;
     public int beta_slot_platform_id_index;
-    public bool requires_license { get; set; } = false;
+
+    //[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+
+    public bool? requires_license { get; set; } = false;
 
     public override string ToString()
     {

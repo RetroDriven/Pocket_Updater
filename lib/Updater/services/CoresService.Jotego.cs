@@ -57,6 +57,14 @@ public partial class CoresService
     public (bool, string, int) IsBetaCore(string identifier)
     {
         var data = this.ReadDataJson(identifier);
+
+        // Guard against missing or malformed data to avoid NullReferenceException
+        if (data == null || data.data?.data_slots == null)
+        {
+            // Could log a warning here about the missing data for identifier
+            return (false, null, 0);
+        }
+
         var slot = data.data.data_slots.FirstOrDefault(x => x.name == "JTBETA");
 
         return slot != null
@@ -67,6 +75,14 @@ public partial class CoresService
     public void CopyBetaKey(Core core)
     {
         AnalogueCore info = this.ReadCoreJson(core.identifier);
+        // Guard against missing core.json or invalid platform index
+        if (info == null || info.metadata?.platform_ids == null ||
+            core.beta_slot_platform_id_index < 0 || core.beta_slot_platform_id_index >= info.metadata.platform_ids.Length)
+        {
+            // Could log a warning here
+            return;
+        }
+
         string path = Path.Combine(
             this.installPath,
             "Assets",

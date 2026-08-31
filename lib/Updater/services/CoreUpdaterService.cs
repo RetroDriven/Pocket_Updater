@@ -90,7 +90,7 @@ public class CoreUpdaterService : BaseProcess
                     continue;
                 }
 
-                if (core.requires_license && !jtBetaKeyExists)
+                if (core.requires_license == true && !jtBetaKeyExists)
                 {
                     missingBetaKeys.Add(core.identifier);
                     continue; // skip if you don't have the key

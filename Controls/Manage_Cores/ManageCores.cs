@@ -155,18 +155,12 @@ namespace Pocket_Updater.Controls.Manage_Cores
                     string Core_Author = Identifier.Substring(0, (Identifier.Length - 1));
 
                     //array containing the data for the 3 columns
-                    //the core platform name from the api
+                    //the core platform name from the api (read safely)
                     var platform = core.platform;
 
-                    //readt he platform json file
-                    var name = core.platform.name;
-
-                    //if it finds one, use the name from there instead
-                    if (platform != null)
-                    {
-                        name = platform.name;
-                    }
-                    if (core.requires_license)
+                    //read the platform json file safely, defaulting when missing
+                    string name = platform?.name ?? "Unknown Platform";
+                    if (core.requires_license == true)
                     {
                         name += " (Beta Key Required from Patreon)";
                     }
@@ -177,7 +171,8 @@ namespace Pocket_Updater.Controls.Manage_Cores
                         name += " (Analogizer Version)";
                     }
 
-                    object[] rows = { !_settingsManager.GetCoreSettings(core.identifier).skip, name, Core_Author };
+                    var skip = _settingsManager.GetCoreSettings(core.identifier).skip == true;
+                    object[] rows = { !skip, name, Core_Author };
                     int index = dataGridView1.Rows.Add(rows);
 
                     dataGridView1.Rows[index].Tag = core.identifier;

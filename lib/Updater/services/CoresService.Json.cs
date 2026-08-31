@@ -46,6 +46,8 @@ public partial class CoresService
 
         if (!File.Exists(file))
         {
+            // Log missing data.json for diagnostics and return null to preserve current contract
+            this.WriteMessage($"data.json not found for core '{identifier}' at '{file}'");
             return null;
         }
 

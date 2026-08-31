@@ -483,7 +483,7 @@ internal partial class Program
             }
             else
             {
-                Console.WriteLine("You fucked up.");
+                Console.WriteLine("You messed up.");
             }
         }
         else
@@ -534,11 +534,11 @@ internal partial class Program
         ServiceHelper.SettingsService.Save();
     }
 
-    private static string MenuItemName(string title, bool value, bool requiresLicense = false)
+    private static string MenuItemName(string title, bool value, bool? requiresLicense = false)
     {
         string name = $"[{(value ? "x" : " ")}] {title}";
 
-        if (requiresLicense)
+        if (requiresLicense == true)
         {
             name += " (Requires beta access)";
         }

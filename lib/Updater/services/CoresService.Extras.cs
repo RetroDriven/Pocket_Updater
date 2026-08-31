@@ -181,7 +181,7 @@ public partial class CoresService
 
             WriteMessage($"The '{pocketExtra.core_identifiers[0]}' core is not currently installed.");
 
-            if (core.requires_license && !jtBetaKeyExists)
+            if (core.requires_license == true && !jtBetaKeyExists)
             {
                 // Moved message to the ExtractBetaKey method
                 return;
@@ -206,7 +206,7 @@ public partial class CoresService
 
             this.Install(core);
 
-            if (core.requires_license && jtBetaKeyExists)
+            if (core.requires_license == true && jtBetaKeyExists)
             {
                 this.CopyBetaKey(core);
             }

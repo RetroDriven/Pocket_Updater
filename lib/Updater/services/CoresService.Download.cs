@@ -100,12 +100,30 @@ public partial class CoresService
         WriteMessage("Looking for Assets...");
         Archive archive = this.archiveService.GetArchive(core.identifier);
         AnalogueCore info = this.ReadCoreJson(core.identifier);
+
+        // Guard against missing core.json to avoid NullReferenceException
+        if (info == null || info.metadata?.platform_ids == null || info.metadata.platform_ids.Length == 0)
+        {
+            // Could log a warning here about missing core.json or platform ids
+            return new Dictionary<string, object>
+            {
+                { "installed", installed },
+                { "skipped", skipped },
+                { "missingBetaKey", false }
+            };
+        }
+
         // cores with multiple platforms won't work...not sure any exist right now?
         string platformPath = Path.Combine(this.installPath, "Assets", info.metadata.platform_ids[0]);
 
         DataJSON dataJson = this.ReadDataJson(core.identifier);
 
-        if (dataJson.data.data_slots.Length > 0)
+        // Guard against missing or malformed data.json
+        if (dataJson == null || dataJson.data?.data_slots == null || dataJson.data.data_slots.Length == 0)
+        {
+            // No data slots to process
+        }
+        else
         {
             foreach (DataSlot slot in dataJson.data.data_slots)
             {
