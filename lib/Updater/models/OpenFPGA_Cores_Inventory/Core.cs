@@ -20,6 +20,6 @@ public class Core
 
     public override string ToString()
     {
-        return $"{platform.name} ({identifier})";
+        return $"{platform?.name ?? identifier} ({identifier})";
     }
 }
