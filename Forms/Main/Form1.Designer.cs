@@ -161,7 +161,7 @@ namespace Pocket_Updater
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(169, 23);
             guna2HtmlLabel1.TabIndex = 0;
-            guna2HtmlLabel1.Text = "Pocket Updater v1.6.2";
+            guna2HtmlLabel1.Text = "Pocket Updater v1.6.3";
             // 
             // guna2ControlBox1
             // 
