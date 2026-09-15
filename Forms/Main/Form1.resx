@@ -3447,9 +3447,12 @@
 </value>
   </data>
   <metadata name="guna2DragControl1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>246, 17</value>
+    <value>638, 11</value>
   </metadata>
   <metadata name="guna2ResizeForm1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>434, 17</value>
+  </metadata>
+  <metadata name="guna2DragControl2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>804, 12</value>
   </metadata>
 </root>
