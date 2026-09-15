@@ -108,6 +108,16 @@ public partial class CoresService : BaseProcess
             return false;
         }
 
+        if (string.IsNullOrEmpty(core.platform_id))
+        {
+            var analogueCore = this.ReadCoreJson(core.identifier);
+
+            if (analogueCore?.metadata?.platform_ids != null && analogueCore.metadata.platform_ids.Length > 0)
+            {
+                core.platform_id = analogueCore.metadata.platform_ids[0];
+            }
+        }
+
         if (clean && this.IsInstalled(core.identifier))
         {
             this.Delete(core.identifier, core.platform_id);

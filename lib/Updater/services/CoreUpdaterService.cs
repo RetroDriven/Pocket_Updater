@@ -162,9 +162,18 @@ public class CoreUpdaterService : BaseProcess
                         WriteMessage("Local core found: " + localVersion);
                     }
 
-                    if (mostRecentRelease != localVersion || clean)
+                    bool missingPlatform = this.coresService.HasMissingPlatformJson(core, localCore);
+
+                    if (mostRecentRelease != localVersion || clean || missingPlatform)
                     {
-                        WriteMessage("Updating core...");
+                        if (missingPlatform && mostRecentRelease == localVersion && !clean)
+                        {
+                            WriteMessage("Missing platform metadata. Updating core...");
+                        }
+                        else
+                        {
+                            WriteMessage("Updating core...");
+                        }
                     }
                     else
                     {
@@ -230,7 +239,7 @@ public class CoreUpdaterService : BaseProcess
                     {
                         { "version", mostRecentRelease },
                         { "core", core.identifier },
-                        { "platform", core.platform.name }
+                        { "platform", core.platform?.name ?? core.identifier }
                     };
 
                     installed.Add(summary);
@@ -241,7 +250,7 @@ public class CoreUpdaterService : BaseProcess
                     {
                         { "version", mostRecentRelease },
                         { "core", core.identifier },
-                        { "platform", core.platform.name }
+                        { "platform", core.platform?.name ?? core.identifier }
                     };
 
                     installed.Add(summary);

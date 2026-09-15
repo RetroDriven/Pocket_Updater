@@ -12,7 +12,7 @@ public partial class CoresService
     {
         var info = this.ReadCoreJson(identifier);
 
-        if (info == null)
+        if (info == null || info.metadata?.platform_ids == null || info.metadata.platform_ids.Length == 0)
         {
             return null;
         }
@@ -20,9 +20,72 @@ public partial class CoresService
         // cores with multiple platforms won't work...not sure any exist right now?
         string platformsFolder = Path.Combine(this.installPath, "Platforms");
         string dataFile = Path.Combine(platformsFolder, info.metadata.platform_ids[0] + ".json");
-        var platforms = JsonConvert.DeserializeObject<Dictionary<string, Platform>>(File.ReadAllText(dataFile));
 
-        return platforms["platform"];
+        if (!File.Exists(dataFile))
+        {
+            return null;
+        }
+
+        try
+        {
+            var platforms = JsonConvert.DeserializeObject<Dictionary<string, Platform>>(File.ReadAllText(dataFile));
+
+            return platforms != null && platforms.TryGetValue("platform", out var platform) ? platform : null;
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
+    public bool HasMissingPlatformJson(Core core, AnalogueCore localCore = null)
+    {
+        if (localCore == null && core != null)
+        {
+            localCore = this.ReadCoreJson(core.identifier);
+        }
+
+        var platformIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+        if (localCore?.metadata?.platform_ids != null)
+        {
+            foreach (var id in localCore.metadata.platform_ids)
+            {
+                if (!string.IsNullOrWhiteSpace(id))
+                {
+                    platformIds.Add(id);
+                }
+            }
+        }
+
+        if (core != null && !string.IsNullOrWhiteSpace(core.platform_id))
+        {
+            platformIds.Add(core.platform_id);
+        }
+
+        if (core != null && string.IsNullOrEmpty(core.platform_id) && platformIds.Count > 0)
+        {
+            core.platform_id = platformIds.First();
+        }
+
+        if (platformIds.Count == 0)
+        {
+            return false;
+        }
+
+        string platformsFolder = Path.Combine(this.installPath, "Platforms");
+
+        foreach (var id in platformIds)
+        {
+            string dataFile = Path.Combine(platformsFolder, id + ".json");
+
+            if (!File.Exists(dataFile))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public AnalogueCore ReadCoreJson(string identifier)

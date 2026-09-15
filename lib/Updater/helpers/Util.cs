@@ -92,21 +92,45 @@ public class Util
             }
         }
 
-        if (preservePlatformsFolder)
+        if (preservePlatformsFolder && !string.IsNullOrEmpty(path))
         {
-            string existing = Path.Combine(path, PLATFORMS_DIRECTORY, platform + ".json");
+            string sourcePlatforms = Path.Combine(source, PLATFORMS_DIRECTORY);
+            string targetPlatforms = Path.Combine(path, PLATFORMS_DIRECTORY);
 
-            if (File.Exists(existing))
+            if (Directory.Exists(sourcePlatforms) && Directory.Exists(targetPlatforms))
             {
-                try
-                {
-                    string dir = Path.Combine(source, PLATFORMS_DIRECTORY);
+                var sourceFiles = Directory.GetFiles(sourcePlatforms, "*", SearchOption.AllDirectories);
 
-                    Directory.Delete(dir, true);
-                }
-                catch
+                foreach (var file in sourceFiles)
                 {
-                    // Ignore
+                    string relativePath = Path.GetRelativePath(sourcePlatforms, file);
+                    string targetFile = Path.Combine(targetPlatforms, relativePath);
+
+                    if (File.Exists(targetFile))
+                    {
+                        try
+                        {
+                            File.Delete(file);
+                        }
+                        catch
+                        {
+                            // Ignore
+                        }
+                    }
+                }
+
+                DeleteEmptyDirectories(sourcePlatforms);
+
+                if (!Directory.EnumerateFileSystemEntries(sourcePlatforms).Any())
+                {
+                    try
+                    {
+                        Directory.Delete(sourcePlatforms, true);
+                    }
+                    catch
+                    {
+                        // Ignore
+                    }
                 }
             }
         }
@@ -138,6 +162,26 @@ public class Util
     private static bool IsBadFile(string name)
     {
         return name.StartsWith('.') || name.EndsWith(".mra") || name.EndsWith(".txt");
+    }
+
+    private static void DeleteEmptyDirectories(string startLocation)
+    {
+        foreach (var directory in Directory.GetDirectories(startLocation))
+        {
+            DeleteEmptyDirectories(directory);
+
+            if (!Directory.EnumerateFileSystemEntries(directory).Any())
+            {
+                try
+                {
+                    Directory.Delete(directory, false);
+                }
+                catch
+                {
+                    // Ignore
+                }
+            }
+        }
     }
 
     public static bool CompareChecksum(string filepath, string checksum, HashTypes type = HashTypes.CRC32)
