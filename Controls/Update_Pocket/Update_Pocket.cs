@@ -438,8 +438,14 @@ namespace Pocket_Updater.Controls
         }
         public void Get_Jsons(string Dir)
         {
+            string assetsDirectory = Path.Combine(Dir, "Assets");
+            if (!Directory.Exists(assetsDirectory))
+            {
+                return;
+            }
+
             //Get List Json Files
-            string[] Json_Files = (string[])General.GetFilesByExtension(Dir + "\\Assets", "*.json", SearchOption.AllDirectories);
+            string[] Json_Files = (string[])General.GetFilesByExtension(assetsDirectory, "*.json", SearchOption.AllDirectories);
 
             foreach (var file in Json_Files)
             {

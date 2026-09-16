@@ -351,11 +351,23 @@ public class CoreUpdaterService : BaseProcess
 
     public void DeleteCore(Core core, bool force = false, bool nuke = false)
     {
+        // There is nothing to remove when a skipped core is not installed locally.
+        if (!this.coresService.IsInstalled(core.identifier))
+        {
+            return;
+        }
+
         // If the core was a pocket extra or local the core inventory won't have it's platform id.
         // Load it from the core.json file if it's missing.
         if (string.IsNullOrEmpty(core.platform_id))
         {
             var analogueCore = this.coresService.ReadCoreJson(core.identifier);
+
+            if (analogueCore?.metadata?.platform_ids == null || analogueCore.metadata.platform_ids.Length == 0)
+            {
+                WriteMessage($"Unable to determine the platform for {core.identifier}. Skipping removal.");
+                return;
+            }
 
             core.platform_id = analogueCore.metadata.platform_ids[0];
         }
