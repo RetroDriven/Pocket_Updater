@@ -146,6 +146,9 @@ namespace Pocket_Updater.Controls.Manage_Cores
             _cores = Pannella.Helpers.ServiceHelper.CoresService.Cores;
 
             _settingsManager = new SettingsService(Directory.GetCurrentDirectory(), _cores);
+            var missingCoreIds = _settingsManager.GetMissingCores()
+                .Select(core => core.identifier)
+                .ToHashSet();
 
             foreach (Core core in _cores)
             {
@@ -171,7 +174,8 @@ namespace Pocket_Updater.Controls.Manage_Cores
                         name += " (Analogizer Version)";
                     }
 
-                    var skip = _settingsManager.GetCoreSettings(core.identifier).skip == true;
+                    var skip = missingCoreIds.Contains(core.identifier) ||
+                        _settingsManager.GetCoreSettings(core.identifier).skip == true;
                     object[] rows = { !skip, name, Core_Author };
                     int index = dataGridView1.Rows.Add(rows);
 
