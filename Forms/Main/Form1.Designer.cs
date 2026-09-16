@@ -132,7 +132,7 @@ namespace Pocket_Updater
             label1.Name = "label1";
             label1.Size = new Size(176, 21);
             label1.TabIndex = 5;
-            label1.Text = "Pocket Updater v1.6.3";
+            label1.Text = "Pocket Updater v1.6.4";
             // 
             // No_Internet
             // 

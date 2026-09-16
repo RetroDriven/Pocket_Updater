@@ -150,13 +150,13 @@ public class Config
             {
                 archive.url = _custom_archive.url;
                 archive.index = _custom_archive.index;
-            }
-        }
 
-        if (archive.url == "https://updater.retrodriven.com")
-        {
-            use_custom_archive = true;
-            archive.index = "updater.php";
+                if (archive.url == "https://updater.retrodriven.com")
+                {
+                    use_custom_archive = true;
+                    archive.index = "updater.php";
+                }
+            }
         }
 
         // bugfix: check to make sure the custom archives has archive_name populated

@@ -41,6 +41,18 @@ namespace Pocket_Updater.Controls
             _settings = new SettingsService(Current_Dir);
 
 
+            //Show/Hde Alternate Download
+            if (Toggle_Alternate.Checked == true)
+            {
+                Alternate_Location.Visible = true;
+                TextBox2.Visible = true;
+            } else 
+            {
+                Alternate_Location.Visible = false;
+                TextBox2.Visible = false;
+            }
+
+
             //Check for Internet
             if (Check_Internet())
             {
