@@ -71,6 +71,7 @@ public class SettingsService
             if (!settings.core_settings.ContainsKey(core.identifier))
             {
                 this.missingCores.Add(core);
+                DisableCore(core.identifier);
             }
         }
     }
