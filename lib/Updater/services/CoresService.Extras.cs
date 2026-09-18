@@ -1,4 +1,4 @@
-using System.IO.Compression;
+﻿using System.IO.Compression;
 using Newtonsoft.Json;
 using Pannella.Helpers;
 using Pannella.Models;
@@ -125,6 +125,10 @@ public partial class CoresService
                 this.RefreshLocalCores();
 
             WriteMessage("Complete.");
+        }
+        catch (OperationCanceledException)
+        {
+            throw;
         }
         catch (Exception e)
         {
@@ -274,6 +278,10 @@ public partial class CoresService
 
             Directory.Delete(extractPath, true);
             WriteMessage("Complete.");
+        }
+        catch (OperationCanceledException)
+        {
+            throw;
         }
         catch (Exception e)
         {

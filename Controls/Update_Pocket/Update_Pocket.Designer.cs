@@ -1,13 +1,13 @@
-﻿namespace Pocket_Updater.Controls
+namespace Pocket_Updater.Controls
 {
     partial class Update_Pocket
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -22,8 +22,8 @@
 
         #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -149,9 +149,9 @@
             panel1.SuspendLayout();
             Panel_Right_Top.SuspendLayout();
             SuspendLayout();
-            // 
+            //
             // flowLayoutPanel1
-            // 
+            //
             flowLayoutPanel1.AutoSize = true;
             flowLayoutPanel1.Controls.Add(Panel_Title);
             flowLayoutPanel1.Controls.Add(tableLayoutPanel1);
@@ -163,9 +163,9 @@
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(512, 154);
             flowLayoutPanel1.TabIndex = 11;
-            // 
+            //
             // Panel_Title
-            // 
+            //
             Panel_Title.AutoSize = true;
             Panel_Title.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Panel_Title.Controls.Add(label3);
@@ -178,9 +178,9 @@
             Panel_Title.ShadowDecoration.CustomizableEdges = customizableEdges52;
             Panel_Title.Size = new Size(302, 39);
             Panel_Title.TabIndex = 2;
-            // 
+            //
             // label3
-            // 
+            //
             label3.Anchor = AnchorStyles.Left;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
@@ -190,10 +190,10 @@
             label3.Padding = new Padding(14, 0, 0, 0);
             label3.Size = new Size(156, 25);
             label3.TabIndex = 0;
-            label3.Text = "Update Pocket";
-            // 
+            label3.Text = "Settings";
+            //
             // guna2Separator1
-            // 
+            //
             guna2Separator1.Anchor = AnchorStyles.Left;
             guna2Separator1.FillColor = Color.FromArgb(104, 107, 121);
             guna2Separator1.Location = new Point(18, 27);
@@ -202,9 +202,9 @@
             guna2Separator1.Padding = new Padding(14, 0, 0, 0);
             guna2Separator1.Size = new Size(282, 10);
             guna2Separator1.TabIndex = 1;
-            // 
+            //
             // tableLayoutPanel1
-            // 
+            //
             tableLayoutPanel1.AutoSize = true;
             tableLayoutPanel1.ColumnCount = 3;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
@@ -222,9 +222,9 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.Size = new Size(466, 42);
             tableLayoutPanel1.TabIndex = 8;
-            // 
+            //
             // label1
-            // 
+            //
             label1.Anchor = AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
@@ -234,9 +234,9 @@
             label1.Size = new Size(128, 20);
             label1.TabIndex = 6;
             label1.Text = "Update Location:";
-            // 
+            //
             // Update
-            // 
+            //
             Update.Anchor = AnchorStyles.Left;
             Update.AutoRoundedCorners = true;
             Update.BorderRadius = 18;
@@ -257,9 +257,9 @@
             Update.TabIndex = 11;
             Update.Text = "Update";
             Update.Click += Update_Click;
-            // 
+            //
             // comboBox2
-            // 
+            //
             comboBox2.Anchor = AnchorStyles.Left;
             comboBox2.AutoRoundedCorners = true;
             comboBox2.BackColor = Color.Transparent;
@@ -282,9 +282,9 @@
             comboBox2.Size = new Size(194, 36);
             comboBox2.TabIndex = 10;
             comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
-            // 
+            //
             // tableLayoutPanel2
-            // 
+            //
             tableLayoutPanel2.AutoSize = true;
             tableLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel2.ColumnCount = 3;
@@ -302,9 +302,9 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.Size = new Size(398, 40);
             tableLayoutPanel2.TabIndex = 9;
-            // 
+            //
             // comboBox1
-            // 
+            //
             comboBox1.Anchor = AnchorStyles.Left;
             comboBox1.AutoRoundedCorners = true;
             comboBox1.BackColor = Color.Transparent;
@@ -328,9 +328,9 @@
             comboBox1.TabIndex = 11;
             comboBox1.Visible = false;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
-            // 
+            //
             // Button_Refresh
-            // 
+            //
             Button_Refresh.Cursor = Cursors.Hand;
             Button_Refresh.CustomizableEdges = customizableEdges59;
             Button_Refresh.DisabledState.BorderColor = Color.DarkGray;
@@ -353,9 +353,9 @@
             ToolTip.SetToolTip(Button_Refresh, "Refresh your Removable Drive List");
             Button_Refresh.Visible = false;
             Button_Refresh.Click += Button_Refresh_Click_1;
-            // 
+            //
             // label2
-            // 
+            //
             label2.Anchor = AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
@@ -366,9 +366,9 @@
             label2.TabIndex = 7;
             label2.Text = "Pocket Drive Letter:";
             label2.Visible = false;
-            // 
+            //
             // guna2Panel1
-            // 
+            //
             guna2Panel1.AutoSize = true;
             guna2Panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             guna2Panel1.Controls.Add(label5);
@@ -381,9 +381,9 @@
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges62;
             guna2Panel1.Size = new Size(510, 32);
             guna2Panel1.TabIndex = 10;
-            // 
+            //
             // label5
-            // 
+            //
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
             label5.Location = new Point(0, -2);
@@ -393,9 +393,9 @@
             label5.Size = new Size(98, 25);
             label5.TabIndex = 0;
             label5.Text = "Settings";
-            // 
+            //
             // guna2Separator3
-            // 
+            //
             guna2Separator3.FillColor = Color.FromArgb(104, 107, 121);
             guna2Separator3.Location = new Point(18, 20);
             guna2Separator3.Margin = new Padding(2);
@@ -403,9 +403,9 @@
             guna2Separator3.Padding = new Padding(14, 0, 0, 0);
             guna2Separator3.Size = new Size(218, 10);
             guna2Separator3.TabIndex = 1;
-            // 
+            //
             // Panel_Status_Title
-            // 
+            //
             Panel_Status_Title.AutoSize = true;
             Panel_Status_Title.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Panel_Status_Title.Controls.Add(label4);
@@ -419,9 +419,9 @@
             Panel_Status_Title.ShadowDecoration.CustomizableEdges = customizableEdges64;
             Panel_Status_Title.Size = new Size(662, 38);
             Panel_Status_Title.TabIndex = 3;
-            // 
+            //
             // label4
-            // 
+            //
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(6, 0);
@@ -430,18 +430,18 @@
             label4.Size = new Size(145, 25);
             label4.TabIndex = 0;
             label4.Text = "Updater Status";
-            // 
+            //
             // guna2Separator2
-            // 
+            //
             guna2Separator2.FillColor = Color.FromArgb(104, 107, 121);
             guna2Separator2.Location = new Point(6, 26);
             guna2Separator2.Margin = new Padding(2);
             guna2Separator2.Name = "guna2Separator2";
             guna2Separator2.Size = new Size(218, 10);
             guna2Separator2.TabIndex = 1;
-            // 
+            //
             // Panel_Left
-            // 
+            //
             Panel_Left.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Panel_Left.Controls.Add(Panel_Left_Main);
             Panel_Left.Controls.Add(Panel_Left_Top);
@@ -453,9 +453,9 @@
             Panel_Left.ShadowDecoration.CustomizableEdges = customizableEdges66;
             Panel_Left.Size = new Size(512, 670);
             Panel_Left.TabIndex = 13;
-            // 
+            //
             // Panel_Left_Main
-            // 
+            //
             Panel_Left_Main.Controls.Add(Panel_Left_Bottom);
             Panel_Left_Main.Dock = DockStyle.Fill;
             Panel_Left_Main.Location = new Point(0, 154);
@@ -463,9 +463,9 @@
             Panel_Left_Main.Name = "Panel_Left_Main";
             Panel_Left_Main.Size = new Size(512, 516);
             Panel_Left_Main.TabIndex = 14;
-            // 
+            //
             // Panel_Left_Bottom
-            // 
+            //
             Panel_Left_Bottom.Controls.Add(flowLayoutPanel2);
             Panel_Left_Bottom.Controls.Add(guna2Panel1);
             Panel_Left_Bottom.Dock = DockStyle.Fill;
@@ -475,9 +475,9 @@
             Panel_Left_Bottom.Padding = new Padding(2, 0, 0, 0);
             Panel_Left_Bottom.Size = new Size(512, 516);
             Panel_Left_Bottom.TabIndex = 12;
-            // 
+            //
             // flowLayoutPanel2
-            // 
+            //
             flowLayoutPanel2.Controls.Add(tableLayoutPanel3);
             flowLayoutPanel2.Controls.Add(tableLayoutPanel4);
             flowLayoutPanel2.Dock = DockStyle.Fill;
@@ -488,9 +488,9 @@
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(510, 484);
             flowLayoutPanel2.TabIndex = 11;
-            // 
+            //
             // tableLayoutPanel3
-            // 
+            //
             tableLayoutPanel3.AutoSize = true;
             tableLayoutPanel3.ColumnCount = 2;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle());
@@ -534,9 +534,9 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.Size = new Size(324, 300);
             tableLayoutPanel3.TabIndex = 0;
-            // 
+            //
             // label8
-            // 
+            //
             label8.Anchor = AnchorStyles.Right;
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
@@ -547,9 +547,9 @@
             label8.TabIndex = 21;
             label8.Text = "Backup Saves";
             ToolTip.SetToolTip(label8, "This will compress the Saves and Memories directories from your Pocket to the \"Backups\" folder");
-            // 
+            //
             // label6
-            // 
+            //
             label6.Anchor = AnchorStyles.Right;
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
@@ -560,9 +560,9 @@
             label6.TabIndex = 11;
             label6.Text = "Delete Skipped Cores:";
             ToolTip.SetToolTip(label6, "Delete Cores from your Pocket's SD Card that you have unchecked for Downloading");
-            // 
+            //
             // Toggle_Alternatives
-            // 
+            //
             Toggle_Alternatives.Anchor = AnchorStyles.Left;
             Toggle_Alternatives.AutoRoundedCorners = true;
             Toggle_Alternatives.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
@@ -585,9 +585,9 @@
             Toggle_Alternatives.UncheckedState.InnerBorderColor = Color.White;
             Toggle_Alternatives.UncheckedState.InnerBorderRadius = 8;
             Toggle_Alternatives.UncheckedState.InnerColor = Color.White;
-            // 
+            //
             // label16
-            // 
+            //
             label16.Anchor = AnchorStyles.Right;
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
@@ -598,9 +598,9 @@
             label16.TabIndex = 15;
             label16.Text = "Skip Alternative Arcade Files:";
             ToolTip.SetToolTip(label16, "Skip downloading any Alternative Arcade Files");
-            // 
+            //
             // Toggle_Jotego
-            // 
+            //
             Toggle_Jotego.Anchor = AnchorStyles.Left;
             Toggle_Jotego.AutoRoundedCorners = true;
             Toggle_Jotego.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
@@ -623,9 +623,9 @@
             Toggle_Jotego.UncheckedState.InnerBorderColor = Color.White;
             Toggle_Jotego.UncheckedState.InnerBorderRadius = 8;
             Toggle_Jotego.UncheckedState.InnerColor = Color.White;
-            // 
+            //
             // label13
-            // 
+            //
             label13.Anchor = AnchorStyles.Right;
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
@@ -636,9 +636,9 @@
             label13.TabIndex = 14;
             label13.Text = "Fix Jotego Core Names:";
             ToolTip.SetToolTip(label13, "Automatically rename Jotego Cores to more friendly names");
-            // 
+            //
             // label9
-            // 
+            //
             label9.Anchor = AnchorStyles.Right;
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
@@ -649,9 +649,9 @@
             label9.TabIndex = 7;
             label9.Text = "Preserve Platforms:";
             ToolTip.SetToolTip(label9, "Preserve Custom Core Images, Core Naming, and Category changes made manually");
-            // 
+            //
             // label10
-            // 
+            //
             label10.Anchor = AnchorStyles.Right;
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
@@ -662,9 +662,9 @@
             label10.TabIndex = 5;
             label10.Text = "Download ROMS/BIOS:";
             ToolTip.SetToolTip(label10, "Enable/Disable Downloading Arcade ROMS and Core BIOS");
-            // 
+            //
             // label11
-            // 
+            //
             label11.Anchor = AnchorStyles.Right;
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
@@ -675,9 +675,9 @@
             label11.TabIndex = 3;
             label11.Text = "Download Pocket Firmware:";
             ToolTip.SetToolTip(label11, "Enable/Disable Downloading Pocket Firmware Updates");
-            // 
+            //
             // Toggle_Platforms
-            // 
+            //
             Toggle_Platforms.Anchor = AnchorStyles.Left;
             Toggle_Platforms.AutoRoundedCorners = true;
             Toggle_Platforms.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
@@ -700,9 +700,9 @@
             Toggle_Platforms.UncheckedState.InnerBorderColor = Color.White;
             Toggle_Platforms.UncheckedState.InnerBorderRadius = 8;
             Toggle_Platforms.UncheckedState.InnerColor = Color.White;
-            // 
+            //
             // Toggle_Skipped
-            // 
+            //
             Toggle_Skipped.Anchor = AnchorStyles.Left;
             Toggle_Skipped.AutoRoundedCorners = true;
             Toggle_Skipped.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
@@ -725,9 +725,9 @@
             Toggle_Skipped.UncheckedState.InnerBorderColor = Color.White;
             Toggle_Skipped.UncheckedState.InnerBorderRadius = 8;
             Toggle_Skipped.UncheckedState.InnerColor = Color.White;
-            // 
+            //
             // Toggle_Assets
-            // 
+            //
             Toggle_Assets.Anchor = AnchorStyles.Left;
             Toggle_Assets.AutoRoundedCorners = true;
             Toggle_Assets.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
@@ -750,9 +750,9 @@
             Toggle_Assets.UncheckedState.InnerBorderColor = Color.White;
             Toggle_Assets.UncheckedState.InnerBorderRadius = 8;
             Toggle_Assets.UncheckedState.InnerColor = Color.White;
-            // 
+            //
             // Toggle_Firmware
-            // 
+            //
             Toggle_Firmware.Anchor = AnchorStyles.Left;
             Toggle_Firmware.AutoRoundedCorners = true;
             Toggle_Firmware.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
@@ -775,9 +775,9 @@
             Toggle_Firmware.UncheckedState.InnerBorderColor = Color.White;
             Toggle_Firmware.UncheckedState.InnerBorderRadius = 8;
             Toggle_Firmware.UncheckedState.InnerColor = Color.White;
-            // 
+            //
             // Toggle_Jsons
-            // 
+            //
             Toggle_Jsons.Anchor = AnchorStyles.Left;
             Toggle_Jsons.AutoRoundedCorners = true;
             Toggle_Jsons.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
@@ -800,9 +800,9 @@
             Toggle_Jsons.UncheckedState.InnerBorderColor = Color.White;
             Toggle_Jsons.UncheckedState.InnerBorderRadius = 8;
             Toggle_Jsons.UncheckedState.InnerColor = Color.White;
-            // 
+            //
             // label7
-            // 
+            //
             label7.Anchor = AnchorStyles.Right;
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
@@ -813,9 +813,9 @@
             label7.TabIndex = 13;
             label7.Text = "Generate PCECD JSONs:";
             ToolTip.SetToolTip(label7, "This will auto create the required JSON Files for the PCECD Games on your SD Card");
-            // 
+            //
             // label14
-            // 
+            //
             label14.Anchor = AnchorStyles.Right;
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
@@ -826,9 +826,9 @@
             label14.TabIndex = 15;
             label14.Text = "CRC Checks:";
             ToolTip.SetToolTip(label14, "Enable/Disable CRC checking for ROMS/BIOS. Disabling should speed the update process up");
-            // 
+            //
             // Toggle_CRC
-            // 
+            //
             Toggle_CRC.Anchor = AnchorStyles.Left;
             Toggle_CRC.AutoRoundedCorners = true;
             Toggle_CRC.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
@@ -851,9 +851,9 @@
             Toggle_CRC.UncheckedState.InnerBorderColor = Color.White;
             Toggle_CRC.UncheckedState.InnerBorderRadius = 8;
             Toggle_CRC.UncheckedState.InnerColor = Color.White;
-            // 
+            //
             // Toggle_Backup_Saves
-            // 
+            //
             Toggle_Backup_Saves.Anchor = AnchorStyles.Left;
             Toggle_Backup_Saves.AutoRoundedCorners = true;
             Toggle_Backup_Saves.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
@@ -876,9 +876,9 @@
             Toggle_Backup_Saves.UncheckedState.InnerBorderColor = Color.White;
             Toggle_Backup_Saves.UncheckedState.InnerBorderRadius = 8;
             Toggle_Backup_Saves.UncheckedState.InnerColor = Color.White;
-            // 
+            //
             // Toggle_Alternate
-            // 
+            //
             Toggle_Alternate.Anchor = AnchorStyles.Left;
             Toggle_Alternate.AutoRoundedCorners = true;
             Toggle_Alternate.Checked = true;
@@ -903,9 +903,9 @@
             Toggle_Alternate.UncheckedState.InnerBorderRadius = 8;
             Toggle_Alternate.UncheckedState.InnerColor = Color.White;
             Toggle_Alternate.CheckedChanged += Toggle_Alternate_CheckedChanged;
-            // 
+            //
             // label12
-            // 
+            //
             label12.Anchor = AnchorStyles.Right;
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
@@ -916,9 +916,9 @@
             label12.TabIndex = 18;
             label12.Text = "Use Alternate Download Location:";
             ToolTip.SetToolTip(label12, "You can supply your own Download URL/Location to get your ROMS and BIOS instead of using Archive.org by default.");
-            // 
+            //
             // tableLayoutPanel4
-            // 
+            //
             tableLayoutPanel4.ColumnCount = 1;
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel4.Controls.Add(Alternate_Location, 0, 0);
@@ -933,9 +933,9 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.Size = new Size(352, 132);
             tableLayoutPanel4.TabIndex = 2;
-            // 
+            //
             // Alternate_Location
-            // 
+            //
             Alternate_Location.AutoRoundedCorners = true;
             Alternate_Location.BorderRadius = 18;
             Alternate_Location.CustomizableEdges = customizableEdges87;
@@ -960,9 +960,9 @@
             Alternate_Location.Size = new Size(304, 38);
             Alternate_Location.TabIndex = 1;
             Alternate_Location.Visible = false;
-            // 
+            //
             // TextBox2
-            // 
+            //
             TextBox2.BackColor = Color.Transparent;
             TextBox2.BorderColor = Color.FromArgb(59, 62, 78);
             TextBox2.BorderThickness = 0;
@@ -988,9 +988,9 @@
             TextBox2.Size = new Size(322, 22);
             TextBox2.TabIndex = 3;
             TextBox2.Visible = false;
-            // 
+            //
             // Button_Save
-            // 
+            //
             Button_Save.Anchor = AnchorStyles.None;
             Button_Save.AutoRoundedCorners = true;
             Button_Save.BorderRadius = 18;
@@ -1010,9 +1010,9 @@
             Button_Save.TabIndex = 0;
             Button_Save.Text = "Save";
             Button_Save.Click += Button_Save_Click;
-            // 
+            //
             // Panel_Left_Top
-            // 
+            //
             Panel_Left_Top.Controls.Add(flowLayoutPanel1);
             Panel_Left_Top.Dock = DockStyle.Top;
             Panel_Left_Top.Location = new Point(0, 0);
@@ -1020,9 +1020,9 @@
             Panel_Left_Top.Name = "Panel_Left_Top";
             Panel_Left_Top.Size = new Size(512, 154);
             Panel_Left_Top.TabIndex = 13;
-            // 
+            //
             // textBox1
-            // 
+            //
             textBox1.AutoSize = true;
             textBox1.BackColor = Color.FromArgb(39, 44, 66);
             textBox1.BorderRadius = 10;
@@ -1051,9 +1051,9 @@
             textBox1.ShadowDecoration.CustomizableEdges = customizableEdges94;
             textBox1.Size = new Size(662, 590);
             textBox1.TabIndex = 1;
-            // 
+            //
             // Panel_Right
-            // 
+            //
             Panel_Right.Controls.Add(textBox1);
             Panel_Right.Controls.Add(panel1);
             Panel_Right.Controls.Add(Panel_Right_Top);
@@ -1065,18 +1065,18 @@
             Panel_Right.ShadowDecoration.CustomizableEdges = customizableEdges98;
             Panel_Right.Size = new Size(662, 670);
             Panel_Right.TabIndex = 14;
-            // 
+            //
             // panel1
-            // 
+            //
             panel1.Controls.Add(guna2ProgressBar1);
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(0, 628);
             panel1.Name = "panel1";
             panel1.Size = new Size(662, 42);
             panel1.TabIndex = 2;
-            // 
+            //
             // guna2ProgressBar1
-            // 
+            //
             guna2ProgressBar1.CustomizableEdges = customizableEdges99;
             guna2ProgressBar1.Dock = DockStyle.Fill;
             guna2ProgressBar1.FillColor = Color.FromArgb(39, 44, 66);
@@ -1090,9 +1090,9 @@
             guna2ProgressBar1.TabIndex = 0;
             guna2ProgressBar1.Text = "guna2ProgressBar1";
             guna2ProgressBar1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            // 
+            //
             // Panel_Right_Top
-            // 
+            //
             Panel_Right_Top.Controls.Add(Panel_Status_Title);
             Panel_Right_Top.CustomizableEdges = customizableEdges95;
             Panel_Right_Top.Dock = DockStyle.Top;
@@ -1102,9 +1102,9 @@
             Panel_Right_Top.ShadowDecoration.CustomizableEdges = customizableEdges96;
             Panel_Right_Top.Size = new Size(662, 38);
             Panel_Right_Top.TabIndex = 0;
-            // 
+            //
             // ToolTip
-            // 
+            //
             ToolTip.AllowLinksHandling = true;
             ToolTip.BackColor = Color.FromArgb(39, 44, 66);
             ToolTip.BorderColor = Color.FromArgb(59, 62, 78);
@@ -1112,9 +1112,9 @@
             ToolTip.ForeColor = Color.White;
             ToolTip.MaximumSize = new Size(0, 0);
             ToolTip.ToolTipIcon = ToolTipIcon.Info;
-            // 
+            //
             // Update_Pocket
-            // 
+            //
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             AutoSize = true;

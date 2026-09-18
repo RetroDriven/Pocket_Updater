@@ -1,13 +1,13 @@
-﻿namespace Pocket_Updater.Controls.Image_Packs
+namespace Pocket_Updater.Controls.Image_Packs
 {
     partial class Image_Packs
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -22,8 +22,8 @@
 
         #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -72,9 +72,9 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
-            // 
+            //
             // Panel_Top
-            // 
+            //
             Panel_Top.AutoSize = true;
             Panel_Top.Controls.Add(label4);
             Panel_Top.Controls.Add(guna2Separator2);
@@ -85,9 +85,9 @@
             Panel_Top.ShadowDecoration.CustomizableEdges = customizableEdges2;
             Panel_Top.Size = new Size(920, 50);
             Panel_Top.TabIndex = 4;
-            // 
+            //
             // label4
-            // 
+            //
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(3, 3);
@@ -95,17 +95,17 @@
             label4.Size = new Size(223, 32);
             label4.TabIndex = 2;
             label4.Text = "Asset Image Packs";
-            // 
+            //
             // guna2Separator2
-            // 
+            //
             guna2Separator2.FillColor = Color.FromArgb(104, 107, 121);
             guna2Separator2.Location = new Point(5, 35);
             guna2Separator2.Name = "guna2Separator2";
             guna2Separator2.Size = new Size(250, 12);
             guna2Separator2.TabIndex = 3;
-            // 
+            //
             // Panel_Bottom
-            // 
+            //
             Panel_Bottom.Controls.Add(flowLayoutPanel1);
             Panel_Bottom.CustomizableEdges = customizableEdges9;
             Panel_Bottom.Dock = DockStyle.Bottom;
@@ -115,9 +115,9 @@
             Panel_Bottom.ShadowDecoration.CustomizableEdges = customizableEdges10;
             Panel_Bottom.Size = new Size(920, 164);
             Panel_Bottom.TabIndex = 5;
-            // 
+            //
             // flowLayoutPanel1
-            // 
+            //
             flowLayoutPanel1.Anchor = AnchorStyles.Top;
             flowLayoutPanel1.Controls.Add(tableLayoutPanel1);
             flowLayoutPanel1.Controls.Add(tableLayoutPanel2);
@@ -129,9 +129,9 @@
             flowLayoutPanel1.Padding = new Padding(150, 0, 0, 0);
             flowLayoutPanel1.Size = new Size(731, 128);
             flowLayoutPanel1.TabIndex = 22;
-            // 
+            //
             // tableLayoutPanel1
-            // 
+            //
             tableLayoutPanel1.AutoSize = true;
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
@@ -145,9 +145,9 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.Size = new Size(428, 42);
             tableLayoutPanel1.TabIndex = 9;
-            // 
+            //
             // label1
-            // 
+            //
             label1.Anchor = AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -156,9 +156,9 @@
             label1.Size = new Size(191, 25);
             label1.TabIndex = 6;
             label1.Text = "Download Location:";
-            // 
+            //
             // comboBox2
-            // 
+            //
             comboBox2.Anchor = AnchorStyles.Left;
             comboBox2.AutoRoundedCorners = true;
             comboBox2.BackColor = Color.Transparent;
@@ -181,9 +181,9 @@
             comboBox2.Size = new Size(225, 36);
             comboBox2.TabIndex = 10;
             comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
-            // 
+            //
             // tableLayoutPanel2
-            // 
+            //
             tableLayoutPanel2.AutoSize = true;
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
@@ -197,9 +197,9 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.Size = new Size(424, 42);
             tableLayoutPanel2.TabIndex = 0;
-            // 
+            //
             // comboBox1
-            // 
+            //
             comboBox1.Anchor = AnchorStyles.Left;
             comboBox1.AutoRoundedCorners = true;
             comboBox1.BackColor = Color.Transparent;
@@ -221,9 +221,9 @@
             comboBox1.Size = new Size(227, 36);
             comboBox1.TabIndex = 16;
             comboBox1.Visible = false;
-            // 
+            //
             // label2
-            // 
+            //
             label2.Anchor = AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -234,9 +234,9 @@
             label2.TabIndex = 15;
             label2.Text = "Pocket Drive Letter:";
             label2.Visible = false;
-            // 
+            //
             // tableLayoutPanel4
-            // 
+            //
             tableLayoutPanel4.AutoSize = true;
             tableLayoutPanel4.ColumnCount = 1;
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50F));
@@ -248,9 +248,9 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 51F));
             tableLayoutPanel4.Size = new Size(50, 51);
             tableLayoutPanel4.TabIndex = 2;
-            // 
+            //
             // Button_Refresh
-            // 
+            //
             Button_Refresh.Cursor = Cursors.Hand;
             Button_Refresh.CustomizableEdges = customizableEdges7;
             Button_Refresh.DisabledState.BorderColor = Color.DarkGray;
@@ -271,9 +271,9 @@
             ToolTip.SetToolTip(Button_Refresh, "Refresh your Removable Drive List");
             Button_Refresh.Visible = false;
             Button_Refresh.Click += Button_Refresh_Click;
-            // 
+            //
             // tableLayoutPanel5
-            // 
+            //
             tableLayoutPanel5.AutoSize = true;
             tableLayoutPanel5.ColumnCount = 1;
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle());
@@ -284,9 +284,9 @@
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
             tableLayoutPanel5.Size = new Size(0, 0);
             tableLayoutPanel5.TabIndex = 3;
-            // 
+            //
             // dataGridView1
-            // 
+            //
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToResizeRows = false;
@@ -358,25 +358,25 @@
             dataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(71, 69, 94);
             dataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
+            //
             // dataGridViewTextBoxColumn1
-            // 
+            //
             dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewTextBoxColumn1.HeaderText = "Creator";
             dataGridViewTextBoxColumn1.MinimumWidth = 15;
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
+            //
             // Variant
-            // 
+            //
             Variant.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Variant.HeaderText = "Variant";
             Variant.MinimumWidth = 6;
             Variant.Name = "Variant";
             Variant.ReadOnly = true;
-            // 
+            //
             // GitHub
-            // 
+            //
             GitHub.ActiveLinkColor = Color.White;
             GitHub.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             GitHub.HeaderText = "GitHub";
@@ -386,18 +386,18 @@
             GitHub.Name = "GitHub";
             GitHub.ReadOnly = true;
             GitHub.VisitedLinkColor = Color.White;
-            // 
+            //
             // Download
-            // 
+            //
             Download.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             Download.HeaderText = "Download";
             Download.MinimumWidth = 6;
             Download.Name = "Download";
             Download.ReadOnly = true;
             Download.Width = 112;
-            // 
+            //
             // panel1
-            // 
+            //
             panel1.Controls.Add(dataGridView1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 50);
@@ -405,9 +405,9 @@
             panel1.Padding = new Padding(2, 0, 2, 0);
             panel1.Size = new Size(920, 543);
             panel1.TabIndex = 7;
-            // 
+            //
             // ToolTip
-            // 
+            //
             ToolTip.AllowLinksHandling = true;
             ToolTip.BackColor = Color.FromArgb(39, 44, 66);
             ToolTip.BorderColor = Color.FromArgb(59, 62, 78);
@@ -415,9 +415,9 @@
             ToolTip.ForeColor = Color.White;
             ToolTip.MaximumSize = new Size(0, 0);
             ToolTip.ToolTipIcon = ToolTipIcon.Info;
-            // 
+            //
             // Image_Packs
-            // 
+            //
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(59, 62, 78);

@@ -1,4 +1,4 @@
-﻿using RetroDriven;
+using RetroDriven;
 using System.Text.Json;
 using Pannella.Services;
 using Pannella.Helpers;
@@ -22,6 +22,7 @@ namespace Pocket_Updater.Controls.Organize_Cores
         public Organize_Cores()
         {
             InitializeComponent();
+            ApplyModernLayout();
             string Current_Dir = Directory.GetCurrentDirectory();
             _settings = new SettingsService(Current_Dir);
 
@@ -33,6 +34,56 @@ namespace Pocket_Updater.Controls.Organize_Cores
             //Preferences
             Get_Preferences_Json();
 
+        }
+
+        private void ApplyModernLayout()
+        {
+            UI.ModernTheme.Apply(this);
+            UI.ModernTheme.ApplyPageChrome(this);
+
+            Panel_Top.FillColor = Color.Transparent;
+            label4.Font = UI.ModernTheme.TitleFont;
+            label4.ForeColor = UI.ModernTheme.TextPrimary;
+            guna2Separator2.FillColor = UI.ModernTheme.Border;
+
+            Panel_Bottom.FillColor = UI.ModernTheme.Surface;
+            Panel_Bottom.FillColor2 = UI.ModernTheme.Surface;
+            Panel_Bottom.BorderColor = UI.ModernTheme.Border;
+            Panel_Bottom.BorderThickness = 1;
+            Panel_Bottom.BorderRadius = 12;
+
+            panel1.BackColor = UI.ModernTheme.Surface;
+            panel1.Padding = new Padding(1);
+            UI.ModernTheme.StyleDataGrid(dataGridView1);
+
+            foreach (var combo in new[] { comboBox2, Pocket_Drive })
+            {
+                combo.AutoRoundedCorners = false;
+                combo.BorderRadius = 9;
+                combo.FillColor = UI.ModernTheme.SurfaceRaised;
+                combo.BorderColor = UI.ModernTheme.BorderStrong;
+                combo.Font = UI.ModernTheme.BodyFont;
+                combo.ForeColor = UI.ModernTheme.TextPrimary;
+            }
+
+            Button_Refresh.AutoRoundedCorners = false;
+            Button_Refresh.BorderRadius = 9;
+            Button_Refresh.FillColor = UI.ModernTheme.SurfaceRaised;
+            Button_Refresh.BorderColor = UI.ModernTheme.Border;
+            Button_Refresh.BorderThickness = 1;
+            Button_Refresh.HoverState.FillColor = UI.ModernTheme.SurfaceHover;
+
+            Save.AutoRoundedCorners = false;
+            Save.BorderRadius = 9;
+            Save.FillColor = UI.ModernTheme.Accent;
+            Save.HoverState.FillColor = UI.ModernTheme.AccentHover;
+            Save.Font = UI.ModernTheme.BodyBoldFont;
+
+            guna2CircleButton1.Visible = false;
+
+            ToolTip.BackColor = UI.ModernTheme.SurfaceRaised;
+            ToolTip.BorderColor = UI.ModernTheme.BorderStrong;
+            ToolTip.ForeColor = UI.ModernTheme.TextPrimary;
         }
 
         private void Save_Click(object sender, EventArgs e)

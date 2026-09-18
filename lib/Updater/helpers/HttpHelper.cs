@@ -42,16 +42,22 @@ public class HttpHelper
             // Ignore
         }
 
-        using var cts = new CancellationTokenSource();
+        UpdateCancellation.ThrowIfCancellationRequested();
 
-        cts.CancelAfter(TimeSpan.FromSeconds(timeout));
+        using var timeoutCts = new CancellationTokenSource();
+        timeoutCts.CancelAfter(TimeSpan.FromSeconds(timeout));
+        using var cts = CancellationTokenSource.CreateLinkedTokenSource(timeoutCts.Token, UpdateCancellation.Token);
 
         if (!Uri.TryCreate(uri, UriKind.Absolute, out _))
         {
             throw new InvalidOperationException("URI is invalid.");
         }
 
-        using HttpResponseMessage responseMessage = this.client.GetAsync(uri, HttpCompletionOption.ResponseHeadersRead, cts.Token).Result;
+        try
+        {
+            using HttpResponseMessage responseMessage = this.client
+                .GetAsync(uri, HttpCompletionOption.ResponseHeadersRead, cts.Token)
+                .GetAwaiter().GetResult();
 
         // Just in case the HttpClient doesn't throw the error on 404 like it should.
         if (responseMessage.StatusCode == HttpStatusCode.NotFound)
@@ -64,42 +70,61 @@ public class HttpHelper
         var buffer = new byte[4096];
         var isMoreToRead = true;
 
-        using var stream = responseMessage.Content.ReadAsStream(cts.Token);
-        using var fileStream = new FileStream(outputPath, FileMode.Create, FileAccess.Write);
+            using var stream = responseMessage.Content.ReadAsStream(cts.Token);
+            using var fileStream = new FileStream(outputPath, FileMode.Create, FileAccess.Write);
 
-        while (isMoreToRead)
+            while (isMoreToRead)
+            {
+                cts.Token.ThrowIfCancellationRequested();
+                var read = stream.ReadAsync(buffer, 0, buffer.Length, cts.Token).GetAwaiter().GetResult();
+
+                if (read == 0)
+                {
+                    isMoreToRead = false;
+
+                    if (console)
+                    {
+                        Console.Write("\r");
+                    }
+                }
+                else
+                {
+                    readSoFar += read;
+
+                    var progress = totalSize > 0 ? (double)readSoFar / totalSize : 0d;
+
+                    if (console && totalSize > 0)
+                    {
+                        ConsoleHelper.ShowProgressBar(readSoFar, totalSize);
+                    }
+
+                    DownloadProgressEventArgs args = new()
+                    {
+                        Progress = progress,
+                        BytesReceived = readSoFar,
+                        TotalBytes = totalSize
+                    };
+
+                    OnDownloadProgressUpdate(args);
+
+                    fileStream.Write(buffer, 0, read);
+                }
+            }
+        }
+        catch (OperationCanceledException) when (UpdateCancellation.IsCancellationRequested)
         {
-            var read = stream.Read(buffer);
 
-            if (read == 0)
+            try
             {
-                isMoreToRead = false;
-
-                if (console)
-                {
-                    Console.Write("\r");
-                }
+                if (File.Exists(outputPath))
+                    File.Delete(outputPath);
             }
-            else
+            catch
             {
-                readSoFar += read;
 
-                var progress = (double)readSoFar / totalSize;
-
-                if (console)
-                {
-                    ConsoleHelper.ShowProgressBar(readSoFar, totalSize);
-                }
-
-                DownloadProgressEventArgs args = new()
-                {
-                    Progress = progress
-                };
-
-                OnDownloadProgressUpdate(args);
-
-                fileStream.Write(buffer, 0, read);
             }
+
+            throw;
         }
     }
 
@@ -115,8 +140,10 @@ public class HttpHelper
             this.CreateClient(false);
         }
 
-        var response = this.client.GetAsync(uri).Result;
-        string html = response.Content.ReadAsStringAsync().Result;
+        UpdateCancellation.ThrowIfCancellationRequested();
+        var response = this.client.GetAsync(uri, UpdateCancellation.Token).GetAwaiter().GetResult();
+        string html = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+        UpdateCancellation.ThrowIfCancellationRequested();
 
         if (!allowRedirect)
         {
@@ -143,4 +170,6 @@ public class HttpHelper
 public class DownloadProgressEventArgs : EventArgs
 {
     public double Progress;
+    public long BytesReceived;
+    public long TotalBytes;
 }

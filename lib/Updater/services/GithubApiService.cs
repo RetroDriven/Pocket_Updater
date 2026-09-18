@@ -1,5 +1,6 @@
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using Newtonsoft.Json;
+using Pannella.Helpers;
 using Pannella.Models.Github;
 using GithubFile = Pannella.Models.Github.File;
 
@@ -78,7 +79,8 @@ public static class GithubApiService
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("token", token);
         }
 
-        var response = client.Send(request);
+        UpdateCancellation.ThrowIfCancellationRequested();
+        var response = client.Send(request, UpdateCancellation.Token);
 
         response.EnsureSuccessStatusCode();
 
@@ -89,7 +91,8 @@ public static class GithubApiService
             RemainingCalls = int.Parse(remaining);
         }
 
-        var responseBody = response.Content.ReadAsStringAsync().Result;
+        var responseBody = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+        UpdateCancellation.ThrowIfCancellationRequested();
 
         return responseBody;
     }

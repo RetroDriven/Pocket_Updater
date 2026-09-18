@@ -1,4 +1,4 @@
-﻿namespace Pocket_Updater.Forms.Updater_Summary
+namespace Pocket_Updater.Forms.Updater_Summary
 {
     partial class Updater_Summary
     {
@@ -50,16 +50,16 @@
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Panel_Top.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // guna2BorderlessForm1
-            // 
+            //
             this.guna2BorderlessForm1.BorderRadius = 10;
             this.guna2BorderlessForm1.ContainerControl = this;
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
+            //
             // Panel_Top
-            // 
+            //
             this.Panel_Top.AutoSize = true;
             this.Panel_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(26)))));
             this.Panel_Top.Controls.Add(this.guna2ControlBox1);
@@ -74,9 +74,9 @@
             this.Panel_Top.ShadowDecoration.CustomizableEdges = customizableEdges10;
             this.Panel_Top.Size = new System.Drawing.Size(523, 28);
             this.Panel_Top.TabIndex = 3;
-            // 
+            //
             // guna2ControlBox1
-            // 
+            //
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox1.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.guna2ControlBox1.CustomizableEdges = customizableEdges3;
@@ -90,9 +90,9 @@
             this.guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             this.guna2ControlBox1.Size = new System.Drawing.Size(22, 19);
             this.guna2ControlBox1.TabIndex = 4;
-            // 
+            //
             // guna2ControlBox2
-            // 
+            //
             this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
             this.guna2ControlBox2.CustomizableEdges = customizableEdges5;
@@ -106,9 +106,9 @@
             this.guna2ControlBox2.ShadowDecoration.CustomizableEdges = customizableEdges6;
             this.guna2ControlBox2.Size = new System.Drawing.Size(22, 19);
             this.guna2ControlBox2.TabIndex = 5;
-            // 
+            //
             // guna2ControlBox3
-            // 
+            //
             this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox3.Animated = true;
             this.guna2ControlBox3.CustomizableEdges = customizableEdges7;
@@ -123,9 +123,9 @@
             this.guna2ControlBox3.ShadowDecoration.CustomizableEdges = customizableEdges8;
             this.guna2ControlBox3.Size = new System.Drawing.Size(22, 19);
             this.guna2ControlBox3.TabIndex = 6;
-            // 
+            //
             // label4
-            // 
+            //
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(4, 3);
@@ -133,9 +133,9 @@
             this.label4.Size = new System.Drawing.Size(176, 25);
             this.label4.TabIndex = 2;
             this.label4.Text = "Updater Summary";
-            // 
+            //
             // textBox1
-            // 
+            //
             this.textBox1.AutoSize = true;
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
             this.textBox1.BorderRadius = 5;
@@ -163,15 +163,15 @@
             this.textBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             this.textBox1.Size = new System.Drawing.Size(523, 444);
             this.textBox1.TabIndex = 4;
-            // 
+            //
             // guna2DragControl1
-            // 
+            //
             this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2DragControl1.TargetControl = this.Panel_Top;
             this.guna2DragControl1.UseTransparentDrag = true;
-            // 
+            //
             // Updater_Summary
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));

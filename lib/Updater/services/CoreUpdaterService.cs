@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Pannella.Helpers;
 using Pannella.Models;
 using Pannella.Models.Extras;
@@ -15,6 +15,8 @@ public class CoreUpdaterService : BaseProcess
     private readonly FirmwareService firmwareService;
     private readonly SettingsService settingsService;
     private readonly CoresService coresService;
+
+    public event EventHandler<OverallProgressEventArgs> OverallProgressUpdate;
 
     public CoreUpdaterService(
         string path,
@@ -50,6 +52,8 @@ public class CoreUpdaterService : BaseProcess
     /// </summary>
     public void RunUpdates(string[] ids = null, bool clean = false)
     {
+        UpdateCancellation.ThrowIfCancellationRequested();
+
         List<Dictionary<string, string>> installed = new List<Dictionary<string, string>>();
         List<string> installedAssets = new List<string>();
         List<string> skippedAssets = new List<string>();
@@ -58,11 +62,14 @@ public class CoreUpdaterService : BaseProcess
 
         if (this.settingsService.GetConfig().backup_saves)
         {
+            UpdateCancellation.ThrowIfCancellationRequested();
             AssetsService.BackupSaves(this.installPath, this.settingsService.GetConfig().backup_saves_location);
             AssetsService.BackupMemories(this.installPath, this.settingsService.GetConfig().backup_saves_location);
         }
 
-        if (this.settingsService.GetConfig().download_firmware && ids == null)
+        UpdateCancellation.ThrowIfCancellationRequested();
+
+        if (this.settingsService.GetConfig().download_firmware)
         {
             if (this.firmwareService != null)
             {
@@ -76,11 +83,24 @@ public class CoreUpdaterService : BaseProcess
             Divide();
         }
 
+        UpdateCancellation.ThrowIfCancellationRequested();
         bool jtBetaKeyExists = this.coresService.ExtractBetaKey();
 
-        foreach (var core in this.cores.Where(core => ids == null || ids.Any(id => id == core.identifier)))
+        var selectedCores = this.cores
+            .Where(core => ids == null || ids.Any(id => id == core.identifier))
+            .ToList();
+        int completedCores = 0;
+        OnOverallProgressUpdate(new OverallProgressEventArgs
         {
+            Completed = 0,
+            Total = selectedCores.Count
+        });
+
+        foreach (var core in selectedCores)
+        {
+            UpdateCancellation.ThrowIfCancellationRequested();
             var coreSettings = this.settingsService.GetCoreSettings(core.identifier);
+            bool coreCanceled = false;
 
             try
             {
@@ -297,6 +317,12 @@ public class CoreUpdaterService : BaseProcess
                 WriteMessage("Installation complete.");
                 Divide();
             }
+            catch (OperationCanceledException)
+            {
+                coreCanceled = true;
+                WriteMessage("Update cancellation requested.");
+                throw;
+            }
             catch (Exception e)
             {
                 WriteMessage("Uh oh something went wrong.");
@@ -305,6 +331,19 @@ public class CoreUpdaterService : BaseProcess
 #else
                 WriteMessage(e.Message);
 #endif
+            }
+            finally
+            {
+                if (!coreCanceled)
+                {
+                    completedCores++;
+                    OnOverallProgressUpdate(new OverallProgressEventArgs
+                    {
+                        Completed = completedCores,
+                        Total = selectedCores.Count,
+                        CurrentCore = core.identifier ?? string.Empty
+                    });
+                }
             }
         }
 
@@ -324,6 +363,11 @@ public class CoreUpdaterService : BaseProcess
         };
 
         OnUpdateProcessComplete(args);
+    }
+
+    private void OnOverallProgressUpdate(OverallProgressEventArgs e)
+    {
+        OverallProgressUpdate?.Invoke(this, e);
     }
 
     private void JotegoRename(Core core)

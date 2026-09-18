@@ -55,20 +55,24 @@ public class AssetsService
             throw new ArgumentNullException(nameof(backupLocation));
         }
 
+        string resolvedBackupLocation = Path.IsPathRooted(backupLocation)
+            ? backupLocation
+            : Path.Combine(rootDirectory, backupLocation);
+
         Console.WriteLine($"Compressing and backing up {folderName} directory...");
         string savesPath = Path.Combine(rootDirectory, folderName);
         string fileName = $"{folderName}_Backup_{DateTime.Now:yyyy-MM-dd_HH.mm.ss}.zip";
-        string archiveName = Path.Combine(backupLocation, fileName);
+        string archiveName = Path.Combine(resolvedBackupLocation, fileName);
 
         if (Directory.Exists(savesPath))
         {
-            if (!Directory.Exists(backupLocation))
+            if (!Directory.Exists(resolvedBackupLocation))
             {
-                Directory.CreateDirectory(backupLocation);
+                Directory.CreateDirectory(resolvedBackupLocation);
             }
 
             ZipFile.CreateFromDirectory(savesPath, archiveName);
-            Console.WriteLine("Complete.");
+            Console.WriteLine($"Complete. Backup saved to '{archiveName}'.");
         }
         else
         {

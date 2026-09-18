@@ -5,31 +5,113 @@ using Pannella.Models.Analogue;
 
 namespace Pannella.Services;
 
+public sealed class FirmwareStatus
+{
+    public bool CheckSucceeded { get; init; }
+    public string LatestVersion { get; init; } = string.Empty;
+    public string LatestFileName { get; init; } = string.Empty;
+    public bool LatestFilePresent { get; init; }
+    public string ErrorMessage { get; init; } = string.Empty;
+    public string ReleaseNotesHtml { get; init; } = string.Empty;
+
+    public bool UpdateFileAvailable => CheckSucceeded && !LatestFilePresent;
+}
+
 public class FirmwareService : Base
 {
     private const string BASE_URL = "https://www.analogue.co/";
     private const string DETAILS = "support/pocket/firmware/{0}/details";
     private const string FILENAME_PATTERN = "pocket_firmware_*.bin";
 
+    private static readonly object LatestLock = new();
     private static ReleaseDetails latest;
 
-    private static ReleaseDetails GetDetails(string version = "latest")
+    private static ReleaseDetails GetDetails(string version = "latest", bool forceRefresh = false)
     {
-        if (latest != null)
+        lock (LatestLock)
         {
-            return latest;
+            if (version == "latest" && forceRefresh)
+            {
+                latest = null;
+            }
+
+            if (version == "latest" && latest != null)
+            {
+                return latest;
+            }
+
+            string url = string.Format(BASE_URL + DETAILS, version);
+            string response = HttpHelper.Instance.GetHTML(url);
+            ReleaseDetails details = JsonConvert.DeserializeObject<ReleaseDetails>(response);
+
+            if (version == "latest")
+            {
+                latest = details;
+            }
+
+            return details;
         }
+    }
 
-        string url = string.Format(BASE_URL + DETAILS, version);
-        string response = HttpHelper.Instance.GetHTML(url);
-        ReleaseDetails details = JsonConvert.DeserializeObject<ReleaseDetails>(response);
-
-        if (version == "latest")
+    public FirmwareStatus GetStatus(string path, bool forceRefresh = false)
+    {
+        try
         {
-            latest = details;
-        }
+            if (string.IsNullOrWhiteSpace(path) || !Directory.Exists(path))
+            {
+                return new FirmwareStatus
+                {
+                    CheckSucceeded = false,
+                    ErrorMessage = "The selected update location is not available."
+                };
+            }
 
-        return details;
+            ReleaseDetails details = GetDetails("latest", forceRefresh);
+            if (details == null || string.IsNullOrWhiteSpace(details.download_url))
+            {
+                return new FirmwareStatus
+                {
+                    CheckSucceeded = false,
+                    ErrorMessage = "The latest Pocket firmware details could not be retrieved."
+                };
+            }
+
+            string filename;
+            try
+            {
+                filename = Path.GetFileName(new Uri(details.download_url).LocalPath);
+            }
+            catch
+            {
+                string[] parts = details.download_url.Split('/');
+                filename = parts.Length == 0 ? string.Empty : parts[^1];
+            }
+
+            string filepath = Path.Combine(path, filename);
+            bool present = File.Exists(filepath);
+
+            if (present && !string.IsNullOrWhiteSpace(details.md5))
+            {
+                present = Util.CompareChecksum(filepath, details.md5, Util.HashTypes.MD5);
+            }
+
+            return new FirmwareStatus
+            {
+                CheckSucceeded = true,
+                LatestVersion = details.version ?? string.Empty,
+                LatestFileName = filename,
+                LatestFilePresent = present,
+                ReleaseNotesHtml = details.release_notes_html ?? string.Empty
+            };
+        }
+        catch (Exception ex)
+        {
+            return new FirmwareStatus
+            {
+                CheckSucceeded = false,
+                ErrorMessage = ex.Message
+            };
+        }
     }
 
     public string UpdateFirmware(string path)

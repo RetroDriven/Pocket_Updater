@@ -1,13 +1,13 @@
-﻿namespace Pocket_Updater.Controls.Manage_Cores
+namespace Pocket_Updater.Controls.Manage_Cores
 {
     partial class ManageCores
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -22,8 +22,8 @@
 
         #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -55,9 +55,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // Panel_Top
-            // 
+            //
             this.Panel_Top.AutoSize = true;
             this.Panel_Top.Controls.Add(this.label4);
             this.Panel_Top.Controls.Add(this.guna2Separator2);
@@ -69,28 +69,28 @@
             this.Panel_Top.ShadowDecoration.CustomizableEdges = customizableEdges2;
             this.Panel_Top.Size = new System.Drawing.Size(714, 37);
             this.Panel_Top.TabIndex = 2;
-            // 
+            //
             // label4
-            // 
+            //
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(3, 2);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(139, 25);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Manage Cores";
-            // 
+            this.label4.Text = "Cores";
+            //
             // guna2Separator2
-            // 
+            //
             this.guna2Separator2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(107)))), ((int)(((byte)(121)))));
             this.guna2Separator2.Location = new System.Drawing.Point(4, 26);
             this.guna2Separator2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Separator2.Name = "guna2Separator2";
             this.guna2Separator2.Size = new System.Drawing.Size(219, 9);
             this.guna2Separator2.TabIndex = 3;
-            // 
+            //
             // Panel_Bottom
-            // 
+            //
             this.Panel_Bottom.Controls.Add(this.tableLayoutPanel1);
             this.Panel_Bottom.CustomizableEdges = customizableEdges5;
             this.Panel_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -101,9 +101,9 @@
             this.Panel_Bottom.ShadowDecoration.CustomizableEdges = customizableEdges6;
             this.Panel_Bottom.Size = new System.Drawing.Size(714, 65);
             this.Panel_Bottom.TabIndex = 3;
-            // 
+            //
             // tableLayoutPanel1
-            // 
+            //
             this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -116,9 +116,9 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(714, 43);
             this.tableLayoutPanel1.TabIndex = 3;
-            // 
+            //
             // Button_Save
-            // 
+            //
             this.Button_Save.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Button_Save.AutoRoundedCorners = true;
             this.Button_Save.BorderRadius = 17;
@@ -138,9 +138,9 @@
             this.Button_Save.TabIndex = 0;
             this.Button_Save.Text = "Save";
             this.Button_Save.Click += new System.EventHandler(this.Button_Save_Click);
-            // 
+            //
             // dataGridView1
-            // 
+            //
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
@@ -217,9 +217,9 @@
             this.dataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
-            // 
+            //
             // Enabled
-            // 
+            //
             this.Enabled.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Enabled.FalseValue = "";
             this.Enabled.HeaderText = "";
@@ -229,25 +229,25 @@
             this.Enabled.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Enabled.TrueValue = "";
             this.Enabled.Width = 125;
-            // 
+            //
             // CoreName
-            // 
+            //
             this.CoreName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.CoreName.HeaderText = "Core Name";
             this.CoreName.MinimumWidth = 6;
             this.CoreName.Name = "CoreName";
             this.CoreName.ReadOnly = true;
-            // 
+            //
             // CoreAuthor
-            // 
+            //
             this.CoreAuthor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.CoreAuthor.HeaderText = "Core Developer";
             this.CoreAuthor.MinimumWidth = 6;
             this.CoreAuthor.Name = "CoreAuthor";
             this.CoreAuthor.ReadOnly = true;
-            // 
+            //
             // panel1
-            // 
+            //
             this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -257,9 +257,9 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel1.Size = new System.Drawing.Size(714, 469);
             this.panel1.TabIndex = 5;
-            // 
+            //
             // ManageCores
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));

@@ -17,7 +17,7 @@ public class ZipHelper
         {
             // Ignore
         }
-        
+
     }
 
     public static void ExtractToDirectory(string zipFile, string destination, bool overwrite = false)
@@ -52,7 +52,7 @@ public static class ZipExtension
     }
 
     public static void ExtractToDirectory(this ZipArchive zipFile, string target, IProgress<ZipProgress> progress, bool overwrite)
-    { 
+    {
         DirectoryInfo info = Directory.CreateDirectory(target);
         string targetPath = info.FullName;
 
@@ -66,7 +66,7 @@ public static class ZipExtension
             {
                 throw new IOException("File is extracting to outside of the folder specified.");
             }
-                
+
             var zipProgress = new ZipProgress(zipFile.Entries.Count, count, entry.FullName);
             progress.Report(zipProgress);
 
@@ -76,7 +76,7 @@ public static class ZipExtension
                 {
                     throw new IOException("Directory entry with data.");
                 }
-                    
+
                 Directory.CreateDirectory(fileDestinationPath);
             }
             else

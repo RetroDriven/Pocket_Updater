@@ -1,4 +1,4 @@
-using System.Net;
+﻿using System.Net;
 using Newtonsoft.Json;
 using Pannella.Helpers;
 using Pannella.Models;
@@ -111,6 +111,10 @@ public class ArchiveService : Base
 
             return result;
         }
+        catch (OperationCanceledException)
+        {
+            throw;
+        }
         catch
         {
             return null;
@@ -157,6 +161,10 @@ public class ArchiveService : Base
                 count++;
             }
             while (count < 3 && !ValidateChecksum(destinationFileName, archiveFile));
+        }
+        catch (OperationCanceledException)
+        {
+            throw;
         }
         catch (HttpRequestException e)
         {
