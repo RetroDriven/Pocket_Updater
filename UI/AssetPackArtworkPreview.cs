@@ -18,7 +18,7 @@ namespace Pocket_Updater.UI
             FormBorderStyle = FormBorderStyle.None;
             StartPosition = FormStartPosition.Manual;
             ShowInTaskbar = false;
-            TopMost = true;
+            TopMost = false;
             BackColor = PopupBackground;
             Size = new Size(900, 180);
 

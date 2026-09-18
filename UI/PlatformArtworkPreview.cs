@@ -234,7 +234,7 @@ namespace Pocket_Updater.UI
                     return existing;
             }
 
-            string cacheDirectory = Path.Combine(ServiceHelper.TempDirectory ?? Path.GetTempPath(), "pocket_updater_artwork_cache");
+            string cacheDirectory = Path.Combine(Path.GetTempPath(), "PocketUpdater", "ArtworkCache");
             Directory.CreateDirectory(cacheDirectory);
             string destination = Path.Combine(cacheDirectory, fileKey + ".zip");
 
@@ -508,7 +508,7 @@ namespace Pocket_Updater.UI
             FormBorderStyle = FormBorderStyle.None;
             StartPosition = FormStartPosition.Manual;
             ShowInTaskbar = false;
-            TopMost = true;
+            TopMost = false;
             BackColor = PopupBackground;
             Size = new Size(660, 255);
 

@@ -21,6 +21,7 @@ namespace Pocket_Updater.Controls.Modern
         private CoreArtworkPreviewPopup? _artPreviewPopup;
         private int _artPreviewRow = -1;
         private int _artPreviewColumn = -1;
+        private int _artPreviewRequest;
         private readonly Label _sectionTitle;
         private readonly Label _title;
         private readonly Label _subtitle;
@@ -51,10 +52,10 @@ namespace Pocket_Updater.Controls.Modern
             };
 
             _artPreviewTimer = new System.Windows.Forms.Timer { Interval = 275 };
-            _artPreviewTimer.Tick += (_, _) =>
+            _artPreviewTimer.Tick += async (_, _) =>
             {
                 _artPreviewTimer.Stop();
-                ShowQueuedArtworkPreview();
+                await ShowQueuedArtworkPreviewAsync();
             };
 
             Disposed += (_, _) =>
@@ -767,29 +768,39 @@ namespace Pocket_Updater.Controls.Modern
 
             _artPreviewTimer.Stop();
             _artPreviewPopup?.Hide();
+            _artPreviewRequest++;
             _artPreviewRow = rowIndex;
             _artPreviewColumn = columnIndex;
             _artPreviewTimer.Start();
         }
 
-        private void ShowQueuedArtworkPreview()
+        private async Task ShowQueuedArtworkPreviewAsync()
         {
             if (_snapshot == null || _artPreviewRow < 0 || _artPreviewColumn < 0
                 || _artPreviewRow >= _grid.Rows.Count || _artPreviewColumn >= _grid.Columns.Count)
                 return;
 
+            int rowIndex = _artPreviewRow;
+            int request = _artPreviewRequest;
+            string targetPath = _snapshot.TargetPath;
+
             Point client = _grid.PointToClient(Cursor.Position);
             DataGridView.HitTestInfo hit = _grid.HitTest(client.X, client.Y);
-            if (hit.RowIndex != _artPreviewRow)
+            if (hit.RowIndex != rowIndex)
                 return;
-            if (_grid.Rows[_artPreviewRow].Tag is not CoreLibraryItem item)
-                return;
-
-            PlatformArtworkPreview? preview = PlatformArtworkPreviewService.TryLoad(item, _snapshot.TargetPath);
-            if (preview == null)
+            if (_grid.Rows[rowIndex].Tag is not CoreLibraryItem item)
                 return;
 
-            Rectangle row = _grid.GetRowDisplayRectangle(_artPreviewRow, false);
+            PlatformArtworkPreview? preview = await Task.Run(() => PlatformArtworkPreviewService.TryLoad(item, targetPath));
+            if (preview == null || IsDisposed || request != _artPreviewRequest || rowIndex != _artPreviewRow)
+                return;
+
+            client = _grid.PointToClient(Cursor.Position);
+            hit = _grid.HitTest(client.X, client.Y);
+            if (hit.RowIndex != rowIndex)
+                return;
+
+            Rectangle row = _grid.GetRowDisplayRectangle(rowIndex, false);
             Point screenPoint = _grid.PointToScreen(row.Location);
             Rectangle anchor = new(screenPoint, row.Size);
 
@@ -800,6 +811,7 @@ namespace Pocket_Updater.Controls.Modern
         private void HideArtworkPreview()
         {
             _artPreviewTimer.Stop();
+            _artPreviewRequest++;
             _artPreviewRow = -1;
             _artPreviewColumn = -1;
             if (_artPreviewPopup != null && !_artPreviewPopup.IsDisposed)

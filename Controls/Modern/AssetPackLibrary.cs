@@ -52,6 +52,7 @@ namespace Pocket_Updater.Controls.Modern
         private AssetPackArtworkPreviewPopup? _artPreviewPopup;
         private int _artPreviewRow = -1;
         private int _artPreviewColumn = -1;
+        private int _artPreviewRequest;
 
         private List<AssetPackLibraryItem> _items = new();
         private string _creator = "All Packs";
@@ -65,10 +66,10 @@ namespace Pocket_Updater.Controls.Modern
             Padding = new Padding(20);
 
             _artPreviewTimer = new System.Windows.Forms.Timer { Interval = 300 };
-            _artPreviewTimer.Tick += (_, _) =>
+            _artPreviewTimer.Tick += async (_, _) =>
             {
                 _artPreviewTimer.Stop();
-                ShowQueuedArtworkPreview();
+                await ShowQueuedArtworkPreviewAsync();
             };
             Disposed += (_, _) =>
             {
@@ -858,40 +859,55 @@ namespace Pocket_Updater.Controls.Modern
 
             _artPreviewTimer.Stop();
             _artPreviewPopup?.Hide();
+            _artPreviewRequest++;
             _artPreviewRow = rowIndex;
             _artPreviewColumn = columnIndex;
             _artPreviewTimer.Start();
         }
 
-        private void ShowQueuedArtworkPreview()
+        private async Task ShowQueuedArtworkPreviewAsync()
         {
             if (_artPreviewRow < 0 || _artPreviewColumn < 0
                 || _artPreviewRow >= _grid.Rows.Count || _artPreviewColumn >= _grid.Columns.Count)
                 return;
 
+            int rowIndex = _artPreviewRow;
+            int request = _artPreviewRequest;
+
             Point client = _grid.PointToClient(Cursor.Position);
             DataGridView.HitTestInfo hit = _grid.HitTest(client.X, client.Y);
-            if (hit.RowIndex != _artPreviewRow)
+            if (hit.RowIndex != rowIndex)
                 return;
-            if (_grid.Rows[_artPreviewRow].Tag is not AssetPackLibraryItem item)
-                return;
-
-            IReadOnlyList<Bitmap> images = PlatformArtworkPreviewService.TryLoadRandomPackImages(
-                item.Owner, item.Repository, item.Pack.variant ?? string.Empty, 3);
-            if (images.Count == 0)
+            if (_grid.Rows[rowIndex].Tag is not AssetPackLibraryItem item)
                 return;
 
-            Rectangle row = _grid.GetRowDisplayRectangle(_artPreviewRow, false);
+            string owner = item.Owner;
+            string repository = item.Repository;
+            string variant = item.Pack.variant ?? string.Empty;
+            string displayVariant = item.Variant;
+
+            IReadOnlyList<Bitmap> images = await Task.Run(() =>
+                PlatformArtworkPreviewService.TryLoadRandomPackImages(owner, repository, variant, 3));
+            if (images.Count == 0 || IsDisposed || request != _artPreviewRequest || rowIndex != _artPreviewRow)
+                return;
+
+            client = _grid.PointToClient(Cursor.Position);
+            hit = _grid.HitTest(client.X, client.Y);
+            if (hit.RowIndex != rowIndex)
+                return;
+
+            Rectangle row = _grid.GetRowDisplayRectangle(rowIndex, false);
             Point screenPoint = _grid.PointToScreen(row.Location);
             Rectangle anchor = new(screenPoint, row.Size);
 
             _artPreviewPopup ??= new AssetPackArtworkPreviewPopup();
-            _artPreviewPopup.ShowPreview(_grid, item.Owner, item.Repository, item.Variant, images, anchor);
+            _artPreviewPopup.ShowPreview(_grid, owner, repository, displayVariant, images, anchor);
         }
 
         private void HideArtworkPreview()
         {
             _artPreviewTimer.Stop();
+            _artPreviewRequest++;
             _artPreviewRow = -1;
             _artPreviewColumn = -1;
             if (_artPreviewPopup != null && !_artPreviewPopup.IsDisposed)
