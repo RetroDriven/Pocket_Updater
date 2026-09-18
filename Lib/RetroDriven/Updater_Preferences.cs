@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +11,7 @@ namespace RetroDriven
 {
     public class Updater_Preferences
     {
+        private static readonly object FileSync = new object();
         public string update_location { get; set; }
         public string update_drive_letter { get; set; }
 
@@ -23,12 +24,15 @@ namespace RetroDriven
                 config.update_location = Entry[0];
                 config.update_drive_letter = Entry[1];
 
-                JsonSerializer serializer = new JsonSerializer();
-                using (StreamWriter sw = new StreamWriter(Json))
-                using (JsonWriter writer = new JsonTextWriter(sw))
+                lock (FileSync)
                 {
-                    serializer.Formatting = Formatting.Indented;
-                    serializer.Serialize(writer, config);
+                    JsonSerializer serializer = new JsonSerializer();
+                    using (StreamWriter sw = new StreamWriter(Json))
+                    using (JsonWriter writer = new JsonTextWriter(sw))
+                    {
+                        serializer.Formatting = Formatting.Indented;
+                        serializer.Serialize(writer, config);
+                    }
                 }
             }
             catch(Exception Ex)
@@ -43,7 +47,7 @@ namespace RetroDriven
         {
             try
             {
-                using (StreamReader file = File.OpenText(Json)) 
+                using (StreamReader file = File.OpenText(Json))
                 {
                     JsonSerializer serializer = new JsonSerializer();
                     Updater_Preferences config = (Updater_Preferences)serializer.Deserialize(file,typeof(Updater_Preferences));

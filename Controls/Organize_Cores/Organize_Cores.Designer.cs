@@ -1,13 +1,13 @@
-﻿namespace Pocket_Updater.Controls.Organize_Cores
+namespace Pocket_Updater.Controls.Organize_Cores
 {
     partial class Organize_Cores
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -22,8 +22,8 @@
 
         #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -76,9 +76,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // Panel_Top
-            // 
+            //
             this.Panel_Top.AutoSize = true;
             this.Panel_Top.Controls.Add(this.label4);
             this.Panel_Top.Controls.Add(this.guna2Separator2);
@@ -90,9 +90,9 @@
             this.Panel_Top.ShadowDecoration.CustomizableEdges = customizableEdges2;
             this.Panel_Top.Size = new System.Drawing.Size(726, 39);
             this.Panel_Top.TabIndex = 3;
-            // 
+            //
             // label4
-            // 
+            //
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(4, 1);
@@ -100,19 +100,19 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(147, 25);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Organize Cores";
-            // 
+            this.label4.Text = "Cores";
+            //
             // guna2Separator2
-            // 
+            //
             this.guna2Separator2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(107)))), ((int)(((byte)(121)))));
             this.guna2Separator2.Location = new System.Drawing.Point(4, 28);
             this.guna2Separator2.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.guna2Separator2.Name = "guna2Separator2";
             this.guna2Separator2.Size = new System.Drawing.Size(219, 10);
             this.guna2Separator2.TabIndex = 3;
-            // 
+            //
             // Panel_Bottom
-            // 
+            //
             this.Panel_Bottom.Controls.Add(this.flowLayoutPanel1);
             this.Panel_Bottom.CustomizableEdges = customizableEdges11;
             this.Panel_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -123,9 +123,9 @@
             this.Panel_Bottom.ShadowDecoration.CustomizableEdges = customizableEdges12;
             this.Panel_Bottom.Size = new System.Drawing.Size(726, 124);
             this.Panel_Bottom.TabIndex = 4;
-            // 
+            //
             // flowLayoutPanel1
-            // 
+            //
             this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel5);
@@ -137,9 +137,9 @@
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(131, 0, 0, 0);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(726, 110);
             this.flowLayoutPanel1.TabIndex = 22;
-            // 
+            //
             // tableLayoutPanel1
-            // 
+            //
             this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -154,9 +154,9 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(325, 40);
             this.tableLayoutPanel1.TabIndex = 10;
-            // 
+            //
             // label1
-            // 
+            //
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -165,9 +165,9 @@
             this.label1.Size = new System.Drawing.Size(116, 20);
             this.label1.TabIndex = 6;
             this.label1.Text = "Cores Location:";
-            // 
+            //
             // comboBox2
-            // 
+            //
             this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comboBox2.AutoRoundedCorners = true;
             this.comboBox2.BackColor = System.Drawing.Color.Transparent;
@@ -193,9 +193,9 @@
             this.comboBox2.Size = new System.Drawing.Size(197, 36);
             this.comboBox2.TabIndex = 10;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
+            //
             // tableLayoutPanel5
-            // 
+            //
             this.tableLayoutPanel5.AutoSize = true;
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -208,9 +208,9 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(107, 50);
             this.tableLayoutPanel5.TabIndex = 11;
-            // 
+            //
             // Save
-            // 
+            //
             this.Save.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Save.AutoRoundedCorners = true;
             this.Save.BorderRadius = 20;
@@ -230,9 +230,9 @@
             this.Save.TabIndex = 1;
             this.Save.Text = "Organize";
             this.Save.Click += new System.EventHandler(this.Save_Click);
-            // 
+            //
             // tableLayoutPanel2
-            // 
+            //
             this.tableLayoutPanel2.AutoSize = true;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -247,9 +247,9 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.Size = new System.Drawing.Size(336, 38);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
+            //
             // Pocket_Drive
-            // 
+            //
             this.Pocket_Drive.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Pocket_Drive.AutoRoundedCorners = true;
             this.Pocket_Drive.BackColor = System.Drawing.Color.Transparent;
@@ -273,9 +273,9 @@
             this.Pocket_Drive.TabIndex = 16;
             this.Pocket_Drive.Visible = false;
             this.Pocket_Drive.SelectedIndexChanged += new System.EventHandler(this.Pocket_Drive_SelectedIndexChanged);
-            // 
+            //
             // label3
-            // 
+            //
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -286,9 +286,9 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "Pocket Drive Letter:";
             this.label3.Visible = false;
-            // 
+            //
             // tableLayoutPanel4
-            // 
+            //
             this.tableLayoutPanel4.AutoSize = true;
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
@@ -301,9 +301,9 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(44, 42);
             this.tableLayoutPanel4.TabIndex = 2;
-            // 
+            //
             // Button_Refresh
-            // 
+            //
             this.Button_Refresh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button_Refresh.CustomizableEdges = customizableEdges9;
             this.Button_Refresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -324,9 +324,9 @@
             this.Button_Refresh.TabIndex = 0;
             this.ToolTip.SetToolTip(this.Button_Refresh, "Refresh your Removable Drive List");
             this.Button_Refresh.Visible = false;
-            // 
+            //
             // dataGridView1
-            // 
+            //
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
@@ -400,23 +400,23 @@
             this.dataGridView1.ThemeStyle.RowsStyle.Height = 29;
             this.dataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
+            //
             // CoreName
-            // 
+            //
             this.CoreName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.CoreName.HeaderText = "Core Name";
             this.CoreName.MinimumWidth = 6;
             this.CoreName.Name = "CoreName";
-            // 
+            //
             // CoreDeveloper
-            // 
+            //
             this.CoreDeveloper.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.CoreDeveloper.HeaderText = "Category";
             this.CoreDeveloper.MinimumWidth = 6;
             this.CoreDeveloper.Name = "CoreDeveloper";
-            // 
+            //
             // guna2CircleButton1
-            // 
+            //
             this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -431,9 +431,9 @@
             this.guna2CircleButton1.Size = new System.Drawing.Size(162, 101);
             this.guna2CircleButton1.TabIndex = 4;
             this.guna2CircleButton1.Text = "guna2CircleButton1";
-            // 
+            //
             // panel1
-            // 
+            //
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 39);
@@ -442,9 +442,9 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.panel1.Size = new System.Drawing.Size(726, 495);
             this.panel1.TabIndex = 6;
-            // 
+            //
             // ToolTip
-            // 
+            //
             this.ToolTip.AllowLinksHandling = true;
             this.ToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(44)))), ((int)(((byte)(66)))));
             this.ToolTip.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));
@@ -453,9 +453,9 @@
             this.ToolTip.MaximumSize = new System.Drawing.Size(0, 0);
             this.ToolTip.TitleFont = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            // 
+            //
             // Organize_Cores
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));

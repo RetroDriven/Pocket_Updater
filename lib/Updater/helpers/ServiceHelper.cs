@@ -7,6 +7,7 @@ public static class ServiceHelper
 {
     public static string UpdateDirectory { get; private set; } // move off this
     public static string TempDirectory { get; private set; }
+    public static string ConfigDirectory { get; private set; }
     public static CoresService CoresService { get; private set; }
     public static SettingsService SettingsService { get; private set; }
     public static PlatformImagePacksService PlatformImagePacksService { get; private set; }
@@ -23,13 +24,16 @@ public static class ServiceHelper
         {
             isInitialized = true;
             UpdateDirectory = path;
-            SettingsService = new SettingsService(config_path);
+            ConfigDirectory = config_path;
+            SettingsService = new SettingsService(ConfigDirectory);
             ArchiveService = new ArchiveService(SettingsService.GetConfig().archives,
                 SettingsService.GetConfig().crc_check, SettingsService.GetConfig().use_custom_archive);
             TempDirectory = SettingsService.GetConfig().temp_directory ?? UpdateDirectory;
             AssetsService = new AssetsService(SettingsService.GetConfig().use_local_blacklist);
             CoresService = new CoresService(path, SettingsService, ArchiveService, AssetsService);
             SettingsService.InitializeCoreSettings(CoresService.Cores);
+
+            SettingsService.Save();
             PlatformImagePacksService = new PlatformImagePacksService(path, SettingsService.GetConfig().github_token,
                 SettingsService.GetConfig().use_local_image_packs);
             FirmwareService = new FirmwareService();
@@ -51,7 +55,8 @@ public static class ServiceHelper
 
     public static void ReloadSettings()
     {
-        SettingsService = new SettingsService(UpdateDirectory, CoresService.Cores);
+        string configDirectory = string.IsNullOrWhiteSpace(ConfigDirectory) ? Directory.GetCurrentDirectory() : ConfigDirectory;
+        SettingsService = new SettingsService(configDirectory, CoresService.Cores);
         //reload the archive service, in case that setting has changed
         ArchiveService = new ArchiveService(SettingsService.GetConfig().archives,
                 SettingsService.GetConfig().crc_check, SettingsService.GetConfig().use_custom_archive);

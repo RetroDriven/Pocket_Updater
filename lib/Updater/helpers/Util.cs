@@ -58,7 +58,7 @@ public class Util
             string targetFilePath = Path.Combine(destinationDir, file.Name);
 
             file.CopyTo(targetFilePath, overwrite);
-            
+
             count++;
             if(console) ConsoleHelper.ShowProgressBar(count, total);
         }

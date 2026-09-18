@@ -139,6 +139,14 @@ public partial class CoresService : BaseProcess
     {
         WriteMessage($"Uninstalling {identifier}...");
 
+        try
+        {
+            var localCore = this.ReadCoreJson(identifier);
+            if (localCore?.metadata?.platform_ids is { Length: > 0 })
+                platformId = localCore.metadata.platform_ids[0];
+        }
+        catch { }
+
         Delete(identifier, platformId, nuke);
 
         this.settingsService.DisableCore(identifier);
@@ -152,28 +160,110 @@ public partial class CoresService : BaseProcess
 
     public void Delete(string identifier, string platformId, bool nuke = false)
     {
+        if (string.IsNullOrWhiteSpace(identifier))
+            throw new ArgumentException("A core identifier is required.", nameof(identifier));
+
         List<string> folders = new List<string> { "Cores", "Presets", "Settings" };
 
         foreach (string folder in folders)
         {
             string path = Path.Combine(this.installPath, folder, identifier);
-
-            if (Directory.Exists(path))
-            {
-                WriteMessage($"Deleting {path}...");
-                Directory.Delete(path, true);
-            }
+            DeleteDirectoryFully(path);
         }
 
-        if (nuke)
+        if (nuke && !string.IsNullOrWhiteSpace(platformId))
         {
             string path = Path.Combine(this.installPath, "Assets", platformId, identifier);
+            DeleteDirectoryFully(path);
+        }
 
-            if (Directory.Exists(path))
+        if (!string.IsNullOrWhiteSpace(platformId) && !PlatformUsedByAnotherCore(platformId, identifier))
+        {
+            DeleteFileFully(Path.Combine(this.installPath, "Platforms", platformId + ".json"));
+        }
+
+        string corePath = Path.Combine(this.installPath, "Cores", identifier);
+        if (Directory.Exists(corePath))
+            throw new IOException($"The core folder could not be removed: {corePath}");
+
+        if (nuke && !string.IsNullOrWhiteSpace(platformId))
+        {
+            string assetPath = Path.Combine(this.installPath, "Assets", platformId, identifier);
+            if (Directory.Exists(assetPath))
+                throw new IOException($"The core-specific asset folder could not be removed: {assetPath}");
+        }
+    }
+
+    private bool PlatformUsedByAnotherCore(string platformId, string excludedIdentifier)
+    {
+        string coresRoot = Path.Combine(this.installPath, "Cores");
+        if (!Directory.Exists(coresRoot))
+            return false;
+
+        foreach (string directory in Directory.EnumerateDirectories(coresRoot, "*", SearchOption.TopDirectoryOnly))
+        {
+            string otherIdentifier = Path.GetFileName(directory);
+            if (string.Equals(otherIdentifier, excludedIdentifier, StringComparison.OrdinalIgnoreCase))
+                continue;
+
+            try
             {
-                WriteMessage($"Deleting {path}...");
-                Directory.Delete(path, true);
+                var core = this.ReadCoreJson(otherIdentifier);
+                if (core?.metadata?.platform_ids?.Any(id =>
+                        string.Equals(id, platformId, StringComparison.OrdinalIgnoreCase)) == true)
+                    return true;
+            }
+            catch { }
+        }
+
+        return false;
+    }
+
+    private void DeleteFileFully(string path)
+    {
+        if (!File.Exists(path))
+            return;
+
+        WriteMessage($"Deleting {path}...");
+        File.SetAttributes(path, FileAttributes.Normal);
+        File.Delete(path);
+
+        if (File.Exists(path))
+            throw new IOException($"Unable to remove '{path}'. The file may still be in use.");
+    }
+
+    private void DeleteDirectoryFully(string path)
+    {
+        if (!Directory.Exists(path))
+            return;
+
+        WriteMessage($"Deleting {path}...");
+
+        foreach (string file in Directory.EnumerateFiles(path, "*", SearchOption.AllDirectories))
+        {
+            try
+            {
+                File.SetAttributes(file, FileAttributes.Normal);
+            }
+            catch
+            {
+
             }
         }
+
+        foreach (string directory in Directory.EnumerateDirectories(path, "*", SearchOption.AllDirectories)
+                     .OrderByDescending(value => value.Length))
+        {
+            try
+            {
+                File.SetAttributes(directory, FileAttributes.Normal);
+            }
+            catch { }
+        }
+
+        Directory.Delete(path, true);
+
+        if (Directory.Exists(path))
+            throw new IOException($"Unable to remove '{path}'. One or more files may still be in use.");
     }
 }

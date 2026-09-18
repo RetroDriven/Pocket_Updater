@@ -9,6 +9,8 @@ public class SettingsService
 {
     private const string OLD_SETTINGS_FILENAME = "pocket_updater_settings.json";
     private const string SETTINGS_FILENAME = "pupdate_settings.json";
+    private static readonly object FileSync = new();
+    private const int FileRetryCount = 5;
 
     private readonly Settings settings;
     private readonly string settingsFile;
@@ -23,14 +25,17 @@ public class SettingsService
         string oldFile = Path.Combine(settingsPath, OLD_SETTINGS_FILENAME);
         string json = null;
 
-        if (File.Exists(file))
+        lock (FileSync)
         {
-            json = File.ReadAllText(file);
-        }
-        else if (File.Exists(oldFile))
-        {
-            json = File.ReadAllText(oldFile);
-            File.Delete(oldFile);
+            if (File.Exists(file))
+            {
+                json = ReadAllTextWithRetry(file);
+            }
+            else if (File.Exists(oldFile))
+            {
+                json = ReadAllTextWithRetry(oldFile);
+                File.Delete(oldFile);
+            }
         }
 
         if (!string.IsNullOrEmpty(json))
@@ -56,7 +61,36 @@ public class SettingsService
         var options = new JsonSerializerSettings { ContractResolver = ArchiveContractResolver.Instance };
         var json = JsonConvert.SerializeObject(settings, Formatting.Indented, options);
 
-        File.WriteAllText(this.settingsFile, json);
+        lock (FileSync)
+        {
+            for (int attempt = 0; ; attempt++)
+            {
+                try
+                {
+                    File.WriteAllText(this.settingsFile, json);
+                    break;
+                }
+                catch (IOException) when (attempt < FileRetryCount - 1)
+                {
+                    Thread.Sleep(40 * (attempt + 1));
+                }
+            }
+        }
+    }
+
+    private static string ReadAllTextWithRetry(string path)
+    {
+        for (int attempt = 0; ; attempt++)
+        {
+            try
+            {
+                return File.ReadAllText(path);
+            }
+            catch (IOException) when (attempt < FileRetryCount - 1)
+            {
+                Thread.Sleep(40 * (attempt + 1));
+            }
+        }
     }
 
     /// <summary>

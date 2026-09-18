@@ -14,7 +14,7 @@ namespace Pocket_Updater
         static void Main()
         {
             //WindowsFormsSettings.LoadApplicationSettings();
-                        
+
             //ApplicationConfiguration.Initialize();
             //Application.Run(new Forms.Main.Home());
 

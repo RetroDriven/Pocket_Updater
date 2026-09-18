@@ -1,4 +1,4 @@
-using System.IO.Compression;
+﻿using System.IO.Compression;
 using Pannella.Helpers;
 using Pannella.Models.Analogue.Shared;
 using Pannella.Models.Extras;
@@ -44,6 +44,8 @@ public partial class CoresService
 
     private bool InstallGithubAsset(string identifier, string platformId, string downloadUrl)
     {
+        UpdateCancellation.ThrowIfCancellationRequested();
+
         if (downloadUrl == null)
         {
             WriteMessage("No release URL found...");
@@ -56,15 +58,18 @@ public partial class CoresService
         string zipPath = Path.Combine(ServiceHelper.TempDirectory, ZIP_FILE_NAME);
 
         HttpHelper.Instance.DownloadFile(downloadUrl, zipPath);
+        UpdateCancellation.ThrowIfCancellationRequested();
 
         WriteMessage("Extracting...");
 
         string tempDir = Path.Combine(ServiceHelper.TempDirectory, "temp", identifier);
 
         ZipHelper.ExtractToDirectory(zipPath, tempDir, true);
+        UpdateCancellation.ThrowIfCancellationRequested();
 
         // Clean problematic directories and files.
         Util.CleanDir(tempDir, this.installPath, this.settingsService.GetConfig().preserve_platforms_folder, platformId);
+        UpdateCancellation.ThrowIfCancellationRequested();
 
         // Move the files into place and delete our core's temp directory.
         WriteMessage("Installing...");
@@ -79,6 +84,7 @@ public partial class CoresService
         }
 
         File.Delete(zipPath);
+        UpdateCancellation.ThrowIfCancellationRequested();
 
         return true;
     }

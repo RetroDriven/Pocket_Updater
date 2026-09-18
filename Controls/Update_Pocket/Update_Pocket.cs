@@ -1,9 +1,11 @@
-﻿using System.Data;
+using System.Data;
 using System.Net;
 using Pannella.Services;
 using RetroDriven;
 using Pocket_Updater.Forms.Message_Box;
 using Pocket_Updater.Forms.Updater_Summary;
+using Pocket_Updater.Forms.Update_Progress;
+using Pocket_Updater.UI;
 
 using Newtonsoft.Json;
 using Pannella.Helpers;
@@ -31,6 +33,7 @@ namespace Pocket_Updater.Controls
         public Update_Pocket()
         {
             InitializeComponent();
+            ApplyModernLayout();
 
             textBox1.Clear();
 
@@ -40,18 +43,16 @@ namespace Pocket_Updater.Controls
             string Current_Dir = Directory.GetCurrentDirectory();
             _settings = new SettingsService(Current_Dir);
 
-
             //Show/Hde Alternate Download
             if (Toggle_Alternate.Checked == true)
             {
                 Alternate_Location.Visible = true;
                 TextBox2.Visible = true;
-            } else 
+            } else
             {
                 Alternate_Location.Visible = false;
                 TextBox2.Visible = false;
             }
-
 
             //Check for Internet
             if (Check_Internet())
@@ -67,6 +68,168 @@ namespace Pocket_Updater.Controls
             //Preferences
             Get_Preferences_Json();
         }
+
+        private void ApplyModernLayout()
+        {
+            UI.ModernTheme.Apply(this);
+
+            AutoSize = false;
+            BackColor = UI.ModernTheme.AppBackground;
+            Padding = new Padding(18);
+
+            Panel_Left.FillColor = UI.ModernTheme.AppBackground;
+            Panel_Left.BackColor = UI.ModernTheme.AppBackground;
+            Panel_Left.BorderThickness = 0;
+            Panel_Left.Width = 520;
+            Panel_Left.Padding = new Padding(0, 0, 14, 0);
+
+            Panel_Left_Top.BackColor = UI.ModernTheme.Surface;
+            Panel_Left_Top.Padding = new Padding(12, 10, 12, 8);
+            Panel_Left_Top.Height = 154;
+
+            Panel_Left_Main.BackColor = UI.ModernTheme.AppBackground;
+            Panel_Left_Main.Padding = new Padding(0, 14, 0, 0);
+
+            Panel_Left_Bottom.BackColor = UI.ModernTheme.Surface;
+            Panel_Left_Bottom.Padding = new Padding(12, 8, 12, 12);
+
+            Panel_Right.FillColor = UI.ModernTheme.Surface;
+            Panel_Right.BackColor = UI.ModernTheme.Surface;
+            Panel_Right.BorderColor = UI.ModernTheme.Border;
+            Panel_Right.BorderThickness = 1;
+            Panel_Right.BorderRadius = 14;
+            Panel_Right.Padding = new Padding(12);
+
+            Panel_Right_Top.FillColor = Color.Transparent;
+            Panel_Right_Top.Height = 48;
+            Panel_Right_Top.Padding = new Padding(4, 2, 4, 0);
+
+            Panel_Title.FillColor = Color.Transparent;
+            Panel_Title.BackColor = Color.Transparent;
+            Panel_Title.Padding = new Padding(4, 0, 0, 0);
+            Panel_Title.AutoSize = false;
+            Panel_Title.Size = new Size(460, 42);
+
+            Panel_Status_Title.FillColor = Color.Transparent;
+            Panel_Status_Title.BackColor = Color.Transparent;
+            Panel_Status_Title.Padding = new Padding(4, 0, 0, 0);
+
+            guna2Panel1.FillColor = Color.Transparent;
+            guna2Panel1.BackColor = Color.Transparent;
+            guna2Panel1.AutoSize = false;
+            guna2Panel1.Height = 42;
+            guna2Panel1.Padding = new Padding(4, 0, 0, 0);
+
+            label3.Font = UI.ModernTheme.TitleFont;
+            label3.ForeColor = UI.ModernTheme.TextPrimary;
+            label5.Font = UI.ModernTheme.SectionFont;
+            label5.ForeColor = UI.ModernTheme.TextPrimary;
+            label4.Font = UI.ModernTheme.TitleFont;
+            label4.ForeColor = UI.ModernTheme.TextPrimary;
+
+            guna2Separator1.FillColor = UI.ModernTheme.Border;
+            guna2Separator2.FillColor = UI.ModernTheme.Border;
+            guna2Separator3.FillColor = UI.ModernTheme.Border;
+
+            tableLayoutPanel1.Padding = new Padding(4, 0, 0, 0);
+            tableLayoutPanel1.Margin = new Padding(0, 4, 0, 2);
+            tableLayoutPanel2.Padding = new Padding(4, 0, 0, 0);
+            tableLayoutPanel2.Margin = new Padding(0, 2, 0, 0);
+            label1.Font = UI.ModernTheme.BodyBoldFont;
+            label2.Font = UI.ModernTheme.BodyBoldFont;
+            label1.ForeColor = UI.ModernTheme.TextSecondary;
+            label2.ForeColor = UI.ModernTheme.TextSecondary;
+
+            comboBox2.AutoRoundedCorners = false;
+            comboBox2.BorderRadius = 9;
+            comboBox2.FillColor = UI.ModernTheme.SurfaceRaised;
+            comboBox2.BorderColor = UI.ModernTheme.BorderStrong;
+            comboBox2.Font = UI.ModernTheme.BodyFont;
+            comboBox2.ForeColor = UI.ModernTheme.TextPrimary;
+
+            comboBox1.AutoRoundedCorners = false;
+            comboBox1.BorderRadius = 9;
+            comboBox1.FillColor = UI.ModernTheme.SurfaceRaised;
+            comboBox1.BorderColor = UI.ModernTheme.BorderStrong;
+            comboBox1.Font = UI.ModernTheme.BodyFont;
+            comboBox1.ForeColor = UI.ModernTheme.TextPrimary;
+
+            Update.AutoRoundedCorners = false;
+            Update.BorderRadius = 10;
+            Update.FillColor = UI.ModernTheme.Accent;
+            Update.HoverState.FillColor = UI.ModernTheme.AccentHover;
+            Update.Font = UI.ModernTheme.BodyBoldFont;
+            Update.Size = new Size(110, 38);
+
+            Button_Refresh.AutoRoundedCorners = false;
+            Button_Refresh.BorderRadius = 9;
+            Button_Refresh.FillColor = UI.ModernTheme.SurfaceRaised;
+            Button_Refresh.HoverState.FillColor = UI.ModernTheme.SurfaceHover;
+            Button_Refresh.BorderColor = UI.ModernTheme.Border;
+            Button_Refresh.BorderThickness = 1;
+            Button_Refresh.Size = new Size(40, 36);
+
+            flowLayoutPanel2.Padding = new Padding(0, 4, 0, 0);
+            tableLayoutPanel3.Padding = new Padding(6, 0, 0, 0);
+            tableLayoutPanel3.Margin = new Padding(0);
+            foreach (Control settingControl in tableLayoutPanel3.Controls)
+            {
+                if (settingControl is Label settingLabel)
+                {
+                    settingLabel.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold, GraphicsUnit.Point);
+                    settingLabel.ForeColor = UI.ModernTheme.TextSecondary;
+                    settingLabel.Margin = new Padding(0, 4, 10, 4);
+                }
+                else if (settingControl is Guna2ToggleSwitch settingToggle)
+                {
+                    settingToggle.Margin = new Padding(4, 3, 0, 3);
+                    settingToggle.Size = new Size(42, 24);
+                }
+            }
+
+            tableLayoutPanel4.Padding = new Padding(6, 4, 0, 0);
+            tableLayoutPanel4.Margin = new Padding(0, 4, 0, 0);
+
+            Alternate_Location.AutoRoundedCorners = false;
+            Alternate_Location.BorderRadius = 9;
+            Alternate_Location.FillColor = UI.ModernTheme.SurfaceRaised;
+            Alternate_Location.BorderColor = UI.ModernTheme.BorderStrong;
+            Alternate_Location.ForeColor = UI.ModernTheme.TextPrimary;
+            Alternate_Location.Font = UI.ModernTheme.BodyFont;
+
+            TextBox2.FillColor = Color.Transparent;
+            TextBox2.BorderThickness = 0;
+            TextBox2.ForeColor = UI.ModernTheme.TextMuted;
+            TextBox2.Font = new Font("Segoe UI", 8.75F, FontStyle.Italic, GraphicsUnit.Point);
+
+            Button_Save.AutoRoundedCorners = false;
+            Button_Save.BorderRadius = 9;
+            Button_Save.FillColor = UI.ModernTheme.Accent;
+            Button_Save.HoverState.FillColor = UI.ModernTheme.AccentHover;
+            Button_Save.Font = UI.ModernTheme.BodyBoldFont;
+
+            textBox1.FillColor = Color.FromArgb(8, 13, 23);
+            textBox1.BackColor = Color.FromArgb(8, 13, 23);
+            textBox1.BorderColor = UI.ModernTheme.Border;
+            textBox1.BorderThickness = 1;
+            textBox1.BorderRadius = 10;
+            textBox1.ForeColor = Color.FromArgb(210, 220, 236);
+            textBox1.Font = UI.ModernTheme.MonoFont;
+            textBox1.Margin = new Padding(0, 6, 0, 8);
+
+            panel1.BackColor = UI.ModernTheme.Surface;
+            panel1.Height = 32;
+            panel1.Padding = new Padding(0, 8, 0, 0);
+            guna2ProgressBar1.FillColor = UI.ModernTheme.SurfaceRaised;
+            guna2ProgressBar1.ProgressColor = UI.ModernTheme.Accent;
+            guna2ProgressBar1.ProgressColor2 = UI.ModernTheme.Accent;
+            guna2ProgressBar1.BorderRadius = 4;
+
+            ToolTip.BackColor = UI.ModernTheme.SurfaceRaised;
+            ToolTip.BorderColor = UI.ModernTheme.BorderStrong;
+            ToolTip.ForeColor = UI.ModernTheme.TextPrimary;
+        }
+
         public async Task RunCoreUpdateProcess(string updatePath, string coresJsonPath, string LogDir)
         {
             Update.Enabled = false;
@@ -111,45 +274,70 @@ namespace Pocket_Updater.Controls
                 Message_Box form = new Message_Box();
                 form.label1.Text = "No Internet Connection Detected!";
                 form.Show();
+                return;
             }
-            else
+
+            Button_Save.Enabled = false;
+            Update.Enabled = false;
+            Button_Refresh.Enabled = false;
+            comboBox1.Enabled = false;
+            comboBox2.Enabled = false;
+
+            try
             {
-
-                textBox1.Clear();
-                Button_Save.Enabled = false;
-
-                Update.Enabled = false;
-
                 Save_Settings("No");
-
                 Current_Dir = Directory.GetCurrentDirectory();
+                string locationType = comboBox2.SelectedItem?.ToString() ?? "Current Directory";
+                string targetPath = Current_Dir;
 
-                try
+                if (locationType == "Removable Storage")
                 {
-                    string Location_Type = comboBox2.SelectedItem.ToString();
-                    string github_token = ServiceHelper.SettingsService.GetConfig().github_token;
+                    if (comboBox1.SelectedIndex < 0)
+                    {
+                        Message_Box form = new Message_Box();
+                        form.label1.Text = "Please select your Pocket's drive letter.";
+                        form.ShowDialog();
+                        return;
+                    }
 
-                    // where are we updating to
-                    if (Location_Type == "Current Directory")
+                    targetPath = comboBox1.SelectedItem?.ToString() ?? string.Empty;
+                    if (string.IsNullOrWhiteSpace(targetPath) || !Directory.Exists(targetPath))
                     {
-                        await UpdateCurrentDirectory(github_token, Current_Dir);
+                        Message_Box form = new Message_Box();
+                        form.label1.Text = "The selected Pocket drive was not found.";
+                        form.ShowDialog();
+                        PopulateDrives();
+                        return;
                     }
-                    else if (Location_Type == "Removable Storage")
-                    {
-                        await UpdateRemoveableStorage(github_token, Current_Dir);
-                    }
                 }
-                catch (Exception ex)
+
+                Save_Preferences_Json();
+                PocketTargetContext.SetSelectedPath(targetPath);
+
+                using (var progress = new ModernUpdateProgressForm(targetPath))
                 {
-                    Message_Box form = new Message_Box();
-                    form.label1.Text = ex.ToString();
-                    form.Show();
+                    progress.ShowDialog(FindForm());
                 }
-                finally
-                {
-                    Button_Save.Enabled = true;
-                }
+
+                setupUpdater(targetPath, Current_Dir);
+                Get_Jsons(targetPath);
             }
+            catch (Exception ex)
+            {
+                Message_Box form = new Message_Box();
+                form.label1.Text = ex.Message;
+                form.Show();
+            }
+            finally
+            {
+                Button_Save.Enabled = true;
+                Update.Enabled = comboBox2.SelectedItem?.ToString() == "Current Directory" || comboBox1.SelectedIndex >= 0;
+                Button_Refresh.Enabled = true;
+                comboBox1.Enabled = true;
+                comboBox2.Enabled = true;
+            }
+
+            await Task.CompletedTask;
         }
 
         private void updater_ProgressUpdated(object sender, DownloadProgressEventArgs e)
@@ -158,7 +346,7 @@ namespace Pocket_Updater.Controls
             int val = Convert.ToInt32(percent);
 
             guna2ProgressBar1.ShowText = true;
-            
+
             BeginInvoke((Action)(() =>
             {
 
@@ -208,7 +396,6 @@ namespace Pocket_Updater.Controls
 
                     //Progress Bar
                     HttpHelper.Instance.DownloadProgressUpdate += updater_ProgressUpdated;
-
 
                     comboBox1.Enabled = false;
                     comboBox2.Enabled = false;
@@ -407,6 +594,36 @@ namespace Pocket_Updater.Controls
                 File.WriteAllText(Log, Environment.NewLine + DateStamp + Environment.NewLine + LogSource);
             }
         }
+        public void SelectUpdateTarget(string targetPath)
+        {
+            if (string.IsNullOrWhiteSpace(targetPath))
+                return;
+
+            string current = Path.GetFullPath(Directory.GetCurrentDirectory()).TrimEnd('\\');
+            string target = Path.GetFullPath(targetPath).TrimEnd('\\');
+            if (string.Equals(current, target, StringComparison.OrdinalIgnoreCase))
+            {
+                int currentIndex = comboBox2.FindStringExact("Current Directory");
+                if (currentIndex >= 0) comboBox2.SelectedIndex = currentIndex;
+                return;
+            }
+
+            int removableIndex = comboBox2.FindStringExact("Removable Storage");
+            if (removableIndex >= 0) comboBox2.SelectedIndex = removableIndex;
+            PopulateDrives();
+
+            string root = Path.GetPathRoot(targetPath) ?? targetPath;
+            for (int i = 0; i < comboBox1.Items.Count; i++)
+            {
+                string candidate = comboBox1.Items[i]?.ToString() ?? string.Empty;
+                if (string.Equals(Path.GetFullPath(candidate).TrimEnd('\\'), Path.GetFullPath(root).TrimEnd('\\'), StringComparison.OrdinalIgnoreCase))
+                {
+                    comboBox1.SelectedIndex = i;
+                    break;
+                }
+            }
+        }
+
         public void PopulateDrives()
         {
             try
@@ -699,7 +916,6 @@ namespace Pocket_Updater.Controls
                 _settings.Save();
                 //ServiceHelper.SettingsService.UpdateConfig(config);
                 //ServiceHelper.SettingsService.Save();
-
 
                 //Show Message Box
                 if (ShowBox == "Yes")

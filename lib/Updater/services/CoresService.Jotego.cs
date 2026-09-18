@@ -1,4 +1,4 @@
-using System.IO.Compression;
+﻿using System.IO.Compression;
 using Pannella.Helpers;
 using Pannella.Models.OpenFPGA_Cores_Inventory;
 using AnalogueCore = Pannella.Models.Analogue.Core.Core;
@@ -40,6 +40,10 @@ public partial class CoresService
                     platformFiles.Add(platform, url);
                 }
             }
+        }
+        catch (OperationCanceledException)
+        {
+            throw;
         }
         catch (Exception e)
         {

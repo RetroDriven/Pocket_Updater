@@ -1,13 +1,13 @@
-﻿namespace Pocket_Updater.Controls.About
+namespace Pocket_Updater.Controls.About
 {
     partial class About
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -22,8 +22,8 @@
 
         #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -78,9 +78,9 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // Panel_Top
-            // 
+            //
             this.Panel_Top.AutoSize = true;
             this.Panel_Top.Controls.Add(this.label4);
             this.Panel_Top.Controls.Add(this.guna2Separator2);
@@ -92,9 +92,9 @@
             this.Panel_Top.ShadowDecoration.CustomizableEdges = customizableEdges2;
             this.Panel_Top.Size = new System.Drawing.Size(699, 37);
             this.Panel_Top.TabIndex = 3;
-            // 
+            //
             // label4
-            // 
+            //
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(3, 2);
@@ -102,18 +102,18 @@
             this.label4.Size = new System.Drawing.Size(68, 25);
             this.label4.TabIndex = 2;
             this.label4.Text = "About";
-            // 
+            //
             // guna2Separator2
-            // 
+            //
             this.guna2Separator2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(107)))), ((int)(((byte)(121)))));
             this.guna2Separator2.Location = new System.Drawing.Point(4, 26);
             this.guna2Separator2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Separator2.Name = "guna2Separator2";
             this.guna2Separator2.Size = new System.Drawing.Size(219, 9);
             this.guna2Separator2.TabIndex = 3;
-            // 
+            //
             // Panel_Main
-            // 
+            //
             this.Panel_Main.Controls.Add(this.flowLayoutPanel1);
             this.Panel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel_Main.Location = new System.Drawing.Point(0, 37);
@@ -121,9 +121,9 @@
             this.Panel_Main.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Panel_Main.Size = new System.Drawing.Size(699, 519);
             this.Panel_Main.TabIndex = 4;
-            // 
+            //
             // flowLayoutPanel1
-            // 
+            //
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel2);
             this.flowLayoutPanel1.Controls.Add(this.label5);
             this.flowLayoutPanel1.Controls.Add(this.guna2Separator1);
@@ -134,9 +134,9 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(695, 519);
             this.flowLayoutPanel1.TabIndex = 0;
-            // 
+            //
             // tableLayoutPanel2
-            // 
+            //
             this.tableLayoutPanel2.AutoSize = true;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -159,9 +159,9 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.Size = new System.Drawing.Size(222, 163);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
+            //
             // label3
-            // 
+            //
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -170,9 +170,9 @@
             this.label3.Size = new System.Drawing.Size(108, 20);
             this.label3.TabIndex = 10;
             this.label3.Text = "Report Issues:";
-            // 
+            //
             // label2
-            // 
+            //
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -181,9 +181,9 @@
             this.label2.Size = new System.Drawing.Size(74, 20);
             this.label2.TabIndex = 6;
             this.label2.Text = "Read Me:";
-            // 
+            //
             // label1
-            // 
+            //
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -192,9 +192,9 @@
             this.label1.Size = new System.Drawing.Size(113, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "Latest Release:";
-            // 
+            //
             // label11
-            // 
+            //
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -203,9 +203,9 @@
             this.label11.Size = new System.Drawing.Size(97, 20);
             this.label11.TabIndex = 4;
             this.label11.Text = "GitHub Link:";
-            // 
+            //
             // GitHub
-            // 
+            //
             this.GitHub.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.GitHub.AutoRoundedCorners = true;
             this.GitHub.BorderRadius = 17;
@@ -225,9 +225,9 @@
             this.GitHub.TabIndex = 7;
             this.GitHub.Text = "Go";
             this.GitHub.Click += new System.EventHandler(this.GitHub_Click);
-            // 
+            //
             // Release
-            // 
+            //
             this.Release.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Release.AutoRoundedCorners = true;
             this.Release.BorderRadius = 17;
@@ -247,9 +247,9 @@
             this.Release.TabIndex = 8;
             this.Release.Text = "Go";
             this.Release.Click += new System.EventHandler(this.Release_Click);
-            // 
+            //
             // ReadMe
-            // 
+            //
             this.ReadMe.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ReadMe.AutoRoundedCorners = true;
             this.ReadMe.BorderRadius = 17;
@@ -269,9 +269,9 @@
             this.ReadMe.TabIndex = 9;
             this.ReadMe.Text = "Go";
             this.ReadMe.Click += new System.EventHandler(this.ReadMe_Click);
-            // 
+            //
             // guna2Button1
-            // 
+            //
             this.guna2Button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.guna2Button1.AutoRoundedCorners = true;
             this.guna2Button1.BorderRadius = 17;
@@ -291,9 +291,9 @@
             this.guna2Button1.TabIndex = 11;
             this.guna2Button1.Text = "Go";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
+            //
             // label5
-            // 
+            //
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(3, 179);
@@ -302,18 +302,18 @@
             this.label5.Size = new System.Drawing.Size(74, 25);
             this.label5.TabIndex = 4;
             this.label5.Text = "Credits";
-            // 
+            //
             // guna2Separator1
-            // 
+            //
             this.guna2Separator1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(107)))), ((int)(((byte)(121)))));
             this.guna2Separator1.Location = new System.Drawing.Point(3, 206);
             this.guna2Separator1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Separator1.Name = "guna2Separator1";
             this.guna2Separator1.Size = new System.Drawing.Size(219, 9);
             this.guna2Separator1.TabIndex = 5;
-            // 
+            //
             // tableLayoutPanel3
-            // 
+            //
             this.tableLayoutPanel3.AutoSize = true;
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -332,9 +332,9 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.Size = new System.Drawing.Size(573, 166);
             this.tableLayoutPanel3.TabIndex = 6;
-            // 
+            //
             // label7
-            // 
+            //
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(3, 103);
@@ -342,9 +342,9 @@
             this.label7.Size = new System.Drawing.Size(110, 20);
             this.label7.TabIndex = 6;
             this.label7.Text = "Josh Campbell";
-            // 
+            //
             // label6
-            // 
+            //
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(3, 0);
@@ -352,9 +352,9 @@
             this.label6.Size = new System.Drawing.Size(106, 20);
             this.label6.TabIndex = 5;
             this.label6.Text = "Matt Pannella";
-            // 
+            //
             // Matt_GitHub
-            // 
+            //
             this.Matt_GitHub.AutoRoundedCorners = true;
             this.Matt_GitHub.BorderRadius = 17;
             this.Matt_GitHub.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -373,9 +373,9 @@
             this.Matt_GitHub.TabIndex = 8;
             this.Matt_GitHub.Text = "GitHub";
             this.Matt_GitHub.Click += new System.EventHandler(this.Matt_GitHub_Click);
-            // 
+            //
             // Josh_GitHub
-            // 
+            //
             this.Josh_GitHub.AutoRoundedCorners = true;
             this.Josh_GitHub.BorderRadius = 17;
             this.Josh_GitHub.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -394,9 +394,9 @@
             this.Josh_GitHub.TabIndex = 9;
             this.Josh_GitHub.Text = "GitHub";
             this.Josh_GitHub.Click += new System.EventHandler(this.Josh_GitHub_Click);
-            // 
+            //
             // textBox1
-            // 
+            //
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -410,9 +410,9 @@
             this.textBox1.TabIndex = 12;
             this.textBox1.Text = "Collaborating Partner. His work is essential for this Updater. Please check out h" +
     "is GitHub for your non Windows Pocket updating needs.";
-            // 
+            //
             // textBox2
-            // 
+            //
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -425,18 +425,18 @@
             this.textBox2.Size = new System.Drawing.Size(373, 63);
             this.textBox2.TabIndex = 13;
             this.textBox2.Text = "OpenFPGA Core API Creator/Provider.";
-            // 
+            //
             // Panel_Bottom
-            // 
+            //
             this.Panel_Bottom.CustomizableEdges = customizableEdges15;
             this.Panel_Bottom.Location = new System.Drawing.Point(0, 0);
             this.Panel_Bottom.Name = "Panel_Bottom";
             this.Panel_Bottom.ShadowDecoration.CustomizableEdges = customizableEdges16;
             this.Panel_Bottom.Size = new System.Drawing.Size(200, 100);
             this.Panel_Bottom.TabIndex = 0;
-            // 
+            //
             // tableLayoutPanel1
-            // 
+            //
             this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -447,9 +447,9 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 100);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
+            //
             // Button_Save
-            // 
+            //
             this.Button_Save.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Button_Save.AutoRoundedCorners = true;
             this.Button_Save.BorderRadius = 17;
@@ -468,9 +468,9 @@
             this.Button_Save.Size = new System.Drawing.Size(78, 37);
             this.Button_Save.TabIndex = 0;
             this.Button_Save.Text = "Save";
-            // 
+            //
             // About
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(62)))), ((int)(((byte)(78)))));

@@ -19,6 +19,7 @@ namespace Pocket_Updater.Controls.Image_Packs
         public Image_Packs()
         {
             InitializeComponent();
+            ApplyModernLayout();
 
             //Get USB Drives
             PopulateDrives();
@@ -33,6 +34,79 @@ namespace Pocket_Updater.Controls.Image_Packs
                 GetPacks();
             }
         }
+
+        private void ApplyModernLayout()
+        {
+            UI.ModernTheme.Apply(this);
+            UI.ModernTheme.ApplyPageChrome(this);
+
+            Panel_Top.FillColor = Color.Transparent;
+            label4.Font = UI.ModernTheme.TitleFont;
+            label4.ForeColor = UI.ModernTheme.TextPrimary;
+            guna2Separator2.FillColor = UI.ModernTheme.Border;
+
+            Panel_Bottom.FillColor = UI.ModernTheme.Surface;
+            Panel_Bottom.FillColor2 = UI.ModernTheme.Surface;
+            Panel_Bottom.BorderColor = UI.ModernTheme.Border;
+            Panel_Bottom.BorderThickness = 1;
+            Panel_Bottom.BorderRadius = 12;
+
+            panel1.BackColor = UI.ModernTheme.Surface;
+            panel1.Padding = new Padding(1);
+            UI.ModernTheme.StyleDataGrid(dataGridView1);
+
+            foreach (var combo in new[] { comboBox2, comboBox1 })
+            {
+                combo.AutoRoundedCorners = false;
+                combo.BorderRadius = 9;
+                combo.FillColor = UI.ModernTheme.SurfaceRaised;
+                combo.BorderColor = UI.ModernTheme.BorderStrong;
+                combo.Font = UI.ModernTheme.BodyFont;
+                combo.ForeColor = UI.ModernTheme.TextPrimary;
+            }
+
+            Button_Refresh.AutoRoundedCorners = false;
+            Button_Refresh.BorderRadius = 9;
+            Button_Refresh.FillColor = UI.ModernTheme.SurfaceRaised;
+            Button_Refresh.BorderColor = UI.ModernTheme.Border;
+            Button_Refresh.BorderThickness = 1;
+            Button_Refresh.HoverState.FillColor = UI.ModernTheme.SurfaceHover;
+
+            ToolTip.BackColor = UI.ModernTheme.SurfaceRaised;
+            ToolTip.BorderColor = UI.ModernTheme.BorderStrong;
+            ToolTip.ForeColor = UI.ModernTheme.TextPrimary;
+        }
+
+        public void SelectUpdateTarget(string targetPath)
+        {
+            if (string.IsNullOrWhiteSpace(targetPath))
+                return;
+
+            string current = Path.GetFullPath(Directory.GetCurrentDirectory()).TrimEnd('\\');
+            string target = Path.GetFullPath(targetPath).TrimEnd('\\');
+            if (string.Equals(current, target, StringComparison.OrdinalIgnoreCase))
+            {
+                int currentIndex = comboBox2.FindStringExact("Current Directory");
+                if (currentIndex >= 0) comboBox2.SelectedIndex = currentIndex;
+                return;
+            }
+
+            int removableIndex = comboBox2.FindStringExact("Removable Storage");
+            if (removableIndex >= 0) comboBox2.SelectedIndex = removableIndex;
+            PopulateDrives();
+
+            string root = Path.GetPathRoot(targetPath) ?? targetPath;
+            for (int i = 0; i < comboBox1.Items.Count; i++)
+            {
+                string candidate = comboBox1.Items[i]?.ToString() ?? string.Empty;
+                if (string.Equals(Path.GetFullPath(candidate).TrimEnd('\\'), Path.GetFullPath(root).TrimEnd('\\'), StringComparison.OrdinalIgnoreCase))
+                {
+                    comboBox1.SelectedIndex = i;
+                    break;
+                }
+            }
+        }
+
         public void PopulateDrives()
         {
             try

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows7.0</TargetFramework>
-	  <Version>1.6.4</Version>
+	  <Version>2.0.0</Version>
 	  <RootNamespace>Pocket_Updater</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
@@ -19,8 +19,8 @@
     <Description>Windows GUI Application to Update Cores for the Analogue Pocket</Description>
     <Copyright>2026 - RetroDriven</Copyright>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <AssemblyVersion>1.6.4</AssemblyVersion>
-    <FileVersion>1.6.4</FileVersion>
+    <AssemblyVersion>2.0.0</AssemblyVersion>
+    <FileVersion>2.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,11 +26,11 @@ namespace Pocket_Updater.Controls.Manage_Cores
         public string Current_Dir { get; set; }
         public string updateFile { get; set; }
 
-
         CheckBox headerCheckBox = new CheckBox();
         public ManageCores()
         {
             InitializeComponent();
+            ApplyModernLayout();
 
             Select_All();
 
@@ -46,6 +46,35 @@ namespace Pocket_Updater.Controls.Manage_Cores
             //_readChecklist();
 
             Button_Save.Enabled = true;
+        }
+
+        private void ApplyModernLayout()
+        {
+            UI.ModernTheme.Apply(this);
+            UI.ModernTheme.ApplyPageChrome(this);
+
+            Panel_Top.FillColor = Color.Transparent;
+            label4.Font = UI.ModernTheme.TitleFont;
+            label4.ForeColor = UI.ModernTheme.TextPrimary;
+            guna2Separator2.FillColor = UI.ModernTheme.Border;
+
+            Panel_Bottom.FillColor = UI.ModernTheme.Surface;
+            Panel_Bottom.FillColor2 = UI.ModernTheme.Surface;
+            Panel_Bottom.BorderColor = UI.ModernTheme.Border;
+            Panel_Bottom.BorderThickness = 1;
+            Panel_Bottom.BorderRadius = 12;
+            Panel_Bottom.Height = 64;
+
+            Button_Save.AutoRoundedCorners = false;
+            Button_Save.BorderRadius = 9;
+            Button_Save.FillColor = UI.ModernTheme.Accent;
+            Button_Save.HoverState.FillColor = UI.ModernTheme.AccentHover;
+            Button_Save.Font = UI.ModernTheme.BodyBoldFont;
+            Button_Save.Size = new Size(92, 38);
+
+            panel1.BackColor = UI.ModernTheme.Surface;
+            panel1.Padding = new Padding(1);
+            UI.ModernTheme.StyleDataGrid(dataGridView1);
         }
 
         private void Button_Save_Click(object sender, EventArgs e)
@@ -124,7 +153,8 @@ namespace Pocket_Updater.Controls.Manage_Cores
             Point headerCellLocation = this.dataGridView1.GetCellDisplayRectangle(0, -1, true).Location;
 
             headerCheckBox.Location = new Point(headerCellLocation.X + 55, headerCellLocation.Y + 17);
-            headerCheckBox.BackColor = Color.FromArgb(94, 148, 255);
+            headerCheckBox.BackColor = UI.ModernTheme.SurfaceRaised;
+            headerCheckBox.ForeColor = UI.ModernTheme.TextPrimary;
             headerCheckBox.Size = new Size(20, 20);
             headerCheckBox.Click += new EventHandler(HeaderCheckBox_Clicked);
             dataGridView1.Controls.Add(headerCheckBox);

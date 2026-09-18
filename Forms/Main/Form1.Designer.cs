@@ -1,4 +1,4 @@
-﻿using Pocket_Updater.Controls;
+using Pocket_Updater.Controls;
 
 namespace Pocket_Updater
 {
@@ -89,23 +89,23 @@ namespace Pocket_Updater
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             Panel_Main.SuspendLayout();
             SuspendLayout();
-            // 
+            //
             // guna2BorderlessForm1
-            // 
+            //
             guna2BorderlessForm1.BorderRadius = 10;
             guna2BorderlessForm1.ContainerControl = this;
             guna2BorderlessForm1.DockIndicatorColor = Color.Black;
             guna2BorderlessForm1.DockIndicatorTransparencyValue = 1D;
             guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
+            //
             // guna2DragControl1
-            // 
+            //
             guna2DragControl1.DockIndicatorTransparencyValue = 1D;
             guna2DragControl1.TargetControl = Panel_Top;
             guna2DragControl1.UseTransparentDrag = true;
-            // 
+            //
             // Panel_Top
-            // 
+            //
             Panel_Top.AutoRoundedCorners = true;
             Panel_Top.BackColor = Color.FromArgb(24, 25, 26);
             Panel_Top.BorderColor = Color.Transparent;
@@ -123,19 +123,19 @@ namespace Pocket_Updater
             Panel_Top.ShadowDecoration.CustomizableEdges = customizableEdges24;
             Panel_Top.Size = new Size(1399, 46);
             Panel_Top.TabIndex = 28;
-            // 
+            //
             // label1
-            // 
+            //
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(12, 14);
             label1.Name = "label1";
             label1.Size = new Size(176, 21);
             label1.TabIndex = 5;
-            label1.Text = "Pocket Updater v1.6.4";
-            // 
+            label1.Text = "Pocket Updater v2";
+            //
             // No_Internet
-            // 
+            //
             No_Internet.Anchor = AnchorStyles.Right;
             No_Internet.AutoRoundedCorners = true;
             No_Internet.BorderRadius = 14;
@@ -161,9 +161,9 @@ namespace Pocket_Updater
             No_Internet.TabIndex = 4;
             No_Internet.Text = "No Internet Connection Detected!";
             No_Internet.Visible = false;
-            // 
+            //
             // guna2ControlBox1
-            // 
+            //
             guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2ControlBox1.AutoRoundedCorners = true;
             guna2ControlBox1.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
@@ -177,9 +177,9 @@ namespace Pocket_Updater
             guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2ControlBox1.Size = new Size(28, 28);
             guna2ControlBox1.TabIndex = 0;
-            // 
+            //
             // guna2ControlBox2
-            // 
+            //
             guna2ControlBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2ControlBox2.AutoRoundedCorners = true;
             guna2ControlBox2.BorderColor = Color.Transparent;
@@ -196,9 +196,9 @@ namespace Pocket_Updater
             guna2ControlBox2.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2ControlBox2.Size = new Size(28, 28);
             guna2ControlBox2.TabIndex = 1;
-            // 
+            //
             // guna2ControlBox3
-            // 
+            //
             guna2ControlBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2ControlBox3.Animated = true;
             guna2ControlBox3.AutoRoundedCorners = true;
@@ -214,9 +214,9 @@ namespace Pocket_Updater
             guna2ControlBox3.ShadowDecoration.CustomizableEdges = customizableEdges20;
             guna2ControlBox3.Size = new Size(28, 28);
             guna2ControlBox3.TabIndex = 2;
-            // 
+            //
             // Update_Available
-            // 
+            //
             Update_Available.Anchor = AnchorStyles.Right;
             Update_Available.AutoRoundedCorners = true;
             Update_Available.BorderRadius = 14;
@@ -238,13 +238,13 @@ namespace Pocket_Updater
             Update_Available.Text = "App Update Available!";
             Update_Available.Visible = false;
             Update_Available.Click += Update_Available_Click;
-            // 
+            //
             // guna2ResizeForm1
-            // 
+            //
             guna2ResizeForm1.TargetForm = this;
-            // 
+            //
             // Panel_Menu
-            // 
+            //
             Panel_Menu.AutoSize = true;
             Panel_Menu.BackColor = Color.FromArgb(24, 30, 52);
             Panel_Menu.Controls.Add(flowLayoutPanel1);
@@ -253,9 +253,9 @@ namespace Pocket_Updater
             Panel_Menu.Name = "Panel_Menu";
             Panel_Menu.Size = new Size(263, 685);
             Panel_Menu.TabIndex = 29;
-            // 
+            //
             // flowLayoutPanel1
-            // 
+            //
             flowLayoutPanel1.AutoSize = true;
             flowLayoutPanel1.Controls.Add(pictureBox1);
             flowLayoutPanel1.Controls.Add(Update_Pocket);
@@ -271,9 +271,9 @@ namespace Pocket_Updater
             flowLayoutPanel1.Padding = new Padding(0, 10, 0, 0);
             flowLayoutPanel1.Size = new Size(263, 685);
             flowLayoutPanel1.TabIndex = 0;
-            // 
+            //
             // pictureBox1
-            // 
+            //
             pictureBox1.BackColor = Color.FromArgb(24, 30, 52);
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Image = Properties.Resources.icons8_handheld_game_64;
@@ -284,9 +284,9 @@ namespace Pocket_Updater
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 30;
             pictureBox1.TabStop = false;
-            // 
+            //
             // Update_Pocket
-            // 
+            //
             Update_Pocket.Animated = true;
             Update_Pocket.AutoRoundedCorners = true;
             Update_Pocket.BackColor = Color.Transparent;
@@ -312,13 +312,13 @@ namespace Pocket_Updater
             Update_Pocket.ShadowDecoration.CustomizableEdges = customizableEdges2;
             Update_Pocket.Size = new Size(253, 43);
             Update_Pocket.TabIndex = 30;
-            Update_Pocket.Text = "Update Pocket";
+            Update_Pocket.Text = "Settings";
             Update_Pocket.TextAlign = HorizontalAlignment.Left;
             Update_Pocket.TextOffset = new Point(60, 0);
             Update_Pocket.Click += Update_Pocket_Click;
-            // 
+            //
             // Manage_Cores
-            // 
+            //
             Manage_Cores.Animated = true;
             Manage_Cores.AutoRoundedCorners = true;
             Manage_Cores.BackColor = Color.Transparent;
@@ -343,13 +343,13 @@ namespace Pocket_Updater
             Manage_Cores.ShadowDecoration.CustomizableEdges = customizableEdges4;
             Manage_Cores.Size = new Size(253, 43);
             Manage_Cores.TabIndex = 31;
-            Manage_Cores.Text = "Manage Cores";
+            Manage_Cores.Text = "Cores";
             Manage_Cores.TextAlign = HorizontalAlignment.Left;
             Manage_Cores.TextOffset = new Point(60, 0);
             Manage_Cores.Click += Manage_Cores_Click;
-            // 
+            //
             // Organize_Cores
-            // 
+            //
             Organize_Cores.Animated = true;
             Organize_Cores.AutoRoundedCorners = true;
             Organize_Cores.BackColor = Color.Transparent;
@@ -374,13 +374,13 @@ namespace Pocket_Updater
             Organize_Cores.ShadowDecoration.CustomizableEdges = customizableEdges6;
             Organize_Cores.Size = new Size(253, 43);
             Organize_Cores.TabIndex = 32;
-            Organize_Cores.Text = "Organize Cores";
+            Organize_Cores.Text = "Cores";
             Organize_Cores.TextAlign = HorizontalAlignment.Left;
             Organize_Cores.TextOffset = new Point(60, 0);
             Organize_Cores.Click += Organize_Cores_Click;
-            // 
+            //
             // Image_Packs
-            // 
+            //
             Image_Packs.Animated = true;
             Image_Packs.AutoRoundedCorners = true;
             Image_Packs.BackColor = Color.Transparent;
@@ -409,9 +409,9 @@ namespace Pocket_Updater
             Image_Packs.TextAlign = HorizontalAlignment.Left;
             Image_Packs.TextOffset = new Point(60, 0);
             Image_Packs.Click += Image_Packs_Click;
-            // 
+            //
             // Logs
-            // 
+            //
             Logs.Animated = true;
             Logs.AutoRoundedCorners = true;
             Logs.BackColor = Color.Transparent;
@@ -440,9 +440,9 @@ namespace Pocket_Updater
             Logs.TextAlign = HorizontalAlignment.Left;
             Logs.TextOffset = new Point(60, 0);
             Logs.Click += Logs_Click;
-            // 
+            //
             // About
-            // 
+            //
             About.Animated = true;
             About.AutoRoundedCorners = true;
             About.BackColor = Color.Transparent;
@@ -471,9 +471,9 @@ namespace Pocket_Updater
             About.TextAlign = HorizontalAlignment.Left;
             About.TextOffset = new Point(60, 0);
             About.Click += About_Click;
-            // 
+            //
             // Panel_Main
-            // 
+            //
             Panel_Main.AutoSize = true;
             Panel_Main.Controls.Add(update_Pocket1);
             Panel_Main.Controls.Add(image_Packs1);
@@ -487,9 +487,9 @@ namespace Pocket_Updater
             Panel_Main.Padding = new Padding(0, 25, 0, 0);
             Panel_Main.Size = new Size(1136, 685);
             Panel_Main.TabIndex = 31;
-            // 
+            //
             // update_Pocket1
-            // 
+            //
             update_Pocket1.AutoSize = true;
             update_Pocket1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             update_Pocket1.BackColor = Color.FromArgb(59, 62, 78);
@@ -502,9 +502,9 @@ namespace Pocket_Updater
             update_Pocket1.Pocket_Drive = null;
             update_Pocket1.Size = new Size(1136, 660);
             update_Pocket1.TabIndex = 0;
-            // 
+            //
             // image_Packs1
-            // 
+            //
             image_Packs1.BackColor = Color.FromArgb(59, 62, 78);
             image_Packs1.Current_Dir = "";
             image_Packs1.Dock = DockStyle.Fill;
@@ -516,9 +516,9 @@ namespace Pocket_Updater
             image_Packs1.Size = new Size(1136, 660);
             image_Packs1.TabIndex = 3;
             image_Packs1.Visible = false;
-            // 
+            //
             // organize_Cores1
-            // 
+            //
             organize_Cores1.BackColor = Color.FromArgb(59, 62, 78);
             organize_Cores1.Current_Dir = null;
             organize_Cores1.Dock = DockStyle.Fill;
@@ -531,9 +531,9 @@ namespace Pocket_Updater
             organize_Cores1.TabIndex = 2;
             organize_Cores1.updateFile = null;
             organize_Cores1.Visible = false;
-            // 
+            //
             // manageCores1
-            // 
+            //
             manageCores1.BackColor = Color.FromArgb(59, 62, 78);
             manageCores1.Current_Dir = null;
             manageCores1.Dock = DockStyle.Fill;
@@ -545,9 +545,9 @@ namespace Pocket_Updater
             manageCores1.Size = new Size(1136, 660);
             manageCores1.TabIndex = 1;
             manageCores1.updateFile = null;
-            // 
+            //
             // logs1
-            // 
+            //
             logs1.BackColor = Color.FromArgb(59, 62, 78);
             logs1.Dock = DockStyle.Fill;
             logs1.ForeColor = SystemColors.ControlLightLight;
@@ -557,9 +557,9 @@ namespace Pocket_Updater
             logs1.Size = new Size(1136, 660);
             logs1.TabIndex = 5;
             logs1.Visible = false;
-            // 
+            //
             // about1
-            // 
+            //
             about1.BackColor = Color.FromArgb(59, 62, 78);
             about1.Dock = DockStyle.Fill;
             about1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -570,15 +570,15 @@ namespace Pocket_Updater
             about1.Size = new Size(1136, 660);
             about1.TabIndex = 6;
             about1.Visible = false;
-            // 
+            //
             // guna2DragControl2
-            // 
+            //
             guna2DragControl2.DockIndicatorTransparencyValue = 1D;
             guna2DragControl2.TargetControl = label1;
             guna2DragControl2.UseTransparentDrag = true;
-            // 
+            //
             // Form1
-            // 
+            //
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(59, 62, 78);

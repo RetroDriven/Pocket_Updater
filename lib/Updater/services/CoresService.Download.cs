@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using Newtonsoft.Json;
 using Pannella.Exceptions;
 using Pannella.Helpers;
@@ -33,6 +33,7 @@ public partial class CoresService
 
         foreach (var core in cores)
         {
+            UpdateCancellation.ThrowIfCancellationRequested();
             try
             {
                 string name = core.identifier;
@@ -56,6 +57,10 @@ public partial class CoresService
                 }
 
                 Divide();
+            }
+            catch (OperationCanceledException)
+            {
+                throw;
             }
             catch (Exception e)
             {
@@ -127,6 +132,7 @@ public partial class CoresService
         {
             foreach (DataSlot slot in dataJson.data.data_slots)
             {
+                UpdateCancellation.ThrowIfCancellationRequested();
                 if (slot.filename != null && slot.filename != string.Empty &&
                     !slot.filename.EndsWith(".sav") &&
                     !this.assetsService.Blacklist.Contains(slot.filename))
@@ -154,6 +160,7 @@ public partial class CoresService
 
                     foreach (string file in files)
                     {
+                        UpdateCancellation.ThrowIfCancellationRequested();
                         string filePath = Path.Combine(path, file);
                         ArchiveFile archiveFile = this.archiveService.GetArchiveFile(file, core.identifier);
 
@@ -190,6 +197,7 @@ public partial class CoresService
 
             foreach (var file in files)
             {
+                UpdateCancellation.ThrowIfCancellationRequested();
                 string filePath = Path.Combine(commonPath, file.name);
 
                 if (File.Exists(filePath) && CheckCrc(filePath, file))
@@ -247,6 +255,7 @@ public partial class CoresService
 
             foreach (string file in files)
             {
+                UpdateCancellation.ThrowIfCancellationRequested();
                 try
                 {
                     // skip mac ._ files
@@ -310,6 +319,10 @@ public partial class CoresService
                             }
                         }
                     }
+                }
+                catch (OperationCanceledException)
+                {
+                    throw;
                 }
                 catch (Exception e)
                 {
@@ -390,6 +403,7 @@ public partial class CoresService
 
                     foreach (string file in files)
                     {
+                        UpdateCancellation.ThrowIfCancellationRequested();
                         if (File.GetAttributes(file).HasFlag(FileAttributes.Hidden))
                         {
                             continue;
