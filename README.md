@@ -12,80 +12,65 @@ Please note that the following dependencies below are required if you plan to ed
 
 [Guna.UI2.WinForms](https://www.nuget.org/packages/Guna.UI2.WinForms)
 
-## Updating ##
+## Updating
 
-Select the "**Update Pocket**" Option
+Choose an **Update Location** in the top bar.
 
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Main.png)
+- **Current Directory** updates the folder where Pocket Updater is running. You can copy the updated files to your Pocket's SD card afterward.
+- **Removable Storage** updates the selected drive directly. Connect your Pocket or insert its SD card, then choose the drive. Use the refresh button beside the drive list if it does not appear.
 
-#### Current Directory Location
-This option allows you to Update everything locally first and manually copy over all of the Files/Folders to your Pocket's SD Card after the Updater has finished. 
+On **Home**, click **Scan Library** to refresh the overview. **Review Missing** opens the ROMs / BIOS view. Click **Start Update** to update your enabled cores and download firmware or assets according to your preferences. The progress window shows what was installed or skipped.
 
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Update.png)
+![Pocket Updater v2.0.1 dashboard with the update location, library overview, quick actions, and update preferences](Screenshots/Overview.jpg)
 
-#### Removable Storage Location
-This option allows you to Update directly to your Pocket's SD Card via plugging in your SD Card to your machine or by connecting your Pocket to your machine via USB Cable. (*Please use the Refresh button if you do not see your Pocket's SD Card Drive Letter within the Drop Down*)
+Screenshots show Pocket Updater v2.0.1 with an example library.
 
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Update_Pocket.png)
+## Update Preferences
 
-Select the "**Update Cores**" Option and you will see a Status window as well as a message popup box when the Updates are done.
+The switches on **Home** save automatically.
 
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Updates_Complete.png)
+| Setting | What it does |
+| --- | --- |
+| Download Pocket Firmware | Checks for and downloads official Pocket firmware. |
+| Download ROMs / BIOS | Looks for missing ROMs and BIOS files for enabled cores in the configured source. |
+| Preserve Platforms | Keeps existing platform metadata and artwork while updating. |
+| Delete Skipped Cores | Allows removal of disabled cores in legacy updates. **Start Update** keeps installed cores. |
+| Generate Instance JSONs | Creates instance files for supported cores. |
+| Fix Jotego Core Names | Normalizes Jotego platform names. |
+| Skip Alternative Arcade Files | Skips alternate arcade ROM variants. |
+| CRC Checks | Verifies ROM and BIOS file integrity. |
+| Backup Saves | Backs up the Saves and Memories folders before updating. |
+| Use Alternate Download Location | Uses the configured alternate URL. Turn it off to use the default Internet Archive source. |
 
-## Settings ##
+## Cores
 
-| Setting Name                                     | Description |
-| ------------------------------------------------ | ----------- |
-| Download Pocket Firmware                         | This gives you the option to Check/Download Pocket Firmware                                                                                                                                                               
-| Download Roms/Bios                               | This gives you the option to Check/Download the required Arcade Roms and Core Bios files                                                                                                                                  
-| Preserve Platforms                               | This gives you the option to keep any custom Core Images that you are using vs. the Stock Core Images. It will also preserve the entire Platforms folder which includes Core Names and Categories                         
-| Delete Skipped Cores                             | This will Delete Cores from your Pocket's SD Card that you have unchecked for Updating/Downloading                                                                                                                        
-| Generate PCECD JSONs                             | This will auto create the required JSON Files for the PCECD Games on your SD Card                                                                                                                                         
-| Fix Jotego Core Names                            | Automatically rename Jotego Cores to more friendly names                                                                                                                                                                  
-| Skip Alternative Arcade Files                    | Skip downloading any Alternative Arcade Files that an Arcade Core may have                                                                                                                                                
-| CRC Checks                                       | Enable/Disable CRC checking for ROMS/BIOS. Disabling should speed the update process up                                                                                                                                   
-| Backup Saves                                     | This will compress the Saves and Memories directories from your Pocket to the "Backups" folder                                                                                                                            
-| Use Alternative Location                         | You can supply your own Download URL/Location to get your ROMS and BIOS. If you uncheck this Archive.org will be used instead. **I strongly recommend using this over Archive.org as that has very slow download speeds** 
+Open **Cores** to browse by category or filter by name, developer, and status. Use the **Enabled** checkboxes to choose what **Start Update** processes. Use **Update Checked** to update the checked cores in this view or **Install Missing** to install missing cores. To remove a core, select its row and use **Uninstall Selected**.
 
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Settings.png)
+![Cores library showing the installed-only filter, enabled checkboxes, and core actions](Screenshots/Cores.jpg)
 
-## Manage Cores ##
-Select the "**Manage Cores**" Option. From here you can pick and choose the Cores that you'd like to download.
+## ROMs / BIOS
 
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Manage_Cores.png)
+Open **ROMs / BIOS** to see which files are present or missing for installed cores. Use **Select Missing**, then **Download Missing**, to look for files in your configured source. Some cores need game files supplied or prepared separately. Check the core's documentation for its file requirements.
 
-## Organize Cores ##
-Select the "**Organize Cores**" Option. From here you can customize the Core Names and Categories to your liking.
+![ROMs and BIOS library showing installed, partial, and missing assets by platform](Screenshots/ROMs-BIOS.jpg)
 
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Organize_Cores.png)
+## Asset Image Packs
 
-## Asset Image Packs ##
-Select the "**Asset Image Packs**" Option. This will allow you to download from the most popular Image Packs out there to spice things up on your Pocket. More Image Packs will be added as they become available from Creators
+Open **Asset Packs** to browse platform artwork by creator and variant. Select a pack to install or update it. The list shows installed and available versions.
 
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Image_Packs.png)
+![Asset Image Packs library showing creators, variants, versions, and install actions](Screenshots/Asset-Packs.jpg)
 
-#### Current Directory Location
-This option allows you to Update everything locally first and manually copy over all of the Files/Folders to your Pocket's SD Card after the Updater has finished. 
+## Logs and activity
 
-#### Removable Storage Location
-This option allows you to Update directly to your Pocket's SD Card via plugging in your SD Card to your machine or by connecting your Pocket to your machine via USB Cable. (*Please use the Refresh button if you do not see your Pocket's SD Card Drive Letter within the Drop Down*)
+Open **Logs** to review update activity. **Refresh** reloads the log and **Clear Logs** clears it.
 
-## Update Log ##
-Select the "**Logs**" Option
+![Logs and Activity screen showing an example update log](Screenshots/Logs.jpg)
 
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Update_Log.png)
+## App updates and About
 
-You can clear the Update Log File via the "**Clear Logs**" Button
+Pocket Updater checks for app updates at startup. When a new release is available, the banner in the top bar opens the latest release on GitHub. Open **About** for project links and credits.
 
-## App Updates ##
-This Application will self check for Updates when you run it. When an Update is found you will see an App Update Notification banner within the Titlebar like below. When you click on this you will be take to the latest Release here on my GitHub to download it.
-
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/Updates_Found.png)
-
-## About
-Select the "**About**" Option to see some Useful Information and Links.
-
-![image](https://github.com/RetroDriven/Pocket_Updater/blob/master/Sceenshots/About.png)
+![About page with Pocket Updater project links and credits](Screenshots/About.jpg)
 
 ## Credits ##
 Special thanks to [mattpannella](https://github.com/mattpannella) for Collaborating with me and providing me with his Updater Library Files. His updater can be found [Here](https://github.com/mattpannella/pocket_core_autoupdate_net)
