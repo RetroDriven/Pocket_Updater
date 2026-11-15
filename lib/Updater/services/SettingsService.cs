@@ -15,15 +15,22 @@ public class SettingsService
     private readonly Settings settings;
     private readonly string settingsFile;
     private readonly List<Core> missingCores;
+    private string? legacySettingsFile;
 
-    public SettingsService(string settingsPath, List<Core> cores = null)
+    public SettingsService(string settingsPath, List<Core>? cores = null)
+        : this(settingsPath, cores, true)
+    {
+    }
+
+    private SettingsService(string settingsPath, List<Core>? cores, bool saveOnLoad)
     {
         this.settings = new Settings();
         this.missingCores = new List<Core>();
 
         string file = Path.Combine(settingsPath, SETTINGS_FILENAME);
         string oldFile = Path.Combine(settingsPath, OLD_SETTINGS_FILENAME);
-        string json = null;
+        this.settingsFile = file;
+        string? json = null;
 
         lock (FileSync)
         {
@@ -34,26 +41,38 @@ public class SettingsService
             else if (File.Exists(oldFile))
             {
                 json = ReadAllTextWithRetry(oldFile);
-                File.Delete(oldFile);
+                this.legacySettingsFile = oldFile;
+            }
+
+            if (!string.IsNullOrEmpty(json))
+            {
+                settings = JsonConvert.DeserializeObject<Settings>(json) ?? new Settings();
+                settings.config?.Migrate();
+            }
+
+            // bandaid to fix old settings files
+            settings.config ??= new Config();
+
+            if (cores != null)
+            {
+                this.InitializeCoreSettings(cores);
+            }
+
+            if (saveOnLoad)
+            {
+                this.Save();
             }
         }
+    }
 
-        if (!string.IsNullOrEmpty(json))
+    public static void SaveConfig(string settingsPath, Action<Config> update)
+    {
+        lock (FileSync)
         {
-            settings = JsonConvert.DeserializeObject<Settings>(json);
-            settings.config.Migrate();
+            var current = new SettingsService(settingsPath, null, false);
+            update(current.GetConfig());
+            current.Save();
         }
-
-        // bandaid to fix old settings files
-        settings.config ??= new Config();
-        this.settingsFile = file;
-
-        if (cores != null)
-        {
-            this.InitializeCoreSettings(cores);
-        }
-
-        this.Save();
     }
 
     public void Save()
@@ -74,6 +93,12 @@ public class SettingsService
                 {
                     Thread.Sleep(40 * (attempt + 1));
                 }
+            }
+
+            if (this.legacySettingsFile != null)
+            {
+                File.Delete(this.legacySettingsFile);
+                this.legacySettingsFile = null;
             }
         }
     }

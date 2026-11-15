@@ -14,7 +14,7 @@ namespace Pocket_Updater
 {
     public partial class Form1 : Form
     {
-        private const string VERSION = "2.0.0";
+        private const string VERSION = "2.0.1";
         private const string API_URL = "https://api.github.com/repos/RetroDriven/Pocket_Updater/releases";
         private const string RELEASE_URL = "https://github.com/RetroDriven/Pocket_Updater/releases/latest";
 
@@ -143,7 +143,7 @@ namespace Pocket_Updater
             };
             var version = new Label
             {
-                Text = "v2",
+                Text = "v2.0.1",
                 AutoSize = true,
                 Font = new Font("Segoe UI", 13.5F, FontStyle.Bold, GraphicsUnit.Point),
                 ForeColor = ModernTheme.AccentHover,
@@ -764,7 +764,7 @@ namespace Pocket_Updater
             var versionLabel = new Label
             {
                 AutoSize = true,
-                Text = "v2  •  Keep your retro gaming library up to date",
+                Text = "v2.0.1  •  Keep your retro gaming library up to date",
                 Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point),
                 ForeColor = UI.ModernTheme.TextSecondary,
                 BackColor = Color.Transparent,

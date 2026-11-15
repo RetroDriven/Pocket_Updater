@@ -119,7 +119,8 @@ public partial class CoresService
         }
 
         // cores with multiple platforms won't work...not sure any exist right now?
-        string platformPath = Path.Combine(this.installPath, "Assets", info.metadata.platform_ids[0]);
+        string assetPlatformId = info.metadata.platform_ids[0];
+        string platformPath = Path.Combine(this.installPath, "Assets", assetPlatformId);
 
         DataJSON dataJson = this.ReadDataJson(core.identifier);
 
@@ -162,7 +163,8 @@ public partial class CoresService
                     {
                         UpdateCancellation.ThrowIfCancellationRequested();
                         string filePath = Path.Combine(path, file);
-                        ArchiveFile archiveFile = this.archiveService.GetArchiveFile(file, core.identifier);
+                        string archivePath = Path.Combine(assetPlatformId, file).Replace('\\', '/');
+                        ArchiveFile archiveFile = this.archiveService.GetArchiveFile(file, core.identifier, archivePath);
 
                         if (File.Exists(filePath) && CheckCrc(filePath, archiveFile))
                         {
@@ -171,7 +173,7 @@ public partial class CoresService
                         }
                         else
                         {
-                            bool result = this.archiveService.DownloadArchiveFile(archive, archiveFile, path);
+                            bool result = this.archiveService.DownloadArchiveFile(archive, archiveFile, path, file);
 
                             if (result)
                             {
@@ -274,7 +276,7 @@ public partial class CoresService
 
                     if (instanceJson.instance.data_slots is { Length: > 0 })
                     {
-                        string dataPath = instanceJson.instance.data_path;
+                        string dataPath = instanceJson.instance.data_path ?? string.Empty;
 
                         foreach (DataSlot slot in instanceJson.instance.data_slots)
                         {
@@ -296,7 +298,8 @@ public partial class CoresService
 
                                 string slotDirectory = Path.Combine(commonPath, dataPath);
                                 string slotPath = Path.Combine(slotDirectory, slot.filename);
-                                ArchiveFile archiveFile = this.archiveService.GetArchiveFile(slot.filename, core.identifier);
+                                string archivePath = Path.Combine(assetPlatformId, dataPath, slot.filename).Replace('\\', '/');
+                                ArchiveFile archiveFile = this.archiveService.GetArchiveFile(slot.filename, core.identifier, archivePath);
 
                                 if (File.Exists(slotPath) && CheckCrc(slotPath, archiveFile))
                                 {
@@ -305,7 +308,7 @@ public partial class CoresService
                                 }
                                 else
                                 {
-                                    bool result = this.archiveService.DownloadArchiveFile(archive, archiveFile, slotDirectory);
+                                    bool result = this.archiveService.DownloadArchiveFile(archive, archiveFile, slotDirectory, slot.filename);
 
                                     if (result)
                                     {

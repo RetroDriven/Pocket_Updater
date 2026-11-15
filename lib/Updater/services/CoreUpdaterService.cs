@@ -50,9 +50,10 @@ public class CoreUpdaterService : BaseProcess
     /// <summary>
     /// Run the full openFPGA core download and update process
     /// </summary>
-    public void RunUpdates(string[] ids = null, bool clean = false)
+    public void RunUpdates(string[]? ids = null, bool clean = false, bool preserveInstalledCores = false)
     {
         UpdateCancellation.ThrowIfCancellationRequested();
+        clean = clean && !preserveInstalledCores;
 
         List<Dictionary<string, string>> installed = new List<Dictionary<string, string>>();
         List<string> installedAssets = new List<string>();
@@ -88,7 +89,12 @@ public class CoreUpdaterService : BaseProcess
 
         var selectedCores = this.cores
             .Where(core => ids == null || ids.Any(id => id == core.identifier))
+            .Where(core => !preserveInstalledCores || !this.settingsService.GetCoreSettings(core.identifier).skip)
             .ToList();
+        if (preserveInstalledCores && selectedCores.Count == 0)
+        {
+            WriteMessage("No cores are enabled for updates.");
+        }
         int completedCores = 0;
         OnOverallProgressUpdate(new OverallProgressEventArgs
         {
@@ -106,7 +112,10 @@ public class CoreUpdaterService : BaseProcess
             {
                 if (coreSettings.skip)
                 {
-                    DeleteCore(core);
+                    if (!preserveInstalledCores)
+                    {
+                        DeleteCore(core);
+                    }
                     continue;
                 }
 
@@ -264,7 +273,7 @@ public class CoreUpdaterService : BaseProcess
 
                     installed.Add(summary);
                 }
-                else if (this.coresService.Install(core, clean))
+                else if (this.coresService.Install(core, clean, replaceSupersededCores: !preserveInstalledCores))
                 {
                     Dictionary<string, string> summary = new Dictionary<string, string>
                     {

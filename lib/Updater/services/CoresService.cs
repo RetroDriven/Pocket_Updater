@@ -99,7 +99,7 @@ public partial class CoresService : BaseProcess
         installedCoresWithSponsors = installedCores.Where(c => c.sponsor != null).ToList();
     }
 
-    public bool Install(Core core, bool clean = false)
+    public bool Install(Core core, bool clean = false, bool replaceSupersededCores = true)
     {
         if (core.repository == null)
         {
@@ -126,7 +126,10 @@ public partial class CoresService : BaseProcess
         // iterate through assets to find the zip release
         if (this.InstallGithubAsset(core.identifier, core.platform_id, core.download_url))
         {
-            this.ReplaceCheck(core.identifier);
+            if (replaceSupersededCores)
+            {
+                this.ReplaceCheck(core.identifier);
+            }
             this.CheckForPocketExtras(core.identifier);
 
             return true;

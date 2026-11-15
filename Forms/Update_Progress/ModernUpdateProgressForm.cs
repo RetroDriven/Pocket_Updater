@@ -10,6 +10,7 @@ namespace Pocket_Updater.Forms.Update_Progress
     {
         private readonly string _targetPath;
         private readonly string[]? _ids;
+        private readonly bool _preserveInstalledCores;
         private CoreUpdaterService? _updater;
         private bool _running;
         private bool _completed;
@@ -41,10 +42,11 @@ namespace Pocket_Updater.Forms.Update_Progress
         private string _liveCurrentCore = string.Empty;
         private UpdateProcessCompleteEventArgs? _completedResult;
 
-        public ModernUpdateProgressForm(string targetPath, string[]? ids = null)
+        public ModernUpdateProgressForm(string targetPath, string[]? ids = null, bool preserveInstalledCores = false)
         {
             _targetPath = targetPath;
             _ids = ids;
+            _preserveInstalledCores = preserveInstalledCores;
 
             Text = "Updating Pocket";
             BackColor = ModernTheme.AppBackground;
@@ -322,7 +324,7 @@ namespace Pocket_Updater.Forms.Update_Progress
                 _updater.OverallProgressUpdate += OnOverallProgress;
                 HttpHelper.Instance.DownloadProgressUpdate += OnDownloadProgress;
 
-                await Task.Run(() => _updater.RunUpdates(_ids));
+                await Task.Run(() => _updater.RunUpdates(_ids, preserveInstalledCores: _preserveInstalledCores));
             }
             catch (OperationCanceledException) when (_cancelRequested || UpdateCancellation.IsCancellationRequested)
             {

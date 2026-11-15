@@ -45,11 +45,12 @@ public class ArchiveService : Base
         return result;
     }
 
-    public ArchiveFile GetArchiveFile(string fileName, string coreIdentifier = null)
+    public ArchiveFile GetArchiveFile(string fileName, string coreIdentifier = null, string? preferredPath = null)
     {
         var files = this.GetArchiveFiles(coreIdentifier);
 
-        return files.FirstOrDefault(x => x.name == fileName);
+        return (preferredPath == null ? null : files.FirstOrDefault(x => x.name == preferredPath))
+            ?? files.FirstOrDefault(x => x.name == fileName);
     }
 
     public IEnumerable<ArchiveFile> GetArchiveFiles(string coreIdentifier)
@@ -121,7 +122,8 @@ public class ArchiveService : Base
         }
     }
 
-    public bool DownloadArchiveFile(SettingsArchive archive, ArchiveFile archiveFile, string destination)
+    public bool DownloadArchiveFile(SettingsArchive archive, ArchiveFile archiveFile, string destination,
+        string? localFileName = null)
     {
         if (archive == null || archiveFile == null)
             return false;
@@ -143,14 +145,13 @@ public class ArchiveService : Base
             }
 
             int count = 0;
-            string destinationFileName = Path.Combine(destination, archiveFile.name);
-            string subDirectory = Path.GetDirectoryName(archiveFile.name);
+            string fileName = localFileName ?? archiveFile.name;
+            string destinationFileName = Path.Combine(destination, fileName);
+            string destinationDirectory = Path.GetDirectoryName(destinationFileName);
 
-            if (!string.IsNullOrEmpty(subDirectory))
+            if (!string.IsNullOrEmpty(destinationDirectory))
             {
-                string destinationDirectory = Path.Combine(destination, subDirectory);
-
-                Directory.CreateDirectory(Path.Combine(destinationDirectory));
+                Directory.CreateDirectory(destinationDirectory);
             }
 
             do

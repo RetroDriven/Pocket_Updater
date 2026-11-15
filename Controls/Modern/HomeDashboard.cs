@@ -31,7 +31,6 @@ namespace Pocket_Updater.Controls.Modern
         private readonly Label _attentionText;
         private readonly Guna2Button _scanButton;
         private readonly Dictionary<string, Guna2ToggleSwitch> _toggles = new(StringComparer.OrdinalIgnoreCase);
-        private readonly SettingsService _settingsService;
         private readonly System.Windows.Forms.Timer _autoSaveTimer;
         private readonly System.Windows.Forms.Timer _savedStatusTimer;
         private readonly Guna2TextBox _alternateUrl;
@@ -51,7 +50,6 @@ namespace Pocket_Updater.Controls.Modern
             Padding = new Padding(24, 22, 24, 18);
             AutoScroll = true;
 
-            _settingsService = new SettingsService(Directory.GetCurrentDirectory());
             _firmwarePopup = new FirmwareReleaseNotesPopup();
             _firmwarePopupHideTimer = new System.Windows.Forms.Timer { Interval = 260 };
             _firmwarePopupHideTimer.Tick += (_, _) =>
@@ -284,7 +282,7 @@ namespace Pocket_Updater.Controls.Modern
                 { "download_firmware", "Download Pocket Firmware", "Get the latest official Pocket firmware when needed." },
                 { "download_assets", "Download ROMs / BIOS", "Fill required ROM and BIOS files for enabled cores." },
                 { "preserve_platforms_folder", "Preserve Platforms", "Keep existing platform metadata while updating." },
-                { "delete_skipped_cores", "Delete Skipped Cores", "Remove installed cores that you have disabled." },
+                { "delete_skipped_cores", "Delete Skipped Cores", "Allow removal of disabled cores in legacy updates." },
                 { "build_instance_jsons", "Generate Instance JSONs", "Create supported game instance files automatically." }
             };
             string[,] rightDefs =
@@ -664,7 +662,7 @@ namespace Pocket_Updater.Controls.Modern
         {
             try
             {
-                Config config = _settingsService.GetConfig();
+                Config config = new SettingsService(Directory.GetCurrentDirectory()).GetConfig();
                 SetToggle("download_firmware", config.download_firmware);
                 SetToggle("download_assets", config.download_assets);
                 SetToggle("preserve_platforms_folder", config.preserve_platforms_folder);
@@ -689,23 +687,22 @@ namespace Pocket_Updater.Controls.Modern
         {
             try
             {
-                Config config = _settingsService.GetConfig();
-                config.download_firmware = GetToggle("download_firmware");
-                config.download_assets = GetToggle("download_assets");
-                config.preserve_platforms_folder = GetToggle("preserve_platforms_folder");
-                config.delete_skipped_cores = GetToggle("delete_skipped_cores");
-                config.build_instance_jsons = GetToggle("build_instance_jsons");
-                config.fix_jt_names = GetToggle("fix_jt_names");
-                config.skip_alternative_assets = GetToggle("skip_alternative_assets");
-                config.crc_check = GetToggle("crc_check");
-                config.backup_saves = GetToggle("backup_saves");
-                config.use_custom_archive = GetToggle("use_custom_archive");
-                var custom = config.archives.FirstOrDefault(x => x.name == "custom");
-                if (custom != null)
-                    custom.url = _alternateUrl.Text.Trim();
-
-                _settingsService.UpdateConfig(config);
-                _settingsService.Save();
+                SettingsService.SaveConfig(Directory.GetCurrentDirectory(), config =>
+                {
+                    config.download_firmware = GetToggle("download_firmware");
+                    config.download_assets = GetToggle("download_assets");
+                    config.preserve_platforms_folder = GetToggle("preserve_platforms_folder");
+                    config.delete_skipped_cores = GetToggle("delete_skipped_cores");
+                    config.build_instance_jsons = GetToggle("build_instance_jsons");
+                    config.fix_jt_names = GetToggle("fix_jt_names");
+                    config.skip_alternative_assets = GetToggle("skip_alternative_assets");
+                    config.crc_check = GetToggle("crc_check");
+                    config.backup_saves = GetToggle("backup_saves");
+                    config.use_custom_archive = GetToggle("use_custom_archive");
+                    var custom = config.archives.FirstOrDefault(x => x.name == "custom");
+                    if (custom != null)
+                        custom.url = _alternateUrl.Text.Trim();
+                });
                 if (showMessage)
                     ModernDialog.ShowInfo(FindForm(), "Pocket Updater", "Update settings saved.");
                 return true;
@@ -757,7 +754,11 @@ namespace Pocket_Updater.Controls.Modern
                 return;
             }
 
-            using var progress = new ModernUpdateProgressForm(target);
+            _autoSaveTimer.Stop();
+            if (_settingsStatus.Text == "Saving…")
+                ShowSavedStatus();
+
+            using var progress = new ModernUpdateProgressForm(target, preserveInstalledCores: true);
             progress.ShowDialog(FindForm());
             await RefreshAsync();
             LibraryChangeNotifier.Notify();
