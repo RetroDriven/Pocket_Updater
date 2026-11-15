@@ -60,6 +60,10 @@ Open **Asset Packs** to browse platform artwork by creator and variant. Select a
 
 ![Asset Image Packs library showing creators, variants, versions, and install actions](Screenshots/Asset-Packs.jpg)
 
+Hover over a pack's row to preview up to three sample images before installing it.
+
+![Hover preview showing three sample images from the dyreschlock home artwork pack](Screenshots/Asset-Pack-Preview.png)
+
 ## Logs and activity
 
 Open **Logs** to review update activity. **Refresh** reloads the log and **Clear Logs** clears it.
